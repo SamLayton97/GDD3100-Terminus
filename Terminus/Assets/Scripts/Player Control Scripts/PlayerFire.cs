@@ -11,12 +11,18 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
     // private variables
+    Weapon currWeapon = null;           // current projectile weapon wielded by player character
     bool firedLastFrame = false;        // flag to track whether player has fired since last frame (used for semi-automatice weapons)
 
     // Start is called before the first frame update
     void Start()
     {
-
+        // retrieve starting weapon wielded by player
+        currWeapon = GetComponentInChildren<Weapon>();
+        if (currWeapon != null)
+            Debug.Log("found");
+        else
+            Debug.Log("not found");
     }
 
     // Update is called once per frame
