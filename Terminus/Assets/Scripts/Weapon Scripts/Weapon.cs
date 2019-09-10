@@ -17,7 +17,8 @@ public abstract class Weapon : MonoBehaviour
     public int maxAmmo = 100;                   // max amount of ammunition able to be stored in weapon
 
     // private variables
-    protected bool firedLastFrame = false;            // flag determining whether weapon registered a shot on the previous frame
+    protected bool firedLastFrame = false;      // flag determining whether weapon registered a shot on the previous frame
+    protected Rigidbody2D parentRigidbody;      // rigidbody 2d component of agent firing weapon
 
     /// <summary>
     /// Registers shot when user fires their weapon.
@@ -25,4 +26,13 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     /// <param name="firedLastFrame">whether player fired on previous frame</param>
     public abstract void RegisterInput(bool firedLastFrame);
+
+    /// <summary>
+    /// Called on initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve rigidbody component from parent
+        parentRigidbody = transform.parent.gameObject.GetComponent<Rigidbody2D>();
+    }
 }

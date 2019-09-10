@@ -16,8 +16,8 @@ public class PlayerFire : MonoBehaviour
     // private variables
     bool firedLastFrame = false;        // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
 
-    // Start is called before the first frame update
-    void Start()
+    // Used for initialization
+    void Awake()
     {
         // if current weapon was not set in inspector, retrieve first weapon component in children
         if (currWeapon == null)
