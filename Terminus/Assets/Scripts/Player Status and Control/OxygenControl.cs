@@ -26,6 +26,5 @@ public class OxygenControl : MonoBehaviour
     {
         // reduce remaining oxygen, clamping above 0
         currOxygen = Mathf.Max(0, currOxygen - (oxygenDepletionRate * Time.deltaTime));
-        Debug.Log(currOxygen);
     }
 }
