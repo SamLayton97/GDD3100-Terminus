@@ -14,7 +14,7 @@ public class PlayerFire : MonoBehaviour
     public Weapon currWeapon = null;    // current weapon wielded by player character
 
     // private variables
-    bool firedLastFrame = false;        // flag to track whether player has fired since last frame (used for semi-automatice weapons)
+    bool firedLastFrame = false;        // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
 
     // Start is called before the first frame update
     void Start()
@@ -22,25 +22,20 @@ public class PlayerFire : MonoBehaviour
         // if current weapon was not set in inspector, retrieve first weapon component in children
         if (currWeapon == null)
             currWeapon = GetComponentInChildren<Weapon>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if player character registers fire input (mouse 0 by default)
+        // if player fires weapon (mouse 0 by default)
         if (Input.GetAxis("Fire") != 0)
         {
-            // if player hasn't fired last frame
-            if (!firedLastFrame)
-            {
-                firedLastFrame = true;
-                Debug.Log("Fire");
-            }
+            // register input in weapon and set fired last frame flag to true
+            currWeapon.RegisterInput(firedLastFrame);
+            firedLastFrame = true;
         }
-        // otherwise (no fire input registered)
+        // otherwise (no input registered), reset fired last frame flag
         else
-            // reset fired last frame flag
             firedLastFrame = false;
     }
 }

@@ -15,9 +15,13 @@ public abstract class Weapon : MonoBehaviour
     public int currAmmo = 100;              // current ammunution stored in weapon
     public int maxAmmo = 100;               // max amount of ammunition able to be stored in weapon
 
+    // private variables
+    protected bool firedLastFrame = false;            // flag determining whether weapon registered a shot on the previous frame
+
     /// <summary>
     /// Registers shot when user fires their weapon.
-    /// Note: All weapons must register that fire input from user.
+    /// Note: All weapons must do something when user fires weapon.
     /// </summary>
-    public abstract void RegisterShot();
+    /// <param name="firedLastFrame">whether player fired on previous frame</param>
+    public abstract void RegisterInput(bool firedLastFrame);
 }
