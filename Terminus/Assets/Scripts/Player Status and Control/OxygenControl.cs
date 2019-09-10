@@ -35,7 +35,8 @@ public class OxygenControl : MonoBehaviour
         // reduce remaining oxygen, rounding up to whole number above 0
         currOxygen = Mathf.Max(0, currOxygen - (oxygenDepletionRate * Time.deltaTime));
 
-        // TODO: Update oxygen display
+        // update oxygen display
+        updateO2Event.Invoke(currOxygen);
     }
 
     /// <summary>
