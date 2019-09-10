@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Rotates an object to face mouse position
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public class FaceMousePosition : MonoBehaviour
 {
     // public variables
@@ -14,8 +15,7 @@ public class FaceMousePosition : MonoBehaviour
     void Update()
     {
         // find angle between object and mouse position
-        Vector2 PCToMouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane)) 
-            - transform.position;
+        Vector2 PCToMouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z * -1)) - transform.position;
         float angleToMouse = Mathf.Atan2(PCToMouse.y, PCToMouse.x) * Mathf.Rad2Deg;
 
         // turn object to face user's mouse
