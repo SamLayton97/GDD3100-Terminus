@@ -183,6 +183,18 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 232050118}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 3}
+      propertyPath: m_FollowVelocity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 3}
+      propertyPath: m_SpinTurnLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 3}
+      propertyPath: m_FollowTilt
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: baec086904791744185aaa07a6cf55c2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -344,6 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17df8dfc01d3441498f59ecef1568b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileObject: {fileID: 1590410038477920540, guid: bf2090f8c8c4a8749b1a7f9d7cefbd74,
+    type: 3}
   continuousFiring: 0
   projectileForce: 5
   reactiveForce: 2.5

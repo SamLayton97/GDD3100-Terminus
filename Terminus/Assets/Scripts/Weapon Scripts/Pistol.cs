@@ -15,6 +15,11 @@ public class Pistol : Weapon
     {
         // if player didn't fire last frame, register a shot
         if (!firedLastFrame)
-            Debug.Log("Pistol shot registered");
+        {
+            // TODO: fire pistol shot in direction of weapon's rotation
+            float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
+            Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;
+            Instantiate(projectileObject, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(fireVector * projectileForce, ForceMode2D.Impulse);
+        }
     }
 }
