@@ -59,4 +59,30 @@ public static class EventManager
     }
 
     #endregion
+
+    #region Deduct Player O2
+
+    // declare lists to hold invokers and listeners to deduct palyer O2 event
+    static List<O2Remover> deductO2Invokers = new List<O2Remover>();
+    static List<UnityAction<float>> deductO2Listeners = new List<UnityAction<float>>();
+
+    // Adds given O2 remover as invoker of Deduct Player O2 event
+    public static void AddDeductO2Invoker(O2Remover invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        deductO2Invokers.Add(invoker);
+        foreach (UnityAction<float> listener in deductO2Listeners)
+            invoker.AddDeductO2Listener(listener);
+    }
+
+    // Adds given method as listener to Deduct Player O2 event
+    public static void AddDeductO2Listener(UnityAction<float> listener)
+    {
+        // adds listener to list and to all invokers of event
+        deductO2Listeners.Add(listener);
+        foreach (O2Remover invoker in deductO2Invokers)
+            invoker.AddDeductO2Listener(listener);
+    }
+
+    #endregion
 }
