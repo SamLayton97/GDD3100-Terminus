@@ -33,7 +33,11 @@ public class PursueAndAttack : MonoBehaviour
     /// </summary>
     void UpdateIdle()
     {
-        Debug.Log(CanSeeTarget());
+        Debug.Log("Idle");
+
+        // if agent can see target, move to pursue state
+        if (CanSeeTarget())
+            currState = ChaseStates.Pursue;
     }
 
     /// <summary>
@@ -42,6 +46,10 @@ public class PursueAndAttack : MonoBehaviour
     void UpdatePursue()
     {
         Debug.Log("Pursue");
+
+        // if agent can no longer see target, move to idle state
+        if (!CanSeeTarget())
+            currState = ChaseStates.Idle;
     }
 
     /// <summary>
