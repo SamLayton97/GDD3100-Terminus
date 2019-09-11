@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Interactables
+    uniqueID: 3064148953
+    locked: 0
+  - name: EnemyAgents
+    uniqueID: 1980183131
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2195878145
+    locked: 0
+  - name: Player
+    uniqueID: 2403354151
+    locked: 0
+  - name: EnvironmentalForeground
+    uniqueID: 3527178933
+    locked: 0
