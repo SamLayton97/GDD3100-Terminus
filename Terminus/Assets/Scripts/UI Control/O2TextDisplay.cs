@@ -29,13 +29,12 @@ public class O2TextDisplay : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates text display of player's remaining oxygen,
-    /// rounding to simple int percentage.
+    /// Updates text display of player's remaining oxygen.
     /// </summary>
-    /// <param name="remainingOxygen">percentage of player's oxygen
+    /// <param name="remainingOxygen">amount of player's oxygen
     /// remaining in their tank</param>
-    void UpdateO2Display(float remainingOxygen)
+    void UpdateO2Display(int remainingOxygen)
     {
-        remainingO2Text.text = remainingO2Prefix + (int)remainingOxygen + remainingO2Suffix;
+        remainingO2Text.text = remainingO2Prefix + remainingOxygen + remainingO2Suffix;
     }
 }

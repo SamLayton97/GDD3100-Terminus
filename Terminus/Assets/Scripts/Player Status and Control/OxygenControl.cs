@@ -35,11 +35,13 @@ public class OxygenControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // reduce remaining oxygen, rounding up to whole number above 0
+        // save oxygen from previous frame and reduce oxygen by rate * time
+        int prevOxygen = (int)currOxygen;
         currOxygen = Mathf.Max(0, currOxygen - (oxygenDepletionRate * Time.deltaTime));
 
-        // update oxygen display
-        updateO2Event.Invoke(currOxygen);
+        // update oxygen display if rounded amount changed
+        if ((int)currOxygen != prevOxygen)
+            updateO2Event.Invoke((int)currOxygen);
     }
 
     /// <summary>
@@ -55,7 +57,7 @@ public class OxygenControl : MonoBehaviour
     /// Adds given listener to Update O2 display event
     /// </summary>
     /// <param name="newListener">new listener for event</param>
-    public void AddUpdateO2Listener(UnityAction<float> newListener)
+    public void AddUpdateO2Listener(UnityAction<int> newListener)
     {
         updateO2Event.AddListener(newListener);
     }
