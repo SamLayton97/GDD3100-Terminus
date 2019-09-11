@@ -34,4 +34,29 @@ public static class EventManager
 
     #endregion
 
+    #region Refill Player O2
+
+    // declare lists to hold invokers and listeners to refill player O2 event
+    static List<RefillO2OnCollision> refillO2Invokers = new List<RefillO2OnCollision>();
+    static List<UnityAction<float>> refillO2Listeners = new List<UnityAction<float>>();
+
+    // Adds given O2 refiller as invoker of Refill Player O2 event
+    public static void AddRefillO2Invoker(RefillO2OnCollision invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        refillO2Invokers.Add(invoker);
+        foreach (UnityAction<float> listener in refillO2Listeners)
+            invoker.AddRefillO2Listener(listener);
+    }
+
+    // Adds given method as listener to refill player O2 event
+    public static void AddRefillO2Listener(UnityAction<float> listener)
+    {
+        // adds listener to list and to all invokers of event
+        refillO2Listeners.Add(listener);
+        foreach (RefillO2OnCollision invoker in refillO2Invokers)
+            invoker.AddRefillO2Listener(listener);
+    }
+
+    #endregion
 }

@@ -25,6 +25,9 @@ public class OxygenControl : MonoBehaviour
         updateO2Event = new UpdateO2DisplayEvent();
         EventManager.AddUpdateO2Invoker(this);
 
+        //  add self as listener to refill O2 event
+        EventManager.AddRefillO2Listener(RefillO2Tank);
+
         // "fill" agent's oxygen tank to capacity
         currOxygen = maxOxygen;
     }
@@ -37,6 +40,15 @@ public class OxygenControl : MonoBehaviour
 
         // update oxygen display
         updateO2Event.Invoke(currOxygen);
+    }
+
+    /// <summary>
+    /// Refills oxygen tank by set amount, maxing out at tank capacity
+    /// </summary>
+    /// <param name="amountRefilled">amount of O2 filled</param>
+    void RefillO2Tank(float amountRefilled)
+    {
+        currOxygen = Mathf.Min(maxOxygen, currOxygen + amountRefilled);
     }
 
     /// <summary>
