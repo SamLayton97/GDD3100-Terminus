@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public abstract class O2Remover : MonoBehaviour
 {
     // event support
-    DeductPlayerO2Event deductO2Event;
+    protected DeductPlayerO2Event deductO2Event;
 
     // Start is called before the first frame update
     protected void Start()

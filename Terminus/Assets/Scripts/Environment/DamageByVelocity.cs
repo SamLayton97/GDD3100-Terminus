@@ -31,6 +31,6 @@ public class DamageByVelocity : O2Remover
     {
         // if other object in collision resides on player layer
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-            Debug.Log("hit player");
+            deductO2Event.Invoke(CalculateDamage(collision.relativeVelocity));
     }
 }
