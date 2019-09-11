@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Refill's agent's oxygen tank by set amount on collision
+/// Refill's player's oxygen tank by set amount on collision
 /// </summary>
 public class RefillO2OnCollision : MonoBehaviour
 {
@@ -30,9 +30,8 @@ public class RefillO2OnCollision : MonoBehaviour
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // add refill tank and destroy self
+        // refill player's tank through event
         refillO2Event.Invoke(refill);
-        Destroy(gameObject);
     }
 
     /// <summary>
