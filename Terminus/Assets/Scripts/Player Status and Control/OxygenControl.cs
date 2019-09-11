@@ -36,13 +36,11 @@ public class OxygenControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // save oxygen from previous frame and reduce oxygen by rate * time
-        int prevOxygen = (int)currOxygen;
+        // reduce oxygen by rate * time
         currOxygen = Mathf.Max(0, currOxygen - (oxygenDepletionRate * Time.deltaTime));
 
-        // update oxygen display if rounded amount changed
-        if ((int)currOxygen != prevOxygen)
-            updateO2Event.Invoke((int)currOxygen);
+        // update oxygen display
+        updateO2Event.Invoke((int)currOxygen);
     }
 
     /// <summary>

@@ -13,6 +13,7 @@ public class DamageByVelocity : O2Remover
     // public variables
     public float minVelocityToDamage = 10f;     // minimum velocity player must collide with wall to receive damage
     public float damageScalar = 1f;             // scale by which damage increases as velocity increases (linear)
+    public float damageConstant = 0f;           // constant damage applied regardless of velocity
 
     /// <summary>
     /// Calculates damage done to player on collision
@@ -20,7 +21,7 @@ public class DamageByVelocity : O2Remover
     /// <param name="velocity">velocity of player on collision</param>
     float CalculateDamage(Vector2 velocity)
     {
-        return Mathf.Max(0, velocity.magnitude - minVelocityToDamage) * damageScalar;
+        return Mathf.Max(0, velocity.magnitude - minVelocityToDamage) * damageScalar + damageConstant;
     }
 
     /// <summary>
