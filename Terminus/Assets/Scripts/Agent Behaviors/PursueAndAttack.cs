@@ -20,13 +20,13 @@ public class PursueAndAttack : O2Remover
     }
 
     // public variables
-    public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Transform targetTransform;                       // transform of target to pursue (typically player)
+    public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
     public float maxSpeed = 5f;                             // magnitude of agent's velocity
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
-    public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
+    public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Color cooldownColor;                             // color agent transitions to when under cooldown
 
     // private variables
