@@ -24,7 +24,9 @@ public class PursueAndAttack : MonoBehaviour
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
 
     // private variables
-    ChaseStates currState;
+    ChaseStates currState;      // current state of agent
+    Rigidbody2D myRigidbody;    // agent's rigidbody component
+    int ignoreLayerMask;        // physics layermask to ignore when performing raycasts
 
     #region State Machine
 
@@ -46,6 +48,9 @@ public class PursueAndAttack : MonoBehaviour
     void UpdatePursue()
     {
         Debug.Log("Pursue");
+
+        // move agent towards where target is now (temporary)
+        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, targetTransform.position - transform.position, Time.deltaTime);
 
         // if agent can no longer see target, move to idle state
         if (!CanSeeTarget())
@@ -72,7 +77,7 @@ public class PursueAndAttack : MonoBehaviour
     bool CanSeeTarget()
     {
         // Shoot raycast towards target, returning whether it hit
-        return (Physics2D.Raycast(transform.position, targetTransform.position - transform.position, sightRange).transform == targetTransform);
+        return (Physics2D.Raycast(transform.position, targetTransform.position - transform.position, sightRange, ignoreLayerMask).transform == targetTransform);
     }
 
     #endregion
@@ -84,8 +89,10 @@ public class PursueAndAttack : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        // initialize agent's state
+        // initialize agent and set internal variables
         currState = startingState;
+        myRigidbody = GetComponent<Rigidbody2D>();
+        ignoreLayerMask = ~(1 << 12);
 
         // if target wasn't set before launch
         if (targetTransform == null)
