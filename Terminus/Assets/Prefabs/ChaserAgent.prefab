@@ -118,8 +118,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingState: 0
   targetTransform: {fileID: 0}
-  speed: 5
+  maxSpeed: 5
   sightRange: 30
+  attackRange: 1
+  attackCooldown: 3
 --- !u!61 &3894786361680885713
 BoxCollider2D:
   m_ObjectHideFlags: 0

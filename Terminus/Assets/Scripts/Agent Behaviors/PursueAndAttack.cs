@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Enemy agent behavior of pursuing player once within
 /// sight range and attacking within melee distance.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class PursueAndAttack : MonoBehaviour
+public class PursueAndAttack : O2Remover
 {
     // state enumeration
     public enum ChaseStates
@@ -24,12 +25,15 @@ public class PursueAndAttack : MonoBehaviour
     public float maxSpeed = 5f;                             // magnitude of agent's velocity
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
+    public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
+    public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
 
     // private variables
     ChaseStates currState;          // current state of agent
     Rigidbody2D myRigidbody;        // agent's rigidbody component
     Rigidbody2D targetRigidbody;    // target's rigidbody component
     int ignoreLayerMask;            // physics layermask to ignore when performing raycasts
+    float waitCounter = 0;          // counter used to facilitate attack cooldowns
 
     #region State Machine
 
@@ -64,18 +68,39 @@ public class PursueAndAttack : MonoBehaviour
             currState = ChaseStates.Idle;
         // but if agent is within attack range, move to attack state
         else if (distToTarget <= attackRange)
+        {
             currState = ChaseStates.Attack;
+            EnterAttack();
+        }
     }
 
     /// <summary>
-    /// Updates agent as it attacks enemy and then waits cooldown time
+    /// Initiates an attack before entering agent's wait state
     /// </summary>
-    void UpdateAttack()
+    void EnterAttack()
     {
-        Debug.Log("Attack");
+        // deduct O2 from player
+        deductO2Event.Invoke(attackDamage);
 
-        // TEMP: transition to idle
-        currState = ChaseStates.Idle;
+        // initialize cooldown timer and transition to wait state
+        waitCounter = attackCooldown;
+        currState = ChaseStates.Wait;
+    }
+
+    /// <summary>
+    /// Updates agent as it waits for cooldown before returning to idle state
+    /// </summary>
+    void UpdateWait()
+    {
+        // slow agent to halt
+        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
+
+        // decrease wait counter by time between frames
+        waitCounter -= Time.deltaTime;
+
+        // after waiting specific time, transition to idle
+        if (waitCounter <= 0)
+            currState = ChaseStates.Idle;
     }
 
     #endregion
@@ -139,8 +164,8 @@ public class PursueAndAttack : MonoBehaviour
             case ChaseStates.Pursue:
                 UpdatePursue();
                 break;
-            case ChaseStates.Attack:
-                UpdateAttack();
+            case ChaseStates.Wait:
+                UpdateWait();
                 break;
             default:
                 break;
