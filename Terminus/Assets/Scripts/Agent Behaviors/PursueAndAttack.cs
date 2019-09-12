@@ -27,13 +27,16 @@ public class PursueAndAttack : O2Remover
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
     public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
+    public Color cooldownColor;                             // color agent transitions to when under cooldown
 
     // private variables
-    ChaseStates currState;          // current state of agent
-    Rigidbody2D myRigidbody;        // agent's rigidbody component
-    Rigidbody2D targetRigidbody;    // target's rigidbody component
-    int ignoreLayerMask;            // physics layermask to ignore when performing raycasts
-    float waitCounter = 0;          // counter used to facilitate attack cooldowns
+    ChaseStates currState;              // current state of agent
+    Color standardColor;                // color of agent's sprite while idle
+    Rigidbody2D myRigidbody;            // agent's rigidbody component
+    SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component
+    Rigidbody2D targetRigidbody;        // target's rigidbody component
+    int ignoreLayerMask;                // physics layermask to ignore when performing raycasts
+    float waitCounter = 0;              // counter used to facilitate attack cooldowns
 
     #region State Machine
 
@@ -42,8 +45,9 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void UpdateIdle()
     {
-        // slow agent to halt
+        // slow agent to halt and lerp color to normal
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
+        mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, standardColor, Time.deltaTime);
 
         // if agent can see target, move to pursue state
         if (CanSeeTarget())
@@ -55,6 +59,9 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void UpdatePursue()
     {
+        // lerp agent's color to normal
+        mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, standardColor, Time.deltaTime);
+
         // find distance from agent to target
         float distToTarget = (transform.position - targetTransform.position).magnitude;
 
@@ -79,8 +86,9 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void EnterAttack()
     {
-        // deduct O2 from player
+        // attack target
         deductO2Event.Invoke(attackDamage);
+        mySpriteRenderer.color = cooldownColor;
 
         // initialize cooldown timer and transition to wait state
         waitCounter = attackCooldown;
@@ -92,7 +100,7 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void UpdateWait()
     {
-        // slow agent to halt
+        // deactivate agent
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
 
         // decrease wait counter by time between frames
@@ -127,9 +135,13 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void Awake()
     {
+        // retrieve components from agent
+        myRigidbody = GetComponent<Rigidbody2D>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
         // initialize agent and set internal variables
         currState = startingState;
-        myRigidbody = GetComponent<Rigidbody2D>();
+        standardColor = mySpriteRenderer.color;
         ignoreLayerMask = ~(1 << 12);
 
         // if target wasn't set before launch
