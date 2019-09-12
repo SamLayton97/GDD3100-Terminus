@@ -22,6 +22,7 @@ public class PursueAndAttack : MonoBehaviour
     public Transform targetTransform;                       // transform of target to pursue (typically player)
     public float maxSpeed = 5f;                             // magnitude of agent's velocity
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
+    public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
 
     // private variables
     ChaseStates currState;          // current state of agent
@@ -49,15 +50,20 @@ public class PursueAndAttack : MonoBehaviour
     /// </summary>
     void UpdatePursue()
     {
+        // find distance from agent to target
+        float distToTarget = (transform.position - targetTransform.position).magnitude;
+
         // move agent to intercept target
-        float timeToIntercept = Vector2.Distance(transform.position, targetTransform.position) / Mathf.Max(0.1f, myRigidbody.velocity.magnitude);
-        float targetDistanceTravelled = timeToIntercept * targetRigidbody.velocity.magnitude;
-        Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDistanceTravelled + targetTransform.position;
+        float targetDisplacementAtIntercept = (distToTarget / Mathf.Max(0.1f, myRigidbody.velocity.magnitude)) * targetRigidbody.velocity.magnitude;
+        Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDisplacementAtIntercept + targetTransform.position;
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * maxSpeed, Time.deltaTime);
 
         // if agent can no longer see target, move to idle state
         if (!CanSeeTarget())
             currState = ChaseStates.Idle;
+        // but if agent is within attack range, move to attack and wait state
+        else if (distToTarget <= attackRange)
+            currState = ChaseStates.AttackAndWait;
     }
 
     /// <summary>
