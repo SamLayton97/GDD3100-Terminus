@@ -37,6 +37,9 @@ public class PursueAndAttack : MonoBehaviour
     {
         Debug.Log("Idle");
 
+        // slow agent to halt
+        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
+
         // if agent can see target, move to pursue state
         if (CanSeeTarget())
             currState = ChaseStates.Pursue;
