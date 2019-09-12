@@ -14,7 +14,8 @@ public class PursueAndAttack : MonoBehaviour
     {
         Idle,
         Pursue,
-        AttackAndWait
+        Attack,
+        Wait
     }
 
     // public variables
@@ -61,17 +62,20 @@ public class PursueAndAttack : MonoBehaviour
         // if agent can no longer see target, move to idle state
         if (!CanSeeTarget())
             currState = ChaseStates.Idle;
-        // but if agent is within attack range, move to attack and wait state
+        // but if agent is within attack range, move to attack state
         else if (distToTarget <= attackRange)
-            currState = ChaseStates.AttackAndWait;
+            currState = ChaseStates.Attack;
     }
 
     /// <summary>
     /// Updates agent as it attacks enemy and then waits cooldown time
     /// </summary>
-    void UpdateAttackAndWait()
+    void UpdateAttack()
     {
-        Debug.Log("Attack and Wait");
+        Debug.Log("Attack");
+
+        // TEMP: transition to idle
+        currState = ChaseStates.Idle;
     }
 
     #endregion
@@ -135,8 +139,8 @@ public class PursueAndAttack : MonoBehaviour
             case ChaseStates.Pursue:
                 UpdatePursue();
                 break;
-            case ChaseStates.AttackAndWait:
-                UpdateAttackAndWait();
+            case ChaseStates.Attack:
+                UpdateAttack();
                 break;
             default:
                 break;
