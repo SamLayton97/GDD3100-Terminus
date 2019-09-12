@@ -20,13 +20,14 @@ public class PursueAndAttack : MonoBehaviour
     // public variables
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Transform targetTransform;                       // transform of target to pursue (typically player)
-    public float speed = 5f;                                // magnitude of agent's velocity
+    public float maxSpeed = 5f;                             // magnitude of agent's velocity
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
 
     // private variables
-    ChaseStates currState;      // current state of agent
-    Rigidbody2D myRigidbody;    // agent's rigidbody component
-    int ignoreLayerMask;        // physics layermask to ignore when performing raycasts
+    ChaseStates currState;          // current state of agent
+    Rigidbody2D myRigidbody;        // agent's rigidbody component
+    Rigidbody2D targetRigidbody;    // target's rigidbody component
+    int ignoreLayerMask;            // physics layermask to ignore when performing raycasts
 
     #region State Machine
 
@@ -35,8 +36,6 @@ public class PursueAndAttack : MonoBehaviour
     /// </summary>
     void UpdateIdle()
     {
-        Debug.Log("Idle");
-
         // slow agent to halt
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
 
@@ -50,10 +49,12 @@ public class PursueAndAttack : MonoBehaviour
     /// </summary>
     void UpdatePursue()
     {
-        Debug.Log("Pursue");
-
-        // move agent towards where target is now (temporary)
-        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, targetTransform.position - transform.position, Time.deltaTime);
+        // move agent to intercept target
+        float timeToIntercept = Vector2.Distance(transform.position, targetTransform.position) / Mathf.Max(0.1f, myRigidbody.velocity.magnitude);
+        float targetDistanceTravelled = timeToIntercept * targetRigidbody.velocity.magnitude;
+        Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDistanceTravelled + targetTransform.position;
+        Debug.Log(interceptPoint);
+        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * maxSpeed, Time.deltaTime);
 
         // if agent can no longer see target, move to idle state
         if (!CanSeeTarget())
@@ -112,6 +113,9 @@ public class PursueAndAttack : MonoBehaviour
                     " could not find target");
             }
         }
+
+        // retrieve target's rigidbody component
+        targetRigidbody = targetTransform.gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

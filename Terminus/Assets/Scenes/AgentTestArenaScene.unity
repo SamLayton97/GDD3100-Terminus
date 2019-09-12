@@ -1318,5 +1318,10 @@ PrefabInstance:
       propertyPath: sightRange
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1325468725392835803, guid: 889e231a1061c394fbe4bfe636cf01ec,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889e231a1061c394fbe4bfe636cf01ec, type: 3}
