@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1590410038477920539}
   - component: {fileID: 4204058489115918128}
   - component: {fileID: -3231544539193133819}
+  - component: {fileID: 1755158605726647290}
   - component: {fileID: 7892702457012930498}
   m_Layer: 10
   m_Name: PistolBullet
@@ -120,6 +121,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
+--- !u!114 &1755158605726647290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590410038477920540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312e6689a2e672c49a9f0fa69c647761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!114 &7892702457012930498
 MonoBehaviour:
   m_ObjectHideFlags: 0

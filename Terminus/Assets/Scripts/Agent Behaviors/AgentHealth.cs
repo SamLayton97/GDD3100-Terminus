@@ -28,7 +28,12 @@ public class AgentHealth : MonoBehaviour
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // TODO: if other object in collision is a projectile, deduct health from agent
-
+        // if other object in collision is a projectile
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectiles"))
+        {
+            // deduct health and destroy gameobject if necessary
+            currHealth -= collision.gameObject.GetComponent<Projectile>().Damage;
+            if (currHealth <= 0) Destroy(gameObject);
+        }
     }
 }
