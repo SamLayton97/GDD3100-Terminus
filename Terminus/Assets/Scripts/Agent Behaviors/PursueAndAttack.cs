@@ -53,7 +53,6 @@ public class PursueAndAttack : MonoBehaviour
         float timeToIntercept = Vector2.Distance(transform.position, targetTransform.position) / Mathf.Max(0.1f, myRigidbody.velocity.magnitude);
         float targetDistanceTravelled = timeToIntercept * targetRigidbody.velocity.magnitude;
         Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDistanceTravelled + targetTransform.position;
-        Debug.Log(interceptPoint);
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * maxSpeed, Time.deltaTime);
 
         // if agent can no longer see target, move to idle state
