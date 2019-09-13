@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: EnvironmentBackground
+    uniqueID: 3610194951
+    locked: 0
   - name: Collectibles
     uniqueID: 3064148953
     locked: 0
