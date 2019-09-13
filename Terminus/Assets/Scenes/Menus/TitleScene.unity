@@ -534,12 +534,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 357245280da8c0e488d29e1c15f98a27, type: 3}
+--- !u!1 &961139405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 357062945239271225, guid: 357245280da8c0e488d29e1c15f98a27,
+    type: 3}
+  m_PrefabInstance: {fileID: 1963759618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &961139406 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 357062945239271224, guid: 357245280da8c0e488d29e1c15f98a27,
     type: 3}
   m_PrefabInstance: {fileID: 1963759618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &961139407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961139405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745a9fc99c9b37248a678b107eeba978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1249891985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -857,7 +875,7 @@ PrefabInstance:
     - target: {fileID: 357062945239271225, guid: 357245280da8c0e488d29e1c15f98a27,
         type: 3}
       propertyPath: m_Name
-      value: InstructionsButton (1)
+      value: QuitButton
       objectReference: {fileID: 0}
     - target: {fileID: 357062945239271224, guid: 357245280da8c0e488d29e1c15f98a27,
         type: 3}
@@ -1024,12 +1042,23 @@ PrefabInstance:
       propertyPath: m_Colors.m_SelectedColor.b
       value: 0.023529412
       objectReference: {fileID: 0}
+    - target: {fileID: 357062945239271226, guid: 357245280da8c0e488d29e1c15f98a27,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 961139407}
+    - target: {fileID: 357062945239271226, guid: 357245280da8c0e488d29e1c15f98a27,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClickEvent
+      objectReference: {fileID: 0}
     - target: {fileID: 357062943768575639, guid: 357245280da8c0e488d29e1c15f98a27,
         type: 3}
       propertyPath: m_Text
       value: Quit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 357062945239271227, guid: 357245280da8c0e488d29e1c15f98a27, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 357245280da8c0e488d29e1c15f98a27, type: 3}
 --- !u!1 &2049164381
 GameObject:
