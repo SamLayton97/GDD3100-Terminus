@@ -573,8 +573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 24}
-  m_SizeDelta: {x: 390, y: 95}
+  m_AnchoredPosition: {x: -16.1, y: -23.3}
+  m_SizeDelta: {x: 1600, y: 615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623241441
 MonoBehaviour:
@@ -602,14 +602,19 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_MaxSize: 30
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A Psychedelic Physics Shooter
+  m_Text: "Objective:\r\n\n - Creatures from another dimension have torn your space
+    station apart!\r\n\n - Locate and pass through the last functioning airlock before
+    your O2 runs out.\r\n\n - Propel yourself in 0-G by shooting your vacuum-fitted
+    pistol.\r\n\n - Shoot creatures and avoid their corruption.\r\n\n - Replenish
+    your O2 by collecting refill cannisters.\r\n\r\nControls:\r\n\n - Aim and shoot
+    using the left mouse."
 --- !u!222 &1623241442
 CanvasRenderer:
   m_ObjectHideFlags: 0
