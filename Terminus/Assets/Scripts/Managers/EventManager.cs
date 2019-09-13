@@ -62,7 +62,7 @@ public static class EventManager
 
     #region Deduct Player O2
 
-    // declare lists to hold invokers and listeners to deduct palyer O2 event
+    // declare lists to hold invokers and listeners to deduct player O2 event
     static List<O2Remover> deductO2Invokers = new List<O2Remover>();
     static List<UnityAction<float>> deductO2Listeners = new List<UnityAction<float>>();
 
@@ -82,6 +82,32 @@ public static class EventManager
         deductO2Listeners.Add(listener);
         foreach (O2Remover invoker in deductO2Invokers)
             invoker.AddDeductO2Listener(listener);
+    }
+
+    #endregion
+
+    #region Transition Scene
+
+    // declare lists to hold invokers and listeners to transition scene event
+    static List<SceneTransitioner> transitionSceneInvokers = new List<SceneTransitioner>();
+    static List<UnityAction<string>> transitionSceneListeners = new List<UnityAction<string>>();
+
+    // Adds given Scene Transitioner invoker of Transition Scene Event
+    public static void AddTransitionSceneInvoker(SceneTransitioner invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        transitionSceneInvokers.Add(invoker);
+        foreach (UnityAction<string> listener in transitionSceneListeners)
+            invoker.AddTransitionSceneListener(listener);
+    }
+
+    // Adds given method as listener to Transition Scene event
+    public static void AddTransitionSceneListener(UnityAction<string> listener)
+    {
+        // adds listener to list and to all invokers of event
+        transitionSceneListeners.Add(listener);
+        foreach (SceneTransitioner invoker in transitionSceneInvokers)
+            invoker.AddTransitionSceneListener(listener);
     }
 
     #endregion
