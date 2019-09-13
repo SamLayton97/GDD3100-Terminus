@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7043218121137826208}
   - component: {fileID: 7043218121137826209}
   - component: {fileID: 3822860208735358186}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: AirLockEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
