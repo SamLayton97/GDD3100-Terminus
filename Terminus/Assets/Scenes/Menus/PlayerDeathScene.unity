@@ -824,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 357062945239271227, guid: 357245280da8c0e488d29e1c15f98a27,
         type: 3}
       propertyPath: transitionTo
-      value: LevelTransitionTestScene
+      value: MVPDemoScene
       objectReference: {fileID: 0}
     - target: {fileID: 357062943768575639, guid: 357245280da8c0e488d29e1c15f98a27,
         type: 3}
