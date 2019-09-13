@@ -29,9 +29,9 @@ public abstract class SceneTransitioner : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // TODO: Add self as invoker of transition scene event
+        // Add self as invoker of transition scene event
         transitionSceneEvent = new TransitionToSceneEvent();
-
+        EventManager.AddTransitionSceneInvoker(this);
     }
 
     /// <summary>
