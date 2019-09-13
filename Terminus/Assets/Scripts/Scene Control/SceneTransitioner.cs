@@ -27,7 +27,7 @@ public abstract class SceneTransitioner : MonoBehaviour
     /// <summary>
     /// Called before the first frame update
     /// </summary>
-    void Start()
+    protected virtual void Start()
     {
         // Add self as invoker of transition scene event
         transitionSceneEvent = new TransitionToSceneEvent();

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Manages oxygen depletion and re-gain of agent
+/// Manages oxygen depletion and re-gain of agent, including instances of player death
 /// </summary>
-public class OxygenControl : MonoBehaviour
+public class OxygenControl : SceneTransitioner
 {
     // private variables
     int maxOxygen = 100;                    // total capacity of agent's oxygen tank
@@ -18,10 +18,13 @@ public class OxygenControl : MonoBehaviour
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
 
+    #region Unity Methods
+
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        // add self as invoker to update O2 display event
+        // add self as invoker appropriate events
+        base.Start();
         updateO2Event = new UpdateO2DisplayEvent();
         EventManager.AddUpdateO2Invoker(this);
 
@@ -37,11 +40,12 @@ public class OxygenControl : MonoBehaviour
     void Update()
     {
         // reduce oxygen by rate * time
-        currOxygen = Mathf.Max(0, currOxygen - (oxygenDepletionRate * Time.deltaTime));
-
-        // update oxygen display
-        updateO2Event.Invoke((int)currOxygen);
+        EmptyO2Tank(oxygenDepletionRate * Time.deltaTime);
     }
+
+    #endregion
+
+    #region Private Methods
 
     /// <summary>
     /// Refills oxygen tank by set amount, maxing out at tank capacity
@@ -59,8 +63,26 @@ public class OxygenControl : MonoBehaviour
     /// <param name="amountEmptied">amount of O2 emptied</param>
     void EmptyO2Tank(float amountEmptied)
     {
+        // reduce oxygen by amount, killing player if remaining O2 hits 0
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
+        if (currOxygen <= 0) KillPlayer();
+
+        // update O2 display
+        updateO2Event.Invoke((int)currOxygen);
     }
+
+    /// <summary>
+    /// Initiates player death-related events
+    /// </summary>
+    void KillPlayer()
+    {
+        // elect to transition to player death scene
+        transitionSceneEvent.Invoke(transitionTo);
+    }
+
+    #endregion
+
+    #region Public Methods
 
     /// <summary>
     /// Adds given listener to Update O2 display event
@@ -70,4 +92,6 @@ public class OxygenControl : MonoBehaviour
     {
         updateO2Event.AddListener(newListener);
     }
+
+    #endregion
 }
