@@ -28,7 +28,8 @@ public class TransitionSceneCollisionTrigger : SceneTransitioner
     /// <param name="other">other object in collision</param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        // TODO: transition to new scene
-
+        // if object is on Player layer
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            transitionSceneEvent.Invoke(transitionTo);
     }
 }

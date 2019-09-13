@@ -10,10 +10,10 @@ using UnityEngine.Events;
 public abstract class SceneTransitioner : MonoBehaviour
 {
     // private variables
-    [SerializeField] string transitionTo;   // name of scene which object can transition to
+    [SerializeField] protected string transitionTo;         // name of scene which object can transition to
 
     // event support
-    TransitionToSceneEvent transitionSceneEvent;
+    protected TransitionToSceneEvent transitionSceneEvent;
 
     /// <summary>
     /// Provides read-access to name of scene object can load.
