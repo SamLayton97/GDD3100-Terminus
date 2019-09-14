@@ -56,6 +56,9 @@ TagManager:
   - name: Player
     uniqueID: 2403354151
     locked: 0
+  - name: EnvironmentMidground
+    uniqueID: 58263823
+    locked: 0
   - name: EnvironmentalForeground
     uniqueID: 3527178933
     locked: 0
