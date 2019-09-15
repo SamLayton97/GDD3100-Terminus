@@ -828,7 +828,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A Psychedelic Physics Shooter
+  m_Text: A Physics Shooter
 --- !u!222 &1623241442
 CanvasRenderer:
   m_ObjectHideFlags: 0
