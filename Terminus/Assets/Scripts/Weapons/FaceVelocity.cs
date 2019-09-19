@@ -9,7 +9,6 @@ using UnityEngine;
 public class FaceVelocity : MonoBehaviour
 {
     // public variables
-    public bool continuous = false;             // determines whether object should continue to rotate towards its velocity every frame
     public Rigidbody2D relativeTo = null;       // rigidbody of object to calculate relative velocity to (if null, velocity is relative to world)
 
     // private variables
@@ -27,21 +26,10 @@ public class FaceVelocity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // if rotation shouldn't be continuous, rotate once
-        if (!continuous)
-        {
-            Vector2 relativeVelocity = myRigidbody2D.velocity.normalized;
-            if (relativeTo != null)
-                relativeVelocity = relativeVelocity - relativeTo.velocity.normalized;
-
-            Debug.Log(relativeVelocity);
-            transform.Rotate(new Vector3(0, 0, Mathf.Atan2(relativeVelocity.y, relativeVelocity.x) * Mathf.Rad2Deg));
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // rotate to face relative velocity
+        Vector2 relativeVelocity = myRigidbody2D.velocity.normalized;
+        if (relativeTo != null)
+            relativeVelocity = relativeVelocity - relativeTo.velocity.normalized;
+        transform.Rotate(new Vector3(0, 0, Mathf.Atan2(relativeVelocity.y, relativeVelocity.x) * Mathf.Rad2Deg));
     }
 }
