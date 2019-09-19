@@ -8,6 +8,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FaceVelocity : MonoBehaviour
 {
+    // public variables
+    public bool continuous = false;             // flag determining whether to continue to face velocity each frame
+
     // private variables
     Rigidbody2D myRigidbody2D;                  // rigidbody component used to find object's current velocity
     Rigidbody2D relativeTo;                     // rigidbody of object to find relative velocity to
@@ -24,6 +27,20 @@ public class FaceVelocity : MonoBehaviour
     }
 
     /// <summary>
+    /// Rotates object to face its relative velocity
+    /// </summary>
+    void RotateToVelocity()
+    {
+        // find relative velocity
+        Vector2 relativeVelocity = myRigidbody2D.velocity;
+        if (relativeTo != null)
+            relativeVelocity = relativeVelocity - relativeTo.velocity;
+
+        // rotate to face relative velocity
+        transform.Rotate(new Vector3(0, 0, Mathf.Atan2(relativeVelocity.y, relativeVelocity.x) * Mathf.Rad2Deg) - transform.rotation.eulerAngles);
+    }
+
+    /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
@@ -36,11 +53,19 @@ public class FaceVelocity : MonoBehaviour
     void Start()
     {
         // rotate to face relative velocity
-        Vector2 relativeVelocity = myRigidbody2D.velocity;
-        if (relativeTo != null)
+        RotateToVelocity();
+    }
+
+    /// <summary>
+    /// Called once per frame
+    /// </summary>
+    void Update()
+    {
+        // if direction-facing is continuous
+        if (continuous)
         {
-            relativeVelocity = relativeVelocity - relativeTo.velocity;
+            // rotate to face relative velocity
+            RotateToVelocity();
         }
-        transform.Rotate(new Vector3(0, 0, Mathf.Atan2(relativeVelocity.y, relativeVelocity.x) * Mathf.Rad2Deg));
     }
 }
