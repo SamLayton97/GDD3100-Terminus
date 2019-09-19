@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
     public float reactiveForce = 2.5f;          // force by which object propels user in opposite direction
     public int currAmmo = 100;                  // current ammunution stored in weapon
     public int maxAmmo = 100;                   // max amount of ammunition able to be stored in weapon
+    public Vector2 bulletInstanceOffset;        // offset to spawn bullets at (useful when bullets should spawn from tip of gun rather than center of object)
 
     // private variables
     protected bool firedLastFrame = false;      // flag determining whether weapon registered a shot on the previous frame
