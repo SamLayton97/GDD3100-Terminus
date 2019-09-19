@@ -44,6 +44,9 @@ TagManager:
   - name: EnvironmentBackground
     uniqueID: 3610194951
     locked: 0
+  - name: EnvironmentMidground
+    uniqueID: 58263823
+    locked: 0
   - name: Collectibles
     uniqueID: 3064148953
     locked: 0
@@ -55,9 +58,6 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2403354151
-    locked: 0
-  - name: EnvironmentMidground
-    uniqueID: 58263823
     locked: 0
   - name: EnvironmentalForeground
     uniqueID: 3527178933
