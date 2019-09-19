@@ -36,11 +36,11 @@ public class FaceVelocity : MonoBehaviour
     void Start()
     {
         // rotate to face relative velocity
-        Vector2 relativeVelocity = myRigidbody2D.velocity.normalized;
+        Vector2 relativeVelocity = myRigidbody2D.velocity;
         if (relativeTo != null)
         {
-            relativeVelocity = relativeVelocity - relativeTo.velocity.normalized;
-            Debug.Log(relativeTo.gameObject.name);
+            relativeVelocity = relativeVelocity - relativeTo.velocity;
+            //Debug.Log(relativeTo.velocity);
         }
         transform.Rotate(new Vector3(0, 0, Mathf.Atan2(relativeVelocity.y, relativeVelocity.x) * Mathf.Rad2Deg));
     }
