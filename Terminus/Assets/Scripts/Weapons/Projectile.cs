@@ -5,6 +5,8 @@ using UnityEngine;
 /// <summary>
 /// Controls damage-dealing beheviors internal to projectile
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(FaceVelocity))]
 public class Projectile : MonoBehaviour
 {
     // private variables

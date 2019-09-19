@@ -19,8 +19,10 @@ public class Pistol : Weapon
             // fire pistol shot in direction of weapon's rotation
             float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;
-            Instantiate(projectileObject, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity, 
+            GameObject newProjectile = Instantiate(projectileObject, transform.position, Quaternion.identity);
+            newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity, 
                 ForceMode2D.Impulse);
+            newProjectile.GetComponent<FaceVelocity>().RelativeTo = parentRigidbody;
 
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
