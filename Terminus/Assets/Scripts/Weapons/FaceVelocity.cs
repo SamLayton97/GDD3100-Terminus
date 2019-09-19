@@ -40,7 +40,6 @@ public class FaceVelocity : MonoBehaviour
         if (relativeTo != null)
         {
             relativeVelocity = relativeVelocity - relativeTo.velocity;
-            //Debug.Log(relativeTo.velocity);
         }
         transform.Rotate(new Vector3(0, 0, Mathf.Atan2(relativeVelocity.y, relativeVelocity.x) * Mathf.Rad2Deg));
     }

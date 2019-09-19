@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1325468725392835803}
   - component: {fileID: 3894786361680885713}
   - component: {fileID: 1899208905917149684}
+  - component: {fileID: 7793331075513568963}
   m_Layer: 12
   m_Name: ChaserAgent
   m_TagString: Untagged
@@ -184,3 +185,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7793331075513568963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701724433980141098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9155352fbdb4f534494a20c80939fb77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
