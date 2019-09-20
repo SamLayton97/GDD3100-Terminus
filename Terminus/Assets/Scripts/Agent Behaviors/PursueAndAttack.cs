@@ -35,6 +35,7 @@ public class PursueAndAttack : O2Remover
     Rigidbody2D myRigidbody;            // agent's rigidbody component
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component
     Rigidbody2D targetRigidbody;        // target's rigidbody component
+    Animator myAnimator;                // agent's animator component
     int ignoreLayerMask;                // physics layermask to ignore when performing raycasts
     float waitCounter = 0;              // counter used to facilitate attack cooldowns
 
@@ -51,7 +52,11 @@ public class PursueAndAttack : O2Remover
 
         // if agent can see target, move to pursue state
         if (CanSeeTarget())
+        {
+            myAnimator.SetTrigger("OnPursueTrigger");
+            myAnimator.ResetTrigger("OnIdleTrigger");
             currState = ChaseStates.Pursue;
+        }
     }
 
     /// <summary>
@@ -72,7 +77,11 @@ public class PursueAndAttack : O2Remover
 
         // if agent can no longer see target, move to idle state
         if (!CanSeeTarget())
+        {
+            myAnimator.SetTrigger("OnIdleTrigger");
+            myAnimator.ResetTrigger("OnPursueTrigger");
             currState = ChaseStates.Idle;
+        }
         // but if agent is within attack range, move to attack state
         else if (distToTarget <= attackRange)
         {
@@ -138,6 +147,7 @@ public class PursueAndAttack : O2Remover
         // retrieve components from agent
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAnimator = GetComponent<Animator>();
 
         // initialize agent and set internal variables
         currState = startingState;

@@ -21,10 +21,6 @@ public class FlipToVelocity : MonoBehaviour
     {
         // retrieve necessary components
         myRigidbody2D = GetComponent<Rigidbody2D>();
-
-        // for simplicity, flip agent across y-axis if it's sprite faces left by default
-        //if (facingLeftByDefault)
-        //    transform.localScale = new Vector2(transform.localScale.x * -1f, transform.localScale.y);
     }
 
     /// <summary>
