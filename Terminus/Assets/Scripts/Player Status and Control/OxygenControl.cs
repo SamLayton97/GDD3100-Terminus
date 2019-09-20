@@ -18,6 +18,15 @@ public class OxygenControl : SceneTransitioner
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
 
+    /// <summary>
+    /// Property with read-access returning amount of O2
+    /// left in player's tank.
+    /// </summary>
+    public float CurrentOxygen
+    {
+        get { return currOxygen; }
+    }
+
     #region Unity Methods
 
     // Start is called before the first frame update

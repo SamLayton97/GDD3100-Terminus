@@ -40,7 +40,11 @@ public class SanityControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TEMP: simply log current sanity to console
         Debug.Log("Sanity: " + currSanity);
+        
+        // TODO: reduce sanity by rate if player lacks oxygen
+
     }
 
     /// <summary>
