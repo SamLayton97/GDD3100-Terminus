@@ -53,7 +53,7 @@ public class SanityControl : MonoBehaviour
     /// </summary>
     void OnTriggerStay2D(Collider2D collision)
     {
-        // if other object resides on corruption layer, deduct player sanity
+        // if other object resides on alien layer, deduct player sanity
         if (collision.gameObject.layer == LayerMask.NameToLayer("Corruption"))
             DeductSanity(sanityReductionRate * Time.deltaTime);
     }
