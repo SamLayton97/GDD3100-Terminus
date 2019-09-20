@@ -27,6 +27,7 @@ public class PursueAndAttack : O2Remover
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
+    public Color attackColor;                               // color agent transitions to when attacking
     public Color cooldownColor;                             // color agent transitions to when under cooldown
 
     // private variables
@@ -106,12 +107,23 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void EnterAttack()
     {
-        // attack target
+        // set attack color and attack target
+        mySpriteRenderer.color = attackColor;
         deductO2Event.Invoke(attackDamage);
-        mySpriteRenderer.color = cooldownColor;
+    }
 
-        // initialize cooldown timer and transition to wait state
+    /// <summary>
+    /// Uninitializes attack state after completing animation
+    /// </summary>
+    void ExitAttack()
+    {
+        // set cooldown color and initializes cooldown timer
+        mySpriteRenderer.color = cooldownColor;
         waitCounter = attackCooldown;
+
+        // set animation triggers and transition to wait state
+        myAnimator.SetTrigger("OnWaitTrigger");
+        myAnimator.ResetTrigger("OnAttackTrigger");
         currState = ChaseStates.Wait;
     }
 
