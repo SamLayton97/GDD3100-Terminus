@@ -14,7 +14,6 @@ public class AgentHealth : MonoBehaviour
     public Color deathColor;            // color to darken agent to on death
 
     // private variables
-    bool isDead = false;                // flag determining whether agent has died (controls 'soft-disabling' of agent)
     float currHealth;                   // current health of agent
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component (used to set color of sprite)
     Animator myAnimator;                // animator used to play agent's death animation (if it has one)

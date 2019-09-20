@@ -10,6 +10,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PursueAndAttack : O2Remover
 {
+    #region Fields
+
     // state enumeration
     public enum ChaseStates
     {
@@ -39,6 +41,8 @@ public class PursueAndAttack : O2Remover
     Animator myAnimator;                // agent's animator component
     int ignoreLayerMask;                // physics layermask to ignore when performing raycasts
     float waitCounter = 0;              // counter used to facilitate attack cooldowns
+
+    #endregion
 
     #region State Machine
 
