@@ -21,6 +21,10 @@ public class FlipToVelocity : MonoBehaviour
     {
         // retrieve necessary components
         myRigidbody2D = GetComponent<Rigidbody2D>();
+
+        // for simplicity, flip agent across y-axis if it's sprite faces left by default
+        //if (facingLeftByDefault)
+        //    transform.localScale = new Vector2(transform.localScale.x * -1f, transform.localScale.y);
     }
 
     /// <summary>
@@ -28,8 +32,13 @@ public class FlipToVelocity : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // calculate dot product of agent's velocity relative to horizontal
+        // calculate dot product of agent's velocity relative to right-horizontal
         float velDotProduct = Vector2.Dot(myRigidbody2D.velocity, Vector2.right);
-        Debug.Log(velDotProduct);
+
+        // flip agent across y-axis according to change in velocity
+        if ((velDotProduct < 0 && (transform.localScale.x * (facingLeftByDefault ? -1 : 1)) > 0) ||
+            (velDotProduct >= 0 && (transform.localScale.x * (facingLeftByDefault ? -1 : 1)) < 0))
+            transform.localScale = new Vector2(transform.localScale.x * -1f, transform.localScale.y);
+
     }
 }
