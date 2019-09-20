@@ -6585,6 +6585,7 @@ GameObject:
   - component: {fileID: 1247386249}
   - component: {fileID: 1247386251}
   - component: {fileID: 1247386250}
+  - component: {fileID: 1247386252}
   m_Layer: 5
   m_Name: O2GuageHolder
   m_TagString: Untagged
@@ -6625,7 +6626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6650,6 +6651,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247386248}
   m_CullTransparentMesh: 0
+--- !u!114 &1247386252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247386248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f4c67fde784d545ba40bf4ea72cf9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  O2Meter: {fileID: 557739020}
 --- !u!1001 &1369435587
 PrefabInstance:
   m_ObjectHideFlags: 0
