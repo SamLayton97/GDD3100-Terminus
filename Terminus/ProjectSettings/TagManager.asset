@@ -47,6 +47,9 @@ TagManager:
   - name: EnvironmentMidground
     uniqueID: 58263823
     locked: 0
+  - name: MiscellaneousObjects
+    uniqueID: 433921965
+    locked: 0
   - name: Collectibles
     uniqueID: 3064148953
     locked: 0

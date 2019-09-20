@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 15
+  deathColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
 --- !u!114 &1325468725392835803
 MonoBehaviour:
   m_ObjectHideFlags: 0
