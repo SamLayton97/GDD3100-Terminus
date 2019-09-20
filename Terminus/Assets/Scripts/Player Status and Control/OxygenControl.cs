@@ -68,7 +68,7 @@ public class OxygenControl : SceneTransitioner
         if (currOxygen <= 0) KillPlayer();
 
         // update O2 display
-        updateO2Event.Invoke((int)currOxygen);
+        updateO2Event.Invoke(currOxygen);
     }
 
     /// <summary>
@@ -88,7 +88,7 @@ public class OxygenControl : SceneTransitioner
     /// Adds given listener to Update O2 display event
     /// </summary>
     /// <param name="newListener">new listener for event</param>
-    public void AddUpdateO2Listener(UnityAction<int> newListener)
+    public void AddUpdateO2Listener(UnityAction<float> newListener)
     {
         updateO2Event.AddListener(newListener);
     }
