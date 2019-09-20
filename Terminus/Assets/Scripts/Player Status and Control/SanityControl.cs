@@ -10,6 +10,8 @@ using UnityEngine;
 public class SanityControl : MonoBehaviour
 {
     // public variables
+    int maxSanity = 100;                    // max sanity player can have
+    float currSanity = 0;                   // remaining percent of player's sanity
     float lowOxygenThreshold = 40f;         // threshold on which player starts losing sanity due to low oxygen
 
     // private variables
@@ -24,9 +26,30 @@ public class SanityControl : MonoBehaviour
         myOxygenControl = GetComponent<OxygenControl>();
     }
 
+    /// <summary>
+    /// Called once before first frame Update()
+    /// </summary>
+    void Start()
+    {
+        // initialize player with full sanity
+        currSanity = maxSanity;
+
+        DeductSanity(15);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("Sanity: " + currSanity);
+    }
+
+    /// <summary>
+    /// "Maddens" player by set amount, stopping at 0
+    /// (i.e., totally insane)
+    /// </summary>
+    /// <param name="sanityLost">amount of sanity lost</param>
+    void DeductSanity(float sanityLost)
+    {
+        currSanity = Mathf.Max(0, currSanity - sanityLost);
     }
 }

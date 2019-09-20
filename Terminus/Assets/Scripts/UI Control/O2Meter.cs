@@ -36,7 +36,6 @@ public class O2Meter : MonoBehaviour
     /// <param name="remainingOxygen">percentage of oxygen left in player's tank</param>
     void UpdateO2Display(float remainingOxygen)
     {
-        Debug.Log(remainingOxygen);
         guageMeter.localScale = new Vector2(Mathf.Clamp01(remainingOxygen / 100), guageMeter.localScale.y);
     }
 }

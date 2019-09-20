@@ -23,8 +23,9 @@ public class OxygenControl : SceneTransitioner
     // Start is called before the first frame update
     protected override void Start()
     {
-        // add self as invoker appropriate events
         base.Start();
+
+        // add self as invoker appropriate events
         updateO2Event = new UpdateO2DisplayEvent();
         EventManager.AddUpdateO2Invoker(this);
 
