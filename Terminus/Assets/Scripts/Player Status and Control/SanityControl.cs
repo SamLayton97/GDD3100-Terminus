@@ -10,12 +10,13 @@ using UnityEngine;
 public class SanityControl : MonoBehaviour
 {
     // public variables
-    int maxSanity = 100;                    // max sanity player can have
-    float currSanity = 0;                   // remaining percent of player's sanity
-    float lowOxygenThreshold = 40f;         // threshold on which player starts losing sanity due to low oxygen
+    public float sanityReductionRate = 0.5f;    // amount of sanity lost per second when player undergoes stressful situation
+    public float lowOxygenThreshold = 40f;      // inclusive threshold on which player starts losing sanity due to low oxygen
 
     // private variables
-    OxygenControl myOxygenControl;          // reference to player's oxygen control (sanity depletes when below O2 threshold)
+    int maxSanity = 100;                        // max sanity player can have
+    float currSanity = 0;                       // remaining percent of player's sanity
+    OxygenControl myOxygenControl;              // reference to player's oxygen control (sanity depletes when below O2 threshold)
 
     /// <summary>
     /// Used for initialization
@@ -33,8 +34,6 @@ public class SanityControl : MonoBehaviour
     {
         // initialize player with full sanity
         currSanity = maxSanity;
-
-        DeductSanity(15);
     }
 
     // Update is called once per frame
@@ -42,9 +41,9 @@ public class SanityControl : MonoBehaviour
     {
         // TEMP: simply log current sanity to console
         Debug.Log("Sanity: " + currSanity);
-        
-        // TODO: reduce sanity by rate if player lacks oxygen
 
+        // reduce sanity by rate if player lacks oxygen
+        DeductSanity((myOxygenControl.CurrentOxygen <= lowOxygenThreshold) ? (sanityReductionRate * Time.deltaTime) : 0);
     }
 
     /// <summary>
