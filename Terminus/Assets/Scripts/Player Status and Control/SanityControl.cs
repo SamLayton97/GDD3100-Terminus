@@ -7,6 +7,7 @@ using UnityEngine;
 /// including (TODO) hallucinations and player death
 /// </summary>
 [RequireComponent(typeof(OxygenControl))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class SanityControl : MonoBehaviour
 {
     // public variables
@@ -17,6 +18,7 @@ public class SanityControl : MonoBehaviour
     int maxSanity = 100;                        // max sanity player can have
     float currSanity = 0;                       // remaining percent of player's sanity
     OxygenControl myOxygenControl;              // reference to player's oxygen control (sanity depletes when below O2 threshold)
+    CircleCollider2D myProximityTrigger;        // reference to player's circle collider (used to deduct sanity when enemies/corruption are nearby)
 
     /// <summary>
     /// Used for initialization
@@ -44,6 +46,14 @@ public class SanityControl : MonoBehaviour
 
         // reduce sanity by rate if player lacks oxygen
         DeductSanity((myOxygenControl.CurrentOxygen <= lowOxygenThreshold) ? (sanityReductionRate * Time.deltaTime) : 0);
+    }
+
+    /// <summary>
+    /// Called every frame something stays within player's circle collider trigger
+    /// </summary>
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        // if other object resides on 
     }
 
     /// <summary>

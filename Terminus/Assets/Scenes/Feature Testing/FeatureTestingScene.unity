@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: oxygenDepletionRate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8960123665775934092, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
+        type: 3}
+      propertyPath: lowOxygenThreshold
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1, type: 3}
 --- !u!4 &232050118 stripped
