@@ -50,11 +50,14 @@ public class PursueAndAttack : O2Remover
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
         mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, standardColor, Time.deltaTime);
 
-        // if agent can see target, move to pursue state
+        // if agent can see target
         if (CanSeeTarget())
         {
+            // set animation triggers
             myAnimator.SetTrigger("OnPursueTrigger");
             myAnimator.ResetTrigger("OnIdleTrigger");
+
+            // move to pursue state
             currState = ChaseStates.Pursue;
         }
     }
@@ -75,16 +78,24 @@ public class PursueAndAttack : O2Remover
         Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDisplacementAtIntercept + targetTransform.position;
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * maxSpeed, Time.deltaTime);
 
-        // if agent can no longer see target, move to idle state
+        // if agent can no longer see target
         if (!CanSeeTarget())
         {
+            // set animation triggers
             myAnimator.SetTrigger("OnIdleTrigger");
             myAnimator.ResetTrigger("OnPursueTrigger");
+
+            // move to idle animation
             currState = ChaseStates.Idle;
         }
-        // but if agent is within attack range, move to attack state
+        // but if agent is within attack range
         else if (distToTarget <= attackRange)
         {
+            // set animation triggers
+            myAnimator.SetTrigger("OnAttackTrigger");
+            myAnimator.ResetTrigger("OnPursueTrigger");
+
+            // move to attack state
             currState = ChaseStates.Attack;
             EnterAttack();
         }
