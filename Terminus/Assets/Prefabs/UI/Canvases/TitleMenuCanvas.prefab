@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 1741508311581019015}
   - component: {fileID: 1741508311581019014}
   - component: {fileID: 1741508311581019033}
+  - component: {fileID: 8124301008925472341}
   m_Layer: 5
   m_Name: TitleMenuCanvas
   m_TagString: Untagged
@@ -251,6 +252,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8124301008925472341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741508311581019032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e700709e80459e442a2c3351a60deaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTo:
+  - PremiseScene
+  - InstructionsScene
+  - CreditsScene
 --- !u!1 &2977294657300764659
 GameObject:
   m_ObjectHideFlags: 0
