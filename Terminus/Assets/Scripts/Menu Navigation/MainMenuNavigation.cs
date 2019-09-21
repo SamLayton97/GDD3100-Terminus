@@ -13,7 +13,8 @@ public class MainMenuNavigation : SceneTransitioner
     /// </summary>
     public void PlayButtonOnClick()
     {
-
+        // transition to "premise" scene
+        transitionSceneEvent.Invoke(transitionTo[0]);
     }
 
     /// <summary>
@@ -21,7 +22,8 @@ public class MainMenuNavigation : SceneTransitioner
     /// </summary>
     public void HelpButtonOnClick()
     {
-
+        // transition to "instructions" scene
+        transitionSceneEvent.Invoke(transitionTo[1]);
     }
 
     /// <summary>
@@ -29,7 +31,8 @@ public class MainMenuNavigation : SceneTransitioner
     /// </summary>
     public void CreditsButtonOnClick()
     {
-
+        // transition to "credits" scene
+        transitionSceneEvent.Invoke(transitionTo[2]);
     }
 
     /// <summary>
@@ -37,6 +40,8 @@ public class MainMenuNavigation : SceneTransitioner
     /// </summary>
     public void QuitButtonOnClick()
     {
-
+        // close application
+        Debug.Log("Application closed after " + Time.time + " seconds.");
+        Application.Quit();
     }
 }
