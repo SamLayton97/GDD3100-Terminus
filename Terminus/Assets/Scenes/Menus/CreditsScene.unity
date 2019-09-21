@@ -338,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4835586c89a942f49bbf942a15934450, type: 3}
---- !u!1001 &7310666602691643745
+--- !u!1001 &785221850
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -454,6 +454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822749144063005110, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315562e6c8d52524eaaed2bea3429a0a, type: 3}
