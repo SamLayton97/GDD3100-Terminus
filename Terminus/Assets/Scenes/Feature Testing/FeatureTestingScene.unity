@@ -437,12 +437,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cdd3a38eed91084b8f067da0e12e3fa, type: 3}
---- !u!1 &454808892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4555135152653625899, guid: 3481f32115650e440b38c859077c7d4d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8477516771291504156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &474707617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,12 +7037,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1591595975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4573737062008034848, guid: 3481f32115650e440b38c859077c7d4d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8477516771291504156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2090416887
 GameObject:
   m_ObjectHideFlags: 0
@@ -7122,16 +7110,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7667080687060625682, guid: 3481f32115650e440b38c859077c7d4d,
-        type: 3}
-      propertyPath: darkenGameOnPause
-      value: 
-      objectReference: {fileID: 1591595975}
-    - target: {fileID: 7667080687060625682, guid: 3481f32115650e440b38c859077c7d4d,
-        type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 454808892}
     - target: {fileID: 8477516771413050569, guid: 3481f32115650e440b38c859077c7d4d,
         type: 3}
       propertyPath: m_Name

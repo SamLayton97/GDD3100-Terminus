@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1eb22a9cdadf644b40503bd1030eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  darkenGameOnPause: {fileID: 4573737062008034848}
+  pauseMenu: {fileID: 4555135152653625899}
 --- !u!1001 &3265519894997871530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,6 +349,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9157efc13755b2b42ab08453e0935d90, type: 3}
+--- !u!1 &4555135152653625899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1325855178087317889, guid: 9157efc13755b2b42ab08453e0935d90,
+    type: 3}
+  m_PrefabInstance: {fileID: 3265519894997871530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7979124847554943948 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4894004101669515366, guid: 9157efc13755b2b42ab08453e0935d90,

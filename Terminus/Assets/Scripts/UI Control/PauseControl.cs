@@ -11,12 +11,6 @@ public class PauseControl : MonoBehaviour
     public GameObject darkenGameOnPause;                // semi-transparent panel covering game when paused
     public GameObject pauseMenu;                        // pop-up pause menu
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -30,5 +24,36 @@ public class PauseControl : MonoBehaviour
             darkenGameOnPause.SetActive(true);
             pauseMenu.SetActive(true);
         }
+    }
+
+    /// <summary>
+    /// Handles when user clicks the "Resume" button
+    /// </summary>
+    public void HandleResumeOnClick()
+    {
+        // disable pause menu components
+        darkenGameOnPause.SetActive(false);
+        pauseMenu.SetActive(false);
+
+        // unfreeze game
+        Time.timeScale = 1;
+    }
+
+    /// <summary>
+    /// Handles when user clicks the "Controls"/"Help" button
+    /// </summary>
+    public void HandleControlsOnClick()
+    {
+        // TODO: remove pause menu and display control scheme
+
+    }
+
+    /// <summary>
+    /// Handles when user clicks the "Exit" button
+    /// </summary>
+    public void HandleExitOnClick()
+    {
+        // TODO: return to main menu
+
     }
 }
