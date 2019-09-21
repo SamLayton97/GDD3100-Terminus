@@ -11,12 +11,14 @@ using UnityEngine;
 public class SanityControl : MonoBehaviour
 {
     // public variables
-    public float sanityReductionRate = 0.5f;    // amount of sanity lost per second when player undergoes stressful situation
-    public float lowOxygenThreshold = 40f;      // inclusive threshold on which player starts losing sanity due to low oxygen
+    public float sanityReductionRate = 0.5f;        // amount of sanity lost per second when player undergoes stressful situation
+    public float sanityReplinishmentRate = 0.1f;    // amount of sanity gained per second when player avoids stressful situation
+    public float lowOxygenThreshold = 40f;          // inclusive threshold on which player starts losing sanity due to low oxygen
 
     // private variables
     int maxSanity = 100;                        // max sanity player can have
     float currSanity = 0;                       // remaining percent of player's sanity
+    float sanityLastFrame = 0;                  // variable storing player's sanity on the previous frame (used to control sanity replinishment)
     OxygenControl myOxygenControl;              // reference to player's oxygen control (sanity depletes when below O2 threshold)
     CircleCollider2D myProximityTrigger;        // reference to player's circle collider (used to deduct sanity when enemies/corruption are nearby)
 
@@ -48,6 +50,19 @@ public class SanityControl : MonoBehaviour
 
         // reduce sanity by rate if player lacks oxygen
         DeductSanity((myOxygenControl.CurrentOxygen <= lowOxygenThreshold) ? (sanityReductionRate * Time.deltaTime) : 0);
+
+        // if player hasn't undergone things causing stress, replinish sanity by rate
+        if (currSanity >= sanityLastFrame)
+            ReplinishSanity(sanityReplinishmentRate * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Called once per frame after Update() finishes
+    /// </summary>
+    void LateUpdate()
+    {
+        // store sanity of previous frame
+        sanityLastFrame = currSanity;
     }
 
     /// <summary>
@@ -79,9 +94,9 @@ public class SanityControl : MonoBehaviour
     /// max sanity (i.e, perfect mental health)
     /// </summary>
     /// <param name="sanityGained">amount of sanity gained</param>
-    void AddSanity(float sanityGained)
+    void ReplinishSanity(float sanityGained)
     {
-        currSanity += Mathf.Min(100, currSanity + sanityGained);
+        currSanity = Mathf.Min(100, currSanity + sanityGained);
     }
 
     #endregion
