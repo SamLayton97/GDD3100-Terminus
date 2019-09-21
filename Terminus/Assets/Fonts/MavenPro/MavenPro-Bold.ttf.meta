@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 5417b67b739c119428d98e50e522f3c9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Maven Pro
+  fontNames:
+  - Maven Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8a9d6ef86a06f4d41a8c6aaac6f2a14c, type: 3}
+  - {fileID: 12800000, guid: 2246284c424f7574ea3ed9ab7e9102f4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
