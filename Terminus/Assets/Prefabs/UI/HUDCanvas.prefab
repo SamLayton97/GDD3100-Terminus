@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5708026808090007300}
   - component: {fileID: 2058825928080415210}
   - component: {fileID: 8770736216679081627}
+  - component: {fileID: 5486284560047903474}
   m_Layer: 5
   m_Name: SanityMeter
   m_TagString: Untagged
@@ -227,6 +228,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5486284560047903474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648690922690143896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffff653cb232ae4f83a7c1d80f8ba4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRectTransform: {fileID: 3881650801070519185}
 --- !u!1 &5147488739732658536
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +482,7 @@ GameObject:
   - component: {fileID: 6516349311756975263}
   - component: {fileID: 6516349311756975261}
   - component: {fileID: 6516349311756975262}
+  - component: {fileID: 2571256868291075073}
   m_Layer: 5
   m_Name: O2Meter
   m_TagString: Untagged
@@ -533,6 +548,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2571256868291075073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516349311756975256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f4c67fde784d545ba40bf4ea72cf9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRectTransform: {fileID: 6516349311772032400}
 --- !u!1 &6516349311772032401
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +572,6 @@ GameObject:
   - component: {fileID: 6516349311772032400}
   - component: {fileID: 6516349311772032406}
   - component: {fileID: 6516349311772032407}
-  - component: {fileID: 9060436605559475111}
   m_Layer: 5
   m_Name: O2GuageFill
   m_TagString: Untagged
@@ -609,19 +636,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9060436605559475111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6516349311772032401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f4c67fde784d545ba40bf4ea72cf9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myRectTransform: {fileID: 6516349311772032400}
 --- !u!1 &6516349312516800295
 GameObject:
   m_ObjectHideFlags: 0
