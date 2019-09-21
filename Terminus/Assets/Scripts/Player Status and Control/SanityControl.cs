@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Manages sanity depletion and re-gain of agent, 
-/// including (TODO) hallucinations and player death
+/// including (FUTURE ITERATIONS) hallucinations and player death
 /// </summary>
 [RequireComponent(typeof(OxygenControl))]
 [RequireComponent(typeof(CircleCollider2D))]
