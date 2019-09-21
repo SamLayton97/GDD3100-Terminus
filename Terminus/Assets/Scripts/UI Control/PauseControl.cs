@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Pauses/unpauses game on user input
 /// </summary>
-public class PauseControl : MonoBehaviour
+public class PauseControl : SceneTransitioner
 {
     // public variables
     public KeyCode pauseKey = KeyCode.Escape;           // key to pause/unpause game
