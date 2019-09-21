@@ -20,6 +20,8 @@ public class SanityControl : MonoBehaviour
     OxygenControl myOxygenControl;              // reference to player's oxygen control (sanity depletes when below O2 threshold)
     CircleCollider2D myProximityTrigger;        // reference to player's circle collider (used to deduct sanity when enemies/corruption are nearby)
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -58,6 +60,10 @@ public class SanityControl : MonoBehaviour
             DeductSanity(sanityReductionRate * Time.deltaTime);
     }
 
+    #endregion
+
+    #region Private Methods
+
     /// <summary>
     /// "Maddens" player by set amount, stopping at 0
     /// (i.e., totally insane)
@@ -67,4 +73,17 @@ public class SanityControl : MonoBehaviour
     {
         currSanity = Mathf.Max(0, currSanity - sanityLost);
     }
+
+    /// <summary>
+    /// Increases player's sanity by set amount, stopping at
+    /// max sanity (i.e, perfect mental health)
+    /// </summary>
+    /// <param name="sanityGained">amount of sanity gained</param>
+    void AddSanity(float sanityGained)
+    {
+        currSanity += Mathf.Min(100, currSanity + sanityGained);
+    }
+
+    #endregion
+
 }

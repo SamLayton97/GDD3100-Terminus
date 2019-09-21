@@ -64,6 +64,7 @@ public class OxygenControl : SceneTransitioner
     void RefillO2Tank(float amountRefilled)
     {
         currOxygen = Mathf.Min(maxOxygen, currOxygen + amountRefilled);
+        updateO2Event.Invoke(currOxygen);
     }
 
     /// <summary>
