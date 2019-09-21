@@ -34,6 +34,32 @@ public static class EventManager
 
     #endregion
 
+    #region Update Sanity Gauge
+
+    // declare lists to hold invokers and listeners to update sanity display event
+    static List<SanityControl> updateSanityInvokers = new List<SanityControl>();
+    static List<UnityAction<float>> updateSanityListeners = new List<UnityAction<float>>();
+
+    // Adds given sanity controller as invoker of update sanity event
+    public static void AddUpdateSanityInvoker(SanityControl invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        updateSanityInvokers.Add(invoker);
+        foreach (UnityAction<float> listener in updateSanityListeners)
+            invoker.AddUpdateSanityListener(listener);
+    }
+
+    // Adds given method as listener to update sanity event
+    public static void AddUpdateSanityListener(UnityAction<float> listener)
+    {
+        // adds listener to list and to all invokers of event
+        updateSanityListeners.Add(listener);
+        foreach (SanityControl invoker in updateSanityInvokers)
+            invoker.AddUpdateSanityListener(listener);
+    }
+
+    #endregion
+
     #region Refill Player O2
 
     // declare lists to hold invokers and listeners to refill player O2 event

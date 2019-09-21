@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Manages sanity depletion and re-gain of agent, 
@@ -16,11 +17,14 @@ public class SanityControl : MonoBehaviour
     public float lowOxygenThreshold = 40f;          // inclusive threshold on which player starts losing sanity due to low oxygen
 
     // private variables
-    int maxSanity = 100;                        // max sanity player can have
-    float currSanity = 0;                       // remaining percent of player's sanity
-    float sanityLastFrame = 0;                  // variable storing player's sanity on the previous frame (used to control sanity replinishment)
-    OxygenControl myOxygenControl;              // reference to player's oxygen control (sanity depletes when below O2 threshold)
-    CircleCollider2D myProximityTrigger;        // reference to player's circle collider (used to deduct sanity when enemies/corruption are nearby)
+    int maxSanity = 100;                            // max sanity player can have
+    float currSanity = 0;                           // remaining percent of player's sanity
+    float sanityLastFrame = 0;                      // variable storing player's sanity on the previous frame (used to control sanity replinishment)
+    OxygenControl myOxygenControl;                  // reference to player's oxygen control (sanity depletes when below O2 threshold)
+    CircleCollider2D myProximityTrigger;            // reference to player's circle collider (used to deduct sanity when enemies/corruption are nearby)
+
+    // event support
+    UpdateSanityDisplayEvent updateDisplayEvent;    // event invoked to update UI corresponding to player's sanity
 
     #region Unity Methods
 
@@ -38,6 +42,10 @@ public class SanityControl : MonoBehaviour
     /// </summary>
     void Start()
     {
+        // add self as invoker of relevant events
+        updateDisplayEvent = new UpdateSanityDisplayEvent();
+        EventManager.AddUpdateSanityInvoker(this);
+
         // initialize player with full sanity
         currSanity = maxSanity;
     }
@@ -97,6 +105,19 @@ public class SanityControl : MonoBehaviour
     void ReplinishSanity(float sanityGained)
     {
         currSanity = Mathf.Min(100, currSanity + sanityGained);
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Adds a given method as a listener for the update sanity display event
+    /// </summary>
+    /// <param name="newListener"></param>
+    public void AddUpdateSanityListener(UnityAction<float> newListener)
+    {
+        updateDisplayEvent.AddListener(newListener);
     }
 
     #endregion
