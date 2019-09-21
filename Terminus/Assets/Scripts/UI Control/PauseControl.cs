@@ -64,7 +64,7 @@ public class PauseControl : SceneTransitioner
     /// </summary>
     public void HandleExitOnClick()
     {
-        // TODO: return to main menu
-        Debug.Log("Return to main menu");
+        // return to main menu
+        transitionSceneEvent.Invoke(transitionTo[0]);
     }
 }

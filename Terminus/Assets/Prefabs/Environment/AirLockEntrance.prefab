@@ -120,4 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d74f615faa40a4798dadf49885008c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTo: PlayerWinScene
+  transitionTo:
+  - PlayerWinScene

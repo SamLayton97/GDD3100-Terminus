@@ -87,8 +87,9 @@ public class OxygenControl : SceneTransitioner
     /// </summary>
     void KillPlayer()
     {
+        Debug.Log(transitionTo[0]);
         // elect to transition to player death scene
-        transitionSceneEvent.Invoke(transitionTo);
+        transitionSceneEvent.Invoke(transitionTo[0]);
     }
 
     #endregion

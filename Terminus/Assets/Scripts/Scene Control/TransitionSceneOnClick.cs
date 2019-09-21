@@ -14,6 +14,6 @@ public class TransitionSceneOnClick : SceneTransitioner
     /// </summary>
     public void HandleClickEvent()
     {
-        transitionSceneEvent.Invoke(transitionTo);
+        transitionSceneEvent.Invoke(transitionTo[0]);
     }
 }

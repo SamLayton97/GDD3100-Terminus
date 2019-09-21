@@ -30,6 +30,6 @@ public class TransitionSceneCollisionTrigger : SceneTransitioner
     {
         // if object is on Player layer
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-            transitionSceneEvent.Invoke(transitionTo);
+            transitionSceneEvent.Invoke(transitionTo[0]);
     }
 }

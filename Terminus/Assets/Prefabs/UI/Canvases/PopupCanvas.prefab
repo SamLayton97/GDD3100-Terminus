@@ -188,6 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1eb22a9cdadf644b40503bd1030eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionTo:
+  - TitleScene
+  pauseKey: 27
   darkenGameOnPause: {fileID: 4573737062008034848}
   pauseMenu: {fileID: 4555135152653625899}
 --- !u!1001 &3265519894997871530

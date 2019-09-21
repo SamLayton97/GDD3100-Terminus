@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityReductionRate: 0.5
+  sanityReplinishmentRate: 0.1
   lowOxygenThreshold: 40
 --- !u!114 &4954093395389413554
 MonoBehaviour:
@@ -127,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41d1a1ac06a28247a959ec7dd250195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTo: PlayerDeathScene
+  transitionTo:
+  - PlayerDeathScene
   oxygenDepletionRate: 1
 --- !u!61 &990504837926636998
 BoxCollider2D:
