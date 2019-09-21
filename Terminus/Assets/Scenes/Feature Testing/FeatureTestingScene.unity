@@ -331,6 +331,16 @@ PrefabInstance:
       propertyPath: lowOxygenThreshold
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 8960123665775934092, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
+        type: 3}
+      propertyPath: sanityReductionRate
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960123665775934092, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
+        type: 3}
+      propertyPath: sanityReplinishmentRate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1, type: 3}
 --- !u!4 &232050118 stripped
@@ -345,7 +355,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 797951039}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &262103684
+--- !u!114 &262103687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -357,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f4c67fde784d545ba40bf4ea72cf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guageMeter: {fileID: 0}
+  myRectTransform: {fileID: 0}
 --- !u!1001 &388867719
 PrefabInstance:
   m_ObjectHideFlags: 0

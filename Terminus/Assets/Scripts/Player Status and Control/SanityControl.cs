@@ -95,6 +95,7 @@ public class SanityControl : MonoBehaviour
     void DeductSanity(float sanityLost)
     {
         currSanity = Mathf.Max(0, currSanity - sanityLost);
+        updateDisplayEvent.Invoke(currSanity);
     }
 
     /// <summary>
@@ -105,6 +106,7 @@ public class SanityControl : MonoBehaviour
     void ReplinishSanity(float sanityGained)
     {
         currSanity = Mathf.Min(100, currSanity + sanityGained);
+        updateDisplayEvent.Invoke(currSanity);
     }
 
     #endregion
