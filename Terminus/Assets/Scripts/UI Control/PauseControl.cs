@@ -25,6 +25,16 @@ public class PauseControl : MonoBehaviour
             darkenGameOnPause.SetActive(true);
             pauseMenu.SetActive(true);
         }
+        // but if user attempts to unpause game and game is paused
+        else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0)
+        {
+            // disable pause menu components
+            darkenGameOnPause.SetActive(false);
+            pauseMenu.SetActive(false);
+
+            // unfreeze game
+            Time.timeScale = 1;
+        }
     }
 
     /// <summary>
@@ -32,15 +42,12 @@ public class PauseControl : MonoBehaviour
     /// </summary>
     public void HandleResumeOnClick()
     {
-        Debug.Log("Getting called");
-
         // disable pause menu components
         darkenGameOnPause.SetActive(false);
         pauseMenu.SetActive(false);
 
         // unfreeze game
         Time.timeScale = 1;
-        Debug.Log(Time.timeScale);
     }
 
     /// <summary>
