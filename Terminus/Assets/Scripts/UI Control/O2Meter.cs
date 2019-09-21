@@ -16,9 +16,9 @@ public class O2Meter : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        // if not set prior to launch, retrieve O2 meter image from child
+        // if not set prior to launch, retrieve O2 meter image component
         if (guageMeter == null)
-            guageMeter = GetComponentInChildren<RectTransform>();
+            guageMeter = GetComponent<RectTransform>();
     }
 
     /// <summary>
