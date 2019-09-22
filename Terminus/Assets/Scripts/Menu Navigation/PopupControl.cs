@@ -134,6 +134,7 @@ public class PopupControl : SceneTransitioner
     {
         // reload current scene
         transitionSceneEvent.Invoke(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 
     /// <summary>
@@ -143,6 +144,7 @@ public class PopupControl : SceneTransitioner
     {
         // move forward to next pre-defined scene
         transitionSceneEvent.Invoke(transitionTo[0]);
+        Time.timeScale = 1;
     }
 
     #endregion
