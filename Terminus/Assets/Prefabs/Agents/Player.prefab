@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc78949a77b1804682808849f5b8a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
+  rotationSpeed: 0.1
 --- !u!114 &8960123665775934092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8bf71386b00374e8bd88d6a16d46ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityReductionRate: 0.5
-  sanityReplinishmentRate: 0.1
+  sanityReductionRate: 1.7
+  sanityReplinishmentRate: 1
   lowOxygenThreshold: 40
 --- !u!114 &4954093395389413554
 MonoBehaviour:
