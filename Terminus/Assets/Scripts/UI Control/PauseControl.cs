@@ -37,8 +37,9 @@ public class PauseControl : SceneTransitioner
         // if user attempts to pause game and game is not already paused
         if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0)
         {
-            // freeze game
+            // pause game
             Time.timeScale = 0;
+            togglePauseEvent.Invoke(true);
 
             // enable pause menu components
             darkenGameOnPause.SetActive(true);
@@ -52,8 +53,9 @@ public class PauseControl : SceneTransitioner
             pauseMenu.SetActive(false);
             instructionsMenu.SetActive(false);
 
-            // unfreeze game
+            // unpause game
             Time.timeScale = 1;
+            togglePauseEvent.Invoke(false);
         }
     }
 
@@ -70,8 +72,9 @@ public class PauseControl : SceneTransitioner
         darkenGameOnPause.SetActive(false);
         pauseMenu.SetActive(false);
 
-        // unfreeze game
+        // unpause game
         Time.timeScale = 1;
+        togglePauseEvent.Invoke(false);
     }
 
     /// <summary>
@@ -102,6 +105,7 @@ public class PauseControl : SceneTransitioner
     {
         // return to main menu
         transitionSceneEvent.Invoke(transitionTo[0]);
+        Time.timeScale = 1;
     }
 
     /// <summary>
