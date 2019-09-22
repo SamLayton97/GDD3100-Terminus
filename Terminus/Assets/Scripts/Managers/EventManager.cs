@@ -164,4 +164,30 @@ public static class EventManager
 
     #endregion
 
+    #region End Level
+
+    // declare lists to hold invokers and listeners to end level event
+    static List<LevelEnder> endLevelInvokers = new List<LevelEnder>();
+    static List<UnityAction<bool, float>> endLevelListeners = new List<UnityAction<bool, float>>();
+
+    // Adds given level ender as invoker of end level event
+    public static void AddEndLevelInvoker(LevelEnder invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        endLevelInvokers.Add(invoker);
+        foreach (UnityAction<bool, float> listener in endLevelListeners)
+            invoker.AddEndLevelListener(listener);
+    }
+
+    // Adds given method as listener to end level event
+    public static void AddEndLevelListener(UnityAction<bool, float> listener)
+    {
+        // adds listener to list and to all invokers of event
+        endLevelListeners.Add(listener);
+        foreach (LevelEnder invoker in endLevelInvokers)
+            invoker.AddEndLevelListener(listener);
+    }
+
+    #endregion
+
 }

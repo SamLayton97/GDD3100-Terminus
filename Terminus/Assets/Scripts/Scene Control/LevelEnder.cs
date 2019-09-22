@@ -17,9 +17,9 @@ public abstract class LevelEnder : MonoBehaviour
     /// </summary>
     protected void Start()
     {
-        // TODO: add self as invoker of End Level event
+        // add self as invoker of End Level event
         endLevelEvent = new EndLevelEvent();
-
+        EventManager.AddEndLevelInvoker(this);
     }
 
     /// <summary>
