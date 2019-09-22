@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Pauses/unpauses game on user input
@@ -12,6 +13,22 @@ public class PauseControl : SceneTransitioner
     public GameObject darkenGameOnPause;                // semi-transparent panel covering game when paused
     public GameObject pauseMenu;                        // pop-up pause menu
     public GameObject instructionsMenu;                 // in-game controls menu
+
+    // event support
+    TogglePauseEvent togglePauseEvent;
+
+    #region Unity Methods
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    protected override void Start()
+    {
+        base.Start();
+
+        // TODO: add self as invoker of toggle pause event
+        togglePauseEvent = new TogglePauseEvent();
+    }
 
     // Update is called once per frame
     void Update()
@@ -38,6 +55,10 @@ public class PauseControl : SceneTransitioner
             Time.timeScale = 1;
         }
     }
+
+    #endregion
+
+    #region Public Methods
 
     /// <summary>
     /// Handles when user clicks the "Resume" button
@@ -81,4 +102,16 @@ public class PauseControl : SceneTransitioner
         // return to main menu
         transitionSceneEvent.Invoke(transitionTo[0]);
     }
+
+    /// <summary>
+    /// Adds given method as listener of toggle pause event
+    /// </summary>
+    /// <param name="newListener">listener of event</param>
+    public void AddTogglePauseListener(UnityAction<bool> newListener)
+    {
+        togglePauseEvent.AddListener(newListener);
+    }
+
+    #endregion
+
 }
