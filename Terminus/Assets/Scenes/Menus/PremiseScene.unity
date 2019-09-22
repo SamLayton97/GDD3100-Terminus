@@ -455,6 +455,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7627337407042196286, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -18.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627337407042196286, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 398.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 615405147948018932, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_Text
+      value: Fight Back!
+      objectReference: {fileID: 0}
+    - target: {fileID: 499084689570247058, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 499084689570247058, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 384.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804827513322305116, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_Text
+      value: Cower In Fear
+      objectReference: {fileID: 0}
     - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
         type: 3}
       propertyPath: m_Color.r
