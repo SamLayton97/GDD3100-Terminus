@@ -141,11 +141,11 @@ public static class EventManager
     #region Toggle Pause
 
     // declare lists to hold invokers and listeners to toggle pause event
-    static List<PauseControl> togglePauseInvokers = new List<PauseControl>();
+    static List<PopupControl> togglePauseInvokers = new List<PopupControl>();
     static List<UnityAction<bool>> togglePauseListeners = new List<UnityAction<bool>>();
 
     // Adds given pause controller as invoker of toggle pause event
-    public static void AddTogglePauseInvoker(PauseControl invoker)
+    public static void AddTogglePauseInvoker(PopupControl invoker)
     {
         // adds invoker to list and adds all listeners to this invoker
         togglePauseInvokers.Add(invoker);
@@ -158,7 +158,7 @@ public static class EventManager
     {
         // adds listener to list and to all invokers of event
         togglePauseListeners.Add(listener);
-        foreach (PauseControl invoker in togglePauseInvokers)
+        foreach (PopupControl invoker in togglePauseInvokers)
             invoker.AddTogglePauseListener(listener);
     }
 

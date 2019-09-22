@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Pauses/unpauses game on user input
+/// Pauses/unpauses game on user input/level completion events
 /// </summary>
-public class PauseControl : SceneTransitioner
+public class PopupControl : SceneTransitioner
 {
     // public variables
     public KeyCode pauseKey = KeyCode.Escape;           // key to pause/unpause game
     public GameObject darkenGameOnPause;                // semi-transparent panel covering game when paused
     public GameObject pauseMenu;                        // pop-up pause menu
     public GameObject instructionsMenu;                 // in-game controls menu
+    public GameObject endOfLevelMenu;                   // menu displayed when user completes a level
 
     // event support
     TogglePauseEvent togglePauseEvent;
@@ -63,6 +65,8 @@ public class PauseControl : SceneTransitioner
 
     #region Public Methods
 
+    #region Pause Menu Methods
+
     /// <summary>
     /// Handles when user clicks the "Resume" button
     /// </summary>
@@ -107,6 +111,30 @@ public class PauseControl : SceneTransitioner
         transitionSceneEvent.Invoke(transitionTo[0]);
         Time.timeScale = 1;
     }
+
+    #endregion
+
+    #region End Of Level Menu Buttons
+
+    /// <summary>
+    /// Handles when user clicks retry button
+    /// </summary>
+    public void HandleRetryOnClick()
+    {
+        // reload current scene
+        transitionSceneEvent.Invoke(SceneManager.GetActiveScene().name);
+    }
+
+    /// <summary>
+    /// Handles when user clicks proceed button
+    /// </summary>
+    public void HandleProceedOnClick()
+    {
+        // move forward to next pre-defined scene
+        transitionSceneEvent.Invoke(transitionTo[0]);
+    }
+
+    #endregion
 
     /// <summary>
     /// Adds given method as listener of toggle pause event

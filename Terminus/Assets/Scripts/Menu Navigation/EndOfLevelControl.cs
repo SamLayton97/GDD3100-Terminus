@@ -14,11 +14,12 @@ public class EndOfLevelControl : SceneTransitioner
     public GameObject darkenGameOnPause;                // semi-transparent panel covering game when paused
     public GameObject endOfLevelMenu;                   // menu shown when user ends a level
 
-
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Called before first frame Update()
+    /// </summary>
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
     /// <summary>
