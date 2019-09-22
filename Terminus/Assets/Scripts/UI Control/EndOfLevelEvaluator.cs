@@ -10,23 +10,34 @@ using UnityEngine.UI;
 public class EndOfLevelEvaluator : MonoBehaviour
 {
     // public variables
-    public Sprite emptyStar;            // default star icon displayed when player fails to meet necessary threshold
-    public Color emptyStarColor;        // color of an unfilled star icon
     public Sprite filledStar;           // star icon awared to player when they meet necessary success threshold
     public Color filledStarColor;       // color of filled star icon (usually brighter than unfilled color)
 
     // evaluation panel elements
     public Image[] stars;               // array of stars players can earn for good performance
 
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Evaluates player according to their remaining sanity
+    /// </summary>
+    /// <param name="remainingSanity">percentage of sanity player has 
+    /// when they end level</param>
+    public void Evaluate(float remainingSanity)
     {
-        
-    }
+        // determine number of stars earned
+        int starsEarned = 0;
+        if (remainingSanity >= 75)
+            starsEarned = 3;
+        else if (remainingSanity >= 40)
+            starsEarned = 2;
+        else if (remainingSanity > 0)
+            starsEarned = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // set image and color of stars player earned
+        for (int i = 0; i < starsEarned; i++)
+        {
+            stars[i].sprite = filledStar;
+            stars[i].color = filledStarColor;
+        }
+
     }
 }

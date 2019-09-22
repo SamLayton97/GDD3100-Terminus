@@ -25,10 +25,21 @@ public class PopupControl : SceneTransitioner
     public string endedInFailureText = "You Died";          // text displayed when user fails level
     public Color failureTextColor;                          // color of text when user fails level
 
+    // private variables
+    EndOfLevelEvaluator myEoLEvaluator;                 // component used to evaluate and represent player's performance
+
     // event support
     TogglePauseEvent togglePauseEvent;
 
     #region Unity Methods
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        myEoLEvaluator = GetComponent<EndOfLevelEvaluator>();
+    }
 
     /// <summary>
     /// Used for initialization
@@ -170,8 +181,6 @@ public class PopupControl : SceneTransitioner
     /// <param name="remainingSanity">player's sanity at end of level</param>
     void HandleEndLevel(bool endedInSuccess, float remainingSanity)
     {
-        Debug.Log("end in " + (endedInSuccess ? "success" : "failure") + " with " + remainingSanity + " remaining sanity.");
-
         // hide UI elements, only freezing game on success
         togglePauseEvent.Invoke(true);
         if (endedInSuccess)
@@ -184,6 +193,9 @@ public class PopupControl : SceneTransitioner
         // set end-of-level popup components to reflect player's success status
         endOfLevelStatus.text = (endedInSuccess ? endedInSuccessText : endedInFailureText);
         endOfLevelStatus.color = (endedInSuccess ? successTextColor : failureTextColor);
+
+        // evaluate player's performance
+        myEoLEvaluator.Evaluate(remainingSanity);
     }
 
     #endregion
