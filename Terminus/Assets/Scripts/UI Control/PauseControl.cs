@@ -11,6 +11,7 @@ public class PauseControl : SceneTransitioner
     public KeyCode pauseKey = KeyCode.Escape;           // key to pause/unpause game
     public GameObject darkenGameOnPause;                // semi-transparent panel covering game when paused
     public GameObject pauseMenu;                        // pop-up pause menu
+    public GameObject instructionsMenu;                 // in-game controls menu
 
     // Update is called once per frame
     void Update()
@@ -31,6 +32,7 @@ public class PauseControl : SceneTransitioner
             // disable pause menu components
             darkenGameOnPause.SetActive(false);
             pauseMenu.SetActive(false);
+            instructionsMenu.SetActive(false);
 
             // unfreeze game
             Time.timeScale = 1;
@@ -55,9 +57,9 @@ public class PauseControl : SceneTransitioner
     /// </summary>
     public void HandleControlsOnClick()
     {
-        // TODO: remove pause menu and display control scheme
+        // remove pause menu and display control scheme
         pauseMenu.SetActive(false);
-
+        instructionsMenu.SetActive(true);
     }
 
     /// <summary>
