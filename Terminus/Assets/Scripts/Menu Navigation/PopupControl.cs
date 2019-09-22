@@ -160,6 +160,13 @@ public class PopupControl : SceneTransitioner
     void HandleEndLevel(bool endedInSuccess, float remainingSanity)
     {
         Debug.Log("end: " + endedInSuccess);
+
+        // hide UI elements without actually pausing game
+        togglePauseEvent.Invoke(true);
+
+        // enable end-of-level menu components
+        darkenGameOnPause.SetActive(true);
+        endOfLevelMenu.SetActive(true);
     }
 
     #endregion

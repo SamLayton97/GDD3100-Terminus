@@ -6662,24 +6662,6 @@ MonoBehaviour:
   minVelocityToDamage: 10
   damageScalar: 1
   damageConstant: 0
---- !u!1 &546217683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8477516771413050569, guid: 3481f32115650e440b38c859077c7d4d,
-    type: 3}
-  m_PrefabInstance: {fileID: 670051989}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &546217684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546217683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b243470c50a687647ae7ea3c79b6ad7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &670051989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6796,6 +6778,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661976756363619960, guid: 3481f32115650e440b38c859077c7d4d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488844018024039375, guid: 3481f32115650e440b38c859077c7d4d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -139.91797
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809740662163637676, guid: 3481f32115650e440b38c859077c7d4d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 139.91797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3481f32115650e440b38c859077c7d4d, type: 3}
