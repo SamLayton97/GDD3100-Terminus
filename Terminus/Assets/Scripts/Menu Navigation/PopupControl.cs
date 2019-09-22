@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Pauses/unpauses game on user input/level completion events
@@ -15,6 +16,13 @@ public class PopupControl : SceneTransitioner
     public GameObject pauseMenu;                        // pop-up pause menu
     public GameObject instructionsMenu;                 // in-game controls menu
     public GameObject endOfLevelMenu;                   // menu displayed when user completes a level
+
+    // end-of-level component variables
+    public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
+    public string endedInSuccessText = "Level Complete";    // text displayed when user completes level
+    public Color successTextColor;                          // color of text when user completes level
+    public string endedInFailureText = "You Died";          // text displayed when user fails level
+    public Color failureTextColor;                          // color of text when user fails level
 
     // event support
     TogglePauseEvent togglePauseEvent;
@@ -169,6 +177,10 @@ public class PopupControl : SceneTransitioner
         // enable end-of-level menu components
         darkenGameOnPause.SetActive(true);
         endOfLevelMenu.SetActive(true);
+
+        // set end-of-level popup components to reflect player's success status
+        endOfLevelStatus.text = (endedInSuccess ? endedInSuccessText : endedInFailureText);
+        endOfLevelStatus.color = (endedInSuccess ? successTextColor : failureTextColor);
     }
 
     #endregion

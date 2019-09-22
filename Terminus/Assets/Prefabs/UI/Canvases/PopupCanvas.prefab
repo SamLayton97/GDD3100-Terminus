@@ -1347,6 +1347,11 @@ MonoBehaviour:
   pauseMenu: {fileID: 4555135152653625899}
   instructionsMenu: {fileID: 6934237216926026752}
   endOfLevelMenu: {fileID: 3436701447828792399}
+  endOfLevelStatus: {fileID: 5343321259584970825}
+  endedInSuccessText: Level Complete
+  successTextColor: {r: 0.33333334, g: 0.7921569, b: 0.94509804, a: 1}
+  endedInFailureText: You Died
+  failureTextColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8714546638411612432
 GameObject:
   m_ObjectHideFlags: 0
