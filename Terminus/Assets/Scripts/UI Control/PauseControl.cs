@@ -56,7 +56,8 @@ public class PauseControl : SceneTransitioner
     public void HandleControlsOnClick()
     {
         // TODO: remove pause menu and display control scheme
-        Debug.Log("Display Controls");
+        pauseMenu.SetActive(false);
+
     }
 
     /// <summary>
