@@ -7,14 +7,15 @@ using UnityEngine;
 /// the narrative-driven menus, typically moving
 /// forward to something or back.
 /// </summary>
-public class NarrativeMenuNavigation : MonoBehaviour
+public class NarrativeMenuNavigation : SceneTransitioner
 {
     /// <summary>
     /// Handles when player clicks the "Return" button
     /// </summary>
     public void ReturnButtonOnClick()
     {
-
+        // move back a scene
+        transitionSceneEvent.Invoke(transitionTo[0]);
     }
 
     /// <summary>
@@ -22,6 +23,7 @@ public class NarrativeMenuNavigation : MonoBehaviour
     /// </summary>
     public void ProceedButtonOnClick()
     {
-
+        // move forward a scene
+        transitionSceneEvent.Invoke(transitionTo[1]);
     }
 }
