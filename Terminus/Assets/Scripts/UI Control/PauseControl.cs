@@ -57,9 +57,20 @@ public class PauseControl : SceneTransitioner
     /// </summary>
     public void HandleControlsOnClick()
     {
-        // remove pause menu and display control scheme
+        // remove pause menu and display instructions
         pauseMenu.SetActive(false);
         instructionsMenu.SetActive(true);
+    }
+
+    /// <summary>
+    /// Handles when user clicks the "Close" button on
+    /// the in-game instructions page
+    /// </summary>
+    public void HandleCloseInstructionsOnClick()
+    {
+        // remove instructions and display pause menu
+        instructionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     /// <summary>
