@@ -15,6 +15,9 @@ public class EndOfLevelEvaluator : MonoBehaviour
     public Sprite filledStar;           // star icon awared to player when they meet necessary success threshold
     public Color filledStarColor;       // color of filled star icon (usually brighter than unfilled color)
 
+    // evaluation panel elements
+    public Image[] stars;               // array of stars players can earn for good performance
+
     // Start is called before the first frame update
     void Start()
     {

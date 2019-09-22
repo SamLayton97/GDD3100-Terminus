@@ -1369,6 +1369,10 @@ MonoBehaviour:
   emptyStarColor: {r: 0, g: 0.41568628, b: 0.09019608, a: 1}
   filledStar: {fileID: 21300000, guid: 6bff49505d9d8e34985fc2f1e739033b, type: 3}
   filledStarColor: {r: 0.29411766, g: 0.93333334, b: 0.4392157, a: 1}
+  stars:
+  - {fileID: 7342854562705720218}
+  - {fileID: 2664418959830637390}
+  - {fileID: 1212468198597228468}
 --- !u!1 &8714546638411612432
 GameObject:
   m_ObjectHideFlags: 0
