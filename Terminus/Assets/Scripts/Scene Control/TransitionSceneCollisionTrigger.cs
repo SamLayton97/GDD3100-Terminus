@@ -28,8 +28,8 @@ public class TransitionSceneCollisionTrigger : SceneTransitioner
     /// <param name="other">other object in collision</param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if object is on Player layer
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        // if object is on Player layer and player's non-trigger collider met with air lock
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !other.isTrigger)
             transitionSceneEvent.Invoke(transitionTo[0]);
     }
 }
