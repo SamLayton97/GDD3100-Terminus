@@ -185,8 +185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 417, y: 0}
+  m_AnchoredPosition: {x: 31.7, y: 0}
+  m_SizeDelta: {x: 385.3, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7362967571401360838
 CanvasRenderer:
@@ -229,7 +229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return
+  m_Text: Cower In Fear
 --- !u!1 &2596612074130725808
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return
+  m_Text: Fight Back
 --- !u!1 &8095834683292436326
 GameObject:
   m_ObjectHideFlags: 0
