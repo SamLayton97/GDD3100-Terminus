@@ -1238,6 +1238,7 @@ GameObject:
   - component: {fileID: 8477516771413050571}
   - component: {fileID: 8477516771413050570}
   - component: {fileID: 7667080687060625682}
+  - component: {fileID: 4624421015317549317}
   m_Layer: 5
   m_Name: PopupCanvas
   m_TagString: Untagged
@@ -1352,6 +1353,22 @@ MonoBehaviour:
   successTextColor: {r: 0.33333334, g: 0.7921569, b: 0.94509804, a: 1}
   endedInFailureText: You Died
   failureTextColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &4624421015317549317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8477516771413050569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcceec46c10e6ab4f905964735339278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyStar: {fileID: 21300000, guid: 042a94968149b6640bef8c98ad9a523f, type: 3}
+  emptyStarColor: {r: 0, g: 0.41568628, b: 0.09019608, a: 1}
+  filledStar: {fileID: 21300000, guid: 6bff49505d9d8e34985fc2f1e739033b, type: 3}
+  filledStarColor: {r: 0.29411766, g: 0.93333334, b: 0.4392157, a: 1}
 --- !u!1 &8714546638411612432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,15 +2193,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284f515526291c944be5895a4c11d490, type: 3}
---- !u!1 &6934237216926026752 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4208276387217384109, guid: 284f515526291c944be5895a4c11d490,
-    type: 3}
-  m_PrefabInstance: {fileID: 6511520141131050669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &661976756363619960 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6012940246553231573, guid: 284f515526291c944be5895a4c11d490,
+    type: 3}
+  m_PrefabInstance: {fileID: 6511520141131050669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6934237216926026752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4208276387217384109, guid: 284f515526291c944be5895a4c11d490,
     type: 3}
   m_PrefabInstance: {fileID: 6511520141131050669}
   m_PrefabAsset: {fileID: 0}

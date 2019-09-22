@@ -8,6 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Pauses/unpauses game on user input/level completion events
 /// </summary>
+[RequireComponent(typeof(EndOfLevelEvaluator))]
 public class PopupControl : SceneTransitioner
 {
     // public variables
