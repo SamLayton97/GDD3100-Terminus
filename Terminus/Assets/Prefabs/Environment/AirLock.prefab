@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 7043218121137826208}
   - component: {fileID: 7043218121137826209}
   - component: {fileID: 3822860208735358186}
-  - component: {fileID: 4913066898066501741}
+  - component: {fileID: 4027782433406088629}
   m_Layer: 13
   m_Name: AirLock
   m_TagString: Untagged
@@ -351,7 +351,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.20941734}
   m_EdgeRadius: 0
---- !u!114 &4913066898066501741
+--- !u!114 &4027782433406088629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,8 +360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7043218121137826214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d74f615faa40a4798dadf49885008c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c26f83928ad2944c8d07c155a85875f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTo:
-  - PlayerWinScene
+  successOnCollision: 1

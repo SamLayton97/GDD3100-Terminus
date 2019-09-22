@@ -159,7 +159,7 @@ public class PopupControl : SceneTransitioner
     /// <param name="remainingSanity">player's sanity at end of level</param>
     void HandleEndLevel(bool endedInSuccess, float remainingSanity)
     {
-        Debug.Log("end: " + endedInSuccess);
+        Debug.Log("end in " + (endedInSuccess ? "success" : "failure"));
 
         // hide UI elements without actually pausing game
         togglePauseEvent.Invoke(true);

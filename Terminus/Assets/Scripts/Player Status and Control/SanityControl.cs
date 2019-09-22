@@ -26,6 +26,15 @@ public class SanityControl : MonoBehaviour
     // event support
     UpdateSanityDisplayEvent updateDisplayEvent;    // event invoked to update UI corresponding to player's sanity
 
+    /// <summary>
+    /// Property with read-access returning player's
+    /// current sanity
+    /// </summary>
+    public float CurrentSanity
+    {
+        get { return currSanity; }
+    }
+
     #region Unity Methods
 
     /// <summary>
