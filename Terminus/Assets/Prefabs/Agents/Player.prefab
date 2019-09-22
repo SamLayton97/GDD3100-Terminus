@@ -128,9 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41d1a1ac06a28247a959ec7dd250195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTo:
-  - PlayerDeathScene
   oxygenDepletionRate: 1
+  deathColor: {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
 --- !u!61 &990504837926636998
 BoxCollider2D:
   m_ObjectHideFlags: 0

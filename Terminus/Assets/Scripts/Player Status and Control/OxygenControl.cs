@@ -6,14 +6,23 @@ using UnityEngine.Events;
 /// <summary>
 /// Manages oxygen depletion and re-gain of agent, including instances of player death
 /// </summary>
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(FaceMousePosition))]
+[RequireComponent(typeof(PlayerFire))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class OxygenControl : LevelEnder
 {
     // private variables
     int maxOxygen = 100;                    // total capacity of agent's oxygen tank
     float currOxygen = 0;                   // remaining percentage of agent's oxygen tank
+    SpriteRenderer mySpriteRenderer;        // object's sprite renderer component (used to control color of sprite)
+    FaceMousePosition myLook;               // player's look-input component (disabled on death)
+    PlayerFire myFire;                      // player's combat component (disabled on death)
+    CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
 
     // public variables
     public float oxygenDepletionRate = 1f;  // percent of oxygen used per second
+    public Color deathColor;                // color player's sprite transitions to on death
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -28,6 +37,18 @@ public class OxygenControl : LevelEnder
     }
 
     #region Unity Methods
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve necessary components
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myLook = GetComponent<FaceMousePosition>();
+        myFire = GetComponent<PlayerFire>();
+        myTriggerCollider = GetComponent<CircleCollider2D>();
+    }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -87,6 +108,12 @@ public class OxygenControl : LevelEnder
     /// </summary>
     void KillPlayer()
     {
+        // soft-disable player
+        mySpriteRenderer.color = deathColor;
+        myLook.enabled = false;
+        myFire.enabled = false;
+        myTriggerCollider.enabled = false;
+
         // invoking end level event with failure
         endLevelEvent.Invoke(false, 0);
     }
