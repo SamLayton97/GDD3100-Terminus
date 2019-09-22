@@ -1365,14 +1365,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcceec46c10e6ab4f905964735339278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyStar: {fileID: 21300000, guid: 042a94968149b6640bef8c98ad9a523f, type: 3}
-  emptyStarColor: {r: 0, g: 0.41568628, b: 0.09019608, a: 1}
   filledStar: {fileID: 21300000, guid: 6bff49505d9d8e34985fc2f1e739033b, type: 3}
   filledStarColor: {r: 0.29411766, g: 0.93333334, b: 0.4392157, a: 1}
   stars:
   - {fileID: 7342854562705720218}
   - {fileID: 2664418959830637390}
   - {fileID: 1212468198597228468}
+  realityLinkStatus: {fileID: 2965523577823880132}
+  realityLinkStatuses:
+  - Critical
+  - Danger
+  - Weak
+  - Strong
+  realityLinkTextColors:
+  - {r: 0.6509434, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.29411766, g: 0.93333334, b: 0.4392157, a: 1}
+  - {r: 0.33333334, g: 0.7921569, b: 0.94509804, a: 1}
 --- !u!1 &8714546638411612432
 GameObject:
   m_ObjectHideFlags: 0

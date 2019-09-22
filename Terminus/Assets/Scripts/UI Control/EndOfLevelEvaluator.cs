@@ -14,7 +14,10 @@ public class EndOfLevelEvaluator : MonoBehaviour
     public Color filledStarColor;       // color of filled star icon (usually brighter than unfilled color)
 
     // evaluation panel elements
-    public Image[] stars;               // array of stars players can earn for good performance
+    public Image[] stars;                   // array of stars players can earn for good performance
+    public Text realityLinkStatus;          // text-status of player's link with this reality
+    public string[] realityLinkStatuses;    // array of status messages indicating strength of player's link with reality
+    public Color[] realityLinkTextColors;   // array of colors to set reality link text to according to strength
 
     /// <summary>
     /// Evaluates player according to their remaining sanity
@@ -39,5 +42,8 @@ public class EndOfLevelEvaluator : MonoBehaviour
             stars[i].color = filledStarColor;
         }
 
+        // set reality link message according to stars earned
+        realityLinkStatus.text = realityLinkStatuses[starsEarned];
+        realityLinkStatus.color = realityLinkTextColors[starsEarned];
     }
 }
