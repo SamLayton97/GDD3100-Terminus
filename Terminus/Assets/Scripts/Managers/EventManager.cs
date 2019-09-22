@@ -118,7 +118,7 @@ public static class EventManager
     static List<SceneTransitioner> transitionSceneInvokers = new List<SceneTransitioner>();
     static List<UnityAction<string>> transitionSceneListeners = new List<UnityAction<string>>();
 
-    // Adds given Scene Transitioner invoker of Transition Scene Event
+    // Adds given Scene Transitioner as invoker of Transition Scene Event
     public static void AddTransitionSceneInvoker(SceneTransitioner invoker)
     {
         // adds invoker to list and adds all listeners to this invoker
@@ -137,4 +137,31 @@ public static class EventManager
     }
 
     #endregion
+
+    #region Toggle Pause
+
+    // declare lists to hold invokers and listeners to toggle pause event
+    static List<PauseControl> togglePauseInvokers = new List<PauseControl>();
+    static List<UnityAction<bool>> togglePauseListeners = new List<UnityAction<bool>>();
+
+    // Adds given pause controller as invoker of toggle pause event
+    public static void AddTogglePauseInvoker(PauseControl invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        togglePauseInvokers.Add(invoker);
+        foreach (UnityAction<bool> listener in togglePauseListeners)
+            invoker.AddTogglePauseListener(listener);
+    }
+
+    // Adds given method as listener to toggle pause event
+    public static void AddTogglePauseListener(UnityAction<bool> listener)
+    {
+        // adds listener to list and to all invokers of event
+        togglePauseListeners.Add(listener);
+        foreach (PauseControl invoker in togglePauseInvokers)
+            invoker.AddTogglePauseListener(listener);
+    }
+
+    #endregion
+
 }

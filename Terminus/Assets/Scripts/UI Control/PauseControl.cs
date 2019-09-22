@@ -26,8 +26,9 @@ public class PauseControl : SceneTransitioner
     {
         base.Start();
 
-        // TODO: add self as invoker of toggle pause event
+        // add self as invoker of toggle pause event
         togglePauseEvent = new TogglePauseEvent();
+        EventManager.AddTogglePauseInvoker(this);
     }
 
     // Update is called once per frame
