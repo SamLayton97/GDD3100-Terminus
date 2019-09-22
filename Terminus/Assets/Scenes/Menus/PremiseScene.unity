@@ -480,5 +480,19 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_Text
+      value: "Creatures from another dimension have torn the space station apart!\r\n\r\nEquipped
+        with only a vacuum-fitted rifle and a space suit with dwindling oxygen, you
+        must\r locate a functioning airlock and escape to safety. But be warned, close
+        proximity with these \rcreatures and their corruption has a strange effect.
+        Limit your contact with them."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa600a6cb3a307f4f86ed498b304ded4, type: 3}
