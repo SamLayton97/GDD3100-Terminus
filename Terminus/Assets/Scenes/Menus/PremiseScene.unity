@@ -455,5 +455,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.76862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.23921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa600a6cb3a307f4f86ed498b304ded4, type: 3}
