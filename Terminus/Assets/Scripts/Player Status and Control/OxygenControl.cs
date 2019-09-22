@@ -6,7 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// Manages oxygen depletion and re-gain of agent, including instances of player death
 /// </summary>
-public class OxygenControl : SceneTransitioner
+public class OxygenControl : LevelEnder
 {
     // private variables
     int maxOxygen = 100;                    // total capacity of agent's oxygen tank
@@ -87,9 +87,8 @@ public class OxygenControl : SceneTransitioner
     /// </summary>
     void KillPlayer()
     {
-        Debug.Log(transitionTo[0]);
-        // elect to transition to player death scene
-        transitionSceneEvent.Invoke(transitionTo[0]);
+        // invoking end level event with failure
+        endLevelEvent.Invoke(false, 0);
     }
 
     #endregion

@@ -31,6 +31,9 @@ public class PopupControl : SceneTransitioner
         // add self as invoker of toggle pause event
         togglePauseEvent = new TogglePauseEvent();
         EventManager.AddTogglePauseInvoker(this);
+
+        // add self as listener for end level event
+        EventManager.AddEndLevelListener(HandleEndLevel);
     }
 
     // Update is called once per frame
@@ -143,6 +146,20 @@ public class PopupControl : SceneTransitioner
     public void AddTogglePauseListener(UnityAction<bool> newListener)
     {
         togglePauseEvent.AddListener(newListener);
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    /// <summary>
+    /// Handles when player has ended a level in success or failure
+    /// </summary>
+    /// <param name="endedInSuccess">flag determining success</param>
+    /// <param name="remainingSanity">player's sanity at end of level</param>
+    void HandleEndLevel(bool endedInSuccess, float remainingSanity)
+    {
+        Debug.Log("end: " + endedInSuccess);
     }
 
     #endregion

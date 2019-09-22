@@ -10,12 +10,12 @@ using UnityEngine.Events;
 public abstract class LevelEnder : MonoBehaviour
 {
     // event support
-    EndLevelEvent endLevelEvent;
+    protected EndLevelEvent endLevelEvent;
 
     /// <summary>
     /// Called before first frame Update
     /// </summary>
-    protected void Start()
+    protected virtual void Start()
     {
         // add self as invoker of End Level event
         endLevelEvent = new EndLevelEvent();
