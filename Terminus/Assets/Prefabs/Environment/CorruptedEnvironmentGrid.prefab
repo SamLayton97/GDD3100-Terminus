@@ -691,4 +691,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minVelocityToDamage: 10
   damageScalar: 1
-  damageConstant: 0
+  damageConstant: 20
