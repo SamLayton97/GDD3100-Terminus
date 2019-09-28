@@ -9,7 +9,9 @@ using UnityEngine.Events;
 public class RefillO2OnCollision : MonoBehaviour
 {
     // public variables
-    public float refill = 25;           // amount of agent's oxygen refilled on collision
+    public float refill = 25;                   // amount of agent's oxygen refilled on collision
+    public AudioClipNames myCollisionSound =    // sound played when player collides with object
+        AudioClipNames.env_collectOxygen;
 
     // event support
     RefillPlayerO2Event refillO2Event;  // event invoked to refill player's oxygen
@@ -32,6 +34,9 @@ public class RefillO2OnCollision : MonoBehaviour
     {
         // refill player's tank through event
         refillO2Event.Invoke(refill);
+
+        // play oxygen collection sound effect
+        AudioManager.Play(myCollisionSound, true);
     }
 
     /// <summary>
