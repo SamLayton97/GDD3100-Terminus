@@ -32,6 +32,9 @@ public class PursueAndAttack : O2Remover
     public Color attackColor;                               // color agent transitions to when attacking
     public Color cooldownColor;                             // color agent transitions to when under cooldown
 
+    // sound effect support
+    public AudioClipNames myAttackSound = AudioClipNames.agent_chaserAttack;    // sound played upon entering attack state
+
     // private variables
     ChaseStates currState;              // current state of agent
     Color standardColor;                // color of agent's sprite while idle
@@ -114,6 +117,9 @@ public class PursueAndAttack : O2Remover
         // set attack color and attack target, shaking camera
         mySpriteRenderer.color = attackColor;
         deductO2Event.Invoke(attackDamage, true);
+
+        // play attack sound effect
+        AudioManager.Play(myAttackSound, true);
     }
 
     /// <summary>
