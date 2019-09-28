@@ -16,13 +16,21 @@ public class OxygenControl : LevelEnder
     // private variables
     int maxOxygen = 100;                    // total capacity of agent's oxygen tank
     float currOxygen = 0;                   // remaining percentage of agent's oxygen tank
+    bool softDisabled = false;              // flag determining whether player object has been disabled (used for handling death)
     SpriteRenderer mySpriteRenderer;        // object's sprite renderer component (used to control color of sprite)
     FaceMousePosition myLook;               // player's look-input component (disabled on death)
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
 
     // public variables
-    public AudioClipNames[] myHurtSounds;               // sound effects played when player is hurt
+    public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
+        {
+        AudioClipNames.player_hurt,
+        AudioClipNames.player_hurt1,
+        AudioClipNames.player_hurt2
+        };
+    public AudioClipNames myDeathSound =                // sound effect played when player dies
+        AudioClipNames.player_death;
     public float oxygenDepletionRate = 1f;              // percent of oxygen used per second
     public Color deathColor;                            // color player's sprite transitions to on death
     public float screenShakeMagnitudeScalar = 0.8f;     // scale by which screen shakes according to damage taken by player
@@ -125,14 +133,23 @@ public class OxygenControl : LevelEnder
     /// </summary>
     void KillPlayer()
     {
-        // soft-disable player
-        mySpriteRenderer.color = deathColor;
-        myLook.enabled = false;
-        myFire.enabled = false;
-        myTriggerCollider.enabled = false;
+        // if player hasn't already been soft-disabled
+        if (!softDisabled)
+        {
+            // soft-disable player
+            softDisabled = true;
+            mySpriteRenderer.color = deathColor;
+            myLook.enabled = false;
+            myFire.enabled = false;
+            myTriggerCollider.enabled = false;
 
-        // invoking end level event with failure
-        endLevelEvent.Invoke(false, 0);
+            // play death sound effect
+            AudioManager.Play(myDeathSound, true);
+
+            // invoking end level event with failure
+            endLevelEvent.Invoke(false, 0);
+        }
+
     }
 
     #endregion

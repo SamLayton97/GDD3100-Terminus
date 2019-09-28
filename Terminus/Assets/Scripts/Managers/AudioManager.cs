@@ -57,6 +57,7 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.player_hurt, Resources.Load<AudioClip>("Sounds/sfx_player_hurt"));
         audioClips.Add(AudioClipNames.player_hurt1, Resources.Load<AudioClip>("Sounds/sfx_player_hurt1"));
         audioClips.Add(AudioClipNames.player_hurt2, Resources.Load<AudioClip>("Sounds/sfx_player_hurt2"));
+        audioClips.Add(AudioClipNames.player_death, Resources.Load<AudioClip>("Sounds/sfx_player_death"));
 
         #endregion
 
