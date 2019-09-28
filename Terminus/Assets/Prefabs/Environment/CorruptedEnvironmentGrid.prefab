@@ -692,7 +692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minVelocityToDamage: 10
   damageScalar: 1
-  damageConstant: 20
+  damageConstant: 13
 --- !u!114 &5386158651061305066
 MonoBehaviour:
   m_ObjectHideFlags: 0
