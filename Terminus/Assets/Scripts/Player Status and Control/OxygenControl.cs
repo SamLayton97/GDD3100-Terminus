@@ -29,6 +29,7 @@ public class OxygenControl : LevelEnder
     public float screenShakeRoughness = 4f;             // how rough screen shake is
     public float screenShakeFadeInTime = 0.5f;          // time it takes for screen shake to reach peak magnitude
     public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
+    public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -106,13 +107,14 @@ public class OxygenControl : LevelEnder
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
         if (currOxygen <= 0) KillPlayer();
 
-        // shake camera by how much damage player took and play random hurt sound
+        // shake camera by how much damage player took
         if (shakeCamera)
-        {
             CameraShaker.Instance.ShakeOnce((screenShakeMagnitudeScalar * amountEmptied), screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
+
+        // if damage exceeds arbitrary threshold, play random hurt sound
+        if (amountEmptied >= hurtSoundThreshold)
             AudioManager.Play(myHurtSounds[Random.Range(0, myHurtSounds.Length)], true);
-        }
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);

@@ -135,6 +135,7 @@ MonoBehaviour:
   screenShakeRoughness: 4
   screenShakeFadeInTime: 0.5
   screenShakeFadeOutTime: 0.5
+  hurtSoundThreshold: 1
 --- !u!61 &990504837926636998
 BoxCollider2D:
   m_ObjectHideFlags: 0
