@@ -38,6 +38,8 @@ public static class AudioManager
         #region Player Sounds
 
         audioClips.Add(AudioClipNames.player_shootPistol, Resources.Load<AudioClip>("Sounds/sfx_player_shootPistol"));
+        audioClips.Add(AudioClipNames.player_shootPistol1, Resources.Load<AudioClip>("Sounds/sfx_player_shootPistol1"));
+        audioClips.Add(AudioClipNames.player_shootPistol2, Resources.Load<AudioClip>("Sounds/sfx_player_shootPistol2"));
 
         #endregion
 

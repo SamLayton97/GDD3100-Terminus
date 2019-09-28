@@ -11,8 +11,7 @@ public abstract class Weapon : MonoBehaviour
 {
     // public variables
     public GameObject projectileObject = null;              // game object weapon fires
-    public AudioClipNames myFireSound =                     // sound played when weapon is fired
-        AudioClipNames.player_shootPistol;
+    public AudioClipNames[] myFireSounds;                   // sound played when weapon is fired
     public bool continuousFiring = false;                   // whether user may fire weapon for consecutive frames
     public float projectileForce = 5.0f;                    // force by which object propels projectile
     public float reactiveForce = 2.5f;                      // force by which object propels user in opposite direction
