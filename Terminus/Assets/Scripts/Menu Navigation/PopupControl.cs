@@ -17,8 +17,10 @@ public class PopupControl : SceneTransitioner
     public GameObject pauseMenu;                        // pop-up pause menu
     public GameObject instructionsMenu;                 // in-game controls menu
     public GameObject endOfLevelMenu;                   // menu displayed when user completes a level
-    //public AudioClipNames pauseSound =                  // sound played when user pauses game
-    //    AudioClipNames.UI_buttonHighlight;
+    public AudioClipNames myPauseSound =                  // sound played when user pauses game
+        AudioClipNames.UI_gamePause;
+    public AudioClipNames myUnpauseSound =                // sound played when user unpauses game
+        AudioClipNames.UI_gameUnpause;
 
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
@@ -67,6 +69,7 @@ public class PopupControl : SceneTransitioner
             // pause game
             Time.timeScale = 0;
             togglePauseEvent.Invoke(true);
+            AudioManager.Play(myPauseSound, true);
 
             // enable pause menu components
             darkenGameOnPause.SetActive(true);
@@ -83,6 +86,7 @@ public class PopupControl : SceneTransitioner
             // unpause game
             Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
+            AudioManager.Play(myUnpauseSound, true);
         }
     }
 
@@ -101,9 +105,13 @@ public class PopupControl : SceneTransitioner
         darkenGameOnPause.SetActive(false);
         pauseMenu.SetActive(false);
 
+        // play button press sound
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
+
         // unpause game
         Time.timeScale = 1;
         togglePauseEvent.Invoke(false);
+        AudioManager.Play(myUnpauseSound, true);
     }
 
     /// <summary>

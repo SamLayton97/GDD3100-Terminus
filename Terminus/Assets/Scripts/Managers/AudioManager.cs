@@ -65,6 +65,8 @@ public static class AudioManager
 
         audioClips.Add(AudioClipNames.UI_buttonPress, Resources.Load<AudioClip>("Sounds/sfx_UI_buttonPress"));
         audioClips.Add(AudioClipNames.UI_buttonHighlight, Resources.Load<AudioClip>("Sounds/sfx_UI_buttonHighlight"));
+        audioClips.Add(AudioClipNames.UI_gamePause, Resources.Load<AudioClip>("Sounds/sfx_UI_gamePause"));
+        audioClips.Add(AudioClipNames.UI_gameUnpause, Resources.Load<AudioClip>("Sounds/sfx_UI_gameUnpause"));
 
         #endregion
 
