@@ -28,7 +28,6 @@ public class Pistol : Weapon
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
 
             // play random firing sound
-            Debug.Log(myFireSounds.Length);
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
 
             // play firing animation

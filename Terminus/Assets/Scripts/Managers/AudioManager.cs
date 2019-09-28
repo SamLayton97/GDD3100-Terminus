@@ -37,7 +37,7 @@ public static class AudioManager
 
         #region Environmental Sounds
 
-        audioClips.Add(AudioClipNames.env_playerWallCollide, Resources.Load<AudioClip>("Sounds/env_playerWallCollide"));
+        audioClips.Add(AudioClipNames.env_playerWallCollide, Resources.Load<AudioClip>("Sounds/sfx_env_playerWallCollide"));
 
         #endregion
 

@@ -6835,6 +6835,7 @@ MonoBehaviour:
   minVelocityToDamage: 10
   damageScalar: 1
   damageConstant: 0
+  myCollisionSound: 2
 --- !u!1001 &938160080
 PrefabInstance:
   m_ObjectHideFlags: 0
