@@ -14,7 +14,8 @@ public class AgentHealth : MonoBehaviour
     public Color deathColor;            // color to darken agent to on death
 
     // sound effect support
-    public AudioClipNames[] myHurtSounds =  // collection of sounds played when agent gets hurt
+    public AudioClipNames myDeathSound = AudioClipNames.agent_chaserDeath;  // sound played when agent is killed
+    public AudioClipNames[] myHurtSounds =                                  // collection of sounds played when agent gets hurt
 {
         AudioClipNames.agent_chaserHurt,
         AudioClipNames.agent_chaserHurt1,
@@ -66,6 +67,9 @@ public class AgentHealth : MonoBehaviour
     {
         // set animation triggers
         myAnimator.SetTrigger("OnDeathTrigger");
+
+        // play agent's death sound effect
+        AudioManager.Play(myDeathSound, true);
 
         // soft-disable agent
         myBehavior.enabled = false;
