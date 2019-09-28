@@ -130,6 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oxygenDepletionRate: 1
   deathColor: {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
+  screenShakeMagnitudeScalar: 0.8
+  screenShakeRoughness: 5
+  screenShakeFadeInTime: 0.5
+  screenShakeFadeOutTime: 0.5
 --- !u!61 &990504837926636998
 BoxCollider2D:
   m_ObjectHideFlags: 0

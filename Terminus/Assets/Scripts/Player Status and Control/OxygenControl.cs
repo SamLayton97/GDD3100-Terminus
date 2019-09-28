@@ -24,10 +24,10 @@ public class OxygenControl : LevelEnder
     // public variables
     public float oxygenDepletionRate = 1f;              // percent of oxygen used per second
     public Color deathColor;                            // color player's sprite transitions to on death
-    public float screenShakeMagnitudeScalar = 0.05f;    // scale by which screen shakes according to damage taken by player
+    public float screenShakeMagnitudeScalar = 0.8f;     // scale by which screen shakes according to damage taken by player
     public float screenShakeRoughness = 4f;             // how rough screen shake is
-    public float screenShakeFadeInTime = 0.1f;          // time it takes for screen shake to reach peak magnitude
-    public float screenShakeFadeOutTime = 0.1f;         // time it takes for screen shake to end
+    public float screenShakeFadeInTime = 0.5f;          // time it takes for screen shake to reach peak magnitude
+    public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -107,8 +107,11 @@ public class OxygenControl : LevelEnder
 
         // shake camera by how much damage player took
         if (shakeCamera)
-            CameraShaker.Instance.ShakeOnce(screenShakeMagnitudeScalar * amountEmptied, screenShakeRoughness, 
+        {
+            Debug.Log(amountEmptied + " " + screenShakeMagnitudeScalar + " " + screenShakeMagnitudeScalar * amountEmptied);
+            CameraShaker.Instance.ShakeOnce(screenShakeMagnitudeScalar * screenShakeMagnitudeScalar, screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
+        }
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);
