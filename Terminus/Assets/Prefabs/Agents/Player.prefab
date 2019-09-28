@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oxygenDepletionRate: 1
   deathColor: {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
-  screenShakeMagnitudeScalar: 1.15
+  screenShakeMagnitudeScalar: 1.1
   screenShakeRoughness: 4
   screenShakeFadeInTime: 0.5
   screenShakeFadeOutTime: 0.5
