@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using EZCameraShake;
 
 /// <summary>
 /// Manages oxygen depletion and re-gain of agent, including instances of player death
@@ -103,8 +104,9 @@ public class OxygenControl : LevelEnder
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
         if (currOxygen <= 0) KillPlayer();
 
-        // TODO: shake camera
-        //EZCameraShake.CameraShakeInstance
+        // TODO: shake camera by how much damage player took
+        CameraShaker.Instance.ShakeOnce(screenShakeMagnitudeScalar, screenShakeRoughness, 
+            screenShakeFadeInTime, screenShakeFadeOutTime);
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);
