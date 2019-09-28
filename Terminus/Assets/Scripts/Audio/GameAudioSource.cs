@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Audio source to play all in-game sound effects
 /// </summary>
+[RequireComponent(typeof(AudioSource))]
 public class GameAudioSource : MonoBehaviour
 {
     /// <summary>
@@ -12,7 +13,16 @@ public class GameAudioSource : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        // TODO: keep single game audio source object for entire game
-
+        // keep one game audio source object for entire game
+        if (!AudioManager.Initialized)
+        {
+            // initialize audio source and make it persist across scenes
+            AudioSource audioSource = GetComponent<AudioSource>();
+            AudioManager.Initialize(audioSource);
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            // destroy self if duplicate
+            Destroy(gameObject);
     }
 }
