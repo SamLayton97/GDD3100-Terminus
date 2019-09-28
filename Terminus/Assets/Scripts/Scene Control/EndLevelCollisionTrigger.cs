@@ -10,6 +10,8 @@ public class EndLevelCollisionTrigger : LevelEnder
 {
     // public variables
     public bool successOnCollision = true;              // flag determining whether collision ends in success or failure
+    public AudioClipNames myTriggerSound =              // sound played when player enters object's trigger box
+        AudioClipNames.env_airlockReached;
 
     /// <summary>
     /// Used for initialization
@@ -31,7 +33,13 @@ public class EndLevelCollisionTrigger : LevelEnder
     {
         // if object is on Player layer and player's non-trigger collider met with object
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !other.isTrigger)
-            endLevelEvent.Invoke(successOnCollision, 
+        {
+            // invoke level end event
+            endLevelEvent.Invoke(successOnCollision,
                 other.GetComponent<SanityControl>().CurrentSanity * (successOnCollision ? 1 : 0));
+
+            // play trigger-enter sound sound
+            AudioManager.Play(myTriggerSound, true);
+        }
     }
 }
