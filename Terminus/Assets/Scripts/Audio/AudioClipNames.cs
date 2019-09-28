@@ -11,6 +11,10 @@ public enum AudioClipNames
     menu_ButtonClick,
     menu_ButtonHighlight,
 
+    // Environment Sounds
+    env_playerWallCollide,
+    env_airlockClosing,
+
     // Player Sounds
     player_hurt,
     player_hurt1,
@@ -28,8 +32,5 @@ public enum AudioClipNames
 
     // Agent Sounds
     agent_chaserAttack,
-    agent_chaserDeath,
-
-    // Environment Sounds
-    env_airlockClosing
+    agent_chaserDeath
 }

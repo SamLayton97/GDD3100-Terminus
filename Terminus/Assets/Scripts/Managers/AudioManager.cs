@@ -35,6 +35,12 @@ public static class AudioManager
 
         // load in sounds from Resources\Sounds
 
+        #region Environmental Sounds
+
+        audioClips.Add(AudioClipNames.env_playerWallCollide, Resources.Load<AudioClip>("Sounds/env_playerWallCollide"));
+
+        #endregion
+
         #region Player Sounds
 
         audioClips.Add(AudioClipNames.player_hurt, Resources.Load<AudioClip>("Sounds/sfx_player_hurt"));
