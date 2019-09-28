@@ -163,16 +163,6 @@ public class PopupControl : SceneTransitioner
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
-    ///// <summary>
-    ///// Handles when user clicks proceed button
-    ///// </summary>
-    //public void HandleProceedOnClick()
-    //{
-    //    // move forward to next pre-defined scene
-    //    transitionSceneEvent.Invoke(transitionTo[0]);
-    //    Time.timeScale = 1;
-    //}
-
     #endregion
 
     /// <summary>
