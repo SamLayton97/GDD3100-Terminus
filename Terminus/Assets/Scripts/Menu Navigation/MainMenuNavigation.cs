@@ -15,6 +15,7 @@ public class MainMenuNavigation : SceneTransitioner
     {
         // transition to "premise" scene
         transitionSceneEvent.Invoke(transitionTo[0]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -24,6 +25,7 @@ public class MainMenuNavigation : SceneTransitioner
     {
         // transition to "instructions" scene
         transitionSceneEvent.Invoke(transitionTo[1]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -33,6 +35,7 @@ public class MainMenuNavigation : SceneTransitioner
     {
         // transition to "credits" scene
         transitionSceneEvent.Invoke(transitionTo[2]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -42,6 +45,7 @@ public class MainMenuNavigation : SceneTransitioner
     {
         // close application
         Debug.Log("Application closed after " + Time.time + " seconds.");
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
         Application.Quit();
     }
 }

@@ -17,6 +17,8 @@ public class PopupControl : SceneTransitioner
     public GameObject pauseMenu;                        // pop-up pause menu
     public GameObject instructionsMenu;                 // in-game controls menu
     public GameObject endOfLevelMenu;                   // menu displayed when user completes a level
+    //public AudioClipNames pauseSound =                  // sound played when user pauses game
+    //    AudioClipNames.UI_buttonHighlight;
 
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level

@@ -16,5 +16,6 @@ public class AuxiliaryMenuNavigation : SceneTransitioner
     {
         // transition to menu before this (likely Title scene)
         transitionSceneEvent.Invoke(transitionTo[0]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 }

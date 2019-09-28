@@ -16,6 +16,7 @@ public class NarrativeMenuNavigation : SceneTransitioner
     {
         // move back a scene
         transitionSceneEvent.Invoke(transitionTo[0]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -25,5 +26,6 @@ public class NarrativeMenuNavigation : SceneTransitioner
     {
         // move forward a scene
         transitionSceneEvent.Invoke(transitionTo[1]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 }

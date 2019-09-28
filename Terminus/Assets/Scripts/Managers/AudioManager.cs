@@ -61,6 +61,13 @@ public static class AudioManager
 
         #endregion
 
+        #region UI Sounds
+
+        audioClips.Add(AudioClipNames.UI_buttonPress, Resources.Load<AudioClip>("Sounds/sfx_UI_buttonPress"));
+        audioClips.Add(AudioClipNames.UI_buttonHighlight, Resources.Load<AudioClip>("Sounds/sfx_UI_buttonHighlight"));
+
+        #endregion
+
         #region Weapon Sounds
 
         audioClips.Add(AudioClipNames.weapon_shootPistol, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootPistol"));
