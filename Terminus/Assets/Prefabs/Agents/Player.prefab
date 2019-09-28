@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8bf71386b00374e8bd88d6a16d46ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityReductionRate: 2.5
-  sanityReplinishmentRate: 0.85
+  sanityReductionRate: 2
+  sanityReplinishmentRate: 1
   lowOxygenThreshold: 40
 --- !u!114 &4954093395389413554
 MonoBehaviour:

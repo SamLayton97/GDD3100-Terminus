@@ -19,6 +19,11 @@ public class EndOfLevelEvaluator : MonoBehaviour
     public string[] realityLinkStatuses;    // array of status messages indicating strength of player's link with reality
     public Color[] realityLinkTextColors;   // array of colors to set reality link text to according to strength
 
+    // star thresholds
+    public int threeStarThreshold = 70;     // remaining sanity needed to earn 3 stars
+    public int twoStarThreshold = 30;       // remaining sanity needed to earn 2 stars
+    public int oneStarThreshold = 1;        // remaining sanity needed to earn 1 star
+
     /// <summary>
     /// Evaluates player according to their remaining sanity
     /// </summary>
@@ -28,11 +33,11 @@ public class EndOfLevelEvaluator : MonoBehaviour
     {
         // determine number of stars earned
         int starsEarned = 0;
-        if (remainingSanity >= 75)
+        if (remainingSanity >= threeStarThreshold)
             starsEarned = 3;
-        else if (remainingSanity >= 40)
+        else if (remainingSanity >= twoStarThreshold)
             starsEarned = 2;
-        else if (remainingSanity > 0)
+        else if (remainingSanity >= oneStarThreshold)
             starsEarned = 1;
 
         // set image and color of stars player earned
