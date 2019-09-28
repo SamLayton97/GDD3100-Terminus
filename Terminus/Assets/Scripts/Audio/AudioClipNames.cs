@@ -10,7 +10,7 @@ public enum AudioClipNames
     UI_buttonPress,
     UI_buttonHighlight,
     env_playerWallCollide,
-    env_airlockClosing,
+    env_airlockReached,
     player_hurt,
     player_hurt1,
     player_hurt2,
