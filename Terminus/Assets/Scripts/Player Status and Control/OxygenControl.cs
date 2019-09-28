@@ -21,8 +21,12 @@ public class OxygenControl : LevelEnder
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
 
     // public variables
-    public float oxygenDepletionRate = 1f;  // percent of oxygen used per second
-    public Color deathColor;                // color player's sprite transitions to on death
+    public float oxygenDepletionRate = 1f;              // percent of oxygen used per second
+    public Color deathColor;                            // color player's sprite transitions to on death
+    public float screenShakeMagnitudeScalar = 4f;       // scale by which screen shakes according to damage taken by player
+    public float screenShakeRoughness = 4f;             // how rough screen shake is
+    public float screenShakeFadeInTime = 0.1f;          // time it takes for screen shake to reach peak magnitude
+    public float screenShakeFadeOutTime = 0.1f;         // time it takes for screen shake to end
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -98,6 +102,9 @@ public class OxygenControl : LevelEnder
         // reduce oxygen by amount, killing player if remaining O2 hits 0
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
         if (currOxygen <= 0) KillPlayer();
+
+        // TODO: shake camera
+        //EZCameraShake.CameraShakeInstance
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);
