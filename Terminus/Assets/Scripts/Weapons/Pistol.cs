@@ -27,6 +27,9 @@ public class Pistol : Weapon
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
 
+            // play firing sound
+            AudioManager.Play(myFireSound, true);
+
             // play firing animation
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
