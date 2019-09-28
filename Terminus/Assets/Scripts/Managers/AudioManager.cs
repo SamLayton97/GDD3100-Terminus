@@ -35,6 +35,12 @@ public static class AudioManager
 
         // load in sounds from Resources\Sounds
 
+        #region Agent Sounds
+
+        audioClips.Add(AudioClipNames.agent_chaserAttack, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserAttack"));
+
+        #endregion
+
         #region Environmental Sounds
 
         audioClips.Add(AudioClipNames.env_playerWallCollide, Resources.Load<AudioClip>("Sounds/sfx_env_playerWallCollide"));
