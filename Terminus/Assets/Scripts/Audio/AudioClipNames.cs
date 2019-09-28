@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public enum AudioClipNames
 {
-    menu_ButtonClick,
-    menu_ButtonHighlight,
+    UI_buttonClick,
+    UI_buttonHighlight,
     env_playerWallCollide,
     env_airlockClosing,
     player_hurt,
