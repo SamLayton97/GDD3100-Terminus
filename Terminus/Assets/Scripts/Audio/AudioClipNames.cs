@@ -15,12 +15,14 @@ public enum AudioClipNames
     player_takeDamage,
     player_collectOxygen,
     player_death,
-    player_shootPistol,
-    player_shootPistol1,
-    player_shootPistol2,
-    player_shootShotgun,
-    player_shootPhoton,
-    player_shootBioshot,
+
+    // Weapon Sounds
+    weapon_shootPistol,
+    weapon_shootPistol1,
+    weapon_shootPistol2,
+    weapon_shootShotgun,
+    weapon_shootPhoton,
+    weapon_shootBioshot,
 
     // Agent Sounds
     agent_chaserAttack,
