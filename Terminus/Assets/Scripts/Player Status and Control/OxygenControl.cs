@@ -107,11 +107,8 @@ public class OxygenControl : LevelEnder
 
         // shake camera by how much damage player took
         if (shakeCamera)
-        {
-            Debug.Log(amountEmptied + " " + screenShakeMagnitudeScalar + " " + screenShakeMagnitudeScalar * amountEmptied);
-            CameraShaker.Instance.ShakeOnce(screenShakeMagnitudeScalar * screenShakeMagnitudeScalar, screenShakeRoughness,
+            CameraShaker.Instance.ShakeOnce((screenShakeMagnitudeScalar * amountEmptied), screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
-        }
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);
