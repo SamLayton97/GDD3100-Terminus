@@ -22,8 +22,8 @@ public abstract class O2Remover : MonoBehaviour
     /// <summary>
     /// Adds given method as listener to deduct player O2 event
     /// </summary>
-    /// <param name="newListener"></param>
-    public void AddDeductO2Listener(UnityAction<float> newListener)
+    /// <param name="newListener">listener of deduct oxygen event</param>
+    public void AddDeductO2Listener(UnityAction<float, bool> newListener)
     {
         deductO2Event.AddListener(newListener);
     }

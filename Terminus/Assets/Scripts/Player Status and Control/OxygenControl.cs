@@ -76,7 +76,7 @@ public class OxygenControl : LevelEnder
     void Update()
     {
         // reduce oxygen by rate * time
-        EmptyO2Tank(oxygenDepletionRate * Time.deltaTime);
+        EmptyO2Tank(oxygenDepletionRate * Time.deltaTime, false);
     }
 
     #endregion
@@ -98,15 +98,17 @@ public class OxygenControl : LevelEnder
     /// (i.e., death)
     /// </summary>
     /// <param name="amountEmptied">amount of O2 emptied</param>
-    void EmptyO2Tank(float amountEmptied)
+    /// <param name="shakeCamera">flag determining whether to shake camera upon oxygen lost</param>
+    void EmptyO2Tank(float amountEmptied, bool shakeCamera)
     {
         // reduce oxygen by amount, killing player if remaining O2 hits 0
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
         if (currOxygen <= 0) KillPlayer();
 
-        // TODO: shake camera by how much damage player took
-        CameraShaker.Instance.ShakeOnce(screenShakeMagnitudeScalar * amountEmptied, screenShakeRoughness, 
-            screenShakeFadeInTime, screenShakeFadeOutTime);
+        // shake camera by how much damage player took
+        if (shakeCamera)
+            CameraShaker.Instance.ShakeOnce(screenShakeMagnitudeScalar * amountEmptied, screenShakeRoughness, 
+                screenShakeFadeInTime, screenShakeFadeOutTime);
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);

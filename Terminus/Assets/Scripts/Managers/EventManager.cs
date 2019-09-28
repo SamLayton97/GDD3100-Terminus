@@ -90,19 +90,19 @@ public static class EventManager
 
     // declare lists to hold invokers and listeners to deduct player O2 event
     static List<O2Remover> deductO2Invokers = new List<O2Remover>();
-    static List<UnityAction<float>> deductO2Listeners = new List<UnityAction<float>>();
+    static List<UnityAction<float, bool>> deductO2Listeners = new List<UnityAction<float, bool>>();
 
     // Adds given O2 remover as invoker of Deduct Player O2 event
     public static void AddDeductO2Invoker(O2Remover invoker)
     {
         // adds invoker to list and adds all listeners to this invoker
         deductO2Invokers.Add(invoker);
-        foreach (UnityAction<float> listener in deductO2Listeners)
+        foreach (UnityAction<float, bool> listener in deductO2Listeners)
             invoker.AddDeductO2Listener(listener);
     }
 
     // Adds given method as listener to Deduct Player O2 event
-    public static void AddDeductO2Listener(UnityAction<float> listener)
+    public static void AddDeductO2Listener(UnityAction<float, bool> listener)
     {
         // adds listener to list and to all invokers of event
         deductO2Listeners.Add(listener);

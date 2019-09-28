@@ -30,8 +30,8 @@ public class DamageByVelocity : O2Remover
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // if other object in collision resides on player layer
+        // if other object in collision resides on player layer, shaking camera
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-            deductO2Event.Invoke(CalculateDamage(collision.relativeVelocity));
+            deductO2Event.Invoke(CalculateDamage(collision.relativeVelocity), true);
     }
 }

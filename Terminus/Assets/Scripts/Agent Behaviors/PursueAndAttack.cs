@@ -111,9 +111,9 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void EnterAttack()
     {
-        // set attack color and attack target
+        // set attack color and attack target, shaking camera
         mySpriteRenderer.color = attackColor;
-        deductO2Event.Invoke(attackDamage);
+        deductO2Event.Invoke(attackDamage, true);
     }
 
     /// <summary>
