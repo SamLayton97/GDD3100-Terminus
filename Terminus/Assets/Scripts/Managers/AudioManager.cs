@@ -33,7 +33,13 @@ public static class AudioManager
         initialized = true;
         myAudioSource = audioSource;
 
-        // TODO: load in sounds from Resources\Sounds
+        // load in sounds from Resources\Sounds
+
+        #region Player Sounds
+
+        audioClips.Add(AudioClipNames.player_shootPistol, Resources.Load<AudioClip>("Sounds/sfx_player_shootPistol"));
+
+        #endregion
 
     }
 

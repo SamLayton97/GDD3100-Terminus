@@ -15,7 +15,7 @@ public enum AudioClipNames
     player_takeDamage,
     player_collectOxygen,
     player_death,
-    player_shootSingle,
+    player_shootPistol,
     player_shootShotgun,
     player_shootPhoton,
     player_shootBioshot,
