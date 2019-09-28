@@ -24,5 +24,8 @@ public enum AudioClipNames
     weapon_shootBioshot,
     agent_chaserAttack,
     agent_chaserDeath,
-    agent_chaserAlert
+    agent_chaserAlert,
+    agent_chaserHurt,
+    agent_chaserHurt1,
+    agent_chaserHurt2
 }

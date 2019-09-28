@@ -13,6 +13,14 @@ public class AgentHealth : MonoBehaviour
     public float maxHealth = 15f;       // starting health of enemy agent
     public Color deathColor;            // color to darken agent to on death
 
+    // sound effect support
+    public AudioClipNames[] myHurtSounds =  // collection of sounds played when agent gets hurt
+{
+        AudioClipNames.agent_chaserHurt,
+        AudioClipNames.agent_chaserHurt1,
+        AudioClipNames.agent_chaserHurt2
+    };
+
     // private variables
     float currHealth;                   // current health of agent
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component (used to set color of sprite)
@@ -42,9 +50,12 @@ public class AgentHealth : MonoBehaviour
         // if other object in collision is a projectile
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectiles"))
         {
-            // deduct health and destroy gameobject if necessary
+            // deduct health
             currHealth -= collision.gameObject.GetComponent<Projectile>().Damage;
+
+            // kill agent if necessary, playing appropriate sound effects
             if (currHealth <= 0) HandleAgentDeath();
+            else AudioManager.Play(myHurtSounds[Random.Range(0, myHurtSounds.Length)], true);
         }
     }
 
