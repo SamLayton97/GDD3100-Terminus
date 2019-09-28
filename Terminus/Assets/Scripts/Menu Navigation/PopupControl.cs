@@ -114,6 +114,9 @@ public class PopupControl : SceneTransitioner
         // remove pause menu and display instructions
         pauseMenu.SetActive(false);
         instructionsMenu.SetActive(true);
+
+        // play button press sound
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -125,6 +128,9 @@ public class PopupControl : SceneTransitioner
         // remove instructions and display pause menu
         instructionsMenu.SetActive(false);
         pauseMenu.SetActive(true);
+
+        // play button press sound
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -135,6 +141,9 @@ public class PopupControl : SceneTransitioner
         // return to main menu
         transitionSceneEvent.Invoke(transitionTo[0]);
         Time.timeScale = 1;
+
+        // play button press sound
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     #endregion
@@ -149,17 +158,20 @@ public class PopupControl : SceneTransitioner
         // reload current scene
         transitionSceneEvent.Invoke(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
+
+        // play button press sound
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
-    /// <summary>
-    /// Handles when user clicks proceed button
-    /// </summary>
-    public void HandleProceedOnClick()
-    {
-        // move forward to next pre-defined scene
-        transitionSceneEvent.Invoke(transitionTo[0]);
-        Time.timeScale = 1;
-    }
+    ///// <summary>
+    ///// Handles when user clicks proceed button
+    ///// </summary>
+    //public void HandleProceedOnClick()
+    //{
+    //    // move forward to next pre-defined scene
+    //    transitionSceneEvent.Invoke(transitionTo[0]);
+    //    Time.timeScale = 1;
+    //}
 
     #endregion
 

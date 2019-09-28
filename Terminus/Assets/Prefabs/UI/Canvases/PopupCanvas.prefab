@@ -1382,6 +1382,9 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.29411766, g: 0.93333334, b: 0.4392157, a: 1}
   - {r: 0.33333334, g: 0.7921569, b: 0.94509804, a: 1}
+  threeStarThreshold: 70
+  twoStarThreshold: 30
+  oneStarThreshold: 1
 --- !u!1 &8714546638411612432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1624,7 @@ PrefabInstance:
     - target: {fileID: 3859454819864779317, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandleProceedOnClick
+      value: HandleExitOnClick
       objectReference: {fileID: 0}
     - target: {fileID: 3859454819864779317, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
