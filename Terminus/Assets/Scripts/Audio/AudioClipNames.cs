@@ -7,30 +7,21 @@ using UnityEngine;
 /// </summary>
 public enum AudioClipNames
 {
-    // Menu Sounds
     menu_ButtonClick,
     menu_ButtonHighlight,
-
-    // Environment Sounds
     env_playerWallCollide,
     env_airlockClosing,
-
-    // Player Sounds
     player_hurt,
     player_hurt1,
     player_hurt2,
     player_collectOxygen,
     player_death,
-
-    // Weapon Sounds
     weapon_shootPistol,
     weapon_shootPistol1,
     weapon_shootPistol2,
     weapon_shootShotgun,
     weapon_shootPhoton,
     weapon_shootBioshot,
-
-    // Agent Sounds
     agent_chaserAttack,
     agent_chaserDeath
 }
