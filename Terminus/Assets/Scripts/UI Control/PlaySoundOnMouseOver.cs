@@ -11,12 +11,4 @@ public class PlaySoundOnMouseOver : MonoBehaviour
     // public variables
     public AudioClipNames myMouseOverSound =    // sound played when user mouses over object
         AudioClipNames.UI_buttonHighlight;
-
-    /// <summary>
-    /// Plays sound when user first mouses over object
-    /// </summary>
-    void OnMouseOver()
-    {
-        AudioManager.Play(myMouseOverSound, true);
-    }
 }
