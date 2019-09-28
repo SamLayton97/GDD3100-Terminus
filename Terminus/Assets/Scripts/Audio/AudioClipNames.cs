@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// An enumeration of audio clips to play
 /// </summary>
-public enum AudioClips
+public enum AudioClipNames
 {
     // Menu Sounds
     menu_ButtonClick,
