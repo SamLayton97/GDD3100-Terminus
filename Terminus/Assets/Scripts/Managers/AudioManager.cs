@@ -39,6 +39,7 @@ public static class AudioManager
 
         audioClips.Add(AudioClipNames.agent_chaserAttack, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserAttack"));
         audioClips.Add(AudioClipNames.agent_chaserAlert, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserAlert"));
+        audioClips.Add(AudioClipNames.agent_chaserDeath, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserDeath"));
         audioClips.Add(AudioClipNames.agent_chaserHurt, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserHurt"));
         audioClips.Add(AudioClipNames.agent_chaserHurt1, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserHurt1"));
         audioClips.Add(AudioClipNames.agent_chaserHurt2, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserHurt2"));
