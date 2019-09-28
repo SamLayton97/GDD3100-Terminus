@@ -34,6 +34,7 @@ public class PursueAndAttack : O2Remover
 
     // sound effect support
     public AudioClipNames myAttackSound = AudioClipNames.agent_chaserAttack;    // sound played upon entering attack state
+    public AudioClipNames myAlertSound = AudioClipNames.agent_chaserAlert;      // sound played upon entering pursue state
 
     // private variables
     ChaseStates currState;              // current state of agent
@@ -67,7 +68,17 @@ public class PursueAndAttack : O2Remover
 
             // move to pursue state
             currState = ChaseStates.Pursue;
+            EnterPursue();
         }
+    }
+
+    /// <summary>
+    /// Initiates agent's pursue state
+    /// </summary>
+    void EnterPursue()
+    {
+        // play agent's alert sound
+        AudioManager.Play(AudioClipNames.agent_chaserAlert, true);
     }
 
     /// <summary>

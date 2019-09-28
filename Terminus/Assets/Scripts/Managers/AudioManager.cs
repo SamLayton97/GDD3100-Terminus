@@ -38,6 +38,7 @@ public static class AudioManager
         #region Agent Sounds
 
         audioClips.Add(AudioClipNames.agent_chaserAttack, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserAttack"));
+        audioClips.Add(AudioClipNames.agent_chaserAlert, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserAlert"));
 
         #endregion
 
