@@ -12,7 +12,9 @@ public enum AudioClipNames
     menu_ButtonHighlight,
 
     // Player Sounds
-    player_takeDamage,
+    player_hurt,
+    player_hurt1,
+    player_hurt2,
     player_collectOxygen,
     player_death,
 

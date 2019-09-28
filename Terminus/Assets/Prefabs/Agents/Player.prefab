@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41d1a1ac06a28247a959ec7dd250195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHurtSounds: 020000000300000004000000
   oxygenDepletionRate: 1
   deathColor: {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
   screenShakeMagnitudeScalar: 1.1

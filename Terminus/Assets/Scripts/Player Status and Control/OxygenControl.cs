@@ -22,6 +22,7 @@ public class OxygenControl : LevelEnder
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
 
     // public variables
+    public AudioClipNames[] myHurtSounds;               // sound effects played when player is hurt
     public float oxygenDepletionRate = 1f;              // percent of oxygen used per second
     public Color deathColor;                            // color player's sprite transitions to on death
     public float screenShakeMagnitudeScalar = 0.8f;     // scale by which screen shakes according to damage taken by player
@@ -105,10 +106,13 @@ public class OxygenControl : LevelEnder
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
         if (currOxygen <= 0) KillPlayer();
 
-        // shake camera by how much damage player took
+        // shake camera by how much damage player took and play random hurt sound
         if (shakeCamera)
+        {
             CameraShaker.Instance.ShakeOnce((screenShakeMagnitudeScalar * amountEmptied), screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
+            AudioManager.Play(myHurtSounds[Random.Range(0, myHurtSounds.Length)], true);
+        }
 
         // update O2 display
         updateO2Event.Invoke(currOxygen);
