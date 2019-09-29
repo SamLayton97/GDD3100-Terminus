@@ -93,6 +93,14 @@ public abstract class Weapon : MonoBehaviour
     }
 
     /// <summary>
+    /// Refills weapon's ammo to its maxs
+    /// </summary>
+    public void RefillAmmo()
+    {
+        currAmmo = maxAmmo;
+    }
+
+    /// <summary>
     /// Stops firing animation when it ends
     /// </summary>
     public void StopAnimation()

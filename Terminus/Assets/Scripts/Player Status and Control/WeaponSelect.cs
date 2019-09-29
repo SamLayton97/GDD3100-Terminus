@@ -103,7 +103,20 @@ public class WeaponSelect : MonoBehaviour
     /// <param name="newWeapon">type of new weapon to add</param>
     void AddWeapon(WeaponType newWeapon)
     {
+        // iterate over player's current weapons
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            // if new weapon matches existing weapon
+            if (newWeapon.ToString() == transform.GetChild(i).name)
+            {
+                // refill weapon's ammo and break from method
+                transform.GetChild(i).GetComponent<Weapon>().RefillAmmo();
+                return;
+            }
+        }
 
+        // instantiate new weapon under player (as they don't have weapon of this type)
+        Instantiate(typeToObject[newWeapon], transform);
     }
 
     /// <summary>
