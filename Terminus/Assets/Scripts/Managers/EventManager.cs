@@ -86,6 +86,32 @@ public static class EventManager
 
     #endregion
 
+    #region Update Ammo UI
+
+    // declare lists to hold invokers and listeners of Update Ammo UI event
+    static List<Weapon> updateAmmoUIInvokers = new List<Weapon>();
+    static List<UnityAction<WeaponType, float>> updateAmmoUIListeners = new List<UnityAction<WeaponType, float>>();
+
+    // Adds given weapon as invoker of update ammo ui event
+    public static void AddUpdateAmmoUIInvoker(Weapon invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        updateAmmoUIInvokers.Add(invoker);
+        foreach (UnityAction<WeaponType, float> listener in updateAmmoUIListeners)
+            invoker.AddUpdateAmmoUIListener(listener);
+    }
+
+    // Adds given method as listener to update ammo ui event
+    public static void AddUpdateAmmoUIListener(UnityAction<WeaponType, float> listener)
+    {
+        // adds listener to list and to all invokers of event
+        updateAmmoUIListeners.Add(listener);
+        foreach (Weapon invoker in updateAmmoUIInvokers)
+            invoker.AddUpdateAmmoUIListener(listener);
+    }
+
+    #endregion
+
     #region Update O2 Gauge
 
     // declare lists to hold invokers and listeners to update O2 display event

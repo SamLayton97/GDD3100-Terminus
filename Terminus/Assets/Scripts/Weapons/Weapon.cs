@@ -30,6 +30,7 @@ public abstract class Weapon : MonoBehaviour
 
     // event support
     EmptyWeaponEvent emptyWeaponEvent;          // event invoked when this weapon runs out of ammo
+    UpdateAmmoUIEvent updateAmmoUI;             // event invoked to update ammo UI
 
     #region Unity Methods
 
@@ -51,9 +52,11 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     protected virtual void Start()
     {
-        // add self as invoker of empty weapon event
+        // add self as invoker of relevant events
         emptyWeaponEvent = new EmptyWeaponEvent();
         EventManager.AddEmptyWeaponInvoker(this);
+        updateAmmoUI = new UpdateAmmoUIEvent();
+        EventManager.AddUpdateAmmoUIInvoker(this);
     }
 
     #endregion
@@ -115,6 +118,15 @@ public abstract class Weapon : MonoBehaviour
     public void AddEmptyWeaponListener(UnityAction newListener)
     {
         emptyWeaponEvent.AddListener(newListener);
+    }
+
+    /// <summary>
+    /// Adds given method as listener to Update Ammo UI event
+    /// </summary>
+    /// <param name="newListener">new listener method for event</param>
+    public void AddUpdateAmmoUIListener(UnityAction<WeaponType, float> newListener)
+    {
+        updateAmmoUI.AddListener(newListener);
     }
 
     #endregion
