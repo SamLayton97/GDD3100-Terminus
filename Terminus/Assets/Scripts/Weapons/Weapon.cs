@@ -121,12 +121,13 @@ public abstract class Weapon : MonoBehaviour
         // if weapon doesn't have infinite ammo
         if (maxAmmo != -1)
         {
-            // decrement ammo
+            // decrement ammo, destroying weapon if empty
             currAmmo--;
-
-            // destroy weapon if empty
             if (currAmmo < 1)
+            {
                 Destroy(gameObject);
+                emptyWeaponEvent.Invoke();
+            }
         }
     }
 
