@@ -126,6 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38fa30371dd85249aba85b9595a617d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allWeapons:
+  - {fileID: 743582424484163851, guid: 61c1176b5a894ea4bb5005f62e3b80bb, type: 3}
+  - {fileID: 3086894198943160967, guid: bd4c4112db9edc34ab9dbed11184bd2e, type: 3}
+  - {fileID: 1950003670525471711, guid: 6b2abd88f9652f54eafaaac075899176, type: 3}
+  - {fileID: 6317271147909141322, guid: 75c4f737a16943a43b666bfcfad84b28, type: 3}
 --- !u!114 &8960123665775934092
 MonoBehaviour:
   m_ObjectHideFlags: 0

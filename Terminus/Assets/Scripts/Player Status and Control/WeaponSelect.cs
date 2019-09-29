@@ -6,7 +6,7 @@ using UnityEngine;
 /// Enumeration of weapons player can collect.
 /// Used for adding weapons to player's collection.
 /// </summary>
-public enum WeaponTypes
+public enum WeaponType
 {
     Pistol,
     Shotgun,
@@ -23,9 +23,14 @@ public enum WeaponTypes
 public class WeaponSelect : MonoBehaviour
 {
     // private variables
-    PlayerFire playerFire;              // player fire component (gets its current weapon property updated)
-    AudioClipNames mySwapSound =        // sound played when player swaps to different weapon
+    PlayerFire playerFire;                                  // player fire component (gets its current weapon property updated)
+    AudioClipNames mySwapSound =                            // sound played when player swaps to different weapon
         AudioClipNames.player_swapWeapon;
+    Dictionary<WeaponType, GameObject> typeToObject;        // dictionary pairing weapon types with their corresponding weapon objects
+
+    // serialized variables
+    [SerializeField] GameObject[] allWeapons;               // serialized array of all weapons objects player could have
+                                                            // Note: must be populated in order they appear in enumeration
 
     #region Unity Methods
 
@@ -37,8 +42,17 @@ public class WeaponSelect : MonoBehaviour
         // retrieve necessary components
         playerFire = GetComponent<PlayerFire>();
 
-        // set starting weapon to first child of player
+        // initialize starting weapon and load type to object dictionary
         playerFire.CurrentWeapon = GetComponentInChildren<Weapon>();
+        typeToObject = new Dictionary<WeaponType, GameObject>();
+        for (int i = 0; i < allWeapons.Length; i++)
+            typeToObject.Add((WeaponType)i, allWeapons[i]);
+
+        // DEBUGGING: verify correct pairing
+        for (int i = 0; i < typeToObject.Count; i++)
+        {
+            Debug.Log(typeToObject[(WeaponType)i].name);
+        }
     }
 
     /// <summary>
@@ -87,7 +101,16 @@ public class WeaponSelect : MonoBehaviour
         AudioManager.Play(mySwapSound, true);
     }
 
+    /// <summary>
+    /// Adds a new weapon to end of player's inventory,
+    /// maxing out corresponding weapon's ammo if player
+    /// already has it.
+    /// </summary>
+    /// <param name="newWeapon">type of new weapon to add</param>
+    void AddWeapon(WeaponType newWeapon)
+    {
 
+    }
 
     /// <summary>
     /// Handles empty weapon event, swapping current weapon to
