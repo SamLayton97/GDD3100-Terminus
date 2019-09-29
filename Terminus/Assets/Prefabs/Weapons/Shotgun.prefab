@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileObject: {fileID: 1590410038477920540, guid: c9b268a067fe4294a8fbf6ceb62d2103,
     type: 3}
-  myFireSounds: 
+  myFireSounds: 0c0000001700000018000000
   continuousFiring: 0
   projectileForce: 6.5
   reactiveForce: 8

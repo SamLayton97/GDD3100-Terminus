@@ -32,7 +32,6 @@ public class Shotgun : Weapon
             {
                 // fire projectile in direction of weapon plus random offset
                 float offsetWithinArc = Random.Range(fireArc * -0.5f, fireArc * 0.5f) * Mathf.Deg2Rad;
-                Debug.Log(offsetWithinArc);
                 Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation + offsetWithinArc), Mathf.Sin(agentRotation + offsetWithinArc)).normalized;
                 GameObject newProjectile = Instantiate(projectileObject, transform.position, Quaternion.identity);
                 newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity,
@@ -43,7 +42,8 @@ public class Shotgun : Weapon
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)) * -1 * reactiveForce), ForceMode2D.Impulse);
 
-            // TODO: play shotgun blast sound effect
+            // play shotgun blast sound effect
+            AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
 
             // play shotgun firing animation
             myAnimator.SetBool("isShooting", true);

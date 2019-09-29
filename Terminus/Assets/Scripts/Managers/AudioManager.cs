@@ -77,6 +77,9 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.weapon_shootPistol, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootPistol"));
         audioClips.Add(AudioClipNames.weapon_shootPistol1, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootPistol1"));
         audioClips.Add(AudioClipNames.weapon_shootPistol2, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootPistol2"));
+        audioClips.Add(AudioClipNames.weapon_shootShotgun, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootShotgun"));
+        audioClips.Add(AudioClipNames.weapon_shootShotgun1, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootShotgun1"));
+        audioClips.Add(AudioClipNames.weapon_shootShotgun2, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootShotgun2"));
 
         #endregion
 

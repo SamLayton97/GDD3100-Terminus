@@ -29,5 +29,7 @@ public enum AudioClipNames
     agent_chaserHurt1,
     agent_chaserHurt2,
     UI_gamePause,
-    UI_gameUnpause
+    UI_gameUnpause,
+    weapon_shootShotgun1,
+    weapon_shootShotgun2,
 }
