@@ -36,26 +36,11 @@ public class BioRifle : Weapon
         // if player didn't fire last frame, register fire input
         if (!firedLastFrame)
         {
-            // fire pistol shot in direction of weapon's rotation
-            float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
-            Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;
-            GameObject newProjectile = Instantiate(projectileObject, transform.position, Quaternion.identity);
-            newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity,
-                ForceMode2D.Impulse);
-            newProjectile.GetComponent<FaceVelocity>().RelativeTo = parentRigidbody;
-
-            // apply reactive force to weapon user in opposite direction
-            parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
-
             // reduce player's sanity by set amount
             deductSanityEvent.Invoke(sanityLostOnShot);
 
-            // play random fire sound effect
-            AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
-
-            // play firing animation
-            myAnimator.SetBool("isShooting", true);
-            myAnimator.Play("ShootAnimation", -1, 0);
+            // perform basic fire input behavior
+            base.RegisterInput(firedLastFrame);
         }
     }
 

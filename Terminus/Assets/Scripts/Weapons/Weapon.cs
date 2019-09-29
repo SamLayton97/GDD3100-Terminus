@@ -23,13 +23,38 @@ public abstract class Weapon : MonoBehaviour
     protected bool firedLastFrame = false;      // flag determining whether weapon registered a shot on the previous frame
     protected Rigidbody2D parentRigidbody;      // rigidbody 2d component of agent firing weapon
     protected Animator myAnimator;              // animation component used to play firing animation
+
+    // private variables
+    int currAmmo = 0;                           // current ammo stored in weapon (weapon is destroyed if 0)
     
     /// <summary>
     /// Registers shot when user fires their weapon.
-    /// Note: All weapons must do something when user fires weapon.
     /// </summary>
     /// <param name="firedLastFrame">whether player fired on previous frame</param>
-    public abstract void RegisterInput(bool firedLastFrame);
+    public virtual void RegisterInput(bool firedLastFrame)
+    {
+        // if player didn't fire last frame, register a shot
+        if (!firedLastFrame)
+        {
+            // fire projectile in direction of weapon's rotation
+            float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
+            Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;
+            GameObject newProjectile = Instantiate(projectileObject, transform.position, Quaternion.identity);
+            newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity,
+                ForceMode2D.Impulse);
+            newProjectile.GetComponent<FaceVelocity>().RelativeTo = parentRigidbody;
+
+            // apply reactive force to weapon user in opposite direction
+            parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
+
+            // play random firing sound
+            AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
+
+            // play firing animation
+            myAnimator.SetBool("isShooting", true);
+            myAnimator.Play("ShootAnimation", -1, 0);
+        }
+    }
 
     /// <summary>
     /// Stops firing animation when it ends
@@ -47,6 +72,9 @@ public abstract class Weapon : MonoBehaviour
         // retrieve necessary components
         parentRigidbody = transform.parent.gameObject.GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+
+        // initialize ammo counter
+        currAmmo = maxAmmo;
     }
 
 }
