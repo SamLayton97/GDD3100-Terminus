@@ -1174,8 +1174,8 @@ MonoBehaviour:
   - {fileID: 5341542955629219464}
   - {fileID: 5887051798504801135}
   equippedColor: {r: 1, g: 1, b: 1, a: 1}
-  unequippedColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
-  inactiveColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
+  unequippedColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
   ammoMeters:
   - {fileID: 48911007551785100}
   - {fileID: 2585381932259980990}

@@ -18,6 +18,9 @@ public class WeaponSelectUI : MonoBehaviour
     // Ammo meter variables
     public Image[] ammoMeters;              // array of meters corresponding to ammo of each weapon
 
+    // support variables
+    int currWeaponIndex = 0;
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -44,9 +47,14 @@ public class WeaponSelectUI : MonoBehaviour
     /// <summary>
     /// Updates UI to reflect which weapon user has equipped
     /// </summary>
-    /// <param name="currWeaponIndex">index of weapon equipped by player</param>
-    void UpdateCurrentWeapon(int currWeaponIndex)
+    /// <param name="newCurrentWeapon">index of weapon equipped by player</param>
+    void UpdateCurrentWeapon(int newCurrentWeapon)
     {
-        Debug.Log(currWeaponIndex);
+        Debug.Log(newCurrentWeapon);
+
+        // brighten new current weapon icon and darken old one
+        weaponIcons[newCurrentWeapon].color = equippedColor;
+        weaponIcons[currWeaponIndex].color = unequippedColor;
+        currWeaponIndex = newCurrentWeapon;
     }
 }
