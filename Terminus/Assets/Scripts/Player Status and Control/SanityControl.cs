@@ -55,6 +55,9 @@ public class SanityControl : MonoBehaviour
         updateDisplayEvent = new UpdateSanityDisplayEvent();
         EventManager.AddUpdateSanityInvoker(this);
 
+        // add self as listener of relevant events
+        EventManager.AddDeductSanityOnFireListener(DeductSanity);
+
         // initialize player with full sanity
         currSanity = maxSanity;
     }
