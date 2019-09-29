@@ -12,6 +12,8 @@ public class WeaponSelect : MonoBehaviour
 {
     // private variables
     PlayerFire playerFire;              // player fire component (gets its current weapon property updated)
+    AudioClipNames mySwapSound =        // sound played when player swaps to different weapon
+        AudioClipNames.player_swapWeapon;
 
     #region Unity Methods
 
@@ -68,8 +70,9 @@ public class WeaponSelect : MonoBehaviour
     {
         Debug.Log(newWeaponIndex);
 
-        // swap weapon which registers fire input
+        // swap weapon and play sound
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
+        AudioManager.Play(mySwapSound, true);
     }
 
     /// <summary>
