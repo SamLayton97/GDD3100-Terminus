@@ -47,6 +47,10 @@ public class WeaponSelect : MonoBehaviour
         typeToObject = new Dictionary<WeaponType, GameObject>();
         for (int i = 0; i < allWeapons.Length; i++)
             typeToObject.Add((WeaponType)i, allWeapons[i]);
+
+        // for all additional weapons, spawn them under player but as inactive
+        for (int i = 1; i < allWeapons.Length; i++)
+            Instantiate(allWeapons[i], transform).SetActive(false);
     }
 
     /// <summary>
@@ -111,20 +115,27 @@ public class WeaponSelect : MonoBehaviour
     /// <param name="newWeapon">type of new weapon to add</param>
     void AddWeapon(WeaponType newWeapon)
     {
-        // iterate over player's current weapons
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            // if new weapon matches existing weapon
-            if (newWeapon.ToString() + "(Clone)" == transform.GetChild(i).name)
-            {
-                // refill weapon's ammo and break from method
-                transform.GetChild(i).GetComponent<Weapon>().RefillAmmo();
-                return;
-            }
-        }
+        // if corresponding weapon isn't active, activate it
+        if (!transform.GetChild((int)newWeapon).gameObject.activeSelf)
+            transform.GetChild((int)newWeapon).gameObject.SetActive(true);
+
+        // refill corresponding weapon's ammo
+        transform.GetChild((int)newWeapon).GetComponent<Weapon>().RefillAmmo();
+
+        //// iterate over player's current weapons
+        //for (int i = 0; i < transform.childCount; i++)
+        //{
+        //    // if new weapon matches existing weapon
+        //    if (newWeapon.ToString() + "(Clone)" == transform.GetChild(i).name)
+        //    {
+        //        // refill weapon's ammo and break from method
+        //        transform.GetChild(i).GetComponent<Weapon>().RefillAmmo();
+        //        return;
+        //    }
+        //}
 
         // instantiate new weapon under player (as they don't have weapon of this type)
-        Instantiate(typeToObject[newWeapon], transform);
+        //Instantiate(typeToObject[newWeapon], transform);
     }
 
     /// <summary>
