@@ -63,6 +63,14 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // TEST CODE: add weapon to inventory on input
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            AddWeapon(WeaponType.Shotgun);
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            AddWeapon(WeaponType.PhotonThrower);
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            AddWeapon(WeaponType.BioRifle);
+
         // swap to next weapon under player on weapon-swap input
         float swapInput = Input.GetAxis("Mouse ScrollWheel");
         if (swapInput != 0)
@@ -74,7 +82,6 @@ public class WeaponSelect : MonoBehaviour
 
             // set current weapon to object residing at index
             SwapWeapon(newCurrIndex);
-            
         }
     }
 
@@ -107,7 +114,7 @@ public class WeaponSelect : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             // if new weapon matches existing weapon
-            if (newWeapon.ToString() == transform.GetChild(i).name)
+            if (newWeapon.ToString() + "(Clone)" == transform.GetChild(i).name)
             {
                 // refill weapon's ammo and break from method
                 transform.GetChild(i).GetComponent<Weapon>().RefillAmmo();
