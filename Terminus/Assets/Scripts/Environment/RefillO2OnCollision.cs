@@ -6,6 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// Refill's player's oxygen tank by set amount on collision
 /// </summary>
+[RequireComponent(typeof(BoxCollider2D))]
 public class RefillO2OnCollision : MonoBehaviour
 {
     // public variables
