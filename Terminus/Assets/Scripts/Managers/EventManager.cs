@@ -8,6 +8,32 @@ using UnityEngine.Events;
 /// </summary>
 public static class EventManager
 {
+    #region Empty Weapon Event
+
+    // declare lists to hold invokers and listeners to Empty Weapon event
+    static List<Weapon> emptyWeaponInvokers = new List<Weapon>();
+    static List<UnityAction> emptyWeaponListeners = new List<UnityAction>();
+
+    // Adds given weapon as invoker of Empty Weapon event
+    public static void AddEmptyWeaponInvoker(Weapon invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        emptyWeaponInvokers.Add(invoker);
+        foreach (UnityAction listener in emptyWeaponListeners)
+            invoker.AddEmptyWeaponListener(listener);
+    }
+
+    // Adds given method as listener to Empty Weapon Event
+    public static void AddEmptyWeaponListener(UnityAction listener)
+    {
+        // adds listener to list and to all invokers of event
+        emptyWeaponListeners.Add(listener);
+        foreach (Weapon invoker in emptyWeaponInvokers)
+            invoker.AddEmptyWeaponListener(listener);
+    }
+
+    #endregion
+
     #region Update O2 Gauge
 
     // declare lists to hold invokers and listeners to update O2 display event

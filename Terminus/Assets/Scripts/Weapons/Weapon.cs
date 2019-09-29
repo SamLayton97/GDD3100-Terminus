@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Base class of all weapons, which spawn some projectile
@@ -26,7 +27,39 @@ public abstract class Weapon : MonoBehaviour
 
     // private variables
     int currAmmo = 0;                           // current ammo stored in weapon (weapon is destroyed if 0)
-    
+
+    // event support
+    EmptyWeaponEvent emptyWeaponEvent;          // event invoked when this weapon runs out of ammo
+
+    #region Unity Methods
+
+    /// <summary>
+    /// Called on initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve necessary components
+        parentRigidbody = transform.parent.gameObject.GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
+
+        // initialize ammo counter
+        currAmmo = maxAmmo;
+    }
+
+    /// <summary>
+    /// Called before first frame Update
+    /// </summary>
+    void Start()
+    {
+        // add self as invoker of empty weapon event
+        emptyWeaponEvent = new EmptyWeaponEvent();
+        EventManager.AddEmptyWeaponInvoker(this);
+    }
+
+    #endregion
+
+    #region Public Methods
+
     /// <summary>
     /// Registers shot when user fires their weapon.
     /// </summary>
@@ -68,6 +101,19 @@ public abstract class Weapon : MonoBehaviour
     }
 
     /// <summary>
+    /// Adds given method as listener to Empty Weapon event
+    /// </summary>
+    /// <param name="newListener">new listener method for event</param>
+    public void AddEmptyWeaponListener(UnityAction newListener)
+    {
+        emptyWeaponEvent.AddListener(newListener);
+    }
+
+    #endregion
+
+    #region Protected Methods
+
+    /// <summary>
     /// Decrements remaining ammo, destroying object if empty
     /// </summary>
     protected void DecrementRemainingAmmo()
@@ -84,17 +130,7 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Called on initialization
-    /// </summary>
-    void Awake()
-    {
-        // retrieve necessary components
-        parentRigidbody = transform.parent.gameObject.GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
+    #endregion
 
-        // initialize ammo counter
-        currAmmo = maxAmmo;
-    }
 
 }
