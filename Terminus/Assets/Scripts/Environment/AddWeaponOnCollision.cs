@@ -9,6 +9,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(BoxCollider2D))]
 public class AddWeaponOnCollision : MonoBehaviour
 {
+    // public variables
+    public WeaponType myWeaponType =            // type of weapon given to player upon collision
+        WeaponType.Pistol;
+
     // event support
     PickUpWeaponEvent pickUpEvent;              // event invoked on collision with player
 
@@ -20,6 +24,19 @@ public class AddWeaponOnCollision : MonoBehaviour
         // add self as invoker of pick up weapon event
         pickUpEvent = new PickUpWeaponEvent();
         EventManager.AddPickUpWeaponInvoker(this);
+    }
+
+    /// <summary>
+    /// Called when incoming collider makes contact with object's collider
+    /// </summary>
+    /// <param name="collision">collision data</param>
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // give player weapon corresponding to pickup's type
+        pickUpEvent.Invoke(myWeaponType);
+
+        // TODO: play weapon pickup sound effect
+
     }
 
     /// <summary>
