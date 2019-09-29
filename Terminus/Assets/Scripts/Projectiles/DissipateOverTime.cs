@@ -33,9 +33,6 @@ public class DissipateOverTime : MonoBehaviour
 
         // if object has fully dissipated (fully transparent), destroy object
         if (mySpriteRenderer.color.a <= 0)
-        {
-            Debug.Log("gone");
             Destroy(gameObject);
-        }
     }
 }
