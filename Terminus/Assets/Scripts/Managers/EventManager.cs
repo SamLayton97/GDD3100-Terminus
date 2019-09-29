@@ -8,7 +8,7 @@ using UnityEngine.Events;
 /// </summary>
 public static class EventManager
 {
-    #region Pick Up Weapon Event
+    #region Pick Up Weapon
 
     // declare lists to hold invokers and listeners to Pick Up Weapon event
     static List<AddWeaponOnCollision> pickUpWeaponInvokers = new List<AddWeaponOnCollision>();
@@ -34,7 +34,7 @@ public static class EventManager
 
     #endregion
 
-    #region Empty Weapon Event
+    #region Empty Weapon
 
     // declare lists to hold invokers and listeners to Empty Weapon event
     static List<Weapon> emptyWeaponInvokers = new List<Weapon>();
@@ -56,6 +56,32 @@ public static class EventManager
         emptyWeaponListeners.Add(listener);
         foreach (Weapon invoker in emptyWeaponInvokers)
             invoker.AddEmptyWeaponListener(listener);
+    }
+
+    #endregion
+
+    #region Swap Weapon UI
+
+    // declare lists to hold invokers and listeners of Swap Weapon UI event
+    static List<WeaponSelect> swapWeaponUIInvokers = new List<WeaponSelect>();
+    static List<UnityAction<int>> swapWeaponUIListeners = new List<UnityAction<int>>();
+
+    // Adds given weapon select as invoker of Swap Weapon UI event
+    public static void AddSwapWeaponUIInvoker(WeaponSelect invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        swapWeaponUIInvokers.Add(invoker);
+        foreach (UnityAction<int> listener in swapWeaponUIListeners)
+            invoker.AddSwapWeaponUIListener(listener);
+    }
+
+    // Adds given method as listener to Swap Weapon UI event
+    public static void AddSwapWeaponUIListener(UnityAction<int> listener)
+    {
+        // adds listener to list and to all invokers of event
+        swapWeaponUIListeners.Add(listener);
+        foreach (WeaponSelect invoker in swapWeaponUIInvokers)
+            invoker.AddSwapWeaponUIListener(listener);
     }
 
     #endregion

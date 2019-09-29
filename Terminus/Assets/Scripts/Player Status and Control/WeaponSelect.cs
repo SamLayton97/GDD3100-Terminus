@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Enumeration of weapons player can collect.
@@ -28,9 +29,13 @@ public class WeaponSelect : MonoBehaviour
         AudioClipNames.player_swapWeapon;
     Dictionary<WeaponType, GameObject> typeToObject;        // dictionary pairing weapon types with their corresponding weapon objects
 
+    // event support
+    SwapWeaponUIEvent updateCurrentWeapon;                  // event invoked to update player's current weapon on HUD
+
     // serialized variables
     [SerializeField] GameObject[] allWeapons;               // serialized array of all weapons objects player could have
                                                             // Note: must be populated in order they appear in enumeration
+
 
     #region Unity Methods
 
@@ -58,6 +63,10 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void Start()
     {
+        // add self as invoker of relevant events
+        updateCurrentWeapon = new SwapWeaponUIEvent();
+        EventManager.AddSwapWeaponUIInvoker(this);
+
         // add self as listener to relevant events
         EventManager.AddPickUpWeaponListener(AddWeapon);
         EventManager.AddEmptyWeaponListener(HandleEmptyWeapon);
@@ -136,6 +145,19 @@ public class WeaponSelect : MonoBehaviour
     void HandleEmptyWeapon()
     {
         SwapWeapon(false);
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Adds given method as listener to swap weapon UI event
+    /// </summary>
+    /// <param name="newListener">new listener method for event</param>
+    public void AddSwapWeaponUIListener(UnityAction<int> newListener)
+    {
+        updateCurrentWeapon.AddListener(newListener);
     }
 
     #endregion
