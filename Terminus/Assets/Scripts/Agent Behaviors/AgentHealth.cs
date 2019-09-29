@@ -90,6 +90,8 @@ public class AgentHealth : MonoBehaviour
             mySpriteRenderer.color = deathColor;
             gameObject.layer = LayerMask.NameToLayer("Environment");
             mySpriteRenderer.sortingLayerName = "MiscellaneousObjects";
+
+            // TODO: disable additional status effects
         }
     }
 

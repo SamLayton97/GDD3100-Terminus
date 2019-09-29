@@ -46,7 +46,7 @@ public class PoisonAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO: lerp agent's color to dark green
+        // lerp agent's color to dark green
         mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, poisonColor, Time.deltaTime);
 
         // decrement timer
