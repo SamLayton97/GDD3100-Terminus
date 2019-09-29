@@ -32,5 +32,6 @@ public enum AudioClipNames
     UI_gameUnpause,
     weapon_shootShotgun1,
     weapon_shootShotgun2,
-    player_swapWeapon
+    player_swapWeapon,
+    env_pickUpWeapon
 }
