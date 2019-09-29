@@ -41,7 +41,7 @@ public class WeaponSelectUI : MonoBehaviour
     {
         // add self as listener to appropriate events
         EventManager.AddSwapWeaponUIListener(UpdateCurrentWeapon);
-        
+        EventManager.AddUpdateAmmoUIListener(UpdateAmmo);
     }
 
     /// <summary>
@@ -72,8 +72,5 @@ public class WeaponSelectUI : MonoBehaviour
         ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale =
             new Vector3(remainingAmmo, ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale.y, 
             ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale.z);
-
-        // change color of corresponding weapon icon
-        //weaponIcons[(int)typeToUpdate].color = (remainingAmmo > 0) ? unequippedColor : inactiveColor;
     }
 }
