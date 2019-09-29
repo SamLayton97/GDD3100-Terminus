@@ -49,8 +49,9 @@ public class AgentHealth : MonoBehaviour
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // if other object in collision is a projectile
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectiles"))
+        // if other object in collision is a player projectile/photon
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectiles") ||
+            collision.gameObject.layer == LayerMask.NameToLayer("PlayerPhotons"))
         {
             // deduct health
             currHealth -= collision.gameObject.GetComponent<Projectile>().Damage;
