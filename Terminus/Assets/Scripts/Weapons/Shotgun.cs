@@ -24,8 +24,6 @@ public class Shotgun : Weapon
         // if player didn't fire last frame, register a shot
         if (!firedLastFrame)
         {
-            Debug.Log("SHOTGUN BLAST");
-
             // get angle of agent firing weapon
             float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
 
@@ -42,7 +40,12 @@ public class Shotgun : Weapon
                 newProjectile.GetComponent<FaceVelocity>().RelativeTo = parentRigidbody;
             }
 
-            
+            // apply reactive force to weapon user in opposite direction
+            parentRigidbody.AddForce((new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)) * -1 * reactiveForce), ForceMode2D.Impulse);
+
+            // TODO: play shotgun blast sound effect
+
+            // TODO: play shotgun blast animation
         }
     }
 }

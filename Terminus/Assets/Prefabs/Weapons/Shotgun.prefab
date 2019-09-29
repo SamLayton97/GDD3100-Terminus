@@ -49,11 +49,13 @@ MonoBehaviour:
     type: 3}
   myFireSounds: 
   continuousFiring: 0
-  projectileForce: 5
-  reactiveForce: 2.5
+  projectileForce: 6.5
+  reactiveForce: 8
   currAmmo: 100
   maxAmmo: 100
   bulletInstanceOffset: {x: 0, y: 0}
+  projectilesInBlast: 6
+  fireArc: 55
 --- !u!95 &2479800820269268264
 Animator:
   serializedVersion: 3
