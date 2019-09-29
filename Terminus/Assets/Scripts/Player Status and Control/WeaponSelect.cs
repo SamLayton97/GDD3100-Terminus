@@ -54,7 +54,8 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // add self as listener to empty weapon event
+        // add self as listener to relevant events
+        EventManager.AddPickUpWeaponListener(AddWeapon);
         EventManager.AddEmptyWeaponListener(HandleEmptyWeapon);
     }
 
