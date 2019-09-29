@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages weapon list UI to reflect weapons player has,
@@ -8,11 +9,18 @@ using UnityEngine;
 /// </summary>
 public class WeaponSelectUI : MonoBehaviour
 {
+    // Weapon icon variables
+    public Image[] weaponIcons;             // array of icons corresponding to each weapon-type
+    public Color equippedColor;             // color of icon when equipped
+    public Color unequippedColor;           // color of icon when unequipped
+    public Color inactiveColor;             // color of icon when inactive
+
     // Start is called before the first frame update
     void Start()
     {
         // add self as listener to appropriate events
         EventManager.AddSwapWeaponUIListener(UpdateCurrentWeapon);
+
     }
 
     /// <summary>

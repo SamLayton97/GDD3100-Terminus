@@ -1168,6 +1168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4829c6da73e206843be8dfd829c8ecb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIcons:
+  - {fileID: 9075260212087529503}
+  - {fileID: 4948148215837413331}
+  - {fileID: 5341542955629219464}
+  - {fileID: 5887051798504801135}
+  equippedColor: {r: 1, g: 1, b: 1, a: 1}
+  unequippedColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
+  inactiveColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
 --- !u!1 &4210643527896430190
 GameObject:
   m_ObjectHideFlags: 0
