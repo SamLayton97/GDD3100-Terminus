@@ -19,7 +19,7 @@ TagManager:
   - Environment
   - Alien
   - SceneTriggers
-  - 
+  - PlayerPhotons
   - 
   - 
   - 
@@ -67,4 +67,7 @@ TagManager:
     locked: 0
   - name: EnvironmentalForeground
     uniqueID: 3527178933
+    locked: 0
+  - name: Photons
+    uniqueID: 3878353443
     locked: 0
