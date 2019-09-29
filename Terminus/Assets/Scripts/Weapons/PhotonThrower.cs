@@ -27,6 +27,12 @@ public class PhotonThrower : Weapon
 
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
+
+            // TODO: play photon blast sound effect
+
+            // play firing animation
+            myAnimator.SetBool("isShooting", true);
+            myAnimator.Play("ShootAnimation", -1, 0);
         }
     }
 }

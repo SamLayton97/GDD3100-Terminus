@@ -355,7 +355,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currWeapon
       value: 
-      objectReference: {fileID: 700342863}
+      objectReference: {fileID: 1251563396242545593}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1, type: 3}
 --- !u!4 &232050118 stripped
@@ -6841,18 +6841,6 @@ MonoBehaviour:
   damageScalar: 1
   damageConstant: 0
   myCollisionSound: 2
---- !u!114 &700342863 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4420659651746596357, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
-    type: 3}
-  m_PrefabInstance: {fileID: 232050117}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17df8dfc01d3441498f59ecef1568b72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1149948596
 GameObject:
   m_ObjectHideFlags: 0
@@ -8461,6 +8449,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b2abd88f9652f54eafaaac075899176, type: 3}
+--- !u!114 &1251563396242545593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7711460568355672219, guid: 6b2abd88f9652f54eafaaac075899176,
+    type: 3}
+  m_PrefabInstance: {fileID: 1251563396242545592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b0147e090b39c46a77cb96f085995a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2191484176689275471
 PrefabInstance:
   m_ObjectHideFlags: 0
