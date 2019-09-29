@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Semi-automatic weapon which fires a single
@@ -9,6 +10,22 @@ using UnityEngine;
 /// </summary>
 public class BioRifle : Weapon
 {
+    // public variables
+    public float sanityLostOnShot = 10f;    // amount of sanity player looses when they fire weapon
+
+    // event support
+    DeductSanityOnFire deductSanityEvent;
+
+    /// <summary>
+    /// Called before first frame of Update
+    /// </summary>
+    void Start()
+    {
+        // TODO: add self as invoker of deduct sanity on fire event
+        deductSanityEvent = new DeductSanityOnFire();
+
+    }
+
     /// <summary>
     /// Fires a bio-projectile, applying reactionary force to user
     /// and reducing their sanity
@@ -38,5 +55,14 @@ public class BioRifle : Weapon
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
         }
+    }
+
+    /// <summary>
+    /// Adds given method as listener to deduct sanity on fire event
+    /// </summary>
+    /// <param name="newListener">new listener of event</param>
+    public void AddDeductSanityInvoker(UnityAction<float> newListener)
+    {
+        deductSanityEvent.AddListener(newListener);
     }
 }

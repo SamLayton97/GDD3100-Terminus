@@ -112,6 +112,32 @@ public static class EventManager
 
     #endregion
 
+    #region Deduct Player Sanity On Fire
+
+    // declare lists to hold invokers and listener to deduct sanity on fire event
+    static List<BioRifle> deductSanityOnFireInvokers = new List<BioRifle>();
+    static List<UnityAction<float>> deductSanityOnFireListeners = new List<UnityAction<float>>();
+
+    // Adds given biorifle as invoker of Deduct Sanity On Fire Event
+    public static void AddDeductSanityOnFireInvoker(BioRifle invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        deductSanityOnFireInvokers.Add(invoker);
+        foreach (UnityAction<float> listener in deductSanityOnFireListeners)
+            invoker.AddDeductSanityInvoker(listener);
+    }
+
+    // Adds given method as listener to Deduct Sanity On Fire event
+    public static void AddDeductSanityOnFireListener(UnityAction<float> listener)
+    {
+        // adds listener to list and to all invokers of event
+        deductSanityOnFireListeners.Add(listener);
+        foreach (BioRifle invoker in deductSanityOnFireInvokers)
+            invoker.AddDeductSanityInvoker(listener);
+    }
+
+    #endregion
+
     #region Transition Scene
 
     // declare lists to hold invokers and listeners to transition scene event
