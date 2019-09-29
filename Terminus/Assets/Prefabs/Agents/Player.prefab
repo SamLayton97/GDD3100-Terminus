@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6207548652762762169}
   - component: {fileID: 6207548652762762168}
   - component: {fileID: 127574215804843975}
+  - component: {fileID: 7080695633921624448}
+  - component: {fileID: 479563488531953364}
   - component: {fileID: 8960123665775934092}
   - component: {fileID: 4954093395389413554}
   - component: {fileID: 990504837926636998}
   - component: {fileID: 6695498505591586101}
   - component: {fileID: 6947583266611211647}
-  - component: {fileID: 7080695633921624448}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -101,6 +102,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0.08
+--- !u!114 &7080695633921624448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207548652762762119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18598cc5bd728a647bdc96ca3b47eb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &479563488531953364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207548652762762119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38fa30371dd85249aba85b9595a617d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8960123665775934092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHurtSounds: 040000000500000006000000
+  myDeathSound: 8
   oxygenDepletionRate: 1
   deathColor: {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
   screenShakeMagnitudeScalar: 1.1
@@ -199,19 +225,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7080695633921624448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6207548652762762119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18598cc5bd728a647bdc96ca3b47eb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currWeapon: {fileID: 4420659651746596357}
 --- !u!1001 &7418265347672332107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,15 +300,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7418265347672332107}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4420659651746596357 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6605566309983539534, guid: 61c1176b5a894ea4bb5005f62e3b80bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 7418265347672332107}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17df8dfc01d3441498f59ecef1568b72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

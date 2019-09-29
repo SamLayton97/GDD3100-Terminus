@@ -10,11 +10,19 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerFire : MonoBehaviour
 {
-    // public variables
-    public Weapon currWeapon = null;    // current weapon wielded by player character
-
     // private variables
+    Weapon currWeapon = null;           // current weapon wielded by player character
     bool firedLastFrame = false;        // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
+
+    /// <summary>
+    /// Public read/write-access property returning
+    /// weapon player is currently wielding
+    /// </summary>
+    public Weapon CurrentWeapon
+    {
+        get { return currWeapon; }
+        set { currWeapon = value; }
+    }
 
     // Used for initialization
     void Awake()
