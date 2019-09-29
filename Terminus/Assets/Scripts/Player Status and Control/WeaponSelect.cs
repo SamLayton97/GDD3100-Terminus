@@ -23,12 +23,25 @@ public class WeaponSelect : MonoBehaviour
 
         // set starting weapon to first child of player
         playerFire.CurrentWeapon = GetComponentInChildren<Weapon>();
-
-        //Debug.Log();
     }
 
+    /// <summary>
+    /// Called once per frame
+    /// </summary>
     void Update()
     {
+        // swap to next weapon under player on weapon-swap input
+        float swapInput = Input.GetAxis("Mouse ScrollWheel");
+        if (swapInput != 0)
+        {
+            // from input, determine index of next current weapon, wrapping if necessary
+            int newCurrIndex = playerFire.CurrentWeapon.transform.GetSiblingIndex() + (swapInput > 0 ? -1 : 1);
+            if (newCurrIndex >= transform.childCount || newCurrIndex < 0)
+                newCurrIndex += transform.childCount * ((newCurrIndex < 0) ? 1 : -1);
 
+            Debug.Log(newCurrIndex);
+            // set current weapon to object residing at index
+            playerFire.CurrentWeapon = transform.GetChild(newCurrIndex).GetComponent<Weapon>();
+        }
     }
 }
