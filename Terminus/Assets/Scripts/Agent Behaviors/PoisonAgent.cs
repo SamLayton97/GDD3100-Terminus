@@ -14,7 +14,7 @@ public class PoisonAgent : AgentStatusEffect
     AgentHealth myHealth;                       // agent's health component (used to damage agent over time)
     SpriteRenderer mySpriteRenderer;            // agent's sprite renderer component (used for visual feedback)
     float damagePerDeduction = 5f;              // amount of damage dealt to agent on each call of Deduct Health() (Note: Often set by poisoner)
-    float timeBetweenDeductions = 2f;           // time between calls of agent's Deduct Health() method
+    float timeBetweenDeductions = 1f;           // time between calls of agent's Deduct Health() method
     float poisonTimer = 0;                      // helps track when to hurt agent
     Color32 poisonColor =                       // color agent gradually transitions to while poisoned
         new Color32(0x32, 0xB7, 0x4B, 0xFF);
