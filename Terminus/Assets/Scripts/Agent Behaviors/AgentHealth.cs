@@ -23,7 +23,7 @@ public class AgentHealth : MonoBehaviour
     };
 
     // private variables
-    bool softDisabled = false;          // 
+    bool softDisabled = false;          // flag determining whether agent has been disabled (used for handling death)
     float currHealth;                   // current health of agent
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component (used to set color of sprite)
     Animator myAnimator;                // animator used to play agent's death animation (if it has one)
