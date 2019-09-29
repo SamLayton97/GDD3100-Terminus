@@ -46,6 +46,11 @@ public abstract class Weapon : MonoBehaviour
 
         // initialize ammo counter
         currAmmo = maxAmmo;
+
+        // add self as invoker of update UI event
+        // NOTE: must listen for this event before start
+        updateAmmoUI = new UpdateAmmoUIEvent();
+        EventManager.AddUpdateAmmoUIInvoker(this);
     }
 
     /// <summary>
@@ -56,8 +61,6 @@ public abstract class Weapon : MonoBehaviour
         // add self as invoker of relevant events
         emptyWeaponEvent = new EmptyWeaponEvent();
         EventManager.AddEmptyWeaponInvoker(this);
-        updateAmmoUI = new UpdateAmmoUIEvent();
-        EventManager.AddUpdateAmmoUIInvoker(this);
     }
 
     #endregion
@@ -97,11 +100,13 @@ public abstract class Weapon : MonoBehaviour
     }
 
     /// <summary>
-    /// Refills weapon's ammo to its maxs
+    /// Refills weapon's ammo to its max,
+    /// updating UI to reflect change
     /// </summary>
     public void RefillAmmo()
     {
         currAmmo = maxAmmo;
+        updateAmmoUI.Invoke(myType, 1f);
     }
 
     /// <summary>
