@@ -29,6 +29,8 @@ public class PoisonAgent : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        Debug.Log("Poisoned");
+
         // retrieve necessary components
         myHealth = GetComponent<AgentHealth>();
 

@@ -56,10 +56,14 @@ public class AgentHealth : MonoBehaviour
             collision.gameObject.layer == LayerMask.NameToLayer("PlayerPhotons"))
         {
             // deduct health
-            DeductHealth(collision.gameObject.GetComponent<Projectile>().Damage);
+            Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+            DeductHealth(projectile.Damage);
+
+            // apply additional effects according to projectile values
+            if (projectile.PoisonDamage > 0)
+                gameObject.AddComponent<PoisonAgent>().DamagePerDeduction = projectile.PoisonDamage;
+
         }
-        // but if other object in collision is a poisoned projectile
-        
     }
 
     #endregion
