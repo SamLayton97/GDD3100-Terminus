@@ -39,8 +39,8 @@ public class WeaponSelect : MonoBehaviour
             if (newCurrIndex >= transform.childCount || newCurrIndex < 0)
                 newCurrIndex += transform.childCount * ((newCurrIndex < 0) ? 1 : -1);
 
-            Debug.Log(newCurrIndex);
             // set current weapon to object residing at index
+            Debug.Log(newCurrIndex);
             playerFire.CurrentWeapon = transform.GetChild(newCurrIndex).GetComponent<Weapon>();
         }
     }

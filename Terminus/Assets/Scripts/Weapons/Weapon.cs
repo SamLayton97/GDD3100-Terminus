@@ -47,6 +47,9 @@ public abstract class Weapon : MonoBehaviour
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
 
+            // decrement ammo
+            DecrementRemainingAmmo();
+
             // play random firing sound
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
 
@@ -62,6 +65,23 @@ public abstract class Weapon : MonoBehaviour
     public void StopAnimation()
     {
         myAnimator.SetBool("isShooting", false);
+    }
+
+    /// <summary>
+    /// Decrements remaining ammo, destroying object if empty
+    /// </summary>
+    protected void DecrementRemainingAmmo()
+    {
+        // if weapon doesn't have infinite ammo
+        if (maxAmmo != -1)
+        {
+            // decrement ammo
+            currAmmo--;
+
+            // destroy weapon if empty
+            if (currAmmo < 1)
+                Destroy(gameObject);
+        }
     }
 
     /// <summary>
