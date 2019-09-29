@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(AgentHealth))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class PoisonAgent : MonoBehaviour
+public class PoisonAgent : AgentStatusEffect
 {
     // private variables
     AgentHealth myHealth;                       // agent's health component (used to damage agent over time)
@@ -33,8 +33,6 @@ public class PoisonAgent : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        Debug.Log("Poisoned");
-
         // retrieve necessary components
         myHealth = GetComponent<AgentHealth>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();

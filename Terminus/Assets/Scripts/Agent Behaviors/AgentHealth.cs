@@ -91,7 +91,10 @@ public class AgentHealth : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Environment");
             mySpriteRenderer.sortingLayerName = "MiscellaneousObjects";
 
-            // TODO: disable additional status effects
+            // disable agent's status effects
+            AgentStatusEffect[] statusEffects = GetComponents<AgentStatusEffect>();
+            for (int i = 0; i < statusEffects.Length; i++)
+                statusEffects[i].enabled = false;
         }
     }
 
