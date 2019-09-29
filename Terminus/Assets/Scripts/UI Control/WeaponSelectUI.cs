@@ -15,6 +15,9 @@ public class WeaponSelectUI : MonoBehaviour
     public Color unequippedColor;           // color of icon when unequipped
     public Color inactiveColor;             // color of icon when inactive
 
+    // Ammo meter variables
+    public Image[] ammoMeters;              // array of meters corresponding to ammo of each weapon
+
     /// <summary>
     /// Used for initialization
     /// </summary>

@@ -1176,6 +1176,7 @@ MonoBehaviour:
   equippedColor: {r: 1, g: 1, b: 1, a: 1}
   unequippedColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
   inactiveColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
+  ammoMeters: []
 --- !u!1 &4210643527896430190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,10 +2037,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 93, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2805692005759305929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2339,10 +2340,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
+  m_SizeDelta: {x: 93, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &9108950234650374217
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2414,10 +2415,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
+  m_SizeDelta: {x: 93, y: 0}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3000581180164505821
 CanvasRenderer:
   m_ObjectHideFlags: 0
