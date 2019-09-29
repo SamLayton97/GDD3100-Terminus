@@ -41,7 +41,7 @@ public class WeaponSelectUI : MonoBehaviour
     {
         // add self as listener to appropriate events
         EventManager.AddSwapWeaponUIListener(UpdateCurrentWeapon);
-
+        
     }
 
     /// <summary>
@@ -50,11 +50,30 @@ public class WeaponSelectUI : MonoBehaviour
     /// <param name="newCurrentWeapon">index of weapon equipped by player</param>
     void UpdateCurrentWeapon(int newCurrentWeapon)
     {
-        Debug.Log(newCurrentWeapon);
-
-        // brighten new current weapon icon and darken old one
+        // brighten new current weapon icon
         weaponIcons[newCurrentWeapon].color = equippedColor;
-        weaponIcons[currWeaponIndex].color = unequippedColor;
+
+        // darken/deactivate old current weapon icon
+        if (currWeaponIndex > 0 && ammoMeters[currWeaponIndex - 1].rectTransform.localScale.x <= 0)
+            weaponIcons[currWeaponIndex].color = inactiveColor;
+        else
+            weaponIcons[currWeaponIndex].color = unequippedColor;
         currWeaponIndex = newCurrentWeapon;
+    }
+
+    /// <summary>
+    /// Updates UI to reflect amount of ammo in a given weapon
+    /// </summary>
+    /// <param name="typeToUpdate">which weapon to update ammo of</param>
+    /// <param name="remainingAmmo">percentage (0-1) of ammo remaining in weapon</param>
+    void UpdateAmmo(WeaponType typeToUpdate, float remainingAmmo)
+    {
+        // scale corresponding meter by remaining ammo
+        ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale =
+            new Vector3(remainingAmmo, ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale.y, 
+            ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale.z);
+
+        // change color of corresponding weapon icon
+        //weaponIcons[(int)typeToUpdate].color = (remainingAmmo > 0) ? unequippedColor : inactiveColor;
     }
 }
