@@ -13,6 +13,10 @@ public class AddWeaponOnCollision : MonoBehaviour
     public WeaponType myWeaponType =            // type of weapon given to player upon collision
         WeaponType.Pistol;
 
+    // private variables
+    AudioClipNames myPickupSound =              // sound played on collision with player
+        AudioClipNames.env_pickUpWeapon;
+
     // event support
     PickUpWeaponEvent pickUpEvent;              // event invoked on collision with player
 
@@ -35,8 +39,8 @@ public class AddWeaponOnCollision : MonoBehaviour
         // give player weapon corresponding to pickup's type
         pickUpEvent.Invoke(myWeaponType);
 
-        // TODO: play weapon pickup sound effect
-
+        // play weapon pickup sound effect
+        AudioManager.Play(myPickupSound, true);
     }
 
     /// <summary>
