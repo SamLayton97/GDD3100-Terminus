@@ -49,7 +49,7 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// Called before first frame Update
     /// </summary>
-    void Start()
+    protected virtual void Start()
     {
         // add self as invoker of empty weapon event
         emptyWeaponEvent = new EmptyWeaponEvent();
@@ -132,6 +132,5 @@ public abstract class Weapon : MonoBehaviour
     }
 
     #endregion
-
 
 }

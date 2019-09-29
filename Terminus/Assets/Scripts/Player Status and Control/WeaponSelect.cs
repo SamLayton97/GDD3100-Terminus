@@ -13,6 +13,8 @@ public class WeaponSelect : MonoBehaviour
     // private variables
     PlayerFire playerFire;              // player fire component (gets its current weapon property updated)
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -23,6 +25,15 @@ public class WeaponSelect : MonoBehaviour
 
         // set starting weapon to first child of player
         playerFire.CurrentWeapon = GetComponentInChildren<Weapon>();
+    }
+
+    /// <summary>
+    /// Called once before first frame Update
+    /// </summary>
+    void Start()
+    {
+        // add self as listener to empty weapon event
+        EventManager.AddEmptyWeaponListener(HandleEmptyWeapon);
     }
 
     /// <summary>
@@ -44,4 +55,21 @@ public class WeaponSelect : MonoBehaviour
             playerFire.CurrentWeapon = transform.GetChild(newCurrIndex).GetComponent<Weapon>();
         }
     }
+
+    #endregion
+
+    #region Private Methods
+
+    /// <summary>
+    /// Handles empty weapon event, swapping current weapon to
+    /// previous under player. This method is safe as the first
+    /// weapon (pistol) will always have infinite ammo.
+    /// </summary>
+    void HandleEmptyWeapon()
+    {
+        playerFire.CurrentWeapon = transform.GetChild(playerFire.CurrentWeapon.transform.GetSiblingIndex() - 1).GetComponent<Weapon>();
+    }
+
+    #endregion
+
 }

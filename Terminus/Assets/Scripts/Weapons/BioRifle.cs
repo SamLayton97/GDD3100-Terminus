@@ -19,8 +19,10 @@ public class BioRifle : Weapon
     /// <summary>
     /// Called before first frame of Update
     /// </summary>
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         // add self as invoker of deduct sanity on fire event
         deductSanityEvent = new DeductSanityOnFire();
         EventManager.AddDeductSanityOnFireInvoker(this);
