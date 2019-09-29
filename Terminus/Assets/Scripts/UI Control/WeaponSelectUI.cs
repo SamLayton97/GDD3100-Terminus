@@ -26,6 +26,11 @@ public class WeaponSelectUI : MonoBehaviour
         // set colors of all weapons save for first to inactive
         for (int i = 1; i < weaponIcons.Length; i++)
             weaponIcons[i].color = inactiveColor;
+
+        // scale all ammo meters to 0
+        for (int i = 0; i < ammoMeters.Length; i++)
+            ammoMeters[i].rectTransform.localScale = new Vector3(0, 
+                ammoMeters[i].rectTransform.localScale.y, ammoMeters[i].rectTransform.localScale.z);
     }
 
     // Start is called before the first frame update
