@@ -16,6 +16,10 @@ public class BioRifle : Weapon
     /// <param name="firedLastFrame">whether user of weapon fired on last frame</param>
     public override void RegisterInput(bool firedLastFrame)
     {
-        throw new System.NotImplementedException();
+        // if player didn't fire last frame, register fire input
+        if (!firedLastFrame)
+        {
+            Debug.Log("bioshot");
+        }
     }
 }
