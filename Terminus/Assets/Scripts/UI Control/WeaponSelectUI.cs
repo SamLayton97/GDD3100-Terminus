@@ -15,6 +15,16 @@ public class WeaponSelectUI : MonoBehaviour
     public Color unequippedColor;           // color of icon when unequipped
     public Color inactiveColor;             // color of icon when inactive
 
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // set colors of all weapons save for first to inactive
+        for (int i = 1; i < weaponIcons.Length; i++)
+            weaponIcons[i].color = inactiveColor;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

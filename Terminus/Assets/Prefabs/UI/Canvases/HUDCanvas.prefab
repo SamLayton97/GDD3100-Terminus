@@ -1175,7 +1175,7 @@ MonoBehaviour:
   - {fileID: 5887051798504801135}
   equippedColor: {r: 1, g: 1, b: 1, a: 1}
   unequippedColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
-  inactiveColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  inactiveColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
 --- !u!1 &4210643527896430190
 GameObject:
   m_ObjectHideFlags: 0
