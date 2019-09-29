@@ -51,8 +51,8 @@ public class WeaponSelect : MonoBehaviour
                 newCurrIndex += transform.childCount * ((newCurrIndex < 0) ? 1 : -1);
 
             // set current weapon to object residing at index
-            Debug.Log(newCurrIndex);
-            playerFire.CurrentWeapon = transform.GetChild(newCurrIndex).GetComponent<Weapon>();
+            SwapWeapon(newCurrIndex);
+            
         }
     }
 
@@ -61,13 +61,25 @@ public class WeaponSelect : MonoBehaviour
     #region Private Methods
 
     /// <summary>
+    /// Swaps player's current weapon to one under it at given index
+    /// </summary>
+    /// <param name="newWeaponIndex">child index of weapon to swap to</param>
+    void SwapWeapon(int newWeaponIndex)
+    {
+        Debug.Log(newWeaponIndex);
+
+        // swap weapon which registers fire input
+        playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
+    }
+
+    /// <summary>
     /// Handles empty weapon event, swapping current weapon to
     /// previous under player. This method is safe as the first
     /// weapon (pistol) will always have infinite ammo.
     /// </summary>
     void HandleEmptyWeapon()
     {
-        playerFire.CurrentWeapon = transform.GetChild(playerFire.CurrentWeapon.transform.GetSiblingIndex() - 1).GetComponent<Weapon>();
+        SwapWeapon(playerFire.CurrentWeapon.transform.GetSiblingIndex() - 1);
     }
 
     #endregion
