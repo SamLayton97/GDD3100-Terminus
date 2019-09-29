@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// Enumeration of weapons player can collect.
+/// Used for adding weapons to player's collection.
+/// </summary>
+public enum WeaponTypes
+{
+    Pistol,
+    Shotgun,
+    PhotonThrower,
+    BioRifle
+}
+
+/// <summary>
 /// Registers user's swap weapon input, switching current
 /// weapon to next/previous weapon in player's inventory.
 /// Also adds and removes weapons from inventory when necessary.
@@ -74,6 +86,8 @@ public class WeaponSelect : MonoBehaviour
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
     }
+
+
 
     /// <summary>
     /// Handles empty weapon event, swapping current weapon to
