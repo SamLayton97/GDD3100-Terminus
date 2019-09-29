@@ -80,13 +80,8 @@ public class WeaponSelect : MonoBehaviour
         float swapInput = Input.GetAxis("Mouse ScrollWheel");
         if (swapInput != 0)
         {
-            // from input, determine index of next current weapon, wrapping if necessary
-            int newCurrIndex = playerFire.CurrentWeapon.transform.GetSiblingIndex() + (swapInput > 0 ? -1 : 1);
-            if (newCurrIndex >= transform.childCount || newCurrIndex < 0)
-                newCurrIndex += transform.childCount * ((newCurrIndex < 0) ? 1 : -1);
-
-            // set current weapon to object residing at index
-            SwapWeapon(newCurrIndex);
+            // from input swap to next active weapon
+            SwapWeapon(swapInput < 0);
         }
     }
 
@@ -97,12 +92,22 @@ public class WeaponSelect : MonoBehaviour
     /// <summary>
     /// Swaps player's current weapon to one under it at given index
     /// </summary>
-    /// <param name="newWeaponIndex">child index of weapon to swap to</param>
-    void SwapWeapon(int newWeaponIndex)
+    /// <param name="swapNext">flag determining direction to swap in</param>
+    void SwapWeapon(bool swapNext)
     {
-        Debug.Log(newWeaponIndex);
+        // find index of weapon to swap to, wrapping if necessary
+        int swapDirection = (swapNext ? 1 : -1);
+        int newWeaponIndex = playerFire.CurrentWeapon.transform.GetSiblingIndex();
+        do
+        {
+            newWeaponIndex += swapDirection;
+            if (newWeaponIndex >= transform.childCount || newWeaponIndex < 0)
+                newWeaponIndex += transform.childCount * ((newWeaponIndex < 0) ? 1 : -1);
+        }
+        while (!transform.GetChild(newWeaponIndex).gameObject.activeSelf);
 
         // swap weapon and play sound
+        Debug.Log("Weapon: " + (WeaponType)newWeaponIndex);
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
     }
@@ -121,21 +126,6 @@ public class WeaponSelect : MonoBehaviour
 
         // refill corresponding weapon's ammo
         transform.GetChild((int)newWeapon).GetComponent<Weapon>().RefillAmmo();
-
-        //// iterate over player's current weapons
-        //for (int i = 0; i < transform.childCount; i++)
-        //{
-        //    // if new weapon matches existing weapon
-        //    if (newWeapon.ToString() + "(Clone)" == transform.GetChild(i).name)
-        //    {
-        //        // refill weapon's ammo and break from method
-        //        transform.GetChild(i).GetComponent<Weapon>().RefillAmmo();
-        //        return;
-        //    }
-        //}
-
-        // instantiate new weapon under player (as they don't have weapon of this type)
-        //Instantiate(typeToObject[newWeapon], transform);
     }
 
     /// <summary>
@@ -145,7 +135,7 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void HandleEmptyWeapon()
     {
-        SwapWeapon(playerFire.CurrentWeapon.transform.GetSiblingIndex() - 1);
+        SwapWeapon(false);
     }
 
     #endregion
