@@ -116,7 +116,6 @@ public class WeaponSelect : MonoBehaviour
         while (!transform.GetChild(newWeaponIndex).gameObject.activeSelf);
 
         // swap weapon and play sound
-        Debug.Log("Weapon: " + (WeaponType)newWeaponIndex);
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
 
