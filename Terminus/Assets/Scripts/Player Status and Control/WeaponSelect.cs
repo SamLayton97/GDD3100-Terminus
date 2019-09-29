@@ -64,6 +64,14 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // TEST CODE: add weapon to inventory on input
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            AddWeapon(WeaponType.Shotgun);
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            AddWeapon(WeaponType.PhotonThrower);
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            AddWeapon(WeaponType.BioRifle);
+
         // swap to next weapon under player on weapon-swap input
         float swapInput = Input.GetAxis("Mouse ScrollWheel");
         if (swapInput != 0)
