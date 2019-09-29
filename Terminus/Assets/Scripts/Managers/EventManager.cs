@@ -8,6 +8,32 @@ using UnityEngine.Events;
 /// </summary>
 public static class EventManager
 {
+    #region Pick Up Weapon Event
+
+    // declare lists to hold invokers and listeners to Pick Up Weapon event
+    static List<AddWeaponOnCollision> pickUpWeaponInvokers = new List<AddWeaponOnCollision>();
+    static List<UnityAction<WeaponType>> pickUpWeaponListeners = new List<UnityAction<WeaponType>>();
+
+    // Adds given weapon pickup as invoker of pick up weapon event
+    public static void AddPickUpWeaponInvoker(AddWeaponOnCollision invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        pickUpWeaponInvokers.Add(invoker);
+        foreach (UnityAction<WeaponType> listener in pickUpWeaponListeners)
+            invoker.AddPickupWeaponInvoker(listener);
+    }
+
+    // Adds given method as listener to Pick Up Weapon event
+    public static void AddPickUpWeaponListener(UnityAction<WeaponType> listener)
+    {
+        // adds listener to list and to all invokers of event
+        pickUpWeaponListeners.Add(listener);
+        foreach (AddWeaponOnCollision invoker in pickUpWeaponInvokers)
+            invoker.AddPickupWeaponInvoker(listener);
+    }
+
+    #endregion
+
     #region Empty Weapon Event
 
     // declare lists to hold invokers and listeners to Empty Weapon event
