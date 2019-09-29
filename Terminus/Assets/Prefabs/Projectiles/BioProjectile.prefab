@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 17419080870225277}
   m_Layer: 10
   m_Name: BioProjectile
-  m_TagString: Untagged
+  m_TagString: Poisoned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

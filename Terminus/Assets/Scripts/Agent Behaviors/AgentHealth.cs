@@ -58,6 +58,8 @@ public class AgentHealth : MonoBehaviour
             // deduct health
             DeductHealth(collision.gameObject.GetComponent<Projectile>().Damage);
         }
+        // but if other object in collision is a poisoned projectile
+        
     }
 
     #endregion
