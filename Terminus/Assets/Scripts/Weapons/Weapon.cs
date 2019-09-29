@@ -144,7 +144,7 @@ public abstract class Weapon : MonoBehaviour
         {
             // decrement ammo and update corresponding UI element
             currAmmo--;
-            //updateAmmoUI.Invoke()
+            updateAmmoUI.Invoke(myType, (float)currAmmo / maxAmmo);
 
             // deactivate weapon if empty
             if (currAmmo < 1)
