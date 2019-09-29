@@ -119,6 +119,9 @@ public class WeaponSelect : MonoBehaviour
         Debug.Log("Weapon: " + (WeaponType)newWeaponIndex);
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
+
+        // invoke event to update current weapon on UI
+        updateCurrentWeapon.Invoke(newWeaponIndex);
     }
 
     /// <summary>
