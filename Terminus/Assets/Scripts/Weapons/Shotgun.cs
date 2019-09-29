@@ -45,7 +45,9 @@ public class Shotgun : Weapon
 
             // TODO: play shotgun blast sound effect
 
-            // TODO: play shotgun blast animation
+            // play shotgun firing animation
+            myAnimator.SetBool("isShooting", true);
+            myAnimator.Play("ShootAnimation", -1, 0);
         }
     }
 }

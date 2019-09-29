@@ -8567,7 +8567,7 @@ PrefabInstance:
     - target: {fileID: 1592779365012043559, guid: bd4c4112db9edc34ab9dbed11184bd2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1726
+      value: 0.1847
       objectReference: {fileID: 0}
     - target: {fileID: 1592779365012043559, guid: bd4c4112db9edc34ab9dbed11184bd2e,
         type: 3}
@@ -8618,6 +8618,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52064990977229873, guid: bd4c4112db9edc34ab9dbed11184bd2e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 52064990977229873, guid: bd4c4112db9edc34ab9dbed11184bd2e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 52064990977229873, guid: bd4c4112db9edc34ab9dbed11184bd2e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4c4112db9edc34ab9dbed11184bd2e, type: 3}
