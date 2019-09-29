@@ -20,5 +20,15 @@ public class WeaponSelect : MonoBehaviour
     {
         // retrieve necessary components
         playerFire = GetComponent<PlayerFire>();
+
+        // set starting weapon to first child of player
+        playerFire.CurrentWeapon = GetComponentInChildren<Weapon>();
+
+        //Debug.Log();
+    }
+
+    void Update()
+    {
+
     }
 }
