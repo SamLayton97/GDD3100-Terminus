@@ -27,7 +27,6 @@ public class WeaponSelect : MonoBehaviour
     PlayerFire playerFire;                                  // player fire component (gets its current weapon property updated)
     AudioClipNames mySwapSound =                            // sound played when player swaps to different weapon
         AudioClipNames.player_swapWeapon;
-    Dictionary<WeaponType, GameObject> typeToObject;        // dictionary pairing weapon types with their corresponding weapon objects
 
     // event support
     SwapWeaponUIEvent updateCurrentWeapon;                  // event invoked to update player's current weapon on HUD
@@ -49,9 +48,6 @@ public class WeaponSelect : MonoBehaviour
 
         // initialize starting weapon and load type to object dictionary
         playerFire.CurrentWeapon = GetComponentInChildren<Weapon>();
-        typeToObject = new Dictionary<WeaponType, GameObject>();
-        for (int i = 0; i < allWeapons.Length; i++)
-            typeToObject.Add((WeaponType)i, allWeapons[i]);
 
         // for all additional weapons, spawn them under player but as inactive
         for (int i = 1; i < allWeapons.Length; i++)
