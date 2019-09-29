@@ -50,7 +50,7 @@ MonoBehaviour:
   myFireSounds: 0d000000
   continuousFiring: 0
   projectileForce: 3
-  reactiveForce: 1.5
+  reactiveForce: 1
   currAmmo: 100
   maxAmmo: 100
   bulletInstanceOffset: {x: 0, y: 0}

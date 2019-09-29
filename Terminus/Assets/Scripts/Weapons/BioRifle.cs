@@ -50,7 +50,8 @@ public class BioRifle : Weapon
             // reduce player's sanity by set amount
             deductSanityEvent.Invoke(sanityLostOnShot);
 
-            // TODO: play random fire sound effect
+            // play random fire sound effect
+            AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
 
             // play firing animation
             myAnimator.SetBool("isShooting", true);
