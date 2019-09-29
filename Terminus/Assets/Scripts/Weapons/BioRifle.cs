@@ -19,7 +19,24 @@ public class BioRifle : Weapon
         // if player didn't fire last frame, register fire input
         if (!firedLastFrame)
         {
-            Debug.Log("bioshot");
+            // fire pistol shot in direction of weapon's rotation
+            float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
+            Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;
+            GameObject newProjectile = Instantiate(projectileObject, transform.position, Quaternion.identity);
+            newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity,
+                ForceMode2D.Impulse);
+            newProjectile.GetComponent<FaceVelocity>().RelativeTo = parentRigidbody;
+
+            // apply reactive force to weapon user in opposite direction
+            parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
+
+            // TODO: reduce player's sanity by set amount
+
+            // TODO: play random fire sound effect
+
+            // play firing animation
+            myAnimator.SetBool("isShooting", true);
+            myAnimator.Play("ShootAnimation", -1, 0);
         }
     }
 }
