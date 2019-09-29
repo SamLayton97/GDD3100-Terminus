@@ -29,6 +29,8 @@ public class AgentHealth : MonoBehaviour
     Animator myAnimator;                // animator used to play agent's death animation (if it has one)
     O2Remover myBehavior;               // component controlling agent's hostile behavior
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for internal initialization
     /// </summary>
@@ -54,13 +56,13 @@ public class AgentHealth : MonoBehaviour
             collision.gameObject.layer == LayerMask.NameToLayer("PlayerPhotons"))
         {
             // deduct health
-            currHealth -= collision.gameObject.GetComponent<Projectile>().Damage;
-
-            // kill agent if necessary, playing appropriate sound effects
-            if (currHealth <= 0) HandleAgentDeath();
-            else AudioManager.Play(myHurtSounds[Random.Range(0, myHurtSounds.Length)], true);
+            DeductHealth(collision.gameObject.GetComponent<Projectile>().Damage);
         }
     }
+
+    #endregion
+
+    #region Private Methods
 
     /// <summary>
     /// Handles all necessary processes related to handling agent's death
@@ -84,4 +86,29 @@ public class AgentHealth : MonoBehaviour
             mySpriteRenderer.sortingLayerName = "MiscellaneousObjects";
         }
     }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Deducts set amount from agent's health pool,
+    /// killing them if necessary.
+    /// </summary>
+    /// <param name="damage">damage dealt to agent</param>
+    public void DeductHealth(float damage)
+    {
+        // deduct health
+        currHealth -= damage;
+
+        // kill agent if health falls below 0
+        if (currHealth <= 0)
+            HandleAgentDeath();
+        // otherwise, play standard hurt sound effect
+        else
+            AudioManager.Play(myHurtSounds[Random.Range(0, myHurtSounds.Length)], true);
+    }
+
+    #endregion
+
 }
