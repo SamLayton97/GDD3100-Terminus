@@ -42,15 +42,15 @@ public class Shotgun : Weapon
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)) * -1 * reactiveForce), ForceMode2D.Impulse);
 
-            // decrement ammo
-            DecrementRemainingAmmo();
-
             // play shotgun blast sound effect
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
 
             // play shotgun firing animation
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
+
+            // decrement ammo
+            DecrementRemainingAmmo();
         }
     }
 }

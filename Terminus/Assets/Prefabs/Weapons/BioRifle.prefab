@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cda88ca38a6712488c265e54007ebf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myType: 3
   projectileObject: {fileID: 1590410038477920540, guid: 946c41597de65d74a83f997be91b02c8,
     type: 3}
   myFireSounds: 0e000000

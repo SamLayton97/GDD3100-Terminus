@@ -11,6 +11,7 @@ using UnityEngine.Events;
 public abstract class Weapon : MonoBehaviour
 {
     // public variables
+    public WeaponType myType = WeaponType.Pistol;           // type of weapon this object is
     public GameObject projectileObject = null;              // game object weapon fires
     public AudioClipNames[] myFireSounds;                   // sound played when weapon is fired
     public bool continuousFiring = false;                   // whether user may fire weapon for consecutive frames
@@ -141,8 +142,11 @@ public abstract class Weapon : MonoBehaviour
         // if weapon doesn't have infinite ammo
         if (maxAmmo != -1)
         {
-            // decrement ammo, deactivate weapon if empty
+            // decrement ammo and update corresponding UI element
             currAmmo--;
+            //updateAmmoUI.Invoke()
+
+            // deactivate weapon if empty
             if (currAmmo < 1)
             {
                 gameObject.SetActive(false);
