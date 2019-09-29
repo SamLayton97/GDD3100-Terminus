@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 5926730020636402119}
   - component: {fileID: 4295924872566326880}
   m_Layer: 5
-  m_Name: LimitedWeaponHolder3
+  m_Name: BioRifleHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 7266915958483295965}
   - component: {fileID: 5852874141159937947}
   m_Layer: 5
-  m_Name: LimitedWeaponHolder2
+  m_Name: PhotonHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 326380901986830413}
   - component: {fileID: 4354875545153204783}
   m_Layer: 5
-  m_Name: LimitedWeaponHolder1
+  m_Name: ShotgunHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
