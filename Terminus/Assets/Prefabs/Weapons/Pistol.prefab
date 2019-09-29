@@ -51,8 +51,7 @@ MonoBehaviour:
   continuousFiring: 0
   projectileForce: 5
   reactiveForce: 2.5
-  currAmmo: 10
-  maxAmmo: 10
+  maxAmmo: -1
   bulletInstanceOffset: {x: 0.11, y: 0.003}
 --- !u!95 &210930416545011364
 Animator:
