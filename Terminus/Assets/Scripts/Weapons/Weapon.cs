@@ -80,15 +80,15 @@ public abstract class Weapon : MonoBehaviour
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
 
-            // decrement ammo
-            DecrementRemainingAmmo();
-
             // play random firing sound
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
 
             // play firing animation
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
+
+            // decrement ammo
+            DecrementRemainingAmmo();
         }
     }
 
