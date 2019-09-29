@@ -18,7 +18,7 @@ public class Shotgun : Weapon
     /// Fires several projectiles within an arc, applying a large
     /// reactionary force to agent who shot weapon
     /// </summary>
-    /// <param name="firedLastFrame"></param>
+    /// <param name="firedLastFrame">whether user of weapon fired on last frame</param>
     public override void RegisterInput(bool firedLastFrame)
     {
         // if player didn't fire last frame, register a shot
