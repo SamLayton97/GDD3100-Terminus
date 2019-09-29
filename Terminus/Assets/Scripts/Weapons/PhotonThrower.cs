@@ -17,8 +17,6 @@ public class PhotonThrower : Weapon
         // if player didn't fire last frame, register fire input
         if (!firedLastFrame)
         {
-            Debug.Log("PHOTON BLAST");
-
             // fire pistol shot in direction of weapon's rotation
             float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;

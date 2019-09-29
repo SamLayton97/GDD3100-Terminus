@@ -23,6 +23,7 @@ public class AgentHealth : MonoBehaviour
     };
 
     // private variables
+    bool softDisabled = false;          // 
     float currHealth;                   // current health of agent
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component (used to set color of sprite)
     Animator myAnimator;                // animator used to play agent's death animation (if it has one)
@@ -65,16 +66,21 @@ public class AgentHealth : MonoBehaviour
     /// </summary>
     void HandleAgentDeath()
     {
-        // set animation triggers
-        myAnimator.SetTrigger("OnDeathTrigger");
+        // if agent hasn't already been soft-disabled
+        if (!softDisabled)
+        {
+            // set animation triggers
+            myAnimator.SetTrigger("OnDeathTrigger");
 
-        // play agent's death sound effect
-        AudioManager.Play(myDeathSound, true);
+            // play agent's death sound effect
+            AudioManager.Play(myDeathSound, true);
 
-        // soft-disable agent
-        myBehavior.enabled = false;
-        mySpriteRenderer.color = deathColor;
-        gameObject.layer = LayerMask.NameToLayer("Environment");
-        mySpriteRenderer.sortingLayerName = "MiscellaneousObjects";
+            // soft-disable agent
+            softDisabled = true;
+            myBehavior.enabled = false;
+            mySpriteRenderer.color = deathColor;
+            gameObject.layer = LayerMask.NameToLayer("Environment");
+            mySpriteRenderer.sortingLayerName = "MiscellaneousObjects";
+        }
     }
 }
