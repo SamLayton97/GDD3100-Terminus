@@ -21,9 +21,9 @@ public class BioRifle : Weapon
     /// </summary>
     void Start()
     {
-        // TODO: add self as invoker of deduct sanity on fire event
+        // add self as invoker of deduct sanity on fire event
         deductSanityEvent = new DeductSanityOnFire();
-
+        EventManager.AddDeductSanityOnFireInvoker(this);
     }
 
     /// <summary>
@@ -47,7 +47,8 @@ public class BioRifle : Weapon
             // apply reactive force to weapon user in opposite direction
             parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
 
-            // TODO: reduce player's sanity by set amount
+            // reduce player's sanity by set amount
+            deductSanityEvent.Invoke(sanityLostOnShot);
 
             // TODO: play random fire sound effect
 
