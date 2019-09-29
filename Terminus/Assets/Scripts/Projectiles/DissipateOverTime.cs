@@ -14,18 +14,14 @@ public class DissipateOverTime : MonoBehaviour
 
     // private variables
     SpriteRenderer mySpriteRenderer;            // object's sprite renderer component (used to control opacity)
-    Color originalColor;                        // starting color to transition object's sprite color from
-
-    float counter = 0;
 
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
-        // retrieve necessary components/information
+        // retrieve necessary components
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = mySpriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -34,9 +30,6 @@ public class DissipateOverTime : MonoBehaviour
         // transition sprite's alpha to zero over time
         mySpriteRenderer.color = new Color(mySpriteRenderer.color.r, mySpriteRenderer.color.g, mySpriteRenderer.color.b,
             mySpriteRenderer.color.a - Time.deltaTime / dissipationTime);
-
-        counter += Time.deltaTime;
-        Debug.Log(counter);
 
         // if object has fully dissipated (fully transparent), destroy object
         if (mySpriteRenderer.color.a <= 0)
