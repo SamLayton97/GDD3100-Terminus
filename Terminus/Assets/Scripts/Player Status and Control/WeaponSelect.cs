@@ -47,12 +47,6 @@ public class WeaponSelect : MonoBehaviour
         typeToObject = new Dictionary<WeaponType, GameObject>();
         for (int i = 0; i < allWeapons.Length; i++)
             typeToObject.Add((WeaponType)i, allWeapons[i]);
-
-        // DEBUGGING: verify correct pairing
-        for (int i = 0; i < typeToObject.Count; i++)
-        {
-            Debug.Log(typeToObject[(WeaponType)i].name);
-        }
     }
 
     /// <summary>
