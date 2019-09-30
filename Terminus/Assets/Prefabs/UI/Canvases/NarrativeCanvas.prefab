@@ -620,7 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionTo:
   - TitleScene
-  - GameplayLevel1
+  - LevelPreview1
 --- !u!1 &5411242464398381666
 GameObject:
   m_ObjectHideFlags: 0
