@@ -50,15 +50,19 @@ public class WeaponSelectUI : MonoBehaviour
     /// <param name="newCurrentWeapon">index of weapon equipped by player</param>
     void UpdateCurrentWeapon(int newCurrentWeapon)
     {
-        // brighten new current weapon icon
-        weaponIcons[newCurrentWeapon].color = equippedColor;
+        // if new current weapon isn't weapon already equipped by player
+        if (newCurrentWeapon != currWeaponIndex)
+        {
+            // brighten new current weapon icon
+            weaponIcons[newCurrentWeapon].color = equippedColor;
 
-        // darken/deactivate old current weapon icon
-        if (currWeaponIndex > 0 && ammoMeters[currWeaponIndex - 1].rectTransform.localScale.x <= 0)
-            weaponIcons[currWeaponIndex].color = inactiveColor;
-        else
-            weaponIcons[currWeaponIndex].color = unequippedColor;
-        currWeaponIndex = newCurrentWeapon;
+            // darken/deactivate old current weapon icon
+            if (currWeaponIndex > 0 && ammoMeters[currWeaponIndex - 1].rectTransform.localScale.x <= 0)
+                weaponIcons[currWeaponIndex].color = inactiveColor;
+            else
+                weaponIcons[currWeaponIndex].color = unequippedColor;
+            currWeaponIndex = newCurrentWeapon;
+        }
     }
 
     /// <summary>
