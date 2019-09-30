@@ -550,32 +550,21 @@ PrefabInstance:
         Artists:\r\nAxel Lymphos - Infinium Guardiam\r\nJoe Prince - Maven Pro\r\nMuraKnockout
         Media & Design - Elite Hacker Corroded\r\n\r\nVisual Effects Artists:\r\nandersonaddo
         - EZ Camera Shake\r\n\r\nComposers:\r\nTristan Lohengrin - Spaceship Atmosphere
-        02, 04\r\n\r\nSound Effects Artists:\r\nAris621 - Nasty Knife Stab\r\nbeerbelly38
-        - airlock_1_3_sec_mast\r\nChristopherderp - Hurt 1-3 - (Male)\r\ncolumbia23
-        - Spider Voice\r\nDANMITCH3LL - Metallic Door Hits\r\ndavidlay1 - Air release\nGameAudio
-        - Button Confirm Spacey, Win Spacey\r\nGokhanBiyik - gunshort01\r\ngiddster
-        - Alien Hiss FX 1\r\nHakren - Iron-Wood Slam"
+        02, 04\r\n\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Sound Effects Artists cont:\r\nIanStarGem - laser phaser\r\njoedeshon
+      value: "Sound Effects Artists:\r\nAris621 - Nasty Knife Stab\r\nbeerbelly38
+        - airlock_1_3_sec_mast\r\nChristopherderp - Hurt 1-3 - (Male)\r\ncolumbia23
+        - Spider Voice\r\nDANMITCH3LL - Metallic Door Hits\r\ndavidlay1 - Air release\nGameAudio
+        - Button Confirm Spacey, Win Spacey\r\nGokhanBiyik - gunshort01\r\ngiddster
+        - Alien Hiss FX 1\r\nHakren - Iron-Wood Slam\r\nIanStarGem - laser phaser\r\njoedeshon
         - industrial_elevator_door_open\r\njosepharoah99 - Sci Fi Interface\r\nkokopetiyot
         - gasp01\r\nleonelmail - Radioactive Machine\r\nLeszek_Szary - shoot 3\r\nMATTIX
         - Cannon_Shot_01\r\nn_audioman - BPH A Phaser\r\nnebulasnails - Pistol Cock\r\nRSilveira_88
         - Sliding_Metal_13\r\nsophiehall3535 - Pick Up Keys 1\r\nstratcat322 - trauma_and_flatlining\r\nvinnerminner
-        - Metal keys pickup sound 1\n\nFeature Descriptions:\r\nList of items - This
-        week, I implemented a weapon select feature where players can\r swap between
-        the different ammo types they've collected. Items are added to the list\r
-        when players collide with their corresponding pickups and are removed when
-        their ammo\r runs out. Players can cycle through their ammo using the scroll
-        wheel. For easy\r testing, players can use the 1-3 keys to automatically add
-        ammo for their shotgun,\r photon thrower, and bio-rifle.\r\n\r\nNavigation
-        - I also implemented a level preview where players can observe graphically\r
-        where the next level resides within the entire game world, and how far they
-        are from \rthe game's conclusion. This is viewable prior to the start of any
-        level.\n\nOld Features\r\nRenewable Resources - Oxygen depletion\r\nPerformance
-        - Players' link with reality"
+        - Metal keys pickup sound 1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315562e6c8d52524eaaed2bea3429a0a, type: 3}
