@@ -33,7 +33,7 @@ public static class AudioManager
         initialized = true;
         myAudioSource = audioSource;
 
-        // load in sounds from Resources\Sounds
+        // load in sounds from Resources/Sounds
 
         #region Enemy Agent Sounds
 

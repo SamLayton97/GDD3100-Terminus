@@ -30,5 +30,17 @@ public class MusicManager : MonoBehaviour
         // set audio source
         initialized = true;
         myAudioSource = audioSource;
+
+        // load in music files form Resources/Music
+
+    }
+
+    /// <summary>
+    /// Swaps background music to different track
+    /// </summary>
+    /// <param name="newTrack">name of new track to play</param>
+    public static void SwitchTrack(SongNames newTrack)
+    {
+
     }
 }
