@@ -738,11 +738,15 @@ PrefabInstance:
     - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
         type: 3}
       propertyPath: m_Text
-      value: "Creatures from another dimension have torn the space station apart!\r\n\r\nEquipped
-        with only a vacuum-fitted rifle and a space suit with dwindling oxygen, you
-        must\r locate a functioning airlock and escape to safety. But be warned, close
-        proximity with these \rcreatures and their corruption has a strange effect.
-        Limit your contact with them."
+      value: "Epoch-XI, AD 2611\r\n\r\nIf you work in space travel long enough, you
+        hear stories about strange occurrences in deep space. Stories from places
+        light-years from the nearest colony that defy our current understanding of
+        the \r\nUniverse. Of course, no one's alive to back these stories up. But
+        every so often, an antenna picks up whispers along the radio waves or a long-distance
+        scanner reads an unexpected glimmer in a star system -- all passages of a
+        story we'll never hear in full.\r\n\r\nBut sometimes the passages almost add
+        up, and a story emerges spelling doom for future exploits into the Great Unknown.
+        This is one of those stories."
       objectReference: {fileID: 0}
     - target: {fileID: 9215322816813186697, guid: fa600a6cb3a307f4f86ed498b304ded4,
         type: 3}
