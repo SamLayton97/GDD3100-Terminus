@@ -325,7 +325,8 @@ PrefabInstance:
         cannisters.\r\n - Propel yourself by shooting your vacuum-fitted rifle.\r\n
         - Avoid creatures and their corruption.\r\n - Collect ammo pickups to gain
         new combat \n\tcapabilities.\r\n\r\nControls:\r\n - Left mouse to aim and
-        shoot.\r\n - Mouse scrollwheel to cycle between ammo types.\r\n - ESC to pause."
+        shoot.\r\n - Mouse scrollwheel to cycle between ammo types.\r\n - ESC to pause.\n\nCheats:\n-
+        Press 1-3 to add ammo to your inventory."
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
