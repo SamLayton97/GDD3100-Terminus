@@ -52,7 +52,7 @@ MonoBehaviour:
   continuousFiring: 0
   projectileForce: 6.5
   reactiveForce: 8
-  maxAmmo: 5
+  maxAmmo: 4
   bulletInstanceOffset: {x: 0, y: 0}
   projectilesInBlast: 6
   fireArc: 55
