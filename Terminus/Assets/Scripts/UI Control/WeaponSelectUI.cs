@@ -72,5 +72,9 @@ public class WeaponSelectUI : MonoBehaviour
         ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale =
             new Vector3(remainingAmmo, ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale.y, 
             ammoMeters[(int)typeToUpdate - 1].rectTransform.localScale.z);
+
+        // set color of corresponding icon according to ammo in it
+        Color currWeaponColor = ((int)typeToUpdate == currWeaponIndex) ? equippedColor : unequippedColor;
+        weaponIcons[(int)typeToUpdate].color = (remainingAmmo > 0) ? currWeaponColor : inactiveColor;
     }
 }
