@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3911326558670431046
+--- !u!1 &1342658282241510204
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5911133629760072213}
-  - component: {fileID: 5417919208056479805}
-  - component: {fileID: 1278077490664548362}
-  - component: {fileID: 3603269595427748775}
+  - component: {fileID: 8569601218241954415}
+  - component: {fileID: 8058512585896429639}
+  - component: {fileID: 3844212492487901296}
   m_Layer: 5
-  m_Name: CurrentNode
+  m_Name: InactiveNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5911133629760072213
+--- !u!224 &8569601218241954415
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3911326558670431046}
+  m_GameObject: {fileID: 1342658282241510204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,31 +34,31 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -277.56}
+  m_AnchoredPosition: {x: 0, y: -137.1}
   m_SizeDelta: {x: 0, y: 68.88}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5417919208056479805
+--- !u!222 &8058512585896429639
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3911326558670431046}
+  m_GameObject: {fileID: 1342658282241510204}
   m_CullTransparentMesh: 0
---- !u!114 &1278077490664548362
+--- !u!114 &3844212492487901296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3911326558670431046}
+  m_GameObject: {fileID: 1342658282241510204}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09019608, g: 0.76862746, b: 0.23921569, a: 1}
+  m_Color: {r: 0.019607844, g: 0.41960785, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -76,18 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3603269595427748775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3911326558670431046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd00af9c2ab4b9449a29c3411ee62f88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toColor: {r: 0.1273585, g: 1, b: 0.31903693, a: 1}
-  fromColor: {r: 0.08259169, g: 0.6037736, b: 0.19707093, a: 1}
-  pulsationRate: 0.05
