@@ -15,7 +15,7 @@ public static class AudioManager
 
     /// <summary>
     /// Read-access property returning whether manager has
-    /// read in audio clips and set its manager
+    /// read in audio clips and set its source
     /// </summary>
     public static bool Initialized
     {
