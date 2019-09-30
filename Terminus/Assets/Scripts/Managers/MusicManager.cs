@@ -39,7 +39,7 @@ public class MusicManager : MonoBehaviour
         tracks.Add(SongNames.mus_gameplay, Resources.Load<AudioClip>("Music/mus_gameplay"));
 
         // pair scenes with songs
-        scenesToTracks.Add("GameplayScene1", SongNames.mus_gameplay);
+        scenesToTracks.Add("GameplayLevel1", SongNames.mus_gameplay);
     }
 
     /// <summary>

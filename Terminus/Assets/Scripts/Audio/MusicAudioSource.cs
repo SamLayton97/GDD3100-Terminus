@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class MusicAudioSource : MonoBehaviour
 {
+    // private variables
+    AudioSource myAudioSource;
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -17,21 +20,30 @@ public class MusicAudioSource : MonoBehaviour
         // keep one game audio source object for entire game
         if (!MusicManager.Initialized)
         {
+            // initialize audio source and make it persist across scenes
+            myAudioSource = GetComponent<AudioSource>();
+            MusicManager.Initialize(myAudioSource);
+            DontDestroyOnLoad(gameObject);
+
             // add self as delegate of OnSceneLoaded event
             SceneManager.sceneLoaded += OnSceneLoaded;
-
-            // initialize audio source and make it persist across scenes
-            AudioSource audioSource = GetComponent<AudioSource>();
-            MusicManager.Initialize(audioSource);
-            DontDestroyOnLoad(gameObject);
         }
         else
             // destroy self if duplicate
             Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Called whenever a new scene is loaded
+    /// </summary>
+    /// <param name="scene">scene loaded</param>
+    /// <param name="mode">mode that scene was loaded under</param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("new scene: " + scene.name);
+        // if music playing doesn't match track for scene, switch tracks
+        SongNames trackForScene = MusicManager.GetSongFromScene(scene.name);
+        if (myAudioSource.clip == null || myAudioSource.clip.name != trackForScene.ToString())
+            MusicManager.SwitchTrack(trackForScene);
+
     }
 }
