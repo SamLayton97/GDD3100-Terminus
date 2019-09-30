@@ -473,31 +473,29 @@ PrefabInstance:
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "A Game by Sam Layton\r\n\r\nVisual Artists:\r\n\r\nansimuz - Space Background\r\nCethiel
+      value: "A Game by Sam Layton\r\n\r\nVisual Artists:\r\nansimuz - Space Background\r\nCethiel
         - Simple Health Bars\r\nDREAMLEVEL - DL Simple Sci-Fi UI Elements\r\nFreepik
-        - Brain Inside Human Head icon\r\nFreepik - Cursor icon\r\nFreepik - Oxygen
-        Symbol icon\r\nGregor Cresnar - Back icon\r\nGregor Cresnar - Star icon\r\nMatthias
-        Stuetzer - 2D Pixel Spacecraft Tileset\r\n\r\nFont Artists:\r\n\r\nAxel Lymphos
-        - Infinium Guardiam\r\nJoe Prince - Maven Pro\r\nMuraKnockout Media & Design
-        - Elite Hacker Corroded"
+        - Brain Inside Human Head icon, Bullet icon, Cursor icon, Explosion icon,
+        Oxygen Symbol icon\r\nGregor Cresnar - Back icon, Star Icon\r\nMatthias Stuetzer
+        - 2D Pixel Spacecraft Tileset\r\nSmashicons - Biohazard icon, Flash icon\r\n\r\nFont
+        Artists:\r\nAxel Lymphos - Infinium Guardiam\r\nJoe Prince - Maven Pro\r\nMuraKnockout
+        Media & Design - Elite Hacker Corroded\r\n\r\nVisual Effects Artists:\r\nandersonaddo
+        - EZ Camera Shake\r\n\r\nComposers:\r\nTristan Lohengrin - Spaceship Atmosphere
+        02, 04\r\n\r\nSound Effects Artists:\r\nAris621 - Nasty Knife Stab\r\nbeerbelly38
+        - airlock_1_3_sec_mast\r\nChristopherderp - Hurt 1-3 - (Male)\r\ncolumbia23
+        - Spider Voice\r\nDANMITCH3LL - Metallic Door Hits\r\ndavidlay1 - Air release"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Performance Metric - Because the player is fighting an entity existing
-        outside the bounds of this reality, \rcontact with them disrupts the player's
-        link with reality. As a result, the performance metric measured is the\r player's
-        \"reality link\" by the end of the level. This drains as players undergo stressful
-        situations like proximity\r with alien creatures and their corruption and
-        having low oxygen. This regenerates when players aren't under\r stress. This
-        metric rewards players who carefully pick fights and precisely move around
-        corrupted obstacles. \rThe green bar on the player's HUD represents this metric
-        in-game and the end-of-level menu awards stars \r\nbased on the player's link
-        strength.\r\n\r\nRenewable Resource - Expanding on what I implemented last
-        week, players must manage an oxygen supply to stay alive.\r Players spend
-        oxygen over time and when they collided with aliens and corrupted pieces of
-        the environment. The large\r blue bar on the player's HUD represents this
-        in-game."
+      value: "Sound Effects Artists cont:\r\nGameAudio - Button Confirm Spacey, Win
+        Spacey\r\nGokhanBiyik - gunshort01\r\ngiddster - Alien Hiss FX 1\r\nHakren
+        - Iron-Wood Slam\r\nIanStarGem - laser phaser\r\njoedeshon - industrial_elevator_door_open\r\njosepharoah99
+        - Sci Fi Interface\r\nkokopetiyot - gasp01\r\nleonelmail - Radioactive Machine\r\nLeszek_Szary
+        - shoot 3\r\nMATTIX - Cannon_Shot_01\r\nn_audioman - BPH A Phaser\r\nnebulasnails
+        - Pistol Cock\r\nRSilveira_88 - Sliding_Metal_13\r\nsophiehall3535 - Pick
+        Up Keys 1\r\nstratcat322 - trauma_and_flatlining\r\nvinnerminner - Metal keys
+        pickup sound 1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315562e6c8d52524eaaed2bea3429a0a, type: 3}
