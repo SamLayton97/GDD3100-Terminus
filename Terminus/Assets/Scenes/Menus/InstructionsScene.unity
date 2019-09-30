@@ -317,11 +317,26 @@ PrefabInstance:
       propertyPath: m_Text
       value: Instructions
       objectReference: {fileID: 0}
-    - target: {fileID: 4903930375234686581, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_TargetGraphic
+      propertyPath: m_Text
+      value: "Objectives:\r\n - Locate and pass through the last functioning airlock
+        \n\tbefore your O2 runs out.\r\n - Replenish your O2 by collecting refill
+        cannisters.\r\n - Propel yourself by shooting your vacuum-fitted rifle.\r\n
+        - Avoid creatures and their corruption.\r\n - Collect ammo pickups to gain
+        new combat \n\tcapabilities.\r\n\r\nControls:\r\n - Left mouse to aim and
+        shoot.\r\n - Mouse scrollwheel to cycle between ammo types.\r\n - ESC to pause."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_Text
       value: 
-      objectReference: {fileID: 240922175}
+      objectReference: {fileID: 0}
     - target: {fileID: 3812158600106705719, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -332,27 +347,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 596
       objectReference: {fileID: 0}
-    - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_Text
-      value: "Objectives:\r\n - Creatures from another dimension have torn your space
-        station apart!\r\n - Locate and pass through the last functioning airlock
-        before your O2 runs out.\r\n - Replenish your O2 by collecting refill cannisters.\r\n
-        - Propel yourself in 0-G by shooting your vacuum-fitted pistol.\r\n - Shoot
-        creatures and avoid their corruption before their presence detaches you from
-        this reality.\n\nControls:\r\n - Aim and shoot using the left mouse.\r\n -
-        Pause the game by pressing ESC."
-      objectReference: {fileID: 0}
     - target: {fileID: 8605658916432139788, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 4903930375234686581, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_Text
+      propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 240922175}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315562e6c8d52524eaaed2bea3429a0a, type: 3}
 --- !u!114 &240922175 stripped
