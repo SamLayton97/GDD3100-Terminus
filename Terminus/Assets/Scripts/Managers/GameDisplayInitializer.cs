@@ -9,20 +9,27 @@ using UnityEngine;
 public class GameDisplayInitializer : MonoBehaviour
 {
     // private variables
-    bool isInitialized = false;
+    bool initialized = false;
 
     // serialized fields
     [Range(30, 300)]
     [SerializeField]
-    int targetFrameRate = 60;           // max framerate game will run at
+    int targetFrameRate = 60;           // max framerate game will run at (default to 60 fps)
 
     /// <summary>
     /// Used for early display initialization
     /// </summary>
     void Awake()
     {
-        // TODO: lock framerate
+        // never initialize twice
+        if (!initialized)
+        {
+            initialized = true;
 
+            // lock framerate
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = targetFrameRate;
+        }
     }
 
     void Update()
