@@ -21,10 +21,10 @@ public class PursueAndAttack : O2Remover
         Wait
     }
 
-    // public variables
+    // public/serialized variables
     public Transform targetTransform;                       // transform of target to pursue (typically player)
     public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
-    public float maxSpeed = 5f;                             // magnitude of agent's velocity
+    [SerializeField] float maxSpeed = 5f;                   // magnitude of agent's velocity
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
@@ -45,6 +45,21 @@ public class PursueAndAttack : O2Remover
     Animator myAnimator;                // agent's animator component
     int ignoreLayerMask;                // physics layermask to ignore when performing raycasts
     float waitCounter = 0;              // counter used to facilitate attack cooldowns
+
+    #endregion
+
+    #region Properties
+
+    /// <summary>
+    /// Property with read/write access exposing maximum speed agent
+    /// will move at.
+    /// </summary>
+    public float AgentSpeed
+    {
+        get { return maxSpeed; }
+        set { maxSpeed = value; }
+    }
+
 
     #endregion
 
@@ -95,7 +110,7 @@ public class PursueAndAttack : O2Remover
         // move agent to intercept target
         float targetDisplacementAtIntercept = (distToTarget / Mathf.Max(0.1f, myRigidbody.velocity.magnitude)) * targetRigidbody.velocity.magnitude;
         Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDisplacementAtIntercept + targetTransform.position;
-        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * maxSpeed, Time.deltaTime);
+        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * AgentSpeed, Time.deltaTime);
 
         // if agent can no longer see target
         if (!CanSeeTarget())

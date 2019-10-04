@@ -13,6 +13,7 @@ public class PoisonAgent : AgentStatusEffect
     // private variables
     AgentHealth myHealth;                       // agent's health component (used to damage agent over time)
     SpriteRenderer mySpriteRenderer;            // agent's sprite renderer component (used for visual feedback)
+    PursueAndAttack myBehavior;                 // component controlling agent's state-machine behaviors
     float damagePerDeduction = 5f;              // amount of damage dealt to agent on each call of Deduct Health() (Note: Often set by poisoner)
     float timeBetweenDeductions = 1f;           // time between calls of agent's Deduct Health() method
     float poisonTimer = 0;                      // helps track when to hurt agent
@@ -36,9 +37,13 @@ public class PoisonAgent : AgentStatusEffect
         // retrieve necessary components
         myHealth = GetComponent<AgentHealth>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myBehavior = GetComponent<PursueAndAttack>();
 
         // initialize poison timer
         poisonTimer = timeBetweenDeductions;
+
+        // reduce agent's speed
+        myBehavior.AgentSpeed *= 0.85f;
     }
 
     // Update is called once per frame
