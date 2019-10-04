@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 93959608}
   - component: {fileID: 93959610}
   - component: {fileID: 93959611}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BioExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

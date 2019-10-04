@@ -68,6 +68,6 @@ TagManager:
   - name: EnvironmentalForeground
     uniqueID: 3527178933
     locked: 0
-  - name: Photons
+  - name: ExplosionsAndPhotons
     uniqueID: 3878353443
     locked: 0
