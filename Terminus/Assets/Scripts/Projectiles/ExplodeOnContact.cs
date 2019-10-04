@@ -20,8 +20,6 @@ public class ExplodeOnContact : MonoBehaviour
         // create explosion at projectile's position
         Instantiate(myExplosion, transform.position, Quaternion.identity);
 
-        // TODO: play explosion sound effect
-
         // destroy self
         Destroy(gameObject);
     }

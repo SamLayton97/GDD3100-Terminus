@@ -33,5 +33,6 @@ public enum AudioClipNames
     weapon_shootShotgun1,
     weapon_shootShotgun2,
     player_swapWeapon,
-    env_pickUpWeapon
+    env_pickUpWeapon,
+    env_bioExplosion
 }
