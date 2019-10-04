@@ -28,8 +28,6 @@ public class ExplodeAfterDuration : MonoBehaviour
             // create explosion at object's position
             Instantiate(myExplosion, transform.position, Quaternion.identity);
 
-            // TODO: play explosion sound effect
-
             // destroy self
             Destroy(gameObject);
         }
