@@ -36,7 +36,19 @@ public class AreaOfEffect : MonoBehaviour
         // if object in collision is an enemy agent
         if (collision.gameObject.layer == LayerMask.NameToLayer("Alien"))
         {
-            Debug.Log("poison enemy");
+            // apply base damage to enemy
+            try
+            {
+                collision.gameObject.GetComponent<AgentHealth>().DeductHealth(damage);
+            }
+            catch
+            {
+                Debug.LogError("ERROR: Unable to retrieve" + collision.gameObject.name + "'s Agent Health component.");
+            }
+
+            // apply additional effects depending on damage dealt by said effects
+            if (poisonDamage > 0)
+                collision.gameObject.AddComponent<PoisonAgent>().DamagePerDeduction = poisonDamage;
         }
     }
 
