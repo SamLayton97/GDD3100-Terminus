@@ -348,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 7020844412749983249, guid: 677d39d503c26674c94f97ab8d82f92a,
         type: 3}
       propertyPath: m_Name
-      value: GameAudioSource
+      value: GameInitializer
       objectReference: {fileID: 0}
     - target: {fileID: 7020844412749983340, guid: 677d39d503c26674c94f97ab8d82f92a,
         type: 3}
