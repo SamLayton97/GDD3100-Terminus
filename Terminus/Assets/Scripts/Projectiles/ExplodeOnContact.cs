@@ -17,8 +17,8 @@ public class ExplodeOnContact : MonoBehaviour
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // TODO: create explosion
-        Debug.Log("Boom!");
+        // create explosion at projectile's position
+        Instantiate(myExplosion, transform.position, Quaternion.identity);
 
         // destroy self
         Destroy(gameObject);
