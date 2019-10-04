@@ -58,11 +58,6 @@ public class AgentHealth : MonoBehaviour
             // deduct health
             Projectile projectile = collision.gameObject.GetComponent<Projectile>();
             DeductHealth(projectile.Damage);
-
-            // apply additional effects according to projectile values
-            if (projectile.PoisonDamage > 0)
-                gameObject.AddComponent<PoisonAgent>().DamagePerDeduction = projectile.PoisonDamage;
-
         }
     }
 
