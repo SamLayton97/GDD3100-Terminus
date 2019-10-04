@@ -9,8 +9,8 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class MusicAudioSource : MonoBehaviour
 {
-    // private variables
-    AudioSource myAudioSource;
+    // public variables
+    public AudioSource myAudioSource;
 
     /// <summary>
     /// Used for initialization
@@ -21,7 +21,6 @@ public class MusicAudioSource : MonoBehaviour
         if (!MusicManager.Initialized)
         {
             // initialize audio source and make it persist across scenes
-            myAudioSource = GetComponent<AudioSource>();
             MusicManager.Initialize(myAudioSource);
             DontDestroyOnLoad(gameObject);
 

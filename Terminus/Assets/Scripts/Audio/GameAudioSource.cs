@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class GameAudioSource : MonoBehaviour
 {
+    // public variables
+    public AudioSource soundEffectsAudioSource;
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -18,8 +21,7 @@ public class GameAudioSource : MonoBehaviour
         if (!AudioManager.Initialized)
         {
             // initialize audio source and make it persist across scenes
-            AudioSource audioSource = GetComponent<AudioSource>();
-            AudioManager.Initialize(audioSource);
+            AudioManager.Initialize(soundEffectsAudioSource);
             DontDestroyOnLoad(gameObject);
         }
         else
