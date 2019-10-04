@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
+  poisonDamage: 0
 --- !u!114 &7892702457012930498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,4 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a035d5fc365d3f84886be74ebc213568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissipationTime: 3
+  dissipationTime: 5
