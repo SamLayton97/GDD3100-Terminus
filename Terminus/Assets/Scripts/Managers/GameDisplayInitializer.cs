@@ -31,9 +31,4 @@ public class GameDisplayInitializer : MonoBehaviour
             Application.targetFrameRate = targetFrameRate;
         }
     }
-
-    void Update()
-    {
-        Debug.Log("Target: " + Application.targetFrameRate + " Actual: " + (1.0f / Time.deltaTime));
-    }
 }
