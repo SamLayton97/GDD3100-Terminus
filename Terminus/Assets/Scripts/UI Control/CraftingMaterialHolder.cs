@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Component providing access to relevant aspects of a
-/// crafting material displayed on the player's UI inventory.
+/// Procides access to relevant aspects of a crafting
+/// material displayed on the player's UI inventory. Also
+/// responds to user input, adding item to crafting panel.
 /// </summary>
 public class CraftingMaterialHolder : MonoBehaviour
 {
