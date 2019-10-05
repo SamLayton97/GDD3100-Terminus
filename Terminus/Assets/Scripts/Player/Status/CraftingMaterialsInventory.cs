@@ -37,4 +37,25 @@ public class CraftingMaterialsInventory : MonoBehaviour
             Debug.Log((CraftingMaterials)i + " " + materialsCarried[(CraftingMaterials)i]);
     }
 
+    /// <summary>
+    /// Called before first frame Update()
+    /// </summary>
+    void Start()
+    {
+        // add self as listener to pick up materials event
+        EventManager.AddPickUpMaterialsListener(AddMaterials);
+    }
+
+    /// <summary>
+    /// Adds materials of given type to player's inventory
+    /// </summary>
+    /// <param name="materialToAdd">type of material to add</param>
+    /// <param name="amount">amount to add</param>
+    void AddMaterials(CraftingMaterials materialToAdd, int amount)
+    {
+        materialsCarried[materialToAdd] += amount;
+
+        // DEBUGGING: display updated amount
+        Debug.Log(materialToAdd + " " + materialsCarried[materialToAdd]);
+    }
 }
