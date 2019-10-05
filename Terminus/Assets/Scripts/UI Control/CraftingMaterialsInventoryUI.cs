@@ -49,11 +49,14 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
             // add new material holder to list (accessing material on UI by type returned nothing)
             catch
             {
-                Debug.Log(materialToUpdate + " material does not exist");
-
                 // add new material to inventory
                 materialHolders.Add(materialToUpdate, 
                     Instantiate(defaultMaterialHolder, parentContainer).GetComponent<CraftingMaterialHolder>());
+
+                // set icon, amount, and name of material
+                materialHolders[materialToUpdate].Icon = craftingMaterialsIcons[(int)materialToUpdate];
+                materialHolders[materialToUpdate].Amount = newAmount;
+                materialHolders[materialToUpdate].MaterialName = materialToUpdate;
             }
         }
         // otherwise (new amount is 0 or less)

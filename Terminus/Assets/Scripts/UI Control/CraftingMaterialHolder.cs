@@ -36,9 +36,9 @@ public class CraftingMaterialHolder : MonoBehaviour
     /// Property with write access to name
     /// of crafting material this object represents
     /// </summary>
-    public string MaterialType
+    public CraftingMaterials MaterialName
     {
-        set { materialName.text = value; }
+        set { materialName.text = value.ToString(); }
     }
 
 }
