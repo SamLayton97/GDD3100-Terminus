@@ -19,6 +19,15 @@ public class DropMaterialOnDeath : MonoBehaviour
     /// </summary>
     public void DropMaterials()
     {
-        Debug.Log("drop");
+        // for random number of materials dropped by agent
+        int amountDropped = Random.Range(0, maxMaterialsDropped + 1);
+        for (int i = 0; i < amountDropped; i++)
+        {
+            // instantiate material at agent's position
+            Instantiate(materialDropped, transform.position, Quaternion.identity);
+
+            // TODO: send dropped material moving in random direction
+
+        }
     }
 }

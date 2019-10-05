@@ -136,6 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f01396d545a964d84e44c10150b14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialDropped: {fileID: 6096356141850043160, guid: b7776ee52b11ef14f9754b31f733ea8c,
+    type: 3}
+  maxMaterialsDropped: 2
 --- !u!114 &1325468725392835803
 MonoBehaviour:
   m_ObjectHideFlags: 0
