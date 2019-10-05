@@ -15,8 +15,8 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
                                                                 // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
 
     // private variables
-    Dictionary<CraftingMaterials, GameObject> materialHolders =     // dictionary holding UI representations of materials in player's inventory
-        new Dictionary<CraftingMaterials, GameObject>();            // (accessible by material type)
+    Dictionary<CraftingMaterials, CraftingMaterialHolder> materialHolders =         // dictionary holding UI representations of materials in player's inventory
+        new Dictionary<CraftingMaterials, CraftingMaterialHolder>();                // (accessible by material type)
 
     /// <summary>
     /// Called before first frame Update()
