@@ -10,15 +10,20 @@ using UnityEngine.UI;
 public class CraftingMaterialsInventoryUI : MonoBehaviour
 {
     // serialized variables
+    [SerializeField] GameObject defaultMaterialHolder;          // generic UI representation of material in player's inventory
     [SerializeField] Sprite[] craftingMaterialsIcons;           // list of sprites corresponding to each crafting material
                                                                 // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
+
+    // private variables
+    Dictionary<CraftingMaterials, GameObject> materialHolders =     // dictionary holding UI representations of materials in player's inventory
+        new Dictionary<CraftingMaterials, GameObject>();            // (accessible by material type)
 
     /// <summary>
     /// Called before first frame Update()
     /// </summary>
     void Start()
     {
-        // add self as listner to update materials UI event
+        // add self as listener to update materials UI event
         EventManager.AddUpdateMaterialsUIListener(UpdateMaterial);
     }
 
@@ -31,5 +36,25 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
     void UpdateMaterial(CraftingMaterials materialToUpdate, int newAmount)
     {
         Debug.Log(materialToUpdate + " " + newAmount);
+
+        // if new amount does not remove material from inventory
+        if (newAmount > 0)
+        {
+            Debug.Log("update");
+        }
+        // otherwise (new amount is 0 or less)
+        else
+        {
+            // attempt to remove material type from inventory
+            try
+            {
+                Destroy(materialHolders[materialToUpdate]);
+                materialHolders.Remove(materialToUpdate);
+            }
+            catch
+            {
+                Debug.LogWarning("WARNING: Attempting to remove crafting material in UI that does not exist.");
+            }
+        }
     }
 }
