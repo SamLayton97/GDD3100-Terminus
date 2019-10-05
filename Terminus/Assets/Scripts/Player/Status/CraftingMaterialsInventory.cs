@@ -19,15 +19,22 @@ public enum CraftingMaterials
 /// </summary>
 public class CraftingMaterialsInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // private variables
+    Dictionary<CraftingMaterials, int> materialsCarried =           // dictionary pairing crafting materials with amount held by player
+        new Dictionary<CraftingMaterials, int>();
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
     {
-        
+        // initialize player with empty inventory
+        for (int i = 0; i < System.Enum.GetNames(typeof(CraftingMaterials)).Length; i++)
+            materialsCarried.Add((CraftingMaterials)i, 0);
+
+        // DEBUGGING: ensure proper initialization
+        for (int i = 0; i < System.Enum.GetNames(typeof(CraftingMaterials)).Length; i++)
+            Debug.Log((CraftingMaterials)i + " " + materialsCarried[(CraftingMaterials)i]);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
