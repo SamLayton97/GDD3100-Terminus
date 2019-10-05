@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1701724433980141099}
   - component: {fileID: 748867515446026440}
   - component: {fileID: -8753305947129637355}
+  - component: {fileID: 3990852727155754520}
   - component: {fileID: 1325468725392835803}
   - component: {fileID: 3894786361680885713}
   - component: {fileID: 1899208905917149684}
@@ -123,6 +124,18 @@ MonoBehaviour:
   deathColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
   myDeathSound: 16
   myHurtSounds: 120000001300000014000000
+--- !u!114 &3990852727155754520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701724433980141098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f01396d545a964d84e44c10150b14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1325468725392835803
 MonoBehaviour:
   m_ObjectHideFlags: 0

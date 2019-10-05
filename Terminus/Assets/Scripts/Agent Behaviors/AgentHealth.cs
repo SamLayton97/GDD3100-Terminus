@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(DropMaterialOnDeath))]
 public class AgentHealth : MonoBehaviour
 {
     // public variables
@@ -75,6 +76,9 @@ public class AgentHealth : MonoBehaviour
         {
             // set animation triggers
             myAnimator.SetTrigger("OnDeathTrigger");
+
+            // drop agent's crafting materials
+            GetComponent<DropMaterialOnDeath>().DropMaterials();
 
             // play agent's death sound effect
             AudioManager.Play(myDeathSound, true);
