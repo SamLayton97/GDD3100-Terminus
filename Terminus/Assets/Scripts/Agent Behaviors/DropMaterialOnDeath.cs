@@ -15,7 +15,7 @@ public class DropMaterialOnDeath : MonoBehaviour
     [SerializeField] GameObject materialDropped;        // material prefab dropped by agent on death
     [SerializeField] int maxMaterialsDropped = 2;       // max number of materials dropped by agent on death
     [Range(0f, 1f)]
-    [SerializeField] float dropForceMagnitude = 5f;     // magnitude of force agents sends its drops in
+    [SerializeField] float dropForceMagnitude = 1f;     // magnitude of force agents sends its drops in
 
     // private variables
     Rigidbody2D myRigidBody2D;                          // agent's rigidbody component (used for drops' relative velocity)

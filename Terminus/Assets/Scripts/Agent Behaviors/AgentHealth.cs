@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(DropMaterialOnDeath))]
 public class AgentHealth : MonoBehaviour
 {
     // public variables
@@ -24,11 +23,12 @@ public class AgentHealth : MonoBehaviour
     };
 
     // private variables
-    bool softDisabled = false;          // flag determining whether agent has been disabled (used for handling death)
-    float currHealth;                   // current health of agent
-    SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component (used to set color of sprite)
-    Animator myAnimator;                // animator used to play agent's death animation (if it has one)
-    O2Remover myBehavior;               // component controlling agent's hostile behavior
+    bool softDisabled = false;              // flag determining whether agent has been disabled (used for handling death)
+    float currHealth;                       // current health of agent
+    SpriteRenderer mySpriteRenderer;        // agent's sprite renderer component (used to set color of sprite)
+    Animator myAnimator;                    // animator used to play agent's death animation (if it has one)
+    O2Remover myBehavior;                   // component controlling agent's hostile behavior
+    DropMaterialOnDeath myMaterialDropper;  // component used to drop crafting materials on death
 
     #region Unity Methods
 
@@ -41,6 +41,7 @@ public class AgentHealth : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
         myBehavior = GetComponent<O2Remover>();
+        myMaterialDropper = GetComponent<DropMaterialOnDeath>();
 
         // initialize health
         currHealth = maxHealth;
@@ -77,8 +78,9 @@ public class AgentHealth : MonoBehaviour
             // set animation triggers
             myAnimator.SetTrigger("OnDeathTrigger");
 
-            // drop agent's crafting materials
-            GetComponent<DropMaterialOnDeath>().DropMaterials();
+            // if component exists, drop agent's crafting materials
+            if (myMaterialDropper != null)
+                myMaterialDropper.DropMaterials();
 
             // play agent's death sound effect
             AudioManager.Play(myDeathSound, true);
