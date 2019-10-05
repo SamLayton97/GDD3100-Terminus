@@ -15,6 +15,8 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Text materialAmount;
     [SerializeField] Text materialName;
 
+    #region Properties
+
     /// <summary>
     /// Property with write access to sprite
     /// representing crafting material
@@ -50,5 +52,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     {
         set { materialName.text = value.ToString(); }
     }
+
+    #endregion
 
 }
