@@ -1963,6 +1963,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab129f0e1fabddf44a89ba13ea8df434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftingMaterialsIcons:
+  - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
+  - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
+  - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
 --- !u!1 &5768171998056831670
 GameObject:
   m_ObjectHideFlags: 0

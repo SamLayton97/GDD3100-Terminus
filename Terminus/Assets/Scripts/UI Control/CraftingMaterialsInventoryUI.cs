@@ -9,6 +9,10 @@ using UnityEngine.UI;
 /// </summary>
 public class CraftingMaterialsInventoryUI : MonoBehaviour
 {
+    // serialized variables
+    [SerializeField] Sprite[] craftingMaterialsIcons;           // list of sprites corresponding to each crafting material
+                                                                // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
+
     /// <summary>
     /// Called before first frame Update()
     /// </summary>
