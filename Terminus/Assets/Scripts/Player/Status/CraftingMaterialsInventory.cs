@@ -65,9 +65,7 @@ public class CraftingMaterialsInventory : MonoBehaviour
     void AddMaterials(CraftingMaterials materialToAdd, int amount)
     {
         materialsCarried[materialToAdd] = Mathf.Min(materialCap, materialsCarried[materialToAdd] + amount);
-
-        // DEBUGGING: display updated amount
-        //Debug.Log(materialToAdd + " " + materialsCarried[materialToAdd]);
+        updateUIEvent.Invoke(materialToAdd, materialsCarried[materialToAdd]);
     }
 
     /// <summary>

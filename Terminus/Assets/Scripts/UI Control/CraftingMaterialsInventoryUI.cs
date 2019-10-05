@@ -9,15 +9,23 @@ using UnityEngine.UI;
 /// </summary>
 public class CraftingMaterialsInventoryUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// Called before first frame Update()
+    /// </summary>
     void Start()
     {
-        
+        // add self as listner to update materials UI event
+        EventManager.AddUpdateMaterialsUIListener(UpdateMaterial);
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Updates material holders on UI to reflect player's
+    /// current inventory, adding or removing holders if necessary
+    /// </summary>
+    /// <param name="materialToUpdate">type of material to be updated</param>
+    /// <param name="newAmount">new amount corresponding to material to update</param>
+    void UpdateMaterial(CraftingMaterials materialToUpdate, int newAmount)
     {
-        
+        Debug.Log(materialToUpdate + " " + newAmount);
     }
 }
