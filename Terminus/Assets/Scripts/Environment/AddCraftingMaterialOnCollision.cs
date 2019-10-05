@@ -16,6 +16,8 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
         CraftingMaterials.biomass;
     [Range(1, 10)]
     [SerializeField] int amountToAdd = 1;               // amount of specific material to add to player's inventory
+    [SerializeField] AudioClipNames collisionSound =    // sound effect played when pickup enters collision
+        AudioClipNames.env_pickUpMaterial;
 
     // event support
     PickUpMaterialsEvent pickUpEvent;                   // event invoked to add crafting materials to player's inventory
@@ -39,8 +41,8 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
         // give player amount of corresponding material types
         pickUpEvent.Invoke(materialToAdd, amountToAdd);
 
-        // TODO: play pickup sound effect
-
+        // play pickup sound effect
+        AudioManager.Play(collisionSound, true);
     }
 
     /// <summary>
