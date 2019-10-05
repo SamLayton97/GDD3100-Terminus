@@ -11,6 +11,7 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
 {
     // serialized variables
     [SerializeField] GameObject defaultMaterialHolder;          // generic UI representation of material in player's inventory
+    [SerializeField] Transform parentContainer;                 // parent transform of any material holders in player's inventory
     [SerializeField] Sprite[] craftingMaterialsIcons;           // list of sprites corresponding to each crafting material
                                                                 // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
 
@@ -49,6 +50,10 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
             catch
             {
                 Debug.Log(materialToUpdate + " material does not exist");
+
+                // add new material to inventory
+                materialHolders.Add(materialToUpdate, 
+                    Instantiate(defaultMaterialHolder, parentContainer).GetComponent<CraftingMaterialHolder>());
             }
         }
         // otherwise (new amount is 0 or less)
