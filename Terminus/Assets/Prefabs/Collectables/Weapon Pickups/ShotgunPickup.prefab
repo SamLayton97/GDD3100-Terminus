@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: 7581207753188355045}
   - component: {fileID: -2061152007202209729}
   - component: {fileID: 4298961986307201896}
+  - component: {fileID: 5159768242628328011}
+  - component: {fileID: 6040112729932905345}
   m_Layer: 9
-  m_Name: WeaponPickup
+  m_Name: ShotgunPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,3 +193,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationLowerBound: 0
   rotationUpperBound: 360
+--- !u!58 &5159768242628328011
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442727623051446783}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
+--- !u!114 &6040112729932905345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442727623051446783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0563f795022e3da4fad55f4acd659d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravitationSpeed: 3
