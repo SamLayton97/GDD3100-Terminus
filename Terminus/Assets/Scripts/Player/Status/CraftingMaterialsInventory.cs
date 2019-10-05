@@ -20,7 +20,7 @@ public enum CraftingMaterials
 public class CraftingMaterialsInventory : MonoBehaviour
 {
     // public variables
-    public int materialCap = 5;                                     // max amount player can carry of any type of material
+    public int materialCap = 9;                                     // max amount player can carry of any type of material
 
     // private variables
     Dictionary<CraftingMaterials, int> materialsCarried =           // dictionary pairing crafting materials with amount held by player
