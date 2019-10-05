@@ -37,11 +37,19 @@ public class HideOnPause : MonoBehaviour
     /// <param name="isPaused">whether user has paused game</param>
     void ToggleVisibility(bool isPaused)
     {
-        // if user has paused game, hide element
+        // if user has paused game
         if (isPaused)
+        {
+            // hide element and prevent element from blocking raycasts
             myCanvasGroup.alpha = 0;
-        // otherwise, reveal element
+            myCanvasGroup.blocksRaycasts = false;
+        }
+        // otherwise
         else
+        {
+            // reveal element and enable it to block raycasts
             myCanvasGroup.alpha = 1;
+            myCanvasGroup.blocksRaycasts = true;
+        }
     }
 }
