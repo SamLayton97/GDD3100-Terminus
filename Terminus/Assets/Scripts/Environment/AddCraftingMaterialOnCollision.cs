@@ -44,8 +44,9 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
             // give player amount of corresponding material types
             pickUpEvent.Invoke(materialToAdd, amountToAdd);
 
-            // play pickup sound effect
+            // play pickup sound effect and destroy self
             AudioManager.Play(collisionSound, true);
+            Destroy(gameObject);
         }
     }
 
