@@ -87,7 +87,7 @@ public class AgentHealth : MonoBehaviour
             softDisabled = true;
             myBehavior.enabled = false;
             mySpriteRenderer.color = deathColor;
-            gameObject.layer = LayerMask.NameToLayer("Environment");
+            gameObject.layer = LayerMask.NameToLayer("Corpses");
             mySpriteRenderer.sortingLayerName = "Corpses";
 
             // disable agent's status effects

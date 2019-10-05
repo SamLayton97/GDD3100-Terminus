@@ -38,11 +38,15 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // give player amount of corresponding material types
-        pickUpEvent.Invoke(materialToAdd, amountToAdd);
+        // if other object in collision is on player layer
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            // give player amount of corresponding material types
+            pickUpEvent.Invoke(materialToAdd, amountToAdd);
 
-        // play pickup sound effect
-        AudioManager.Play(collisionSound, true);
+            // play pickup sound effect
+            AudioManager.Play(collisionSound, true);
+        }
     }
 
     /// <summary>
