@@ -11,7 +11,7 @@ public class GravitateTowardsPlayer : MonoBehaviour
 {
     // serialized variables
     [Range(0, 10f)]
-    [SerializeField] float gravitationSpeed = 5f;       // speed at which object gravitates towards player
+    [SerializeField] float gravitationSpeed = 3f;       // speed at which object gravitates towards player
 
     // private variables
     Rigidbody2D myRigidbody2D;                          // object's rigidbody2d component (used to change object's velocity)
