@@ -14,7 +14,8 @@ public class DropMaterialOnDeath : MonoBehaviour
     // serialized variables
     [SerializeField] GameObject materialDropped;        // material prefab dropped by agent on death
     [SerializeField] int maxMaterialsDropped = 2;       // max number of materials dropped by agent on death
-    [SerializeField] float dropForceMagnitude = 5f;     // magnitude that agent sends
+    [Range(0f, 1f)]
+    [SerializeField] float dropForceMagnitude = 5f;     // magnitude of force agents sends its drops in
 
     // private variables
     Rigidbody2D myRigidBody2D;                          // agent's rigidbody component (used for drops' relative velocity)
@@ -35,13 +36,13 @@ public class DropMaterialOnDeath : MonoBehaviour
     {
         // for random number of materials dropped by agent
         int amountDropped = Random.Range(0, maxMaterialsDropped + 1);
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < amountDropped; i++)
         {
-            // TODO: instantiate material at agent's position, moving it in random direction
+            // instantiate material at agent's position, moving it in random relative velocity
             Rigidbody2D currDrop = Instantiate(materialDropped, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
             currDrop.velocity = myRigidBody2D.velocity;
             float dropAngle = Random.Range(0, 2 * Mathf.PI);
-            currDrop.AddForce(new Vector2(Mathf.Cos(dropAngle), Mathf.Sin(dropAngle)).normalized, ForceMode2D.Impulse);
+            currDrop.AddForce(new Vector2(Mathf.Cos(dropAngle), Mathf.Sin(dropAngle)).normalized * dropForceMagnitude, ForceMode2D.Impulse);
         }
     }
 }

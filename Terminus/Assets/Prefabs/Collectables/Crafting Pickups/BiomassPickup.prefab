@@ -188,5 +188,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spritesToChoose:
   - {fileID: 21300010, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  - {fileID: 21300012, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
   - {fileID: 21300014, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
