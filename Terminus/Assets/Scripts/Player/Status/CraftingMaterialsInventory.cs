@@ -19,6 +19,9 @@ public enum CraftingMaterials
 /// </summary>
 public class CraftingMaterialsInventory : MonoBehaviour
 {
+    // public variables
+    public int materialCap = 5;                                     // max amount player can carry of any type of material
+
     // private variables
     Dictionary<CraftingMaterials, int> materialsCarried =           // dictionary pairing crafting materials with amount held by player
         new Dictionary<CraftingMaterials, int>();
@@ -53,7 +56,7 @@ public class CraftingMaterialsInventory : MonoBehaviour
     /// <param name="amount">amount to add</param>
     void AddMaterials(CraftingMaterials materialToAdd, int amount)
     {
-        materialsCarried[materialToAdd] += amount;
+        materialsCarried[materialToAdd] = Mathf.Min(materialCap, materialsCarried[materialToAdd] + amount);
 
         // DEBUGGING: display updated amount
         Debug.Log(materialToAdd + " " + materialsCarried[materialToAdd]);
