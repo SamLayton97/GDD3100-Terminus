@@ -8,6 +8,7 @@ using UnityEngine.Events;
 /// inventory on collision
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class AddCraftingMaterialOnCollision : MonoBehaviour
 {
     // serialized variables
@@ -19,12 +20,27 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
     // event support
     PickUpMaterialsEvent pickUpEvent;                   // event invoked to add crafting materials to player's inventory
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         // add self as invoker of pickup materials event
         pickUpEvent = new PickUpMaterialsEvent();
         EventManager.AddPickUpMaterialsInvoker(this);
+    }
+
+    /// <summary>
+    /// Called when incoming collider makes contact with object's collider
+    /// </summary>
+    /// <param name="collision">collision data</param>
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // give player amount of corresponding material types
+        pickUpEvent.Invoke(materialToAdd, amountToAdd);
+
+        // TODO: play pickup sound effect
+
     }
 
     /// <summary>
