@@ -33,8 +33,8 @@ public class CraftingMaterialsInventory : MonoBehaviour
             materialsCarried.Add((CraftingMaterials)i, 0);
 
         // DEBUGGING: ensure proper initialization
-        for (int i = 0; i < System.Enum.GetNames(typeof(CraftingMaterials)).Length; i++)
-            Debug.Log((CraftingMaterials)i + " " + materialsCarried[(CraftingMaterials)i]);
+        //for (int i = 0; i < System.Enum.GetNames(typeof(CraftingMaterials)).Length; i++)
+        //    Debug.Log((CraftingMaterials)i + " " + materialsCarried[(CraftingMaterials)i]);
     }
 
     /// <summary>
