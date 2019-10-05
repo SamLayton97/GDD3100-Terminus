@@ -24,6 +24,15 @@ public class CraftingMaterialHolder : MonoBehaviour
     }
 
     /// <summary>
+    /// Property with write access to color
+    /// of sprite representing material type
+    /// </summary>
+    public Color IconColor
+    {
+        set { materialIcon.color = value; }
+    }
+
+    /// <summary>
     /// Property with write access to remaining
     /// amount of crafting material
     /// </summary>

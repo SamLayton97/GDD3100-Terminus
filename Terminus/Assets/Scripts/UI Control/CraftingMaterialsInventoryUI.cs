@@ -14,6 +14,8 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
     [SerializeField] Transform parentContainer;                 // parent transform of any material holders in player's inventory
     [SerializeField] Sprite[] craftingMaterialsIcons;           // list of sprites corresponding to each crafting material
                                                                 // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
+    [SerializeField] Color[] iconColors;                        // list of sprite colors corresponding to each crafting material icon
+                                                                // NOTE: like above, must be entered in same order as CraftingMaterials enumeration
 
     // private variables
     Dictionary<CraftingMaterials, CraftingMaterialHolder> materialHolders =         // dictionary holding UI representations of materials in player's inventory
@@ -53,8 +55,9 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
                 materialHolders.Add(materialToUpdate, 
                     Instantiate(defaultMaterialHolder, parentContainer).GetComponent<CraftingMaterialHolder>());
 
-                // set icon, amount, and name of material
+                // set icon, color, amount, and name of material
                 materialHolders[materialToUpdate].Icon = craftingMaterialsIcons[(int)materialToUpdate];
+                materialHolders[materialToUpdate].IconColor = iconColors[(int)materialToUpdate];
                 materialHolders[materialToUpdate].Amount = newAmount;
                 materialHolders[materialToUpdate].MaterialName = materialToUpdate;
             }

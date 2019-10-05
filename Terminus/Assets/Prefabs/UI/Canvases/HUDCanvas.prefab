@@ -1968,8 +1968,12 @@ MonoBehaviour:
   parentContainer: {fileID: 8726969216122470849}
   craftingMaterialsIcons:
   - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  - {fileID: 21300000, guid: 186d523f15de2b9449afecb2c8c5819e, type: 3}
-  - {fileID: 21300000, guid: 64c07b9419ff0994186361078b6bfd9d, type: 3}
+  - {fileID: 21300018, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
+  - {fileID: 21300012, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
+  iconColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
+  - {r: 0.4117647, g: 1, b: 0, a: 1}
 --- !u!1 &5768171998056831670
 GameObject:
   m_ObjectHideFlags: 0
