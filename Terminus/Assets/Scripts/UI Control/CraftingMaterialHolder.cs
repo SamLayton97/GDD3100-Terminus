@@ -18,7 +18,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     /// Property with write access to sprite
     /// representing crafting material
     /// </summary>
-    public Sprite MaterialIcon
+    public Sprite Icon
     {
         set { materialIcon.sprite = value; }
     }
@@ -27,7 +27,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     /// Property with write access to remaining
     /// amount of crafting material
     /// </summary>
-    public int MaterialAmount
+    public int Amount
     {
         set { materialAmount.text = value.ToString(); }
     }
@@ -36,7 +36,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     /// Property with write access to name
     /// of crafting material this object represents
     /// </summary>
-    public string MaterialName
+    public string MaterialType
     {
         set { materialName.text = value; }
     }
