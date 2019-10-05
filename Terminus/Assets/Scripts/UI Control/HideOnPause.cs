@@ -40,14 +40,14 @@ public class HideOnPause : MonoBehaviour
         // if user has paused game
         if (isPaused)
         {
-            // hide element and prevent element from blocking raycasts
+            // hide element and prevent group from blocking raycasts
             myCanvasGroup.alpha = 0;
             myCanvasGroup.blocksRaycasts = false;
         }
         // otherwise
         else
         {
-            // reveal element and enable it to block raycasts
+            // reveal element and enable group to block raycasts
             myCanvasGroup.alpha = 1;
             myCanvasGroup.blocksRaycasts = true;
         }
