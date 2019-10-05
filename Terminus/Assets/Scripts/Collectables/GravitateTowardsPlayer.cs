@@ -9,8 +9,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class GravitateTowardsPlayer : MonoBehaviour
 {
+    // serialized variables
+    [Range(0, 10f)]
+    [SerializeField] float gravitationSpeed = 5f;       // speed at which object gravitates towards player
+
     // private variables
-    Rigidbody2D myRigidbody2D;          // object's rigidbody2d component (used to change object's velocity)
+    Rigidbody2D myRigidbody2D;                          // object's rigidbody2d component (used to change object's velocity)
 
     /// <summary>
     /// Used for initialization
@@ -24,7 +28,6 @@ public class GravitateTowardsPlayer : MonoBehaviour
         GetComponent<CircleCollider2D>().isTrigger = true;
     }
 
-
     /// <summary>
     /// Called each frame an object is within trigger collider
     /// </summary>
@@ -36,7 +39,7 @@ public class GravitateTowardsPlayer : MonoBehaviour
             !collider.isTrigger)
         {
             // move towards player
-            myRigidbody2D.velocity = (collider.transform.position - transform.position).normalized;
+            myRigidbody2D.velocity = (collider.transform.position - transform.position).normalized * gravitationSpeed;
         }
     }
 }
