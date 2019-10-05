@@ -35,5 +35,6 @@ public enum AudioClipNames
     player_swapWeapon,
     env_pickUpWeapon,
     env_bioExplosion,
-    env_pickUpMaterial
+    env_pickUpMaterial,
+    env_pickUpBiomass
 }

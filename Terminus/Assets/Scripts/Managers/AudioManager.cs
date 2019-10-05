@@ -54,6 +54,7 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.env_pickUpWeapon, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpWeapon"));
         audioClips.Add(AudioClipNames.env_bioExplosion, Resources.Load<AudioClip>("Sounds/sfx_env_bioExplosion"));
         audioClips.Add(AudioClipNames.env_pickUpMaterial, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpMaterial"));
+        audioClips.Add(AudioClipNames.env_pickUpBiomass, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpBiomass"));
 
         #endregion
 

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialToAdd: 2
   amountToAdd: 1
+  collisionSound: 29
 --- !u!114 &8356418986358419134
 MonoBehaviour:
   m_ObjectHideFlags: 0
