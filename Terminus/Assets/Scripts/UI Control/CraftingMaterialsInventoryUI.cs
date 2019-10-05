@@ -40,7 +40,8 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
         // if new amount does not remove material from inventory
         if (newAmount > 0)
         {
-            Debug.Log("update");
+            // TODO: attempt to update material's amount (assumes material already exists in player's inventory)
+
         }
         // otherwise (new amount is 0 or less)
         else
@@ -51,6 +52,7 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
                 Destroy(materialHolders[materialToUpdate]);
                 materialHolders.Remove(materialToUpdate);
             }
+            // print warning if material to add does not exist in player's inventory
             catch
             {
                 Debug.LogWarning("WARNING: Attempting to remove crafting material in UI that does not exist.");

@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 3334815794731496694}
   - component: {fileID: 7597352078456615917}
   - component: {fileID: 8559639292462326582}
+  - component: {fileID: 7383677879023128733}
   m_Layer: 5
   m_Name: CraftingMaterialHolder
   m_TagString: Untagged
@@ -308,6 +309,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7383677879023128733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086920503236781194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e598da0c2fe8d2f4b86d3188b275653f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIcon: {fileID: 4244035975438579810}
+  materialAmount: {fileID: 8885699193433288270}
+  materialName: {fileID: 2974397439595200236}
 --- !u!1 &4499384733739411787
 GameObject:
   m_ObjectHideFlags: 0
