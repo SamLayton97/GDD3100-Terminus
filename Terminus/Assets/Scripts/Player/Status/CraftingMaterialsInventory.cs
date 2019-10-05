@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// An enumeration of materials player can craft with
@@ -26,6 +27,9 @@ public class CraftingMaterialsInventory : MonoBehaviour
     Dictionary<CraftingMaterials, int> materialsCarried =           // dictionary pairing crafting materials with amount held by player
         new Dictionary<CraftingMaterials, int>();
 
+    // event support
+    UpdateMaterialsUIEvent updateUIEvent;                           // event invoked to update UI to reflect player's materials inventory
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -45,6 +49,10 @@ public class CraftingMaterialsInventory : MonoBehaviour
     /// </summary>
     void Start()
     {
+        // add self as invoker of update materials UI event
+        updateUIEvent = new UpdateMaterialsUIEvent();
+        EventManager.AddUpdateMaterialsUIInvoker(this);
+
         // add self as listener to pick up materials event
         EventManager.AddPickUpMaterialsListener(AddMaterials);
     }
@@ -59,6 +67,15 @@ public class CraftingMaterialsInventory : MonoBehaviour
         materialsCarried[materialToAdd] = Mathf.Min(materialCap, materialsCarried[materialToAdd] + amount);
 
         // DEBUGGING: display updated amount
-        Debug.Log(materialToAdd + " " + materialsCarried[materialToAdd]);
+        //Debug.Log(materialToAdd + " " + materialsCarried[materialToAdd]);
+    }
+
+    /// <summary>
+    /// Adds given method as listener to object's update materials UI event
+    /// </summary>
+    /// <param name="newListener">new listener to this object's event</param>
+    public void AddUpdateMaterialsUIEvent(UnityAction<CraftingMaterials, int> newListener)
+    {
+        updateUIEvent.AddListener(newListener);
     }
 }

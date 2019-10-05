@@ -87,6 +87,33 @@ public static class EventManager
 
     #endregion
 
+    #region Update Crafting Materials UI
+
+    // declare lists to hold invokers and listeners to Update Crafting Materials UI event
+    static List<CraftingMaterialsInventory> updateMaterialsUIInvokers = new List<CraftingMaterialsInventory>();
+    static List<UnityAction<CraftingMaterials, int>> updateMaterialsUIListeners = 
+        new List<UnityAction<CraftingMaterials, int>>();
+
+    // Adds given crafting materials inventory as invoker of update materials UI event
+    public static void AddUpdateMaterialsUIInvoker(CraftingMaterialsInventory invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        updateMaterialsUIInvokers.Add(invoker);
+        foreach (UnityAction<CraftingMaterials, int> listener in updateMaterialsUIListeners)
+            invoker.AddUpdateMaterialsUIEvent(listener);
+    }
+
+    // Adds given method as listener to update crafting materials UI event
+    public static void AddUpdateMaterialsUIListener(UnityAction<CraftingMaterials, int> listener)
+    {
+        // adds listener to list and to all invokers of event
+        updateMaterialsUIListeners.Add(listener);
+        foreach (CraftingMaterialsInventory invoker in updateMaterialsUIInvokers)
+            invoker.AddUpdateMaterialsUIEvent(listener);
+    }
+
+    #endregion
+
     #region Swap Weapon UI
 
     // declare lists to hold invokers and listeners of Swap Weapon UI event
