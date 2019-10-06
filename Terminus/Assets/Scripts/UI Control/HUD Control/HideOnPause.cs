@@ -22,6 +22,10 @@ public class HideOnPause : MonoBehaviour
     {
         // retrieve necessary components
         myCanvasGroup = GetComponent<CanvasGroup>();
+
+        // store initial visibility and raycast-blocking
+        visibilityBeforePause = myCanvasGroup.alpha;
+        blockRaycastsBeforePause = myCanvasGroup.blocksRaycasts;
     }
 
     /// <summary>
