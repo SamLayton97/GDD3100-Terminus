@@ -20,7 +20,7 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
         AudioClipNames.env_pickUpMaterial;
 
     // event support
-    PickUpMaterialsEvent pickUpEvent;                   // event invoked to add crafting materials to player's inventory
+    AddMaterialsEvent pickUpEvent;                   // event invoked to add crafting materials to player's inventory
 
     /// <summary>
     /// Start is called before the first frame update
@@ -28,7 +28,7 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
     void Start()
     {
         // add self as invoker of pickup materials event
-        pickUpEvent = new PickUpMaterialsEvent();
+        pickUpEvent = new AddMaterialsEvent();
         EventManager.AddPickUpMaterialsInvoker(this);
     }
 
