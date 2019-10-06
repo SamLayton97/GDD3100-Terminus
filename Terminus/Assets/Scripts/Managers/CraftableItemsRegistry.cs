@@ -10,6 +10,7 @@ using UnityEngine;
 public static class CraftableItemsRegistry
 {
     // private variables
+    static bool initialized = false;
     static Dictionary<CraftingMaterials[], WeaponType> readInMaterialsToWeapons =       // designer-entered combination of crafting mateials and their craftable weapon
         new Dictionary<CraftingMaterials[], WeaponType>();
     static Dictionary<CraftingMaterials[], WeaponType> materialsToWeapons =             // dictionary holding all possible combinations of materials to weapons
@@ -23,13 +24,19 @@ public static class CraftableItemsRegistry
     /// </summary>
     public static void Initialize()
     {
-        // pair material combinations with craftable weapons
-        readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder },
-            WeaponType.BioRifle);
+        // never initialize twice
+        if (!initialized)
+        {
+            initialized = true;
 
-        // for each combination and yield, add all possible permutations into materials to weapons registry
-        foreach (KeyValuePair<CraftingMaterials[], WeaponType> combination in readInMaterialsToWeapons)
-            Permute(combination.Key, combination.Value, 0, combination.Key.Length - 1);
+            // pair material combinations with craftable weapons
+            readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder },
+                WeaponType.BioRifle);
+
+            // for each combination and yield, add all possible permutations into materials to weapons registry
+            foreach (KeyValuePair<CraftingMaterials[], WeaponType> combination in readInMaterialsToWeapons)
+                Permute(combination.Key, combination.Value, 0, combination.Key.Length - 1);
+        }
     }
 
     /// <summary>

@@ -11,14 +11,24 @@ public class ControlSchemeSelector : MonoBehaviour
 {
     // serialized UI variables
     [SerializeField] Image controlsDiagramImage;            // diagram displaying control scheme player has selected
+    [SerializeField] Text controlsDiagramName;              // name of control scheme currently selected
 
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
-        // TODO: initialize diagram to reflect currently selected control scheme
+        // initialize diagram to reflect currently selected control scheme
+        UpdateDiagram();
+    }
+
+    /// <summary>
+    /// Updates diagram according to control scheme selected by user
+    /// </summary>
+    void UpdateDiagram()
+    {
         controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
+        controlsDiagramName.text = (ControlSchemeManager.CurrentControlScheme).ToString();
     }
 
     #region Public Methods
@@ -29,8 +39,8 @@ public class ControlSchemeSelector : MonoBehaviour
     public void SwapToStandard()
     {
         // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.standard);
-        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
+        ControlSchemeManager.SetControlScheme(ControlSchemes.Standard);
+        UpdateDiagram();
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
@@ -40,8 +50,8 @@ public class ControlSchemeSelector : MonoBehaviour
     public void SwapToSpecialist()
     {
         // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.specialist);
-        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
+        ControlSchemeManager.SetControlScheme(ControlSchemes.Specialist);
+        UpdateDiagram();
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
@@ -51,8 +61,8 @@ public class ControlSchemeSelector : MonoBehaviour
     public void SwapToLeftHanded()
     {
         // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.leftHanded);
-        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
+        ControlSchemeManager.SetControlScheme(ControlSchemes.LeftHanded);
+        UpdateDiagram();
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
@@ -62,8 +72,8 @@ public class ControlSchemeSelector : MonoBehaviour
     public void SwapToLeftySpecialist()
     {
         // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.leftySpecialist);
-        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
+        ControlSchemeManager.SetControlScheme(ControlSchemes.LeftySpecialist);
+        UpdateDiagram();
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 

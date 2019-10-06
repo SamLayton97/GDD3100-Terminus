@@ -7,10 +7,10 @@ using UnityEngine;
 /// </summary>
 public enum ControlSchemes
 {
-    standard,
-    specialist,
-    leftHanded,
-    leftySpecialist
+    Standard,
+    Specialist,
+    LeftHanded,
+    LeftySpecialist
 }
 
 /// <summary>
@@ -20,7 +20,8 @@ public enum ControlSchemes
 public static class ControlSchemeManager
 {
     // private variables
-    static ControlSchemes currScheme = ControlSchemes.standard;     // control scheme currently used by player
+    static bool initialized = false;
+    static ControlSchemes currScheme = ControlSchemes.Standard;     // control scheme currently used by player
     static Dictionary<ControlSchemes, Sprite> controlLayouts =      // dictionary pairing control schemes with layout diagrams
         new Dictionary<ControlSchemes, Sprite>();
 
@@ -32,7 +33,7 @@ public static class ControlSchemeManager
     /// </summary>
     public static ControlSchemes CurrentControlScheme
     {
-        get { return CurrentControlScheme; }
+        get { return currScheme; }
     }
 
     /// <summary>
@@ -41,7 +42,7 @@ public static class ControlSchemeManager
     /// </summary>
     public static Sprite CurrentSchemeDiagram
     {
-        get { return GetControlSchemeDiagram(currScheme); }
+        get { return controlLayouts[currScheme]; }
     }
 
     #endregion
@@ -54,14 +55,20 @@ public static class ControlSchemeManager
     /// </summary>
     public static void Initialize()
     {
-        // initialize player's control scheme to default
-        currScheme = ControlSchemes.standard;
+        // never initialize twice
+        if (!initialized)
+        {
+            initialized = true;
 
-        // load in control scheme diagrams from Resources/ControlSchemes
-        controlLayouts.Add(ControlSchemes.standard, Resources.Load<Sprite>("ControlSchemes/spr_standardControls"));
-        controlLayouts.Add(ControlSchemes.specialist, Resources.Load<Sprite>("ControlSchemes/spr_specialistControls"));
-        controlLayouts.Add(ControlSchemes.leftHanded, Resources.Load<Sprite>("ControlSchemes/spr_leftyControls"));
-        controlLayouts.Add(ControlSchemes.leftySpecialist, Resources.Load<Sprite>("ControlSchemes/spr_leftySpecialistControls"));
+            // initialize player's control scheme to default
+            currScheme = ControlSchemes.Standard;
+
+            // load in control scheme diagrams from Resources/ControlSchemes
+            controlLayouts.Add(ControlSchemes.Standard, Resources.Load<Sprite>("ControlSchemes/spr_standardControls"));
+            controlLayouts.Add(ControlSchemes.Specialist, Resources.Load<Sprite>("ControlSchemes/spr_specialistControls"));
+            controlLayouts.Add(ControlSchemes.LeftHanded, Resources.Load<Sprite>("ControlSchemes/spr_leftyControls"));
+            controlLayouts.Add(ControlSchemes.LeftySpecialist, Resources.Load<Sprite>("ControlSchemes/spr_leftySpecialistControls"));
+        }
     }
 
     /// <summary>

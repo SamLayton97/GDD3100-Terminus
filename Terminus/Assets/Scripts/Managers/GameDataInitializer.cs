@@ -8,22 +8,13 @@ using UnityEngine;
 /// </summary>
 public class GameDataInitializer : MonoBehaviour
 {
-    // private variables
-    bool initialized = false;
-
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
-        // never initialize twice
-        if (!initialized)
-        {
-            initialized = true;
-
-            // initialize data
-            CraftableItemsRegistry.Initialize();
-            ControlSchemeManager.Initialize();
-        }
+        // initialize data
+        CraftableItemsRegistry.Initialize();
+        ControlSchemeManager.Initialize();
     }
 }
