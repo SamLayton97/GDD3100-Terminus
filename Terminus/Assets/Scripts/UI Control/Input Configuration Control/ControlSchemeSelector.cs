@@ -6,13 +6,13 @@ using UnityEngine.UI;
 /// <summary>
 /// An enumeration of keyboard control schemes
 /// </summary>
-//public enum ControlSchemes
-//{
-//    standard,
-//    specialist,
-//    leftHanded,
-//    leftySpecialist
-//}
+public enum ControlSchemes
+{
+    standard,
+    specialist,
+    leftHanded,
+    leftySpecialist
+}
 
 /// <summary>
 /// Manages swapping between control schemes from
