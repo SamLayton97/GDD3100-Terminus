@@ -38,8 +38,6 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
     /// <param name="newAmount">new amount corresponding to material to update</param>
     void UpdateMaterial(CraftingMaterials materialToUpdate, int newAmount)
     {
-        Debug.Log(materialToUpdate + " " + newAmount);
-
         // if new amount does not remove material from inventory
         if (newAmount > 0)
         {
