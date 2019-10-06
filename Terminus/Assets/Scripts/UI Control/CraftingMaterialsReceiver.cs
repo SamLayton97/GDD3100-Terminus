@@ -18,6 +18,10 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     [SerializeField] Color[] iconColors;                        // list of sprite colors corresponding to each crafting material icon
                                                                 // NOTE: like above, must be entered in same order as CraftingMaterials enumeration
 
+    // private variables
+    List<CraftingMaterials> materialsOnDeck =                   // list of crafting materials "on deck" in crafting menu slots
+        new List<CraftingMaterials>();
+
     /// <summary>
     /// Called before first frame Update()
     /// </summary>
@@ -37,6 +41,9 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     /// <param name="amount">IGNORED - needed to listen for particular event</param>
     void PushMaterial(CraftingMaterials materialToPush, int amount)
     {
-        Debug.Log("push: " + materialToPush);
+        materialsOnDeck.Add(materialToPush);
+        Debug.Log("ON DECK:");
+        foreach (CraftingMaterials material in materialsOnDeck)
+            Debug.Log(material);
     }
 }
