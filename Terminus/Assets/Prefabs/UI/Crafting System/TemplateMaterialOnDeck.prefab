@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 679657485904131638}
   - component: {fileID: 921164784185385157}
   - component: {fileID: 5611298198364756238}
+  - component: {fileID: 5862929150855596572}
   m_Layer: 5
   m_Name: TemplateMaterialOnDeck
   m_TagString: Untagged
@@ -153,6 +154,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5862929150855596572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763480491528981181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7024fa9e6d2c1c40bca6fc562a93847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialIcon: {fileID: 1158908865129580387}
+  materialName: {fileID: 9082742079254363664}
+  borderImage: {fileID: 0}
+  unhighlightedBorderColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  unhighlightedTextColor: {r: 0.24012107, g: 0.59776616, b: 0.7169812, a: 1}
+  pushSound: 30
 --- !u!1 &2319824529076513139
 GameObject:
   m_ObjectHideFlags: 0

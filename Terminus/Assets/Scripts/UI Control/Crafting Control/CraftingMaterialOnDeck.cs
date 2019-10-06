@@ -17,8 +17,8 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
     [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
     [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
     [SerializeField]
-    AudioClipNames pushSound =                              // sound played when user pushes material to crafting popup
-        AudioClipNames.UI_pushMaterial;
+    AudioClipNames popSound =                               // sound played when user removes material from deck
+        AudioClipNames.UI_popMaterial;
 
     // private variables
     CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
@@ -34,7 +34,32 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         highlightedBorderColor = borderImage.color;
         highlightedTextColor = materialName.color;
 
-        // TODO: initialize border and text to use unhighlighted colors
-        //DarkenMaterialHolder();
+        // initialize border and text to use unhighlighted colors
+        DarkenMaterialHolder();
     }
+
+    #region Public Methods 
+
+    /// <summary>
+    /// When user mouses over on deck material, brighten
+    /// its border and text.
+    /// </summary>
+    public void HighlightMaterialHolder()
+    {
+        borderImage.color = highlightedBorderColor;
+        materialName.color = highlightedTextColor;
+    }
+
+    /// <summary>
+    /// When user's mouse leaves on deck material, darken
+    /// its border and text
+    /// </summary>
+    public void DarkenMaterialHolder()
+    {
+        borderImage.color = unhighlightedBorderColor;
+        materialName.color = unhighlightedTextColor;
+    }
+
+    #endregion
+
 }
