@@ -139,9 +139,6 @@ public class CraftingMaterialHolder : MonoBehaviour
     /// </summary>
     public void PushToCraftingMenu()
     {
-        // TODO: push to crafting menu
-        
-
         // deduct 1 from remaining materials of this type
         removeMaterialsEvent.Invoke(myMaterialType, 1);
     }
