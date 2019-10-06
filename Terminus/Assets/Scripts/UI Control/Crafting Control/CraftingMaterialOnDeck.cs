@@ -60,6 +60,8 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         materialName.color = unhighlightedTextColor;
     }
 
+    
+
     #endregion
 
 }
