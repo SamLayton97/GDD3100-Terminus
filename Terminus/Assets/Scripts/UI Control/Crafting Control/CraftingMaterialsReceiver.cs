@@ -24,6 +24,8 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     List<CraftingMaterials> materialsOnDeck =                   // list of crafting materials "on deck" in crafting menu slots
         new List<CraftingMaterials>();
     AudioClipNames pushSound = AudioClipNames.UI_pushMaterial;  // sound played when player successfully pushes new item onto crafting deck
+    AudioClipNames lastPushSound =                              // sound played when player pushes last material they can onto crafting deck
+        AudioClipNames.UI_pushLastMaterial;
     AudioClipNames cantPushSound = AudioClipNames.UI_denied;    // sound played when player is unable to push new item onto crafting deck (amount exceeds limit)
 
     /// <summary>
@@ -53,13 +55,23 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             materialsOnDeck.Add(materialToPush);
             CraftingMaterialOnDeck newOnDeck = Instantiate(onDeckMaterialTemplate, parentContainer).GetComponent<CraftingMaterialOnDeck>();
 
-            // play appropriate sound effect
-            AudioManager.Play(pushSound, true);
-
             // modify visual elements of new on deck crafting material
             newOnDeck.Icon = craftingMaterialsIcons[(int)materialToPush];
             newOnDeck.IconColor = onDeckIconColors[(int)materialToPush];
             newOnDeck.MaterialType = materialToPush;
+
+            // if user pushed last material onto deck
+            if (materialsOnDeck.Count == maxMaterialsOnDeck)
+            {
+                // TODO: determine whether player can craft an item
+
+                // play sound effect and return
+                AudioManager.Play(lastPushSound, true);
+                return;
+            }
+
+            // didn't return, play standard push sound effect
+            AudioManager.Play(pushSound, true);
         }
         // otherwise (materials on deck plus new exceeds max)
         else

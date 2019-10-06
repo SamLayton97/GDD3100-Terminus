@@ -76,6 +76,7 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.UI_gameUnpause, Resources.Load<AudioClip>("Sounds/sfx_UI_gameUnpause"));
         audioClips.Add(AudioClipNames.UI_popMaterial, Resources.Load<AudioClip>("Sounds/sfx_UI_popMaterial"));
         audioClips.Add(AudioClipNames.UI_pushMaterial, Resources.Load<AudioClip>("Sounds/sfx_UI_pushMaterial"));
+        audioClips.Add(AudioClipNames.UI_pushLastMaterial, Resources.Load<AudioClip>("Sounds/sfx_UI_pushLastMaterial"));
         audioClips.Add(AudioClipNames.UI_denied, Resources.Load<AudioClip>("Sounds/sfx_UI_denied"));
 
         #endregion
