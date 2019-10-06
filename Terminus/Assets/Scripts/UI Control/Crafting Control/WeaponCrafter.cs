@@ -24,6 +24,8 @@ public class WeaponCrafter : WeaponAdder
     WeaponType currCraftableWeapon = WeaponType.Pistol;     // weapon type user can craft when craft button is interactable
     CraftingMaterialsReceiver myReceiver;                   // component controlling receiving & removal of materials from crafting menu
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -35,6 +37,10 @@ public class WeaponCrafter : WeaponAdder
         // initialize craftable item slot to empty
         EmptyCraftableItemSlot();
     }
+
+    #endregion
+
+    #region Public Methods
 
     /// <summary>
     /// Determines whether player is able to craft anything given entered materials
@@ -78,9 +84,10 @@ public class WeaponCrafter : WeaponAdder
         // add craftable weapon to player's inventory and play sound
         pickUpWeaponEvent.Invoke(currCraftableWeapon);
         AudioManager.Play(AudioClipNames.env_pickUpWeapon, true);
-        
-        // TODO: clear materials on deck
 
+        // clear crafting materials on deck and empty craftable item slot
+        myReceiver.ClearDeck();
+        EmptyCraftableItemSlot();
     }
 
     /// <summary>
@@ -99,4 +106,7 @@ public class WeaponCrafter : WeaponAdder
         // set craft button to uninteractable
         craftButton.interactable = false;
     }
+
+    #endregion
+
 }

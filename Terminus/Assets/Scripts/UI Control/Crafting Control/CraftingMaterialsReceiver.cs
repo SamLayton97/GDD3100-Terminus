@@ -30,6 +30,8 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
         AudioClipNames.UI_pushLastMaterial;
     AudioClipNames cantPushSound = AudioClipNames.UI_denied;    // sound played when player is unable to push new item onto crafting deck (amount exceeds limit)
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -50,6 +52,10 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
         EventManager.AddRemoveMaterialsListener(PushMaterial);
         EventManager.AddPopMaterialsListener(PopMaterial);
     }
+
+    #endregion
+
+    #region Private Methods
 
     /// <summary>
     /// Pushes crafting material of given type onto
@@ -104,4 +110,25 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
         materialsOnDeck.Remove(materialPopped);
         myWeaponCrafter.EmptyCraftableItemSlot();
     }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Clears all crafting materials from deck
+    /// </summary>
+    public void ClearDeck()
+    {
+        // clear list of materials
+        materialsOnDeck.Clear();
+
+        // destroy on deck material elements
+        // NOTE: using for loop as Destroy() gets handled at end of frame
+        for (int i = 0; i < parentContainer.childCount; i++)
+            Destroy(parentContainer.GetChild(i).gameObject);
+    }
+
+    #endregion
+
 }
