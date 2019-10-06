@@ -1124,9 +1124,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3703292095345291177}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &5591919939640843333
 MonoBehaviour:
@@ -2263,6 +2263,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 4555135152653625899}
   instructionsMenu: {fileID: 6934237216926026752}
   endOfLevelMenu: {fileID: 3436701447828792399}
+  materialsInventory: {fileID: 9110846905692006214}
   myPauseSound: 21
   myUnpauseSound: 22
   endOfLevelStatus: {fileID: 5343321259584970825}

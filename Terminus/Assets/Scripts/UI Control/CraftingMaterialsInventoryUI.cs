@@ -21,6 +21,8 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
     Dictionary<CraftingMaterials, CraftingMaterialHolder> materialHolders =         // dictionary holding UI representations of materials in player's inventory
         new Dictionary<CraftingMaterials, CraftingMaterialHolder>();                // (accessible by material type)
 
+    #region Unity Methods
+
     /// <summary>
     /// Called before first frame Update()
     /// </summary>
@@ -29,6 +31,10 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
         // add self as listener to update materials UI event
         EventManager.AddUpdateMaterialsUIListener(UpdateMaterial);
     }
+
+    #endregion
+
+    #region Private Methods
 
     /// <summary>
     /// Updates material holders on UI to reflect player's
@@ -76,4 +82,7 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
 }

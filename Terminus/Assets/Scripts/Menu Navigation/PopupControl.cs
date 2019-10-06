@@ -12,14 +12,15 @@ using UnityEngine.UI;
 public class PopupControl : SceneTransitioner
 {
     // public variables
-    public KeyCode pauseKey = KeyCode.Escape;           // key to pause/unpause game
-    public GameObject darkenGameOnPause;                // semi-transparent panel covering game when paused
-    public GameObject pauseMenu;                        // pop-up pause menu
-    public GameObject instructionsMenu;                 // in-game controls menu
-    public GameObject endOfLevelMenu;                   // menu displayed when user completes a level
-    public AudioClipNames myPauseSound =                  // sound played when user pauses game
+    public KeyCode pauseKey = KeyCode.Escape;               // key to pause/unpause game
+    public GameObject darkenGameOnPause;                    // semi-transparent panel covering game when paused
+    public GameObject pauseMenu;                            // pop-up pause menu
+    public GameObject instructionsMenu;                     // in-game controls menu
+    public GameObject endOfLevelMenu;                       // menu displayed when user completes a level
+    public CanvasGroup materialsInventory;                  // canvas group component of inventory containing crafting materials player has collected
+    public AudioClipNames myPauseSound =                    // sound played when user pauses game
         AudioClipNames.UI_gamePause;
-    public AudioClipNames myUnpauseSound =                // sound played when user unpauses game
+    public AudioClipNames myUnpauseSound =                  // sound played when user unpauses game
         AudioClipNames.UI_gameUnpause;
 
     // end-of-level component variables
@@ -63,6 +64,7 @@ public class PopupControl : SceneTransitioner
     // Update is called once per frame
     void Update()
     {
+        // Pause Control
         // if user attempts to pause game and game is not already paused
         if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0)
         {
@@ -87,6 +89,28 @@ public class PopupControl : SceneTransitioner
             Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
             AudioManager.Play(myUnpauseSound, true);
+        }
+
+        // Crafting Menu Control
+        // if user attempts to bring up crafting menu and game isn't game isn't already paused
+        if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale != 0)
+        {
+            // soft-pause game
+            Time.timeScale = 0;
+
+            // reveal materials inventory
+            materialsInventory.alpha = 1;
+            materialsInventory.blocksRaycasts = true;
+        }
+        // but if user attempts to close crafting menu and game is paused
+        else if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale == 0)
+        {
+            // unpause game
+            Time.timeScale = 1;
+
+            // hide materials inventory
+            materialsInventory.alpha = 0;
+            materialsInventory.blocksRaycasts = false;
         }
     }
 
