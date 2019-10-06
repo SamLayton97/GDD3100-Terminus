@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +47,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
         {
             // push them onto deck
             materialsOnDeck.Add(materialToPush);
+
         }
         // otherwise (materials on deck plus new exceeds max)
         else
