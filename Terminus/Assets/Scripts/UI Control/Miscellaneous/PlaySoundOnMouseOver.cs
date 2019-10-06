@@ -33,7 +33,7 @@ public class PlaySoundOnMouseOver : MonoBehaviour
     public void HandlePointerEnter()
     {
         // if interactable, play sound
-        if (myButton.interactable)
+        if (myButton && myButton.interactable)
             AudioManager.Play(myMouseOverSound, true);
     }
 }
