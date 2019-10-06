@@ -237,6 +237,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7310666604181144283}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwapToLeftHanded
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5486354055770527613, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
         type: 3}
       propertyPath: m_Text
@@ -653,8 +683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -23.964}
-  m_SizeDelta: {x: -20, y: -47.929}
+  m_AnchoredPosition: {x: 10, y: -27.49975}
+  m_SizeDelta: {x: -20, y: -55.0005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843477393
 MonoBehaviour:
@@ -836,6 +866,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7310666604181144283}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwapToLeftySpecialist
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5486354055770527613, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
         type: 3}
       propertyPath: m_Text
@@ -971,6 +1031,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7310666604181144283}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwapToSpecialist
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5486354055770527613, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
         type: 3}
@@ -1762,6 +1852,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7310666604181144283}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwapToStandard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486354055858683004, guid: 45aa2c4fa0457ba4e972b32b3900cb8a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45aa2c4fa0457ba4e972b32b3900cb8a, type: 3}
 --- !u!114 &5775633775959622531
@@ -2029,6 +2149,7 @@ GameObject:
   - component: {fileID: 7310666604181144280}
   - component: {fileID: 7310666604181144281}
   - component: {fileID: 967974601490011208}
+  - component: {fileID: 7310666604181144283}
   m_Layer: 5
   m_Name: AuxiliaryMenuCanvas
   m_TagString: Untagged
@@ -2036,6 +2157,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7310666604181144283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7310666604181144282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15a19abd19830347a482b911dc601b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7310666604181144286
 RectTransform:
   m_ObjectHideFlags: 0
