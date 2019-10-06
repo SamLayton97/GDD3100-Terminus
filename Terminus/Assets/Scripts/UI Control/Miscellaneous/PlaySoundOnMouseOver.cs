@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 /// <summary>
@@ -14,11 +15,25 @@ public class PlaySoundOnMouseOver : MonoBehaviour
     public AudioClipNames myMouseOverSound =    // sound played when user mouses over object
         AudioClipNames.UI_buttonHighlight;
 
+    // private variables
+    Button myButton;
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve button component
+        myButton = GetComponent<Button>();
+    }
+
     /// <summary>
     /// Play sound when user mouses over object
     /// </summary>
     public void HandlePointerEnter()
     {
-        AudioManager.Play(myMouseOverSound, true);
+        // if interactable, play sound
+        if (myButton.interactable)
+            AudioManager.Play(myMouseOverSound, true);
     }
 }

@@ -59,8 +59,6 @@ public class WeaponCrafter : WeaponAdder
 
             // play higher pitched push sound
             AudioManager.Play(AudioClipNames.UI_pushLastMaterial, true);
-
-            Debug.Log(craftedType);
         }
         // otherwise (user didn't enter good combination)
         else
