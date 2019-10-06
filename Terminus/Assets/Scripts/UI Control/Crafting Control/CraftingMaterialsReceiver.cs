@@ -32,7 +32,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     {
         base.Start();
 
-        // add self as listener to remove material event
+        // add self as listener to relevant events
         EventManager.AddRemoveMaterialsListener(PushMaterial);
     }
 
@@ -69,5 +69,14 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             // TODO: play appropriate sound effect
 
         }
+    }
+
+    /// <summary>
+    /// Removes popped crafting material from interal list
+    /// </summary>
+    /// <param name="materialPopped">material to remove</param>
+    void PopMaterial(CraftingMaterials materialPopped)
+    {
+        materialsOnDeck.Remove(materialPopped);
     }
 }

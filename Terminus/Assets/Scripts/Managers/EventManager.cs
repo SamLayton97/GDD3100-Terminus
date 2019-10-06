@@ -140,6 +140,32 @@ public static class EventManager
 
     #endregion
 
+    #region Pop Material From Crafting Menu
+
+    // declare lists to hold invokers and listeners to Pop Material event
+    static List<CraftingMaterialOnDeck> popMaterialInvokers = new List<CraftingMaterialOnDeck>();
+    static List<UnityAction<CraftingMaterials>> popMaterialListeners = new List<UnityAction<CraftingMaterials>>();
+
+    // Adds given material on deck as invoker of pop material event
+    public static void AddPopMaterialInvoker(CraftingMaterialOnDeck invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        popMaterialInvokers.Add(invoker);
+        foreach (UnityAction<CraftingMaterials> listener in popMaterialListeners)
+            invoker.AddPopMaterialListener(listener);
+    }
+
+    // Adds given method as listener to pop materials event
+    public static void AddPopMaterialsListener(UnityAction<CraftingMaterials> listener)
+    {
+        // adds listener to list and to all invokers of event
+        popMaterialListeners.Add(listener);
+        foreach (CraftingMaterialOnDeck invoker in popMaterialInvokers)
+            invoker.AddPopMaterialListener(listener);
+    }
+
+    #endregion
+
     #region Swap Weapon UI
 
     // declare lists to hold invokers and listeners of Swap Weapon UI event

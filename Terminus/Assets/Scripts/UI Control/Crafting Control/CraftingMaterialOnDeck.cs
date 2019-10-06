@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// Provides access to relevant aspects of a crafting
@@ -24,6 +25,9 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
     CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
     Color highlightedBorderColor;                                       // color of holder's border when moused over
     Color highlightedTextColor;                                         // color of holder's text when moused over
+
+    // event support
+    PopMaterialFromDeckEvent popMaterialEvent;              // event used to internally remove material from crafting menu
 
     #region Properties
 
@@ -76,6 +80,18 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         DarkenMaterialHolder();
     }
 
+    /// <summary>
+    /// Called before first frame Update()
+    /// </summary>
+    protected override void Start()
+    {
+        base.Start();
+
+        // add self as invoker of pop material event
+        popMaterialEvent = new PopMaterialFromDeckEvent();
+        EventManager.AddPopMaterialInvoker(this);
+    }
+
     #endregion
 
     #region Public Methods 
@@ -110,9 +126,18 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         addMaterialsEvent.Invoke(myMaterialType, 1);
         AudioManager.Play(popSound, true);
 
-        // TODO: pop self from crafting deck's list and destroy self
+        // pop self from crafting deck's list and destroy self
+        popMaterialEvent.Invoke(myMaterialType);
         Destroy(gameObject);
-        
+    }
+
+    /// <summary>
+    /// Adds given method as listener to pop material from deck event
+    /// </summary>
+    /// <param name="newListener">new listener to event</param>
+    public void AddPopMaterialListener(UnityAction<CraftingMaterials> newListener)
+    {
+        popMaterialEvent.AddListener(newListener);
     }
 
     #endregion
