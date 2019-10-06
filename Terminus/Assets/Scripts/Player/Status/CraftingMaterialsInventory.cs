@@ -40,10 +40,6 @@ public class CraftingMaterialsInventory : MonoBehaviour
         // initialize player with empty inventory
         for (int i = 0; i < materialsCarried.Length; i++)
             materialsCarried[i] = 0;
-
-        // DEBUGGING: ensure proper initialization
-        //for (int i = 0; i < materialsCarried.Length; i++)
-        //    Debug.Log((CraftingMaterials)i + " " + materialsCarried[i]);
     }
 
     /// <summary>
@@ -58,6 +54,19 @@ public class CraftingMaterialsInventory : MonoBehaviour
         // add self as listener to relevant events
         EventManager.AddPickUpMaterialsListener(AddMaterials);
         EventManager.AddRemoveMaterialsListener(RemoveMaterials);
+    }
+
+    /// <summary>
+    /// Called once per frame
+    /// </summary>
+    void Update()
+    {
+        // TEST CODE: add 1 crafting material of each type on user input
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            for (int i = 0; i < System.Enum.GetNames(typeof(CraftingMaterials)).Length; i++)
+                AddMaterials((CraftingMaterials)i, 1);
+        }
     }
 
     #endregion
