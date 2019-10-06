@@ -87,6 +87,32 @@ public static class EventManager
 
     #endregion
 
+    #region Remove Crafting Materials
+
+    // declare lists to hold invokers and listeners to Remove Materials event
+    static List<CraftingMaterialHolder> removeMaterialsInvokers = new List<CraftingMaterialHolder>();
+    static List<UnityAction<CraftingMaterials, int>> removeMaterialsListeners = new List<UnityAction<CraftingMaterials, int>>();
+
+    // Adds given remover as invoker of remove materials event
+    public static void AddRemoveMaterialsInvoker(CraftingMaterialHolder invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        removeMaterialsInvokers.Add(invoker);
+        foreach (UnityAction<CraftingMaterials, int> listener in removeMaterialsListeners)
+            invoker.AddRemoveMaterialsListener(listener);
+    }
+
+    // Adds given method as listener to remove materials event
+    public static void AddRemoveMaterialsListener(UnityAction<CraftingMaterials, int> listener)
+    {
+        // adds listener to list and to all invokers of event
+        removeMaterialsListeners.Add(listener);
+        foreach (CraftingMaterialHolder invoker in removeMaterialsInvokers)
+            invoker.AddRemoveMaterialsListener(listener);
+    }
+
+    #endregion
+
     #region Update Crafting Materials UI
 
     // declare lists to hold invokers and listeners to Update Crafting Materials UI event

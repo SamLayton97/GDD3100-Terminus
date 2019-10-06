@@ -59,7 +59,7 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
                 materialHolders[materialToUpdate].Icon = craftingMaterialsIcons[(int)materialToUpdate];
                 materialHolders[materialToUpdate].IconColor = iconColors[(int)materialToUpdate];
                 materialHolders[materialToUpdate].Amount = newAmount;
-                materialHolders[materialToUpdate].MaterialName = materialToUpdate;
+                materialHolders[materialToUpdate].MaterialType = materialToUpdate;
             }
         }
         // otherwise (new amount is 0 or less)

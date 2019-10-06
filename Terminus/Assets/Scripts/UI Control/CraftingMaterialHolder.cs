@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// Procides access to relevant aspects of a crafting
@@ -14,6 +15,12 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Image materialIcon;
     [SerializeField] Text materialAmount;
     [SerializeField] Text materialName;
+
+    // private variables
+    CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
+
+    // event support
+    RemoveMaterialsEvent removeMaterialsEvent;
 
     #region Properties
 
@@ -48,11 +55,35 @@ public class CraftingMaterialHolder : MonoBehaviour
     /// Property with write access to name
     /// of crafting material this object represents
     /// </summary>
-    public CraftingMaterials MaterialName
+    public CraftingMaterials MaterialType
     {
-        set { materialName.text = value.ToString(); }
+        set 
+        {
+            // update type and text displayed to user
+            myMaterialType = value;
+            materialName.text = value.ToString();
+        }
     }
 
     #endregion
+
+    /// <summary>
+    /// Called before first frame Update()
+    /// </summary>
+    void Start()
+    {
+        // add self as invoker of remove materials event
+        removeMaterialsEvent = new RemoveMaterialsEvent();
+        EventManager.AddRemoveMaterialsInvoker(this);
+    }
+
+    /// <summary>
+    /// Adds given method as listener to remove crafting materials event
+    /// </summary>
+    /// <param name="newListener">new listener to event</param>
+    public void AddRemoveMaterialsListener(UnityAction<CraftingMaterials, int> newListener)
+    {
+        removeMaterialsEvent.AddListener(newListener);
+    }
 
 }
