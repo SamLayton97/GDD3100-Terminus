@@ -63,12 +63,12 @@ public static class EventManager
     #region Add Crafting Materials
 
     // declare lists to hold invokers and listeners to Pick Up Materials event
-    static List<AddCraftingMaterialOnCollision> pickUpMaterialsInvokers = new List<AddCraftingMaterialOnCollision>();
+    static List<CraftingMaterialAdder> pickUpMaterialsInvokers = new List<CraftingMaterialAdder>();
     static List<UnityAction<CraftingMaterials, int>> pickupMaterialsListeners = 
         new List<UnityAction<CraftingMaterials, int>>();
 
     // Adds given crafting material adder as invoker of pickup materials event
-    public static void AddPickUpMaterialsInvoker(AddCraftingMaterialOnCollision invoker)
+    public static void AddPickUpMaterialsInvoker(CraftingMaterialAdder invoker)
     {
         // adds invoker to list and adds all listeners to this invoker
         pickUpMaterialsInvokers.Add(invoker);
@@ -81,7 +81,7 @@ public static class EventManager
     {
         // adds listener to list and to all invokers of event
         pickupMaterialsListeners.Add(listener);
-        foreach (AddCraftingMaterialOnCollision invoker in pickUpMaterialsInvokers)
+        foreach (CraftingMaterialAdder invoker in pickUpMaterialsInvokers)
             invoker.AddPickUpMaterialsListener(listener);
     }
 

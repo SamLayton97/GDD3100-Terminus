@@ -9,7 +9,7 @@ using UnityEngine.Events;
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class AddCraftingMaterialOnCollision : MonoBehaviour
+public class AddCraftingMaterialOnCollision : CraftingMaterialAdder
 {
     // serialized variables
     [SerializeField] CraftingMaterials materialToAdd =  // type of crafting material to give to player on collision
@@ -19,17 +19,12 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
     [SerializeField] AudioClipNames collisionSound =    // sound effect played when pickup enters collision
         AudioClipNames.env_pickUpMaterial;
 
-    // event support
-    AddMaterialsEvent pickUpEvent;                   // event invoked to add crafting materials to player's inventory
-
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
-    void Start()
+    protected override void Start()
     {
-        // add self as invoker of pickup materials event
-        pickUpEvent = new AddMaterialsEvent();
-        EventManager.AddPickUpMaterialsInvoker(this);
+        base.Start();
     }
 
     /// <summary>
@@ -42,20 +37,11 @@ public class AddCraftingMaterialOnCollision : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             // give player amount of corresponding material types
-            pickUpEvent.Invoke(materialToAdd, amountToAdd);
+            addMaterialsEvent.Invoke(materialToAdd, amountToAdd);
 
             // play pickup sound effect and destroy self
             AudioManager.Play(collisionSound, true);
             Destroy(gameObject);
         }
-    }
-
-    /// <summary>
-    /// Adds given method as listener to pick up materials event
-    /// </summary>
-    /// <param name="newListener">new listener to event</param>
-    public void AddPickUpMaterialsListener(UnityAction<CraftingMaterials, int> newListener)
-    {
-        pickUpEvent.AddListener(newListener);
     }
 }
