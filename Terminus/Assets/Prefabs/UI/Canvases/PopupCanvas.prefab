@@ -3088,7 +3088,7 @@ GameObject:
   - component: {fileID: 2954936459249874553}
   - component: {fileID: 4067860528218875338}
   - component: {fileID: 3292868201946412639}
-  - component: {fileID: 6391031469681598801}
+  - component: {fileID: 1652405910334974310}
   m_Layer: 5
   m_Name: CraftingMenu
   m_TagString: Untagged
@@ -3157,7 +3157,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6391031469681598801
+--- !u!114 &1652405910334974310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3170,13 +3170,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMaterialsOnDeck: 3
-  onDeckMaterialTemplate: {fileID: 4086920503236781194, guid: 2def846dd5aa88347be4c5b8cfe34d8c,
+  parentContainer: {fileID: 4001993689502786311}
+  onDeckMaterialTemplate: {fileID: 763480491528981181, guid: af7482855223ed64190840fbd39f0b2d,
     type: 3}
   craftingMaterialsIcons:
   - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
   - {fileID: 21300018, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
   - {fileID: 21300012, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  iconColors:
+  onDeckIconColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
   - {r: 0.4117647, g: 1, b: 0, a: 1}

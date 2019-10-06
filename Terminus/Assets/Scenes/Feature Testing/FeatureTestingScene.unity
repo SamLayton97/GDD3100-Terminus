@@ -8863,7 +8863,7 @@ PrefabInstance:
     - target: {fileID: 2979447882804357656, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2191484175439144620, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
@@ -8948,12 +8948,12 @@ PrefabInstance:
     - target: {fileID: 681445729469329945, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00048828125
+      value: -0.0009765625
       objectReference: {fileID: 0}
     - target: {fileID: 9121994035557805178, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 68.3999
+      value: 68.399414
       objectReference: {fileID: 0}
     - target: {fileID: 554054800722197510, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
@@ -9483,7 +9483,7 @@ PrefabInstance:
     - target: {fileID: 209210281480650661, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4022518292551614310, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
@@ -9574,6 +9574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407120745835625776, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
+        type: 3}
+      propertyPath: onDeckIconColors.Array.size
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17bfce994c7f40f49a27f75c3fa2ccf2, type: 3}
