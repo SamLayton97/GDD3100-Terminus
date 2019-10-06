@@ -34,6 +34,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
 
         // add self as listener to relevant events
         EventManager.AddRemoveMaterialsListener(PushMaterial);
+        EventManager.AddPopMaterialsListener(PopMaterial);
     }
 
     /// <summary>
@@ -77,6 +78,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     /// <param name="materialPopped">material to remove</param>
     void PopMaterial(CraftingMaterials materialPopped)
     {
+        Debug.Log("popped " + materialPopped);
         materialsOnDeck.Remove(materialPopped);
     }
 }
