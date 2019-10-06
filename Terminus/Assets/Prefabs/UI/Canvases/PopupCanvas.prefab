@@ -3091,6 +3091,7 @@ GameObject:
   - component: {fileID: 1652405910334974310}
   - component: {fileID: 1624778786180500764}
   - component: {fileID: 5979714208259544526}
+  - component: {fileID: 1415640263400470442}
   m_Layer: 5
   m_Name: CraftingMenu
   m_TagString: Untagged
@@ -3205,6 +3206,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 881f86fe6c740684fbbc87f080692d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1415640263400470442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350911885507710352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2e62d2220a4d44c961c993fe338941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8305444456518256805
