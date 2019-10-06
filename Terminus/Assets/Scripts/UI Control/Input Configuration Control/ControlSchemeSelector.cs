@@ -4,17 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// An enumeration of keyboard control schemes
-/// </summary>
-public enum ControlSchemes
-{
-    standard,
-    specialist,
-    leftHanded,
-    leftySpecialist
-}
-
-/// <summary>
 /// Manages swapping between control schemes from
 /// the options menu.
 /// </summary>
@@ -25,7 +14,9 @@ public class ControlSchemeSelector : MonoBehaviour
     /// </summary>
     public void SwapToStandard()
     {
-        Debug.Log("standard");
+        // update control scheme and play select sound effect
+        ControlSchemeManager.SetControlScheme(ControlSchemes.standard);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -33,7 +24,9 @@ public class ControlSchemeSelector : MonoBehaviour
     /// </summary>
     public void SwapToSpecialist()
     {
-        Debug.Log("specialist");
+        // update control scheme and play select sound effect
+        ControlSchemeManager.SetControlScheme(ControlSchemes.specialist);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -41,7 +34,9 @@ public class ControlSchemeSelector : MonoBehaviour
     /// </summary>
     public void SwapToLeftHanded()
     {
-        Debug.Log("lefty");
+        // update control scheme and play select sound effect
+        ControlSchemeManager.SetControlScheme(ControlSchemes.leftHanded);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
     /// <summary>
@@ -49,6 +44,8 @@ public class ControlSchemeSelector : MonoBehaviour
     /// </summary>
     public void SwapToLeftySpecialist()
     {
-        Debug.Log("l specialist");
+        // update control scheme and play select sound effect
+        ControlSchemeManager.SetControlScheme(ControlSchemes.leftySpecialist);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 }
