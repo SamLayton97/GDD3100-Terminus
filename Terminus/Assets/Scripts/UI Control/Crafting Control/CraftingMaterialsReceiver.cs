@@ -65,6 +65,9 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             // discard material, returning it to player's inventory
             Debug.Log("discarded: " + materialToPush);
             addMaterialsEvent.Invoke(materialToPush, 1);
+
+            // TODO: play appropriate sound effect
+
         }
     }
 }

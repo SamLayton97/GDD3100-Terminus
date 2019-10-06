@@ -124,7 +124,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     }
 
     /// <summary>
-    /// On user input (click by default), push this item to crafting menu,
+    /// On user input (mouse 0 by default), push this item to crafting menu,
     /// removing it from player's inventory
     /// </summary>
     public void PushToCraftingMenu()

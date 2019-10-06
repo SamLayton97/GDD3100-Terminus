@@ -100,6 +100,21 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         materialName.color = unhighlightedTextColor;
     }
 
+    /// <summary>
+    /// On user input (mouse 0 by default), remove this material
+    /// from crafting menu, returning it to player's inventory
+    /// </summary>
+    public void PopFromCraftingMenu()
+    {
+        // return materials and play pop sound effect
+        addMaterialsEvent.Invoke(myMaterialType, 1);
+        AudioManager.Play(popSound, true);
+
+        // TODO: pop self from crafting deck's list and destroy self
+        Destroy(gameObject);
+        
+    }
+
     #endregion
 
 }
