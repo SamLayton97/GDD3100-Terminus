@@ -3223,6 +3223,11 @@ MonoBehaviour:
   craftedItemImage: {fileID: 881392464477302734}
   craftedItemNameText: {fileID: 6664228653769444963}
   craftButton: {fileID: 2597706715017846537}
+  craftedWeaponIcons:
+  - {fileID: 21300000, guid: da2cf333614f810428415255b37fe3ae, type: 3}
+  - {fileID: 21300000, guid: 4b6dd7762e5ba1149b1779e5a610f169, type: 3}
+  - {fileID: 21300000, guid: cefd4fe921d66a040aed050b58e82981, type: 3}
+  - {fileID: 21300000, guid: 42673746e9cb1004e97554fc1b0b5e47, type: 3}
 --- !u!1 &8305444456518256805
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ public class WeaponCrafter : WeaponAdder
     [SerializeField] Text craftedItemNameText;
     [SerializeField] Button craftButton;
 
+    // serialized variables
+    [SerializeField] Sprite[] craftedWeaponIcons;   // icons representing each craftable weapon (NOTE: must enter in order they appear in WeaponTypes enum)
+
     // private variables
     CraftingMaterialsReceiver myReceiver;           // component controlling receiving & removal of materials from crafting menu
 
