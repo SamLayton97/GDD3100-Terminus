@@ -11,9 +11,19 @@ using UnityEngine.UI;
 /// </summary>
 public class WeaponCrafter : WeaponAdder
 {
-    // UI controlling variables
+    // serialized UI controlling variables
     [SerializeField] Image craftedItemImage;
     [SerializeField] Text craftedItemNameText;
     [SerializeField] Button craftButton;
 
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // initialize crafted item to empty
+        craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 0);
+        craftedItemNameText.text = "";
+        craftButton.interactable = false;
+    }
 }
