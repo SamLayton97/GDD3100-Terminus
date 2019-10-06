@@ -11,7 +11,9 @@ using UnityEngine.UI;
 public class HideOnPause : MonoBehaviour
 {
     // private variables
-    CanvasGroup myCanvasGroup;          // component used to control alpha value of UI element
+    CanvasGroup myCanvasGroup;                  // component used to control alpha value of UI element
+    bool blockRaycastsBeforePause = false;      // whether UI element blocked raycasts before player paused game
+    float visibilityBeforePause = 0f;           // current alpha value when user paused game
 
     /// <summary>
     /// Used for initialization
@@ -40,6 +42,10 @@ public class HideOnPause : MonoBehaviour
         // if user has paused game
         if (isPaused)
         {
+            // store visibility and raycast blocking before pause
+            visibilityBeforePause = myCanvasGroup.alpha;
+            blockRaycastsBeforePause = myCanvasGroup.blocksRaycasts;
+
             // hide element and prevent group from blocking raycasts
             myCanvasGroup.alpha = 0;
             myCanvasGroup.blocksRaycasts = false;
@@ -47,9 +53,9 @@ public class HideOnPause : MonoBehaviour
         // otherwise
         else
         {
-            // reveal element and enable group to block raycasts
-            myCanvasGroup.alpha = 1;
-            myCanvasGroup.blocksRaycasts = true;
+            // restore element's visibility and raycast blocking from before pause
+            myCanvasGroup.alpha = visibilityBeforePause;
+            myCanvasGroup.blocksRaycasts = blockRaycastsBeforePause;
         }
     }
 }
