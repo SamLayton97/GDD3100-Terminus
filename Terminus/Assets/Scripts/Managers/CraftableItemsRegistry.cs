@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +26,6 @@ public static class CraftableItemsRegistry
         // pair material combinations with craftable weapons
         readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder },
             WeaponType.BioRifle);
-        readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.biomass, CraftingMaterials.powder },
-            WeaponType.BioRifle);
 
         // for each combination and yield, add all possible permutations into materials to weapons registry
         foreach (KeyValuePair<CraftingMaterials[], WeaponType> combination in readInMaterialsToWeapons)
@@ -41,8 +40,12 @@ public static class CraftableItemsRegistry
     /// <returns>craftable weapon, returning Pistol (non-craftable) if combination yields nothing</returns>
     public static WeaponType GetCraftableItem(CraftingMaterials[] materialsCombination)
     {
-        // return craftable weapon type if it exists
-        return (materialsToWeapons.ContainsKey(materialsCombination) ? materialsToWeapons[materialsCombination] : WeaponType.Pistol);
+        // return craftable weapon type if it exists in registry
+        foreach (KeyValuePair<CraftingMaterials[], WeaponType> pair in materialsToWeapons)
+            if (pair.Key.SequenceEqual(materialsCombination)) return pair.Value;
+
+        // if search yielded nothing, return pistol (safe default)
+        return WeaponType.Pistol;
     }
 
     /// <summary>

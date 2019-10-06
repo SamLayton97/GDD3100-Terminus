@@ -8,6 +8,7 @@ using UnityEngine.UI;
 /// user to remove items from "on-deck" and handling when
 /// user attempts to add too many materials.
 /// </summary>
+[RequireComponent(typeof(WeaponCrafter))]
 public class CraftingMaterialsReceiver : CraftingMaterialAdder
 {
     // serialized variables
@@ -21,12 +22,22 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
                                                                 // NOTE: like above, must be entered in same order as CraftingMaterials enumeration
 
     // private variables
+    WeaponCrafter myWeaponCrafter;                              // sibling component used to craft weapons from crafting materials
     List<CraftingMaterials> materialsOnDeck =                   // list of crafting materials "on deck" in crafting menu slots
         new List<CraftingMaterials>();
     AudioClipNames pushSound = AudioClipNames.UI_pushMaterial;  // sound played when player successfully pushes new item onto crafting deck
     AudioClipNames lastPushSound =                              // sound played when player pushes last material they can onto crafting deck
         AudioClipNames.UI_pushLastMaterial;
     AudioClipNames cantPushSound = AudioClipNames.UI_denied;    // sound played when player is unable to push new item onto crafting deck (amount exceeds limit)
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve necessary components
+        myWeaponCrafter = GetComponent<WeaponCrafter>();
+    }
 
     /// <summary>
     /// Called before first frame Update()
@@ -63,10 +74,8 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             // if user pushed last material onto deck
             if (materialsOnDeck.Count == maxMaterialsOnDeck)
             {
-                // TODO: determine whether player can craft an item
-
-                // play sound effect and return
-                AudioManager.Play(lastPushSound, true);
+                // determine whether player can craft an item and return
+                myWeaponCrafter.DetermineItemFromMaterials(materialsOnDeck.ToArray());
                 return;
             }
 
