@@ -23,6 +23,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     // private variables
     List<CraftingMaterials> materialsOnDeck =                   // list of crafting materials "on deck" in crafting menu slots
         new List<CraftingMaterials>();
+    AudioClipNames pushSound = AudioClipNames.UI_pushMaterial;  // sound played when player successfully pushes new item onto crafting deck
 
     /// <summary>
     /// Called before first frame Update()
@@ -49,6 +50,9 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             // push crafting material onto deck
             materialsOnDeck.Add(materialToPush);
             CraftingMaterialOnDeck newOnDeck = Instantiate(onDeckMaterialTemplate, parentContainer).GetComponent<CraftingMaterialOnDeck>();
+
+            // play appropriate sound effect
+            AudioManager.Play(pushSound, true);
 
             // modify visual elements of new on deck crafting material
             newOnDeck.Icon = craftingMaterialsIcons[(int)materialToPush];
