@@ -18,10 +18,11 @@ public class WeaponCrafter : WeaponAdder
     [SerializeField] Button craftButton;
 
     // serialized variables
-    [SerializeField] Sprite[] craftedWeaponIcons;   // icons representing each craftable weapon (NOTE: must enter in order they appear in WeaponTypes enum)
+    [SerializeField] Sprite[] craftedWeaponIcons;           // icons representing each craftable weapon (NOTE: must enter in order they appear in WeaponTypes enum)
 
     // private variables
-    CraftingMaterialsReceiver myReceiver;           // component controlling receiving & removal of materials from crafting menu
+    WeaponType currCraftableWeapon = WeaponType.Pistol;     // weapon type user can craft when craft button is interactable
+    CraftingMaterialsReceiver myReceiver;                   // component controlling receiving & removal of materials from crafting menu
 
     /// <summary>
     /// Used for initialization
@@ -49,6 +50,9 @@ public class WeaponCrafter : WeaponAdder
         // if search yielded anything (i.e., not pistol as that is never craftable)
         if (craftedType != WeaponType.Pistol)
         {
+            // set current craftable weapon to one retrieved from registry
+            currCraftableWeapon = craftedType;
+
             // show appropriate craftable weapon on menu
             craftedItemImage.sprite = craftedWeaponIcons[(int)craftedType];
             craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 1);
@@ -65,7 +69,19 @@ public class WeaponCrafter : WeaponAdder
         {
             // play standard push items sound
             AudioManager.Play(AudioClipNames.UI_pushMaterial, true);
-            Debug.Log("turkey");
         }
+    }
+
+    /// <summary>
+    /// Called when user clicks craft button
+    /// </summary>
+    public void CraftWeapon()
+    {
+        // add craftable weapon to player's inventory and play sound
+        pickUpWeaponEvent.Invoke(currCraftableWeapon);
+        AudioManager.Play(AudioClipNames.env_pickUpWeapon, true);
+        
+        // TODO: clear materials on deck
+
     }
 }
