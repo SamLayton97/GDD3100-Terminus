@@ -25,6 +25,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     {
         base.Start();
 
-        // TODO: add self as 
+        // TODO: add self as listener to push materials event
+
     }
 }
