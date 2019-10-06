@@ -51,9 +51,6 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             CraftingMaterialOnDeck newOnDeck = Instantiate(onDeckMaterialTemplate, parentContainer).GetComponent<CraftingMaterialOnDeck>();
 
             // modify visual elements of new on deck material
-            if (newOnDeck == null)
-                Debug.Log("null");
-
             newOnDeck.Icon = craftingMaterialsIcons[(int)materialToPush];
             newOnDeck.IconColor = onDeckIconColors[(int)materialToPush];
             newOnDeck.MaterialType = materialToPush;
