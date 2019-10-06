@@ -77,6 +77,26 @@ public class CraftingMaterialHolder : MonoBehaviour
         EventManager.AddRemoveMaterialsInvoker(this);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PushToCraftingMenu();
+        }
+    }
+
+    /// <summary>
+    /// On user input (click by default), push this item to crafting menu,
+    /// removing it from player's inventory
+    /// </summary>
+    public void PushToCraftingMenu()
+    {
+        // TODO: push to crafting menu
+
+        // deduct 1 from remaining materials of this type
+        removeMaterialsEvent.Invoke(myMaterialType, 1);
+    }
+
     /// <summary>
     /// Adds given method as listener to remove crafting materials event
     /// </summary>

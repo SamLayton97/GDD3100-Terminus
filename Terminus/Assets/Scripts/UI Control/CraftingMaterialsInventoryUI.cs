@@ -68,7 +68,7 @@ public class CraftingMaterialsInventoryUI : MonoBehaviour
             // attempt to remove material type from inventory
             try
             {
-                Destroy(materialHolders[materialToUpdate]);
+                Destroy(materialHolders[materialToUpdate].gameObject);
                 materialHolders.Remove(materialToUpdate);
             }
             // print warning if material to add does not exist in player's inventory

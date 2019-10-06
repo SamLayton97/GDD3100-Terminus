@@ -60,7 +60,7 @@ public static class EventManager
 
     #endregion
 
-    #region Pick Up Crafting Materials
+    #region Add Crafting Materials
 
     // declare lists to hold invokers and listeners to Pick Up Materials event
     static List<AddCraftingMaterialOnCollision> pickUpMaterialsInvokers = new List<AddCraftingMaterialOnCollision>();
