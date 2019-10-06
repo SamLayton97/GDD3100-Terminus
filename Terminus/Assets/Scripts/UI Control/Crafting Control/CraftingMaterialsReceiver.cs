@@ -100,6 +100,8 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     /// <param name="materialPopped">material to remove</param>
     void PopMaterial(CraftingMaterials materialPopped)
     {
+        // remove material and empty craftable item slot
         materialsOnDeck.Remove(materialPopped);
+        myWeaponCrafter.EmptyCraftableItemSlot();
     }
 }

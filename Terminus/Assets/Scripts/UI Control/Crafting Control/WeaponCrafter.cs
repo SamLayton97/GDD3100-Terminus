@@ -32,10 +32,8 @@ public class WeaponCrafter : WeaponAdder
         // retrieve relevant components
         myReceiver = GetComponent<CraftingMaterialsReceiver>();
 
-        // initialize crafted item to empty
-        craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 0);
-        craftedItemNameText.text = "";
-        craftButton.interactable = false;
+        // initialize craftable item slot to empty
+        EmptyCraftableItemSlot();
     }
 
     /// <summary>
@@ -83,5 +81,22 @@ public class WeaponCrafter : WeaponAdder
         
         // TODO: clear materials on deck
 
+    }
+
+    /// <summary>
+    /// Empties craftable item slot of any content,
+    /// preventing user from crafting something.
+    /// </summary>
+    public void EmptyCraftableItemSlot()
+    {
+        // set current item to safe default
+        currCraftableWeapon = WeaponType.Pistol;
+
+        // hide icon and text
+        craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 0);
+        craftedItemNameText.text = "";
+
+        // set craft button to uninteractable
+        craftButton.interactable = false;
     }
 }
