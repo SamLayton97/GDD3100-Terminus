@@ -15,9 +15,14 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Image materialIcon;
     [SerializeField] Text materialAmount;
     [SerializeField] Text materialName;
+    [SerializeField] Image borderImage;
+    [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
+    [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
 
     // private variables
     CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
+    Color highlightedBorderColor;                                       // color of holder's border when moused over
+    Color highlightedTextColor;                                         // color of holder's text when moused over
 
     // event support
     RemoveMaterialsEvent removeMaterialsEvent;
@@ -67,6 +72,21 @@ public class CraftingMaterialHolder : MonoBehaviour
 
     #endregion
 
+    #region Unity Methods
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve original (highlighted) colors of holder's texts and border
+        highlightedBorderColor = borderImage.color;
+        highlightedTextColor = materialAmount.color;
+
+        // initialize border and text to use unhighlighted colors
+        DarkenMaterialHolder();
+    }
+
     /// <summary>
     /// Called before first frame Update()
     /// </summary>
@@ -83,6 +103,32 @@ public class CraftingMaterialHolder : MonoBehaviour
         {
             PushToCraftingMenu();
         }
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// When user mouses over material holder, brighten
+    /// its border and text.
+    /// </summary>
+    public void HighlightMaterialHolder()
+    {
+        borderImage.color = highlightedBorderColor;
+        materialAmount.color = highlightedTextColor;
+        materialName.color = highlightedTextColor;
+    }
+
+    /// <summary>
+    /// When user's mouse leaves material holder, darken
+    /// its border and text
+    /// </summary>
+    public void DarkenMaterialHolder()
+    {
+        borderImage.color = unhighlightedBorderColor;
+        materialAmount.color = unhighlightedTextColor;
+        materialName.color = unhighlightedTextColor;
     }
 
     /// <summary>
@@ -105,5 +151,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     {
         removeMaterialsEvent.AddListener(newListener);
     }
+
+    #endregion
 
 }
