@@ -36,5 +36,7 @@ public enum AudioClipNames
     env_pickUpWeapon,
     env_bioExplosion,
     env_pickUpMaterial,
-    env_pickUpBiomass
+    env_pickUpBiomass,
+    UI_pushMaterial,
+    UI_popMaterial
 }

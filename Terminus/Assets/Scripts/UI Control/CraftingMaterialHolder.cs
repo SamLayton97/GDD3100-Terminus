@@ -19,7 +19,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
     [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
     [SerializeField] AudioClipNames pushSound =             // sound played when user pushes material to crafting popup
-        AudioClipNames.env_pickUpMaterial;
+        AudioClipNames.UI_pushMaterial;
 
     // private variables
     CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
