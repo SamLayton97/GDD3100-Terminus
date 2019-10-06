@@ -9,6 +9,20 @@ using UnityEngine.UI;
 /// </summary>
 public class ControlSchemeSelector : MonoBehaviour
 {
+    // serialized UI variables
+    [SerializeField] Image controlsDiagramImage;            // diagram displaying control scheme player has selected
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // TODO: initialize diagram to reflect currently selected control scheme
+        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
+    }
+
+    #region Public Methods
+
     /// <summary>
     /// Swaps player's control scheme to standard
     /// </summary>
@@ -16,6 +30,7 @@ public class ControlSchemeSelector : MonoBehaviour
     {
         // update control scheme and play select sound effect
         ControlSchemeManager.SetControlScheme(ControlSchemes.standard);
+        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
@@ -26,6 +41,7 @@ public class ControlSchemeSelector : MonoBehaviour
     {
         // update control scheme and play select sound effect
         ControlSchemeManager.SetControlScheme(ControlSchemes.specialist);
+        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
@@ -36,6 +52,7 @@ public class ControlSchemeSelector : MonoBehaviour
     {
         // update control scheme and play select sound effect
         ControlSchemeManager.SetControlScheme(ControlSchemes.leftHanded);
+        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
@@ -46,6 +63,10 @@ public class ControlSchemeSelector : MonoBehaviour
     {
         // update control scheme and play select sound effect
         ControlSchemeManager.SetControlScheme(ControlSchemes.leftySpecialist);
+        controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
+
+    #endregion
+
 }

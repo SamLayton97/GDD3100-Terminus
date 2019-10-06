@@ -21,8 +21,9 @@ public class GameDataInitializer : MonoBehaviour
         {
             initialized = true;
 
-            // initialize craftable items registry
+            // initialize data
             CraftableItemsRegistry.Initialize();
+            ControlSchemeManager.Initialize();
         }
     }
 }
