@@ -18,6 +18,8 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Image borderImage;
     [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
     [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
+    [SerializeField] AudioClipNames pushSound =             // sound played when user pushes material to crafting popup
+        AudioClipNames.env_pickUpMaterial;
 
     // private variables
     CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
@@ -138,6 +140,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     public void PushToCraftingMenu()
     {
         // TODO: push to crafting menu
+        AudioManager.Play(pushSound, true);
 
         // deduct 1 from remaining materials of this type
         removeMaterialsEvent.Invoke(myMaterialType, 1);
