@@ -12,6 +12,8 @@ using UnityEngine.UI;
 public class CraftingMaterialsReceiver : CraftingMaterialAdder
 {
     // serialized variables
+    [Range(1, 10)]
+    [SerializeField] int maxMaterialsOnDeck = 3;                // max number of items player can push onto crafting menu
     [SerializeField] GameObject onDeckMaterialTemplate;         // generic UI representation of material added to crafting menu
     [SerializeField] Sprite[] craftingMaterialsIcons;           // list of sprites corresponding to each crafting material
                                                                 // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
@@ -41,9 +43,18 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     /// <param name="amount">IGNORED - needed to listen for particular event</param>
     void PushMaterial(CraftingMaterials materialToPush, int amount)
     {
-        materialsOnDeck.Add(materialToPush);
-        Debug.Log("ON DECK:");
-        foreach (CraftingMaterials material in materialsOnDeck)
-            Debug.Log(material);
+        // if materials currently on deck isn't above max
+        if (materialsOnDeck.Count < maxMaterialsOnDeck)
+        {
+            // push them onto deck
+            materialsOnDeck.Add(materialToPush);
+        }
+        // otherwise (materials on deck plus new exceeds max)
+        else
+        {
+            // discard material, returning it to player's inventory
+            Debug.Log("discarded: " + materialToPush);
+            addMaterialsEvent.Invoke(materialToPush, 1);
+        }
     }
 }
