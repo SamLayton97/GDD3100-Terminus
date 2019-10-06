@@ -46,10 +46,16 @@ public class WeaponCrafter : WeaponAdder
         // if search yielded anything (i.e., not pistol as that is never craftable)
         if (craftedType != WeaponType.Pistol)
         {
+            // play higher pitched push sound
+            AudioManager.Play(AudioClipNames.UI_pushLastMaterial, true);
+
             Debug.Log(craftedType);
         }
+        // otherwise (user didn't enter good combination)
         else
         {
+            // play standard push items sound
+            AudioManager.Play(AudioClipNames.UI_pushMaterial, true);
             Debug.Log("turkey");
         }
     }
