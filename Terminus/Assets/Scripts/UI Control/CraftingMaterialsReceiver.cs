@@ -1,14 +1,15 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Manages crafting menu, allowing players to push
-/// materials onto the menu, pop them off, and create
-/// items given the right materials.
+/// Receives crafting materials from inventory, allowing
+/// user to remove items from "on-deck" and handling when
+/// user attempts to add too many materials.
 /// </summary>
-public class CraftingMenu : WeaponAdder
+public class CraftingMaterialsReceiver : CraftingMaterialAdder
 {
     // serialized variables
     [SerializeField] GameObject onDeckMaterialTemplate;         // generic UI representation of material added to crafting menu
@@ -17,14 +18,13 @@ public class CraftingMenu : WeaponAdder
     [SerializeField] Color[] iconColors;                        // list of sprite colors corresponding to each crafting material icon
                                                                 // NOTE: like above, must be entered in same order as CraftingMaterials enumeration
 
-    // private variables
-
-
     /// <summary>
-    /// Start is called before the first frame update
+    /// Called before first frame Update()
     /// </summary>
     protected override void Start()
     {
         base.Start();
+
+        // TODO: add self as 
     }
 }
