@@ -28,6 +28,13 @@ public class MainMenuNavigation : SceneTransitioner
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
+    public void OptionsButtonClick()
+    {
+        // transition to "options" scene
+        transitionSceneEvent.Invoke(transitionTo[3]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
+    }
+
     /// <summary>
     /// Handles player pressing the "Credits" button
     /// </summary>
