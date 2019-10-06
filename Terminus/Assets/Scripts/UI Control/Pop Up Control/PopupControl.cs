@@ -18,6 +18,7 @@ public class PopupControl : SceneTransitioner
     public GameObject instructionsMenu;                     // in-game controls menu
     public GameObject endOfLevelMenu;                       // menu displayed when user completes a level
     public CanvasGroup materialsInventory;                  // canvas group component of inventory containing crafting materials player has collected
+    public CanvasGroup craftingMenu;                        // canvas group of menu displayed along with inventory, allowing user to craft items
     public AudioClipNames myPauseSound =                    // sound played when user pauses game
         AudioClipNames.UI_gamePause;
     public AudioClipNames myUnpauseSound =                  // sound played when user unpauses game
@@ -102,20 +103,24 @@ public class PopupControl : SceneTransitioner
                 Time.timeScale = 0;
                 AudioManager.Play(myPauseSound, true);
 
-                // reveal materials inventory
+                // reveal materials inventory and crafting menu
                 materialsInventory.alpha = 1;
                 materialsInventory.blocksRaycasts = true;
+                craftingMenu.alpha = 1;
+                craftingMenu.blocksRaycasts = true;
             }
             // but if user attempts to close crafting menu and game is paused
             else if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale == 0)
             {
                 // pause game
                 Time.timeScale = 1;
-                AudioManager.Play(myPauseSound, true);
+                AudioManager.Play(myUnpauseSound, true);
 
-                // hide materials inventory
+                // hide materials inventory and crafting menu
                 materialsInventory.alpha = 0;
                 materialsInventory.blocksRaycasts = false;
+                craftingMenu.alpha = 0;
+                craftingMenu.blocksRaycasts = false;
             }
         }
     }
