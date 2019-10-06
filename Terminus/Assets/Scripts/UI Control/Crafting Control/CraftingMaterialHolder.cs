@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 /// <summary>
-/// Procides access to relevant aspects of a crafting
+/// Provides access to relevant aspects of a crafting
 /// material displayed on the player's UI inventory. Also
 /// responds to user input, adding item to crafting panel.
 /// </summary>
@@ -18,8 +18,6 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Image borderImage;
     [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
     [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
-    [SerializeField] AudioClipNames pushSound =             // sound played when user pushes material to crafting popup
-        AudioClipNames.UI_pushMaterial;
 
     // private variables
     CraftingMaterials myMaterialType = CraftingMaterials.biomass;       // type of crafting material this object corresponds to
@@ -97,14 +95,6 @@ public class CraftingMaterialHolder : MonoBehaviour
         // add self as invoker of remove materials event
         removeMaterialsEvent = new RemoveMaterialsEvent();
         EventManager.AddRemoveMaterialsInvoker(this);
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            PushToCraftingMenu();
-        }
     }
 
     #endregion
