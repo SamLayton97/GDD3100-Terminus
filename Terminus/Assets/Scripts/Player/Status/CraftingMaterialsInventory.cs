@@ -53,8 +53,9 @@ public class CraftingMaterialsInventory : MonoBehaviour
         updateUIEvent = new UpdateMaterialsUIEvent();
         EventManager.AddUpdateMaterialsUIInvoker(this);
 
-        // add self as listener to pick up materials event
+        // add self as listener to relevant events
         EventManager.AddPickUpMaterialsListener(AddMaterials);
+        EventManager.AddRemoveMaterialsListener(RemoveMaterials);
     }
 
     /// <summary>
@@ -66,6 +67,17 @@ public class CraftingMaterialsInventory : MonoBehaviour
     {
         materialsCarried[(int)materialToAdd] = Mathf.Min(materialCap, materialsCarried[(int)materialToAdd] + amount);
         updateUIEvent.Invoke(materialToAdd, materialsCarried[(int)materialToAdd]);
+    }
+
+    /// <summary>
+    /// Removes materials of given type from player's inventory
+    /// </summary>
+    /// <param name="materialToRemove">type of material to remove</param>
+    /// <param name="amount">amount to remove</param>
+    void RemoveMaterials(CraftingMaterials materialToRemove, int amount)
+    {
+        materialsCarried[(int)materialToRemove] = Mathf.Max(0, materialsCarried[(int)materialToRemove] - amount);
+        updateUIEvent.Invoke(materialToRemove, materialsCarried[(int)materialToRemove]);
     }
 
     /// <summary>
