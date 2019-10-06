@@ -11,5 +11,9 @@ using UnityEngine.UI;
 /// </summary>
 public class WeaponCrafter : WeaponAdder
 {
+    // UI controlling variables
+    [SerializeField] Image craftedItemImage;
+    [SerializeField] Text craftedItemNameText;
+    [SerializeField] Button craftButton;
 
 }

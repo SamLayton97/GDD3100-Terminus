@@ -8860,6 +8860,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2191484175439144620, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
+        type: 3}
+      propertyPath: m_Name
+      value: UICanvases
+      objectReference: {fileID: 0}
     - target: {fileID: 2979447882804357656, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8869,11 +8874,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2191484175439144620, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
-        type: 3}
-      propertyPath: m_Name
-      value: UICanvases
       objectReference: {fileID: 0}
     - target: {fileID: 2191484175439144619, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
@@ -9584,6 +9584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeckIconColors.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867175395307183123, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17bfce994c7f40f49a27f75c3fa2ccf2, type: 3}
