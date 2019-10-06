@@ -24,6 +24,7 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     List<CraftingMaterials> materialsOnDeck =                   // list of crafting materials "on deck" in crafting menu slots
         new List<CraftingMaterials>();
     AudioClipNames pushSound = AudioClipNames.UI_pushMaterial;  // sound played when player successfully pushes new item onto crafting deck
+    AudioClipNames cantPushSound = AudioClipNames.UI_denied;    // sound played when player is unable to push new item onto crafting deck (amount exceeds limit)
 
     /// <summary>
     /// Called before first frame Update()
@@ -67,8 +68,8 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
             Debug.Log("discarded: " + materialToPush);
             addMaterialsEvent.Invoke(materialToPush, 1);
 
-            // TODO: play appropriate sound effect
-
+            // play appropriate sound effect
+            AudioManager.Play(cantPushSound, true);
         }
     }
 

@@ -38,5 +38,6 @@ public enum AudioClipNames
     env_pickUpMaterial,
     env_pickUpBiomass,
     UI_pushMaterial,
-    UI_popMaterial
+    UI_popMaterial,
+    UI_denied
 }
