@@ -23,16 +23,14 @@ public static class CraftableItemsRegistry
     public static void Initialize()
     {
         // pair material combinations with craftable weapons
-        readInMaterialsToWeapons.Add( new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder}, 
+        readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder },
+            WeaponType.BioRifle);
+        readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.biomass, CraftingMaterials.powder },
             WeaponType.BioRifle);
 
-        // for each combination and yield
+        // for each combination and yield, add all possible permutations into materials to weapons registry
         foreach (KeyValuePair<CraftingMaterials[], WeaponType> combination in readInMaterialsToWeapons)
-        {
-            // add all possible permutations into materials to weapons registry
-            //materialsToWeapons.Add(combination.Key, combination.Value);
-            
-        }
+            Permute(combination.Key, combination.Value, 0, combination.Key.Length - 1);
     }
 
     /// <summary>
@@ -50,13 +48,52 @@ public static class CraftableItemsRegistry
     /// <summary>
     /// Adds all possible permutations of a given
     /// crafting material combination into registry.
+    /// NOTE: Code taken from:
+    /// https://www.geeksforgeeks.org/c-program-to-print-all-permutations-of-a-given-string-2/
     /// </summary>
     /// <param name="combination">combination of materials to permute</param>
-    /// <param name="startingIndex">starting index of materials array</param>
-    /// <param name="length">length of materials array</param>
-    /// <returns></returns>
-    static void Permute(CraftingMaterials[] combination, WeaponType craftableItem, int startingIndex, int length)
+    /// <param name="startingIndex">index of first element in combination</param>
+    /// <param name="endingIndex">index of last element in combination</param>
+    static void Permute(CraftingMaterials[] combination, WeaponType craftableItem, int startingIndex, int endingIndex)
     {
+        // if starting index matches end (fully permuted)
+        if (startingIndex == endingIndex)
+        {
+            // add deep copy of combination to registry
+            CraftingMaterials[] newCombo = new CraftingMaterials[combination.Length];
+            for (int i = 0; i < combination.Length; i++)
+            {
+                newCombo[i] = combination[i];
+            }
+            materialsToWeapons.Add(newCombo, craftableItem);
+        }
+        // otherwise (still needs to be permuted)
+        else
+        {
+            // swap elements in current combination and continue permuting
+            for (int i = startingIndex; i <= endingIndex; i++)
+            {
+                combination = SwapElements(combination, startingIndex, i);
+                Permute(combination, craftableItem, startingIndex + 1, endingIndex);
+                combination = SwapElements(combination, startingIndex, i);
+            }
+        }
+    }
 
+    /// <summary>
+    /// Swaps two elements in combination, returning new combination.
+    /// Code based on:
+    /// https://www.geeksforgeeks.org/c-program-to-print-all-permutations-of-a-given-string-2/
+    /// </summary>
+    /// <param name="combination">combination to swap elements within</param>
+    /// <param name="a">element to swap with b</param>
+    /// <param name="b">element to swap with a</param>
+    /// <returns>combination with swapped elements</returns>
+    static CraftingMaterials[] SwapElements(CraftingMaterials[] combination, int a, int b)
+    {
+        CraftingMaterials temp = combination[a];
+        combination[a] = combination[b];
+        combination[b] = temp;
+        return combination;
     }
 }
