@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Event invoked when player collides with weapon pickup,
-/// adding corresponding weapon to their inventory.
+/// Event invoked to add weapons of a
+/// given type to player's inventory.
 /// </summary>
 public class PickUpWeaponEvent : UnityEvent<WeaponType>
 {

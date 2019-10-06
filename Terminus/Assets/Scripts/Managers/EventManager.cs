@@ -11,16 +11,16 @@ public static class EventManager
     #region Pick Up Weapon
 
     // declare lists to hold invokers and listeners to Pick Up Weapon event
-    static List<AddWeaponOnCollision> pickUpWeaponInvokers = new List<AddWeaponOnCollision>();
+    static List<WeaponAdder> pickUpWeaponInvokers = new List<WeaponAdder>();
     static List<UnityAction<WeaponType>> pickUpWeaponListeners = new List<UnityAction<WeaponType>>();
 
     // Adds given weapon pickup as invoker of pick up weapon event
-    public static void AddPickUpWeaponInvoker(AddWeaponOnCollision invoker)
+    public static void AddPickUpWeaponInvoker(WeaponAdder invoker)
     {
         // adds invoker to list and adds all listeners to this invoker
         pickUpWeaponInvokers.Add(invoker);
         foreach (UnityAction<WeaponType> listener in pickUpWeaponListeners)
-            invoker.AddPickupWeaponInvoker(listener);
+            invoker.AddPickUpWeaponListener(listener);
     }
 
     // Adds given method as listener to Pick Up Weapon event
@@ -28,8 +28,8 @@ public static class EventManager
     {
         // adds listener to list and to all invokers of event
         pickUpWeaponListeners.Add(listener);
-        foreach (AddWeaponOnCollision invoker in pickUpWeaponInvokers)
-            invoker.AddPickupWeaponInvoker(listener);
+        foreach (WeaponAdder invoker in pickUpWeaponInvokers)
+            invoker.AddPickUpWeaponListener(listener);
     }
 
     #endregion
