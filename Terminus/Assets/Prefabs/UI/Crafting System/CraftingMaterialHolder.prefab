@@ -326,8 +326,8 @@ MonoBehaviour:
   materialAmount: {fileID: 8885699193433288270}
   materialName: {fileID: 2974397439595200236}
   borderImage: {fileID: 7699480486216497233}
-  unhighlightedBorderColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
-  unhighlightedTextColor: {r: 0.24644002, g: 0.6142761, b: 0.735849, a: 1}
+  unhighlightedBorderColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  unhighlightedTextColor: {r: 0.24012107, g: 0.59776616, b: 0.7169812, a: 1}
 --- !u!114 &6917434373960896372
 MonoBehaviour:
   m_ObjectHideFlags: 0
