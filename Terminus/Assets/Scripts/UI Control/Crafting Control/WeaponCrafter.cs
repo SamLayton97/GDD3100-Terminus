@@ -49,6 +49,14 @@ public class WeaponCrafter : WeaponAdder
         // if search yielded anything (i.e., not pistol as that is never craftable)
         if (craftedType != WeaponType.Pistol)
         {
+            // show appropriate craftable weapon on menu
+            craftedItemImage.sprite = craftedWeaponIcons[(int)craftedType];
+            craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 1);
+            craftedItemNameText.text = craftedType.ToString();
+
+            // set craft button to interactable
+            craftButton.interactable = true;
+
             // play higher pitched push sound
             AudioManager.Play(AudioClipNames.UI_pushLastMaterial, true);
 
