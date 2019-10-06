@@ -92,25 +92,31 @@ public class PopupControl : SceneTransitioner
         }
 
         // Crafting Menu Control
-        // if user attempts to bring up crafting menu and game isn't game isn't already paused
-        if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale != 0)
+        // if no other pause-controlling UI elements are active
+        if (!(pauseMenu.activeSelf || instructionsMenu.activeSelf || endOfLevelMenu.activeSelf))
         {
-            // soft-pause game
-            Time.timeScale = 0;
+            // if user attempts to bring up crafting menu and game isn't paused
+            if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale != 0)
+            {
+                // pause game
+                Time.timeScale = 0;
+                AudioManager.Play(myPauseSound, true);
 
-            // reveal materials inventory
-            materialsInventory.alpha = 1;
-            materialsInventory.blocksRaycasts = true;
-        }
-        // but if user attempts to close crafting menu and game is paused
-        else if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale == 0)
-        {
-            // unpause game
-            Time.timeScale = 1;
+                // reveal materials inventory
+                materialsInventory.alpha = 1;
+                materialsInventory.blocksRaycasts = true;
+            }
+            // but if user attempts to close crafting menu and game is paused
+            else if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale == 0)
+            {
+                // pause game
+                Time.timeScale = 1;
+                AudioManager.Play(myPauseSound, true);
 
-            // hide materials inventory
-            materialsInventory.alpha = 0;
-            materialsInventory.blocksRaycasts = false;
+                // hide materials inventory
+                materialsInventory.alpha = 0;
+                materialsInventory.blocksRaycasts = false;
+            }
         }
     }
 
