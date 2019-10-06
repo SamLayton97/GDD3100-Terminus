@@ -30,6 +30,8 @@ public class CraftingMaterialsInventory : MonoBehaviour
     // event support
     UpdateMaterialsUIEvent updateUIEvent;                                   // event invoked to update UI to reflect player's materials inventory
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -58,6 +60,10 @@ public class CraftingMaterialsInventory : MonoBehaviour
         EventManager.AddRemoveMaterialsListener(RemoveMaterials);
     }
 
+    #endregion
+
+    #region Private Methods
+
     /// <summary>
     /// Adds materials of given type to player's inventory
     /// </summary>
@@ -80,6 +86,10 @@ public class CraftingMaterialsInventory : MonoBehaviour
         updateUIEvent.Invoke(materialToRemove, materialsCarried[(int)materialToRemove]);
     }
 
+    #endregion
+
+    #region Public Methods
+
     /// <summary>
     /// Adds given method as listener to object's update materials UI event
     /// </summary>
@@ -88,4 +98,7 @@ public class CraftingMaterialsInventory : MonoBehaviour
     {
         updateUIEvent.AddListener(newListener);
     }
+
+    #endregion
+
 }
