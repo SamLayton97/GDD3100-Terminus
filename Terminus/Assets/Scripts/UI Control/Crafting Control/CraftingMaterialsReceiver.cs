@@ -46,11 +46,11 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
         // if materials currently on deck isn't above max
         if (materialsOnDeck.Count < maxMaterialsOnDeck)
         {
-            // push them onto deck
+            // push crafting material onto deck
             materialsOnDeck.Add(materialToPush);
             CraftingMaterialOnDeck newOnDeck = Instantiate(onDeckMaterialTemplate, parentContainer).GetComponent<CraftingMaterialOnDeck>();
 
-            // modify visual elements of new on deck material
+            // modify visual elements of new on deck crafting material
             newOnDeck.Icon = craftingMaterialsIcons[(int)materialToPush];
             newOnDeck.IconColor = onDeckIconColors[(int)materialToPush];
             newOnDeck.MaterialType = materialToPush;
