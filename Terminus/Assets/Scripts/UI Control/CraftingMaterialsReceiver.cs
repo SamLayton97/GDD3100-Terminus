@@ -25,7 +25,18 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     {
         base.Start();
 
-        // TODO: add self as listener to push materials event
+        // add self as listener to remove material event
+        EventManager.AddRemoveMaterialsListener(PushMaterial);
+    }
 
+    /// <summary>
+    /// Pushes crafting material of given type onto
+    /// crafting menu's "On Deck" list
+    /// </summary>
+    /// <param name="materialToPush">type of material to push</param>
+    /// <param name="amount">IGNORED - needed to listen for particular event</param>
+    void PushMaterial(CraftingMaterials materialToPush, int amount)
+    {
+        Debug.Log("push: " + materialToPush);
     }
 }
