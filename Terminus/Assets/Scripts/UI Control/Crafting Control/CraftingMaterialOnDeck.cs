@@ -25,6 +25,44 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
     Color highlightedBorderColor;                                       // color of holder's border when moused over
     Color highlightedTextColor;                                         // color of holder's text when moused over
 
+    #region Properties
+
+    /// <summary>
+    /// Property with write access to sprite
+    /// representing crafting material
+    /// </summary>
+    public Sprite Icon
+    {
+        set { materialIcon.sprite = value; }
+    }
+
+    /// <summary>
+    /// Property with write access to color
+    /// of sprite representing material type
+    /// </summary>
+    public Color IconColor
+    {
+        set { materialIcon.color = value; }
+    }
+
+    /// <summary>
+    /// Property with write access to name
+    /// of crafting material this object represents
+    /// </summary>
+    public CraftingMaterials MaterialType
+    {
+        set
+        {
+            // update type and text displayed to user
+            myMaterialType = value;
+            materialName.text = value.ToString();
+        }
+    }
+
+    #endregion
+
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -37,6 +75,8 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         // initialize border and text to use unhighlighted colors
         DarkenMaterialHolder();
     }
+
+    #endregion
 
     #region Public Methods 
 
@@ -59,8 +99,6 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         borderImage.color = unhighlightedBorderColor;
         materialName.color = unhighlightedTextColor;
     }
-
-    
 
     #endregion
 
