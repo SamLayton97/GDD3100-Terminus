@@ -266,14 +266,15 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Feature Descriptions:\r\nMulti-Item Select \u2013 This week, I added
         a crafting system where players can build weapons from materials that they
-        collect in the game world. Players can bring up the crafting menu by right-clicking
-        (default control scheme). They can then add/remove materials by clicking on
-        their icons. If they have a good combination of materials (e.g., powder, casing,
-        and biomass -- order doesn\u2019t matter), they can click the craft button
-        to add the weapon to their inventory. For easy testing, players can press
-        4 to add all crafting materials to their inventory.\r\n\r\nConfigurable Controls
-        \u2013 I also added 3 new controls schemes (plus 1 default), accessible from
-        the title menu. To swap between control schemes, simply go to the options
+        collect in the game world. Players can bring up the crafting menu by right-clicking.
+        They can then add/remove materials by clicking on their icons. If they have
+        a good combination of materials (e.g., powder, casing, and biomass -- order
+        doesn\u2019t matter), they can click the craft button to add the weapon to
+        their inventory. For left-handed players, they can bring up the menu on left
+        mouse click and add, remove, and craft with the right mouse button. For easy
+        testing, players can press 4 to add all crafting materials to their inventory.\r\n\r\nConfigurable
+        Controls \u2013 I also added 3 new controls schemes (plus 1 default), accessible
+        from the title menu. To swap between control schemes, simply go to the options
         menu, select the desired scheme, and start the game.\r\n\r\n3 Improvements
         \u2013 (1) Darkened sprites of enemy corpses to make their death more apparent.
         (2) Collectable objects in game world gravitate toward player when player
