@@ -759,5 +759,20 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionsButtonClick
       objectReference: {fileID: 0}
+    - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.42843002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1462264
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1, type: 3}
