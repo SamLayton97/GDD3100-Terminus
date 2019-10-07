@@ -45,6 +45,17 @@ public static class ControlSchemeManager
         get { return controlLayouts[currScheme]; }
     }
 
+    /// <summary>
+    /// Read access propert returning whether player is
+    /// using specialist control scheme or any of its variations
+    /// </summary>
+    public static bool UsingSpecialist
+    {
+        get {
+            return (currScheme == ControlSchemes.Specialist ||
+              currScheme == ControlSchemes.LeftySpecialist); }
+    }
+
     #endregion
 
     #region Public Methods
