@@ -94,14 +94,50 @@ public static class ControlSchemeManager
         switch (newScheme) 
         {
             case ControlSchemes.Standard:
+                // set mouse buttons for right hand
+                CustomInputManager.SetMouseButtonMap("Fire", 0);
+                CustomInputManager.SetMouseButtonMap("ShowHideCraftingMenu", 1);
+
                 break;
             case ControlSchemes.Specialist:
+                // set mouse buttons for right hand
+                CustomInputManager.SetMouseButtonMap("Fire", 0);
+                CustomInputManager.SetMouseButtonMap("ShowHideCraftingMenu", 1);
+
+                // set weapon select key mappings
+                CustomInputManager.SetKeyMap("SelectWeapon1", KeyCode.A);
+                CustomInputManager.SetKeyMap("SelectWeapon2", KeyCode.S);
+                CustomInputManager.SetKeyMap("SelectWeapon3", KeyCode.D);
+                CustomInputManager.SetKeyMap("SelectWeapon4", KeyCode.F);
+
                 break;
             case ControlSchemes.LeftHanded:
+                // set mouse buttons for left hand
+                CustomInputManager.SetMouseButtonMap("Fire", 1);
+                CustomInputManager.SetMouseButtonMap("ShowHideCraftingMenu", 0);
+
                 break;
             case ControlSchemes.LeftySpecialist:
+                // set mouse buttons for left hand
+                CustomInputManager.SetMouseButtonMap("Fire", 1);
+                CustomInputManager.SetMouseButtonMap("ShowHideCraftingMenu", 0);
+
+                // set weapon select key mappings
+                CustomInputManager.SetKeyMap("SelectWeapon1", KeyCode.H);
+                CustomInputManager.SetKeyMap("SelectWeapon2", KeyCode.J);
+                CustomInputManager.SetKeyMap("SelectWeapon3", KeyCode.K);
+                CustomInputManager.SetKeyMap("SelectWeapon4", KeyCode.L);
+
                 break;
+            // if default case occurs, simply map inputs to standard scheme
             default:
+                Debug.Log("Warning: Attempted to set controls to unknown configuration. Using standard control scheme.");
+                currScheme = ControlSchemes.Standard;
+
+                // set mouse buttons for right hand
+                CustomInputManager.SetMouseButtonMap("Fire", 0);
+                CustomInputManager.SetMouseButtonMap("ShowHideCraftingMenu", 1);
+
                 break;
         }
     }

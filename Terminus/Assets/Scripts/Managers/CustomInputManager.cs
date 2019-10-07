@@ -26,6 +26,8 @@ public static class CustomInputManager
         { "ShowHideCraftingMenu", 1 }
     };
 
+    #region Input Setting Methods
+
     /// <summary>
     /// Sets name-to-keyboard input mapping to new key
     /// </summary>
@@ -36,6 +38,24 @@ public static class CustomInputManager
         // throw exception if mapping doesn't exit
         if (!keyMappings.ContainsKey(keyMapName))
             Debug.LogError("ERROR: Invalid key mapping in SetKeyMap " + keyMapName);
+        
         keyMappings[keyMapName] = newKey;
     }
+
+    /// <summary>
+    /// Sets name-to-mouse button input mapping to new button
+    /// </summary>
+    /// <param name="buttonMapName">name of button mapping</param>
+    /// <param name="newButton">button to map to</param>
+    public static void SetMouseButtonMap(string buttonMapName, int newButton)
+    {
+        // throw exception if mapping doesn't exit
+        if (!mouseButtonMappings.ContainsKey(buttonMapName))
+            Debug.LogError("ERROR: Invalid key mapping in SetMouseButtonMap " + buttonMapName);
+
+        mouseButtonMappings[buttonMapName] = newButton;
+    }
+
+    #endregion
+
 }
