@@ -72,7 +72,7 @@ public static class ControlSchemeManager
             initialized = true;
 
             // initialize player's control scheme to default
-            SetControlScheme(ControlSchemes.LeftHanded);
+            SetControlScheme(ControlSchemes.Standard);
 
             // load in control scheme diagrams from Resources/ControlSchemes
             controlLayouts.Add(ControlSchemes.Standard, Resources.Load<Sprite>("ControlSchemes/spr_standardControls"));
