@@ -58,4 +58,18 @@ public static class CustomInputManager
 
     #endregion
 
+    #region Input Access Methods
+
+    /// <summary>
+    /// Returns whether given mouse button mapping is held down
+    /// </summary>
+    /// <param name="buttonMapName">name of button mapping</param>
+    /// <returns></returns>
+    public static bool GetMouseButton(string buttonMapName)
+    {
+        return Input.GetMouseButton(mouseButtonMappings[buttonMapName]);
+    }
+
+    #endregion
+
 }

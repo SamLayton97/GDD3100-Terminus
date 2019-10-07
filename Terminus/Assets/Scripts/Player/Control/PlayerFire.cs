@@ -35,8 +35,8 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if player fires weapon (mouse 0 by default)
-        if (Input.GetAxis("Fire") != 0)
+        // if player fires weapon and game isn't paused
+        if (CustomInputManager.GetMouseButton("Fire") && Time.timeScale != 0)
         {
             // register input in weapon and set fired last frame flag to true
             currWeapon.RegisterInput(firedLastFrame);
