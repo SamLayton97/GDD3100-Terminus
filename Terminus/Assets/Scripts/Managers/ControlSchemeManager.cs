@@ -87,8 +87,23 @@ public static class ControlSchemeManager
     /// <param name="newScheme">new scheme used by player</param>
     public static void SetControlScheme(ControlSchemes newScheme)
     {
-        // update scheme used and layout displayed
+        // update current scheme
         currScheme = newScheme;
+
+        // according to new scheme adjust input axes
+        switch (newScheme) 
+        {
+            case ControlSchemes.Standard:
+                break;
+            case ControlSchemes.Specialist:
+                break;
+            case ControlSchemes.LeftHanded:
+                break;
+            case ControlSchemes.LeftySpecialist:
+                break;
+            default:
+                break;
+        }
     }
 
     #endregion
