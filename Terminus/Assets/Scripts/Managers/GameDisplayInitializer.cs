@@ -12,8 +12,6 @@ public class GameDisplayInitializer : MonoBehaviour
     bool initialized = false;
 
     // serialized fields
-    [Range(30, 300)]
-    [SerializeField]
     int targetFrameRate = 60;           // max framerate game will run at (default to 60 fps)
 
     /// <summary>
@@ -27,8 +25,12 @@ public class GameDisplayInitializer : MonoBehaviour
             initialized = true;
 
             // lock framerate
-            QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = targetFrameRate;
         }
+    }
+
+    void Update()
+    {
+        Debug.Log(Application.targetFrameRate + " " + 1f / Time.deltaTime);
     }
 }
