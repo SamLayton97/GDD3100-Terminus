@@ -70,6 +70,16 @@ public static class CustomInputManager
         return Input.GetMouseButton(mouseButtonMappings[buttonMapName]);
     }
 
+    /// <summary>
+    /// Returns true during first frame user held mouse button mapping down
+    /// </summary>
+    /// <param name="buttonMapName">name of button mapping</param>
+    /// <returns></returns>
+    public static bool GetMouseButtonDown(string buttonMapName)
+    {
+        return Input.GetMouseButtonDown(mouseButtonMappings[buttonMapName]);
+    }
+
     #endregion
 
 }

@@ -97,7 +97,7 @@ public class PopupControl : SceneTransitioner
         if (!(pauseMenu.activeSelf || instructionsMenu.activeSelf || endOfLevelMenu.activeSelf))
         {
             // if user attempts to bring up crafting menu and game isn't paused
-            if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale != 0)
+            if (CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu") && Time.timeScale != 0)
             {
                 // pause game
                 Time.timeScale = 0;
@@ -110,7 +110,7 @@ public class PopupControl : SceneTransitioner
                 craftingMenu.blocksRaycasts = true;
             }
             // but if user attempts to close crafting menu and game is paused
-            else if (Input.GetButtonDown("ShowHideCraftingMenu") && Time.timeScale == 0)
+            else if (CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu") && Time.timeScale == 0)
             {
                 // pause game
                 Time.timeScale = 1;
