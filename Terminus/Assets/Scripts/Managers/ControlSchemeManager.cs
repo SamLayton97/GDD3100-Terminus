@@ -31,7 +31,7 @@ public static class ControlSchemeManager
     /// Read access property returning player's 
     /// currently selected control scheme
     /// </summary>
-    public static ControlSchemes CurrentControlScheme
+    public static ControlSchemes CurrentScheme
     {
         get { return currScheme; }
     }
@@ -61,7 +61,7 @@ public static class ControlSchemeManager
             initialized = true;
 
             // initialize player's control scheme to default
-            currScheme = ControlSchemes.Standard;
+            SetControlScheme(ControlSchemes.Standard);
 
             // load in control scheme diagrams from Resources/ControlSchemes
             controlLayouts.Add(ControlSchemes.Standard, Resources.Load<Sprite>("ControlSchemes/spr_standardControls"));

@@ -28,7 +28,7 @@ public class ControlSchemeSelector : MonoBehaviour
     void UpdateDiagram()
     {
         controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
-        controlsDiagramName.text = (ControlSchemeManager.CurrentControlScheme).ToString();
+        controlsDiagramName.text = (ControlSchemeManager.CurrentScheme).ToString();
     }
 
     #region Public Methods

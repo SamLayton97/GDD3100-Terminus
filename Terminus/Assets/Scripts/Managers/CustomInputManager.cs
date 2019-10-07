@@ -61,6 +61,16 @@ public static class CustomInputManager
     #region Input Access Methods
 
     /// <summary>
+    /// Returns true during first frame user held key down
+    /// </summary>
+    /// <param name="keyMapName">name of key mapping</param>
+    /// <returns></returns>
+    public static bool GetKeyDown(string keyMapName)
+    {
+        return Input.GetKeyDown(keyMappings[keyMapName]);
+    }
+
+    /// <summary>
     /// Returns whether given mouse button mapping is held down
     /// </summary>
     /// <param name="buttonMapName">name of button mapping</param>
