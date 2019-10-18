@@ -230,13 +230,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
-  m_AutoTargetPlayer: 1
+  m_AutoTargetPlayer: 0
   m_UpdateType: 0
   m_MoveSpeed: 3
   m_TurnSpeed: 1
   m_RollSpeed: 0.2
   m_FollowVelocity: 0
   m_FollowTilt: 1
-  m_SpinTurnLimit: 90
+  m_SpinTurnLimit: 0
   m_TargetVelocityLowerLimit: 4
   m_SmoothTurnTime: 0.2
