@@ -31,6 +31,6 @@ public class GameDisplayInitializer : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Application.targetFrameRate + " " + 1f / Time.deltaTime);
+        //Debug.Log(Application.targetFrameRate + " " + 1f / Time.deltaTime);
     }
 }
