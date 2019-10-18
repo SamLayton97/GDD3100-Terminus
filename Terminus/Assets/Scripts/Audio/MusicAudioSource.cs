@@ -21,6 +21,7 @@ public class MusicAudioSource : MonoBehaviour
         if (!MusicManager.Initialized)
         {
             // initialize audio source and make it persist across scenes
+            myAudioSource.loop = true;
             MusicManager.Initialize(myAudioSource);
             DontDestroyOnLoad(gameObject);
 
