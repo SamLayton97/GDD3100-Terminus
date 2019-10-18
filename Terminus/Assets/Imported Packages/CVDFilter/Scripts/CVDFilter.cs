@@ -27,7 +27,16 @@ public class CVDFilter : MonoBehaviour {
 			currentVisionType = visionType;
 			ChangeProfile();
 		}
-	}
+
+        // on input, change target vision type
+        // F1: Reset, F2: Previous Type, F3: Next Type
+        if (Input.GetKeyDown(KeyCode.F1))
+            visionType = ColorType.Normal;
+        else if (Input.GetKeyDown(KeyCode.F2))
+            visionType = (ColorType)Mathf.Max(0, (int)currentVisionType - 1);
+        else if (Input.GetKeyDown(KeyCode.F3))
+            visionType = (ColorType)Mathf.Min(System.Enum.GetNames(typeof(ColorType)).Length - 1, (int)currentVisionType + 1);
+    }
 
 	void SetupVolume () {
 		postProcessVolume = GetComponent<PostProcessVolume>();
@@ -79,4 +88,5 @@ public class CVDFilter : MonoBehaviour {
     }
 
     #endregion
+
 }
