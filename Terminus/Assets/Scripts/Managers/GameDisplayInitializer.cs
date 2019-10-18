@@ -8,11 +8,14 @@ using UnityEngine;
 /// </summary>
 public class GameDisplayInitializer : MonoBehaviour
 {
-    // private variables
+    // support variables
     bool initialized = false;
-
-    // serialized fields
     int targetFrameRate = 60;           // max framerate game will run at (default to 60 fps)
+
+    // singleton objects
+    [SerializeField]
+    List<GameObject> displaySingletons =    // list of display-controlling singletons to spawn/initialize on application start
+        new List<GameObject>();     
 
     /// <summary>
     /// Used for early display initialization
@@ -27,6 +30,11 @@ public class GameDisplayInitializer : MonoBehaviour
             // lock framerate
             Application.targetFrameRate = targetFrameRate;
         }
+
+        // instantiate each display singleton
+        foreach (GameObject singleton in displaySingletons)
+            Instantiate(singleton);
+
     }
 
     void Update()
