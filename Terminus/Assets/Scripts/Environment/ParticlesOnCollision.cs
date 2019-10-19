@@ -7,9 +7,14 @@ using UnityEngine;
 /// </summary>
 public class ParticlesOnCollision : MonoBehaviour
 {
-    // particle collision support
+    // particle collision variables
     [SerializeField] GameObject particleEffect;         // particle effect object instantiated on collision
-    [SerializeField] LayerMask collisionLayermask;          // physics layer(s) which cause particles to spawn on collision
+    [SerializeField] LayerMask collisionLayermask;      // physics layer(s) which cause particles to spawn on collision
+
+    // scaling variables
+    [SerializeField] bool scaleWithMagnitude = false;       // flag determining whether particle effect should scale with force magnitude of collision
+    [SerializeField] Vector2 scaleBounds = new Vector2();   // lower/upper bounds which particle effect can scale within
+    [SerializeField] float scaleRate = 1f;                  // rate at which particle effect scales with force of collision
 
     /// <summary>
     /// Called upon entering collision with another object
@@ -17,10 +22,12 @@ public class ParticlesOnCollision : MonoBehaviour
     /// <param name="collision">collision data</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // if collision occurred on accepted layer(s), spawn particle effect
+        // if collision occurred on accepted layer(s)
         if (collisionLayermask == (collisionLayermask | (1 << collision.gameObject.layer)))
         {
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
+            // spawn particle effect scaled according to force of collision
+            Instantiate(particleEffect, transform.position, Quaternion.identity).transform.localScale *=
+                Mathf.Clamp(collision.relativeVelocity.magnitude * scaleRate, scaleBounds.x, scaleBounds.y);
         }
     }
 }
