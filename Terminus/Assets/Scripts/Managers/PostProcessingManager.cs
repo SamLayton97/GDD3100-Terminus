@@ -41,21 +41,46 @@ public class PostProcessingManager : MonoBehaviour
             return;
         }
 
-        // otherwise, set this object as instance of singleton
+        // set this object as instance of singleton
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    /// <summary>
-    /// Called once before first frame Update()
-    /// </summary>
-    void Start()
-    {
         // set-up volume
         myVolume = GetComponent<PostProcessVolume>();
         myVolume.isGlobal = true;
+
+        IEnumerator testCoroutine = FlashOxygenVignette(1f);
+        //StartCoroutine(testCoroutine);
     }
 
     #endregion
+
+    /// <summary>
+    /// Flashes bluish vignette when player's oxygen is restored
+    /// </summary>
+    void HandleOxygenRestored()
+    {
+
+    }
+
+    /// <summary>
+    /// Flashes blue vignette over screen, 
+    /// indicating player's oxygen has been restored.
+    /// </summary>
+    /// <param name="flashTime">time to complete flash</param>
+    /// <returns></returns>
+    IEnumerator FlashOxygenVignette(float flashTime)
+    {
+        bool increaseWeight = true;
+        do
+        {
+            // increment/decrement weight of volume, reversing direction at apex
+            myVolume.weight += Time.deltaTime * (2f / flashTime) * (increaseWeight ? 1 : -1);
+            if (myVolume.weight >= 1)
+                increaseWeight = !increaseWeight;
+
+            yield return new WaitForEndOfFrame();
+        } while (myVolume.weight > 0);
+    }
 
 }
