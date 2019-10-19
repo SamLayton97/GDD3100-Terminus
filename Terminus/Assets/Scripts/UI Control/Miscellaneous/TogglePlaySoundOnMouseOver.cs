@@ -5,18 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// Plays a specified sound when user mouses over a UI element.
-/// Typically used by interactable elements such as buttons.
+/// Plays a specified sound when user mouses over a UI toggle.
 /// </summary>
 [RequireComponent(typeof(EventTrigger))]
-public class PlaySoundOnMouseOver : MonoBehaviour
+public class TogglePlaySoundOnMouseOver : MonoBehaviour
 {
     // public variables
     public AudioClipNames myMouseOverSound =    // sound played when user mouses over object
         AudioClipNames.UI_buttonHighlight;
 
     // private variables
-    Button myButton;
+    Toggle myToggle;
 
     /// <summary>
     /// Used for initialization
@@ -24,7 +23,7 @@ public class PlaySoundOnMouseOver : MonoBehaviour
     void Awake()
     {
         // retrieve button component
-        myButton = GetComponent<Button>();
+        myToggle = GetComponent<Toggle>();
     }
 
     /// <summary>
@@ -33,7 +32,7 @@ public class PlaySoundOnMouseOver : MonoBehaviour
     public void HandlePointerEnter()
     {
         // if interactable, play sound
-        if (myButton && myButton.interactable)
+        if (myToggle && myToggle.interactable)
             AudioManager.Play(myMouseOverSound, true);
     }
 }

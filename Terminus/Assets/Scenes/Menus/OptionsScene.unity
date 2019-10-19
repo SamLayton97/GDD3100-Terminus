@@ -1857,11 +1857,6 @@ PrefabInstance:
       objectReference: {fileID: 7310666604181144284}
     - target: {fileID: 1334171610394459531, guid: 874832f6b6a412747943a09575cdad1b,
         type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1334171610394459531, guid: 874832f6b6a412747943a09575cdad1b,
-        type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -1872,11 +1867,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1334171610394459531, guid: 874832f6b6a412747943a09575cdad1b,
         type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1334171609744866303}
+    - target: {fileID: 1334171610394459531, guid: 874832f6b6a412747943a09575cdad1b,
+        type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HandlePointerEnter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874832f6b6a412747943a09575cdad1b, type: 3}
+--- !u!114 &1334171609744866303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3025356323106384879, guid: 874832f6b6a412747943a09575cdad1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1334171609744866302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6d9aba82326d24292605c59519802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &1636601725144395305
 CanvasRenderer:
   m_ObjectHideFlags: 0
