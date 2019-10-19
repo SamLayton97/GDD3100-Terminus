@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
+  - component: {fileID: 7341319987481568646}
   m_Layer: 0
   m_Name: PlayerDustCloud
   m_TagString: Untagged
@@ -40,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100000}
   serializedVersion: 6
-  lengthInSec: 0.5
+  lengthInSec: 2
   simulationSpeed: 2.5
   stopAction: 0
   cullingMode: 1
@@ -4699,3 +4700,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7341319987481568646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a85e2087a0a444584820ca553b36e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
