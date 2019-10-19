@@ -31,6 +31,7 @@ public class PursueAndAttack : O2Remover
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Color attackColor;                               // color agent transitions to when attacking
     public Color cooldownColor;                             // color agent transitions to when under cooldown
+    public GameObject attackParticleEffect;                 // effect instantiated when agent lands attack on player
 
     // sound effect support
     public AudioClipNames myAttackSound = AudioClipNames.agent_chaserAttack;    // sound played upon entering attack state
@@ -143,6 +144,9 @@ public class PursueAndAttack : O2Remover
         // set attack color and attack target, shaking camera
         mySpriteRenderer.color = attackColor;
         deductO2Event.Invoke(attackDamage, true);
+
+        // create instance of attack particle on target's position
+        Instantiate(attackParticleEffect, targetTransform.position, Quaternion.identity);
 
         // play attack sound effect
         AudioManager.Play(myAttackSound, true);
