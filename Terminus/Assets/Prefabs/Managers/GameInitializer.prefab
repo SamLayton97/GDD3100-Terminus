@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displaySingletons:
-  - {fileID: 1504684766504316, guid: cbc9cc4306c5e354696618b95ff4388d, type: 3}
   - {fileID: 1082089417313413081, guid: ca75c0c05c81e034db1ee3beb36dcc6e, type: 3}
 --- !u!114 &7020844412749983250
 MonoBehaviour:
