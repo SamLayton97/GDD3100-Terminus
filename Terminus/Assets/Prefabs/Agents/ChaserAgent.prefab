@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1899208905917149684}
   - component: {fileID: 9027036223839503969}
   - component: {fileID: 442885966742670522}
+  - component: {fileID: -8337875861874960205}
   m_Layer: 12
   m_Name: ChaserAgent
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1980183131
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9f20a19255f0e784ab783b6acb9813a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,3 +222,22 @@ MonoBehaviour:
     type: 3}
   maxMaterialsDropped: 2
   dropForceMagnitude: 0.05
+--- !u!114 &-8337875861874960205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701724433980141098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8659bf2260673240aaac346d502c355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffect: {fileID: 100000, guid: c2651d6aae4e82f45b3bd35dad6c923b, type: 3}
+  collisionLayermask:
+    serializedVersion: 2
+    m_Bits: 6144
+  scaleWithMagnitude: 1
+  scaleBounds: {x: 0, y: 0.65}
+  scaleRate: 1
