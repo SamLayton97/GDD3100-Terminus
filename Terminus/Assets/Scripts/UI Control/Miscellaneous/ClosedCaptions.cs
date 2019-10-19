@@ -20,6 +20,7 @@ public class ClosedCaptions : MonoBehaviour
     Canvas myCanvas;
     CanvasGroup myCanvasGroup;
     [SerializeField] Text ccText;
+    IEnumerator coroutineCC;
 
     // singleton support
     static ClosedCaptions instance;
@@ -59,6 +60,9 @@ public class ClosedCaptions : MonoBehaviour
         myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
         myCanvas.worldCamera = Camera.main;
         myCanvasGroup.alpha = 0;
+
+        // TESTING
+        DisplayCaptions("Cumtown, U.S.A.");
     }
 
     /// <summary>
@@ -75,7 +79,11 @@ public class ClosedCaptions : MonoBehaviour
     /// <param name="caption"></param>
     void DisplayCaptions(string caption)
     {
-
+        // stop and restart CC coroutine with new data
+        if (coroutineCC != null)
+            StopCoroutine(coroutineCC);
+        coroutineCC = DrawCaption(caption, displayTime);
+        StartCoroutine(coroutineCC);
     }
 
     /// <summary>
@@ -87,6 +95,12 @@ public class ClosedCaptions : MonoBehaviour
     /// <returns></returns>
     IEnumerator DrawCaption(string caption, float displayTime)
     {
+        // display caption and wait duration (ignores timeScale)
+        myCanvasGroup.alpha = 1;
+        ccText.text = caption;
         yield return new WaitForSecondsRealtime(displayTime);
+
+        // after duration, hide caption
+        myCanvasGroup.alpha = 0;
     }
 }
