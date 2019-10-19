@@ -19,7 +19,8 @@ public class PostProcessingManager : MonoBehaviour
 
     // vignetting support variables
     [Range(0.01f, 5f)]
-    [SerializeField] float restorationFlashRate = 1f;
+    [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
+    //bool restoreCRRunning = false;                          // flag signifying whether restoration coroutine is currently running
 
     /// <summary>
     /// Read-access property returning instance of 
@@ -54,16 +55,27 @@ public class PostProcessingManager : MonoBehaviour
         myVolume.isGlobal = true;
     }
 
+    /// <summary>
+    /// Called before first frame Update
+    /// </summary>
+    void Start()
+    {
+        // add self as listener to relevant events
+        EventManager.AddRefillO2Listener(HandleOxygenRestored);
+    }
+
     #endregion
 
     /// <summary>
     /// Flashes bluish vignette when player's oxygen is restored
     /// </summary>
-    void HandleOxygenRestored()
+    /// <param name="amountRestored">Amount of oxygen retored (discarded).
+    /// Only needed to listen for RefillPlayerO2 event.</param>
+    void HandleOxygenRestored(float amountRestored)
     {
         // start oxygen vignette coroutine
-        IEnumerator o2Restore = FlashOxygenVignette(1f);
-        StartCoroutine(o2Restore);
+        IEnumerator O2Restore = FlashOxygenVignette(1f);
+        StartCoroutine(O2Restore);
     }
 
     /// <summary>

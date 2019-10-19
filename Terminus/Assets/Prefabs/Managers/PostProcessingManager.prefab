@@ -61,4 +61,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7891dec1f8e11684e8f849f3df60223d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restorationFlashRate: 0.6
+  restorationFlashRate: 0.4
