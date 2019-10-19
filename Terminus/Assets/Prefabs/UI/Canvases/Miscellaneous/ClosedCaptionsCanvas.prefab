@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7665260135172037574}
   - component: {fileID: 4164360352642711127}
   - component: {fileID: 1285583301423070482}
+  - component: {fileID: 7517130494525305637}
   m_Layer: 0
   m_Name: ClosedCaptionsCanvas
   m_TagString: Untagged
@@ -112,6 +113,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &7517130494525305637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773982589595208761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7eebe52acc77346a791c4a76500108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2957376069762026628
 GameObject:
   m_ObjectHideFlags: 0
