@@ -123,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   deathColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  damagePartcileEffect: {fileID: 38349726419631341, guid: ee51ba982368f794cb76ac2ac366215b,
+    type: 3}
   myDeathSound: 16
   myHurtSounds: 120000001300000014000000
 --- !u!114 &1325468725392835803

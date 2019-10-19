@@ -10,8 +10,9 @@ using UnityEngine;
 public class AgentHealth : MonoBehaviour
 {
     // public variables
-    public float maxHealth = 15f;       // starting health of enemy agent
-    public Color deathColor;            // color to darken agent to on death
+    public float maxHealth = 15f;               // starting health of enemy agent
+    public Color deathColor;                    // color to darken agent to on death
+    public GameObject damagePartcileEffect;
 
     // sound effect support
     public AudioClipNames myDeathSound = AudioClipNames.agent_chaserDeath;  // sound played when agent is killed
@@ -112,6 +113,9 @@ public class AgentHealth : MonoBehaviour
     {
         // deduct health
         currHealth -= damage;
+
+        // instantiate damage effect at agent's position
+        Instantiate(damagePartcileEffect, transform.position, Quaternion.identity);
 
         // kill agent if health falls below 0
         if (currHealth <= 0)
