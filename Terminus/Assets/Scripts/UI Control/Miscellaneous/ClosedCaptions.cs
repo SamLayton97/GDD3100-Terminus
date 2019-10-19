@@ -17,6 +17,7 @@ public class ClosedCaptions : MonoBehaviour
     [SerializeField] float displayTime = 2f;            // duration captions display on-screen
 
     // display support
+    bool ccEnabled = false;
     Canvas myCanvas;
     CanvasGroup myCanvasGroup;
     [SerializeField] Text ccText;
@@ -79,11 +80,18 @@ public class ClosedCaptions : MonoBehaviour
     /// <param name="caption"></param>
     void DisplayCaptions(string caption)
     {
-        // stop and restart CC coroutine with new data
-        if (coroutineCC != null)
-            StopCoroutine(coroutineCC);
-        coroutineCC = DrawCaption(caption, displayTime);
-        StartCoroutine(coroutineCC);
+        // if closed captions are enabled
+        if (ccEnabled)
+        {
+            // stop and restart CC coroutine with new data
+            if (coroutineCC != null)
+                StopCoroutine(coroutineCC);
+            coroutineCC = DrawCaption(caption, displayTime);
+            StartCoroutine(coroutineCC);
+        }
+        // otherwise, log warning
+        else
+            Debug.LogWarning("Warning: Attempted to display closed captions when option was disabled.");
     }
 
     /// <summary>
