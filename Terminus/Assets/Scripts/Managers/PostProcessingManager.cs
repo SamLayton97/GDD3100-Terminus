@@ -38,5 +38,4 @@ public class PostProcessingManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
 }

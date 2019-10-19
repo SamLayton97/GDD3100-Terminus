@@ -1,14 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// Singleton controlling display of closed-captions
 /// throughout application.
 /// </summary>
+[RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(CanvasGroup))]
 public class ClosedCaptions : MonoBehaviour
 {
+    // configuration variables
+    [Range(0.5f, 5f)]
+    [SerializeField] float displayTime = 2f;            // duration captions display on-screen
+
+    // display support
+    Canvas myCanvas;
+    CanvasGroup myCanvasGroup;
+    [SerializeField] Text ccText;
+
     // singleton support
     static ClosedCaptions instance;
 
@@ -37,5 +48,35 @@ public class ClosedCaptions : MonoBehaviour
         // set this object as instance of singleton
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // retrieve necessary components
+        myCanvas = GetComponent<Canvas>();
+        myCanvasGroup = GetComponent<CanvasGroup>();
+
+        // initialize canvas
+        myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+        myCanvas.worldCamera = Camera.main;
+        myCanvasGroup.alpha = 0;
+    }
+
+    /// <summary>
+    /// Starts coroutine to draw captions on-screen
+    /// </summary>
+    /// <param name="caption"></param>
+    void DisplayCaptions(string caption)
+    {
+
+    }
+
+    /// <summary>
+    /// Coroutine which handles toggling captions box's visibility,
+    /// setting its text, and making it disappear after completion.
+    /// </summary>
+    /// <param name="caption">text message to draw</param>
+    /// <param name="displayTime">duration caption remains on-screen</param>
+    /// <returns></returns>
+    IEnumerator DrawCaption(string caption, float displayTime)
+    {
+        yield return new WaitForSecondsRealtime(displayTime);
     }
 }
