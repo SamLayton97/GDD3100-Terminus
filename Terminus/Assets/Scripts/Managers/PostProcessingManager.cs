@@ -20,7 +20,6 @@ public class PostProcessingManager : MonoBehaviour
     // vignetting support variables
     [Range(0.01f, 5f)]
     [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
-    //bool restoreCRRunning = false;                          // flag signifying whether restoration coroutine is currently running
 
     /// <summary>
     /// Read-access property returning instance of 
