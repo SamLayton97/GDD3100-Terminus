@@ -652,7 +652,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -767788363
-  m_SortingLayer: 8
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -707,5 +707,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toColor: {r: 1, g: 0.092920355, b: 0, a: 1}
-  fromColor: {r: 0.6226415, g: 0.057816707, b: 0, a: 1}
+  fromColor: {r: 0.7169812, g: 0.06763973, b: 0, a: 1}
   pulsationRate: 0.1
