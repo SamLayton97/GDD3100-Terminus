@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -82,4 +83,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1426804295
+    locked: 0
+  - name: UIOverlay
+    uniqueID: 3032228275
     locked: 0
