@@ -17,6 +17,10 @@ public class PostProcessingManager : MonoBehaviour
     // post-processing support
     PostProcessVolume myVolume;
 
+    // vignetting support variables
+    [Range(0.01f, 5f)]
+    [SerializeField] float restorationFlashRate = 1f;
+
     /// <summary>
     /// Read-access property returning instance of 
     /// post-processing manager singleton
@@ -48,9 +52,6 @@ public class PostProcessingManager : MonoBehaviour
         // set-up volume
         myVolume = GetComponent<PostProcessVolume>();
         myVolume.isGlobal = true;
-
-        IEnumerator testCoroutine = FlashOxygenVignette(1f);
-        //StartCoroutine(testCoroutine);
     }
 
     #endregion
@@ -60,7 +61,9 @@ public class PostProcessingManager : MonoBehaviour
     /// </summary>
     void HandleOxygenRestored()
     {
-
+        // start oxygen vignette coroutine
+        IEnumerator o2Restore = FlashOxygenVignette(1f);
+        StartCoroutine(o2Restore);
     }
 
     /// <summary>
