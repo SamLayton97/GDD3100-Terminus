@@ -1445,7 +1445,7 @@ MonoBehaviour:
   iconColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
-  - {r: 0.4117647, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
 --- !u!225 &9110846905692006214
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2880,7 +2880,7 @@ MonoBehaviour:
   onDeckIconColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
-  - {r: 0.4117647, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
 --- !u!225 &1624778786180500764
 CanvasGroup:
   m_ObjectHideFlags: 0
