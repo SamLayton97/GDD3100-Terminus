@@ -61,9 +61,6 @@ public class ClosedCaptions : MonoBehaviour
         myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
         myCanvas.worldCamera = Camera.main;
         myCanvasGroup.alpha = 0;
-
-        // TESTING
-        DisplayCaptions("Cumtown, U.S.A.");
     }
 
     /// <summary>
