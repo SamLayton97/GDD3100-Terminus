@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-[ExecuteInEditMode]
 [DisallowMultipleComponent]
 [RequireComponent(typeof(PostProcessVolume))]
 public class CVDFilter : MonoBehaviour {
@@ -59,14 +58,14 @@ public class CVDFilter : MonoBehaviour {
 
     #region Singleton
 
-    private static CVDFilter _instance;     // local singleton instance variable
+    private static CVDFilter instance;     // local singleton instance variable
 
     /// <summary>
     /// Read-access property returning instance of CVD filter instance
     /// </summary>
     public static CVDFilter Instance
     {
-        get { return _instance; }
+        get { return instance; }
     }
 
     /// <summary>
@@ -75,7 +74,7 @@ public class CVDFilter : MonoBehaviour {
     void Awake()
     {
         // if singleton has already been initialized as another instance
-        if (_instance != null && Instance != this)
+        if (instance != null && Instance != this)
         {
             // destroy this instance
             Destroy(gameObject);
@@ -83,7 +82,7 @@ public class CVDFilter : MonoBehaviour {
         }
 
         // otherwise, set this object as instance of singleton
-        _instance = this;
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

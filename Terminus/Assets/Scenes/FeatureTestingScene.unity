@@ -179,6 +179,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8069571395774034591, guid: baec086904791744185aaa07a6cf55c2,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baec086904791744185aaa07a6cf55c2, type: 3}
 --- !u!20 &10993524 stripped
@@ -263,15 +268,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6101805247673957030, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
-        type: 3}
-      propertyPath: collisionLayer.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
     - target: {fileID: 6207548652762762119, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101805247673957030, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
+        type: 3}
+      propertyPath: collisionLayer.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 6207548652762762169, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
         type: 3}
