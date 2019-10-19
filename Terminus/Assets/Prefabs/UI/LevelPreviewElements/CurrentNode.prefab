@@ -164,6 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd00af9c2ab4b9449a29c3411ee62f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toColor: {r: 0.1273585, g: 1, b: 0.31903693, a: 1}
+  toColor: {r: 0, g: 1, b: 0.21973085, a: 1}
   fromColor: {r: 0.08259169, g: 0.6037736, b: 0.19707093, a: 1}
-  pulsationRate: 0.05
+  pulsationRate: 0.15
