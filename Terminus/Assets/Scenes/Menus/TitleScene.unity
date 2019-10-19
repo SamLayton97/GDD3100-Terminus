@@ -465,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 2178039104748788324, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -700
+      value: -720
       objectReference: {fileID: 0}
     - target: {fileID: 7917728695128186544, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
@@ -685,17 +685,17 @@ PrefabInstance:
     - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.990566
       objectReference: {fileID: 0}
     - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.42843002
+      value: 0.48675236
       objectReference: {fileID: 0}
     - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.1462264
+      value: 0.23829652
       objectReference: {fileID: 0}
     - target: {fileID: 1741508311581019015, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
