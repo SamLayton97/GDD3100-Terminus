@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7892702457012930498}
   - component: {fileID: 3645401814906930374}
   - component: {fileID: 17419080870225277}
+  - component: {fileID: 3830641363929826762}
   m_Layer: 10
   m_Name: ShotgunProjectile
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2099089151
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 0fc982caa2e6c73408c5c398cbea33a3, type: 3}
   m_Color: {r: 1, g: 0.6650944, b: 0.6650944, a: 1}
@@ -170,3 +171,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12108083, y: 0.051316977}
   m_EdgeRadius: 0
+--- !u!114 &3830641363929826762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590410038477920540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8659bf2260673240aaac346d502c355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffect: {fileID: 100000, guid: 6b51da38e69f34141874811f1807e229, type: 3}
+  collisionLayermask:
+    serializedVersion: 2
+    m_Bits: 39168
+  scaleWithMagnitude: 0
+  scaleBounds: {x: 0, y: 0}
+  scaleRate: 1
