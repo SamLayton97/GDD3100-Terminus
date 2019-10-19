@@ -17,11 +17,13 @@ public class ClosedCaptions : MonoBehaviour
     [SerializeField] float displayTime = 2f;            // duration captions display on-screen
 
     // display support
-    bool ccEnabled = false;
     Canvas myCanvas;
     CanvasGroup myCanvasGroup;
     [SerializeField] Text ccText;
     IEnumerator coroutineCC;
+
+    // toggle support
+    public bool ccEnabled = false;
 
     // singleton support
     static ClosedCaptions instance;
