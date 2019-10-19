@@ -25,9 +25,18 @@ public class ParticlesOnCollision : MonoBehaviour
         // if collision occurred on accepted layer(s)
         if (collisionLayermask == (collisionLayermask | (1 << collision.gameObject.layer)))
         {
-            // spawn particle effect scaled according to force of collision
-            Instantiate(particleEffect, transform.position, Quaternion.identity).transform.localScale *=
-                Mathf.Clamp(collision.relativeVelocity.magnitude * scaleRate, scaleBounds.x, scaleBounds.y);
+            // spawn particle effect
+            GameObject newParticle = Instantiate(particleEffect, transform.position, Quaternion.identity);
+
+            // scale particle effect by collision magnitude if appropriate
+            if (scaleWithMagnitude)
+            {
+                // NOTE: scaling mode must be Hierarchy to behave appropriately
+                ParticleSystem.MainModule main = newParticle.GetComponent<ParticleSystem>().main;
+                main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+                newParticle.transform.localScale *= 
+                    Mathf.Clamp(collision.relativeVelocity.magnitude * scaleRate, scaleBounds.x, scaleBounds.y);
+            }
         }
     }
 }
