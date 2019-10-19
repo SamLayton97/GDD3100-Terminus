@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 17419080870225277}
   - component: {fileID: -3489409326421388817}
   - component: {fileID: 4320349093730811124}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Photon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   particleEffect: {fileID: 100006, guid: bff99fa5bc78b134285cadb0186ffc50, type: 3}
   collisionLayermask:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 4096
   scaleWithMagnitude: 0
   scaleBounds: {x: 0, y: 0}
   scaleRate: 1
