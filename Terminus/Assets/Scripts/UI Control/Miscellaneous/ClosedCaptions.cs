@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Singleton controlling display of closed-captions
@@ -54,9 +55,18 @@ public class ClosedCaptions : MonoBehaviour
         myCanvasGroup = GetComponent<CanvasGroup>();
 
         // initialize canvas
+        SceneManager.sceneLoaded += InitializeCamera;
         myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
         myCanvas.worldCamera = Camera.main;
         myCanvasGroup.alpha = 0;
+    }
+
+    /// <summary>
+    /// Initializes CC's world camera to main camera of current scene
+    /// </summary>
+    void InitializeCamera(Scene newScene, LoadSceneMode loadMode)
+    {
+        myCanvas.worldCamera = Camera.main;
     }
 
     /// <summary>
