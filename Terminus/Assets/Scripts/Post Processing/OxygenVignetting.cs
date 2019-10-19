@@ -6,8 +6,6 @@ using UnityEngine.Rendering.PostProcessing;
 /// <summary>
 /// Reflects player's oxygen status using post-processing vignetting
 /// </summary>
-[DisallowMultipleComponent]
-[RequireComponent(typeof(PostProcessVolume))]
 public class OxygenVignetting : PostProcessEffectController
 {
     // vignetting support variables
