@@ -186,7 +186,7 @@ MonoBehaviour:
   particleEffect: {fileID: 100000, guid: 6b51da38e69f34141874811f1807e229, type: 3}
   collisionLayermask:
     serializedVersion: 2
-    m_Bits: 39168
+    m_Bits: 38912
   scaleWithMagnitude: 0
   scaleBounds: {x: 0, y: 0}
   scaleRate: 1
