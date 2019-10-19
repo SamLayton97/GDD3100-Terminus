@@ -15,7 +15,7 @@ public class CVDFilter : MonoBehaviour {
 
 	void Start () {
 		currentVisionType = visionType;
-		gameObject.layer = LayerMask.NameToLayer("CVDFilter");
+		gameObject.layer = LayerMask.NameToLayer("PostProcessing");
 		SetupVolume();
 		LoadProfiles();
 		ChangeProfile();
