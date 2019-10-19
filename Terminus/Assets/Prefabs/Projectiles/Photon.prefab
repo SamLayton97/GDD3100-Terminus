@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a035d5fc365d3f84886be74ebc213568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissipationTime: 2.25
+  dissipationTime: 3
 --- !u!114 &4320349093730811124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,34 +217,6 @@ PrefabInstance:
       value: PhotonTrail
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
@@ -261,16 +233,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -416613853
-      objectReference: {fileID: 0}
-    - target: {fileID: 19900000, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
       propertyPath: m_SortingLayer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19900002, guid: e95c59fb7182a1949a85dced12fcbe29, type: 3}
       propertyPath: m_SortingLayerID
