@@ -15,6 +15,7 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
     [SerializeField] Image materialIcon;
     [SerializeField] Text materialName;
     [SerializeField] Image borderImage;
+    [SerializeField] Image highlightImage;
     [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
     [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
     [SerializeField]
@@ -104,6 +105,7 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
     {
         borderImage.color = highlightedBorderColor;
         materialName.color = highlightedTextColor;
+        highlightImage.enabled = true;
     }
 
     /// <summary>
@@ -114,6 +116,7 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
     {
         borderImage.color = unhighlightedBorderColor;
         materialName.color = unhighlightedTextColor;
+        highlightImage.enabled = false;
     }
 
     /// <summary>
