@@ -8,4 +8,9 @@ using UnityEngine;
 /// </summary>
 public class PhotonThrower : Weapon
 {
+
+    void Update()
+    {
+        Debug.Log(GetComponent<Animator>().GetBool("isShooting"));
+    }
 }
