@@ -20,6 +20,7 @@ public class PostProcessingManager : MonoBehaviour
     // vignetting support variables
     [Range(0.01f, 5f)]
     [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
+    bool O2CRRunning = false;
 
     /// <summary>
     /// Read-access property returning instance of 
@@ -72,9 +73,12 @@ public class PostProcessingManager : MonoBehaviour
     /// Only needed to listen for RefillPlayerO2 event.</param>
     void HandleOxygenRestored(float amountRestored)
     {
-        // start oxygen vignette coroutine
-        IEnumerator O2Restore = FlashOxygenVignette(1f);
-        StartCoroutine(O2Restore);
+        // if not already running, start oxygen vignette coroutine
+        if (!O2CRRunning)
+        {
+            IEnumerator O2Restore = FlashOxygenVignette(1f);
+            StartCoroutine(O2Restore);
+        }
     }
 
     /// <summary>
@@ -85,6 +89,7 @@ public class PostProcessingManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator FlashOxygenVignette(float flashTime)
     {
+        O2CRRunning = true;
         bool increaseWeight = true;
         do
         {
@@ -95,6 +100,7 @@ public class PostProcessingManager : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         } while (myVolume.weight > 0);
+        O2CRRunning = false;
     }
 
 }
