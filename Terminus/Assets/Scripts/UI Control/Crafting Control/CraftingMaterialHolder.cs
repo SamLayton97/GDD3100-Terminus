@@ -16,6 +16,7 @@ public class CraftingMaterialHolder : MonoBehaviour
     [SerializeField] Text materialAmount;
     [SerializeField] Text materialName;
     [SerializeField] Image borderImage;
+    [SerializeField] Image highlightBackground;
     [SerializeField] Color unhighlightedBorderColor;        // color of holder's border when not moused over
     [SerializeField] Color unhighlightedTextColor;          // color of holder's text when not moused over
 
@@ -110,6 +111,7 @@ public class CraftingMaterialHolder : MonoBehaviour
         borderImage.color = highlightedBorderColor;
         materialAmount.color = highlightedTextColor;
         materialName.color = highlightedTextColor;
+        highlightBackground.enabled = true;
     }
 
     /// <summary>
@@ -121,6 +123,7 @@ public class CraftingMaterialHolder : MonoBehaviour
         borderImage.color = unhighlightedBorderColor;
         materialAmount.color = unhighlightedTextColor;
         materialName.color = unhighlightedTextColor;
+        highlightBackground.enabled = false;
     }
 
     /// <summary>
