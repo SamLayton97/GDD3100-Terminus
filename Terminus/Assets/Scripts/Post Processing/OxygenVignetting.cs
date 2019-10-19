@@ -11,7 +11,6 @@ public class OxygenVignetting : PostProcessEffectController
     // vignetting support variables
     [Range(0.01f, 5f)]
     [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
-    bool restoreCRRunning = false;
 
     /// <summary>
     /// Called before first frame Update
@@ -29,12 +28,9 @@ public class OxygenVignetting : PostProcessEffectController
     /// Only needed to listen for RefillPlayerO2 event.</param>
     void HandleOxygenRestored(float amountRestored)
     {
-        // if not already running, start oxygen vignette coroutine
-        if (!restoreCRRunning)
-        {
-            IEnumerator O2Restore = FlashOxygenVignette(1f);
-            StartCoroutine(O2Restore);
-        }
+        // start oxygen vignette coroutine
+        IEnumerator O2Restore = FlashOxygenVignette(1f);
+        StartCoroutine(O2Restore);
     }
 
     /// <summary>
@@ -45,7 +41,7 @@ public class OxygenVignetting : PostProcessEffectController
     /// <returns></returns>
     IEnumerator FlashOxygenVignette(float flashTime)
     {
-        restoreCRRunning = true;
+        myVolume.weight = 0;
         bool increaseWeight = true;
         do
         {
@@ -56,7 +52,6 @@ public class OxygenVignetting : PostProcessEffectController
 
             yield return new WaitForEndOfFrame();
         } while (myVolume.weight > 0);
-        restoreCRRunning = false;
     }
 
 }
