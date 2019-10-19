@@ -256,11 +256,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: Chapter One
       objectReference: {fileID: 0}
-    - target: {fileID: 5484910359337715930, guid: 92070c61b91a8a84583086a1df85d5d4,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 3134170848508417311, guid: 92070c61b91a8a84583086a1df85d5d4,
         type: 3}
       propertyPath: m_Text
@@ -312,6 +307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000609687012048500, guid: 92070c61b91a8a84583086a1df85d5d4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2838308335993218594, guid: 92070c61b91a8a84583086a1df85d5d4,
         type: 3}
