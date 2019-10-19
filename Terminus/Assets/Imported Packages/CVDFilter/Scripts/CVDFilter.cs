@@ -6,8 +6,6 @@ using UnityEngine.Rendering.PostProcessing;
 public class CVDFilter : MonoBehaviour {
 	enum ColorType { Normal, Protanopia, Protanomaly, Deuteranopia, Deuteranomaly, Tritanopia, Tritanomaly, Achromatopsia, Achromatomaly }
 
-    #region CVD Filter
-
     [SerializeField] ColorType visionType = ColorType.Normal;
 	ColorType currentVisionType;
 	PostProcessProfile[] profiles;
@@ -53,39 +51,5 @@ public class CVDFilter : MonoBehaviour {
 	void ChangeProfile () {
 		postProcessVolume.profile = profiles[(int)currentVisionType];
 	}
-
-    #endregion
-
-    #region Singleton
-
-    //private static CVDFilter instance;     // local singleton instance variable
-
-    ///// <summary>
-    ///// Read-access property returning instance of CVD filter instance
-    ///// </summary>
-    //public static CVDFilter Instance
-    //{
-    //    get { return instance; }
-    //}
-
-    ///// <summary>
-    ///// Use for initialization
-    ///// </summary>
-    //void Awake()
-    //{
-    //    // if singleton has already been initialized as another instance
-    //    if (instance != null && Instance != this)
-    //    {
-    //        // destroy this instance
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-
-    //    // otherwise, set this object as instance of singleton
-    //    instance = this;
-    //    DontDestroyOnLoad(gameObject);
-    //}
-
-    #endregion
 
 }
