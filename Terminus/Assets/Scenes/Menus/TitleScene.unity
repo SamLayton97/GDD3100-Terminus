@@ -774,5 +774,15 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.1462264
       objectReference: {fileID: 0}
+    - target: {fileID: 1741508311581019015, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 306007785}
+    - target: {fileID: 1741508311581019015, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -439378861
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1, type: 3}
