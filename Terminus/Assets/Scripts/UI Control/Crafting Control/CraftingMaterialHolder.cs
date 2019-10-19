@@ -112,6 +112,9 @@ public class CraftingMaterialHolder : MonoBehaviour
         materialAmount.color = highlightedTextColor;
         materialName.color = highlightedTextColor;
         highlightBackground.enabled = true;
+
+        // play highlight sound effect
+        AudioManager.Play(AudioClipNames.UI_buttonHighlight, true);
     }
 
     /// <summary>

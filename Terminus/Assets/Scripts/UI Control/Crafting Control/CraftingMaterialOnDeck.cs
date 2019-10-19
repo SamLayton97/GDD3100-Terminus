@@ -106,6 +106,9 @@ public class CraftingMaterialOnDeck : CraftingMaterialAdder
         borderImage.color = highlightedBorderColor;
         materialName.color = highlightedTextColor;
         highlightImage.enabled = true;
+
+        // play highlight sound effect
+        AudioManager.Play(AudioClipNames.UI_buttonHighlight, true);
     }
 
     /// <summary>
