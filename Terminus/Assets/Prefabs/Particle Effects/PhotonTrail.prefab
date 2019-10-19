@@ -267,7 +267,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.22745098, g: 0.5686275, b: 0.68235296, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4677,7 +4677,7 @@ GameObject:
   - component: {fileID: 13500000}
   - component: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Afterburner
+  m_Name: PhotonTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4951,7 +4951,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.9329295, b: 1, a: 1}
+      maxColor: {r: 0.22745098, g: 0.5686275, b: 0.68235296, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
