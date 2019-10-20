@@ -148,6 +148,7 @@ public class OxygenControl : LevelEnder
             myLook.enabled = false;
             myFire.enabled = false;
             myTriggerCollider.enabled = false;
+            gameObject.layer = LayerMask.NameToLayer("Corpses");
 
             // play death sound effect
             myBreathingSource.Stop();
