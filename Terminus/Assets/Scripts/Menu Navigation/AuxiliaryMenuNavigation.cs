@@ -18,4 +18,14 @@ public class AuxiliaryMenuNavigation : SceneTransitioner
         transitionSceneEvent.Invoke(transitionTo[0]);
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
+
+    /// <summary>
+    /// Handles player pressing the "Proceed" button
+    /// </summary>
+    public void ProceedButton()
+    {
+        // transition to menu after this
+        transitionSceneEvent.Invoke(transitionTo[1]);
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
+    }
 }
