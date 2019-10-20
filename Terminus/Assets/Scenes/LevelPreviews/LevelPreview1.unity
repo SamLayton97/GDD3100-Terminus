@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: transitionTo.Array.data[1]
       value: GameplayLevel1
       objectReference: {fileID: 0}
+    - target: {fileID: 604515628679629162, guid: 92070c61b91a8a84583086a1df85d5d4,
+        type: 3}
+      propertyPath: transitionTo.Array.data[0]
+      value: PremiseScene
+      objectReference: {fileID: 0}
     - target: {fileID: 7193246542748222559, guid: 92070c61b91a8a84583086a1df85d5d4,
         type: 3}
       propertyPath: m_Text
@@ -447,6 +452,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804827513322305116, guid: 92070c61b91a8a84583086a1df85d5d4,
+        type: 3}
+      propertyPath: m_Text
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804827513322305116, guid: 92070c61b91a8a84583086a1df85d5d4,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92070c61b91a8a84583086a1df85d5d4, type: 3}
