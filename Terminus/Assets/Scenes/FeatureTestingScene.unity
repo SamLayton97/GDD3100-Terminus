@@ -192,25 +192,6 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 10993523}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &32693111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,
-    type: 3}
-  m_PrefabInstance: {fileID: 4066001403429883366}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &32693112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32693111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4371990e1c2cd4a40a6cfc48efd492ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alertIndicatorSprites: []
 --- !u!1001 &91413770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11461,6 +11442,11 @@ PrefabInstance:
       propertyPath: toColor.b
       value: 0.8018868
       objectReference: {fileID: 0}
+    - target: {fileID: 3019988813156423733, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30.000061
+      objectReference: {fileID: 0}
     - target: {fileID: 6628818009155888054, guid: 17bfce994c7f40f49a27f75c3fa2ccf2,
         type: 3}
       propertyPath: m_Color.r
@@ -12163,72 +12149,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17bfce994c7f40f49a27f75c3fa2ccf2, type: 3}
---- !u!1001 &4066001403429883366
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyAlert
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066001403407980190, guid: e167e9b74041ea346a02e2f6ef9ea284,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e167e9b74041ea346a02e2f6ef9ea284, type: 3}

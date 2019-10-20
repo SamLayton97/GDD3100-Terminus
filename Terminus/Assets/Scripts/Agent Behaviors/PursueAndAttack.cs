@@ -31,7 +31,8 @@ public class PursueAndAttack : O2Remover
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Color attackColor;                               // color agent transitions to when attacking
     public Color cooldownColor;                             // color agent transitions to when under cooldown
-    public GameObject attackParticleEffect;                 // effect instantiated when agent lands attack on player
+    public GameObject attackParticleEffect;                 // effect instantiated when agent lands attack on target
+    public GameObject alertIndicator;                       // visual indicator shown when agent detects its target
 
     // sound effect support
     public AudioClipNames myAttackSound = AudioClipNames.agent_chaserAttack;    // sound played upon entering attack state
@@ -95,6 +96,10 @@ public class PursueAndAttack : O2Remover
     {
         // play agent's alert sound
         AudioManager.Play(AudioClipNames.agent_chaserAlert, true);
+
+        // if agent isn't showing attack indicator, display one
+        if (transform.childCount < 1)
+            Instantiate(alertIndicator, transform);
     }
 
     /// <summary>

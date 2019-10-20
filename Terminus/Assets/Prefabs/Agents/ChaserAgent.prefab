@@ -150,6 +150,8 @@ MonoBehaviour:
   cooldownColor: {r: 0.627451, g: 0.12941177, b: 0, a: 1}
   attackParticleEffect: {fileID: 38349726419631341, guid: f75c561fb980bed489ef714e448e5db7,
     type: 3}
+  alertIndicator: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,
+    type: 3}
   myAttackSound: 15
   myAlertSound: 17
 --- !u!61 &3894786361680885713
