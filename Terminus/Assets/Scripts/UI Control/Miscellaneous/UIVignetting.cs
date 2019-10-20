@@ -7,12 +7,24 @@ using UnityEngine.UI;
 /// Controls special vignetting types not supported
 /// by post-processing.
 /// </summary>
+[RequireComponent(typeof(Canvas))]
 public class UIVignetting : MonoBehaviour
 {
     // material collect vignetting
     [SerializeField] CanvasGroup materialCollectVignette;
     [Range(0.01f, 5)]
     [SerializeField] float matCollectFlashTime = 1f;
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // initialize canvas
+        Canvas myCanvas = GetComponent<Canvas>();
+        myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+        myCanvas.worldCamera = Camera.main;
+    }
 
     /// <summary>
     /// Start is called before the first frame update
