@@ -14,7 +14,7 @@ public class RandomizeInitialRotation : MonoBehaviour
     /// <summary>
     /// Used for initialization
     /// </summary>
-    void Start()
+    void Awake()
     {
         // clamp upper and lower bounds
         rotationLowerBound = Mathf.Clamp(rotationLowerBound, -360f, rotationUpperBound - 1);
