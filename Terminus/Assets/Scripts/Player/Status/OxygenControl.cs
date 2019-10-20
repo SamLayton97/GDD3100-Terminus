@@ -65,6 +65,7 @@ public class OxygenControl : LevelEnder
         myLook = GetComponent<FaceMousePosition>();
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
+        myBreathingSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -89,6 +90,9 @@ public class OxygenControl : LevelEnder
     {
         // reduce oxygen by rate * time
         EmptyO2Tank(oxygenDepletionRate * Time.deltaTime, false);
+
+        // scale volume of breathing sound by player's remaining oxygen
+        myBreathingSource.volume = Mathf.Clamp01(1 - (currOxygen / maxOxygen));
     }
 
     #endregion
@@ -146,6 +150,7 @@ public class OxygenControl : LevelEnder
             myTriggerCollider.enabled = false;
 
             // play death sound effect
+            myBreathingSource.Stop();
             AudioManager.Play(myDeathSound, true);
 
             // invoking end level event with failure
