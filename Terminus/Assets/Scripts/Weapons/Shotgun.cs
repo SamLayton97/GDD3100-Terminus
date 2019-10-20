@@ -48,6 +48,7 @@ public class Shotgun : Weapon
             // play shotgun firing animation
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
+            fireEffect.Play();
 
             // decrement ammo
             DecrementRemainingAmmo();

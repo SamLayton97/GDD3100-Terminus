@@ -25,6 +25,8 @@ public abstract class Weapon : MonoBehaviour
     protected bool firedLastFrame = false;      // flag determining whether weapon registered a shot on the previous frame
     protected Rigidbody2D parentRigidbody;      // rigidbody 2d component of agent firing weapon
     protected Animator myAnimator;              // animation component used to play firing animation
+    protected ParticleSystem fireEffect;        // particle effect played when weapon is fired
+                                                // NOTE: assumes weapon has a child object with a one-shot particle system component
 
     // private variables
     int currAmmo = 0;                           // current ammo stored in weapon (weapon is destroyed if 0)
@@ -43,6 +45,16 @@ public abstract class Weapon : MonoBehaviour
         // retrieve necessary components
         parentRigidbody = transform.parent.gameObject.GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        fireEffect = GetComponentInChildren<ParticleSystem>();
+
+        // initialize fire particle effect
+        if (fireEffect == null)
+            Debug.LogWarning("Warning: Weapon <" + name + "> lacks particle effect child object.");
+        else
+        {
+            ParticleSystem.MainModule main = fireEffect.main;
+            main.loop = false;
+        }
 
         // initialize ammo counter
         currAmmo = maxAmmo;
@@ -93,6 +105,7 @@ public abstract class Weapon : MonoBehaviour
             // play firing animation
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
+            if (fireEffect != null) fireEffect.Play();
 
             // decrement ammo
             DecrementRemainingAmmo();
