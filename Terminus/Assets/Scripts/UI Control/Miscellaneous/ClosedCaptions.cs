@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Singleton controlling display of closed-captions
@@ -15,12 +15,16 @@ public class ClosedCaptions : MonoBehaviour
     // configuration variables
     [Range(0.5f, 5f)]
     [SerializeField] float displayTime = 2f;            // duration captions display on-screen
+    [Range(1, 60)]
+    [SerializeField] int ccQueueLimit = 50;             // (inclusive) upper bound of characters displayed on caption
 
     // display support
     Canvas myCanvas;
     CanvasGroup myCanvasGroup;
     [SerializeField] Text ccText;
     IEnumerator coroutineCC;
+    List<string> activeCaptions =
+        new List<string>();
 
     // toggle support
     public bool ccEnabled = false;
@@ -62,7 +66,7 @@ public class ClosedCaptions : MonoBehaviour
         SceneManager.sceneLoaded += InitializeCamera;
         myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
         myCanvas.worldCamera = Camera.main;
-        myCanvasGroup.alpha = 0;
+        myCanvasGroup.alpha = 0;;
     }
 
     /// <summary>
@@ -82,11 +86,9 @@ public class ClosedCaptions : MonoBehaviour
         // if closed captions are enabled
         if (ccEnabled)
         {
-            // stop and restart CC coroutine with new data
-            if (coroutineCC != null)
-                StopCoroutine(coroutineCC);
+            // add new caption onto captions box
             coroutineCC = DrawCaption(caption, displayTime);
-            StartCoroutine(coroutineCC);
+            if (coroutineCC != null) StartCoroutine(coroutineCC);
         }
         // otherwise, log warning
         else
@@ -97,17 +99,45 @@ public class ClosedCaptions : MonoBehaviour
     /// Coroutine which handles toggling captions box's visibility,
     /// setting its text, and making it disappear after completion.
     /// </summary>
-    /// <param name="caption">text message to draw</param>
+    /// <param name="newCaption">text message to draw</param>
     /// <param name="displayTime">duration caption remains on-screen</param>
     /// <returns></returns>
-    IEnumerator DrawCaption(string caption, float displayTime)
+    IEnumerator DrawCaption(string newCaption, float displayTime)
     {
-        // display caption and wait duration (ignores timeScale)
-        myCanvasGroup.alpha = 1;
-        ccText.text = caption;
-        yield return new WaitForSecondsRealtime(displayTime);
+        // if length of caption plus length of active captions wouldn't exceed max
+        if (ccText.text.Length + newCaption.Length + 1 <= ccQueueLimit)
+        {
+            // display captions box
+            myCanvasGroup.alpha = 1;
 
-        // after duration, hide caption
-        myCanvasGroup.alpha = 0;
+            // push caption onto list and rewrite text
+            activeCaptions.Add(newCaption);
+            UpdateCaptionsText();
+
+            // wait display time, and pop caption from captions box
+            yield return new WaitForSecondsRealtime(displayTime);
+            activeCaptions.RemoveAt(0);
+            UpdateCaptionsText();
+
+            // if resulting list is empty, hide captions box
+            if (activeCaptions.Count < 1)
+                myCanvasGroup.alpha = 0;
+        }
+        // otherwise, return don't add caption
+        else
+            yield return null;
     }
+
+    /// <summary>
+    /// Writes each active caption onto closed captioning box,
+    /// adding spaces as appropriate
+    /// </summary>
+    void UpdateCaptionsText()
+    {
+        string result = "";
+        foreach (string caption in activeCaptions)
+            result += caption + " ";
+        ccText.text = result.Substring(0, Mathf.Max(0, result.Length - 1));     // truncate last space character
+    }
+    
 }
