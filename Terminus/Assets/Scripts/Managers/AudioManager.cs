@@ -69,6 +69,8 @@ public static class AudioManager
         soundsToCaptions.Add(AudioClipNames.env_collectOxygen, "[cannister opens]");
         soundsToCaptions.Add(AudioClipNames.env_pickUpWeapon, "[weapon loads]");
         soundsToCaptions.Add(AudioClipNames.env_bioExplosion, "[bioshot bursts]");
+        soundsToCaptions.Add(AudioClipNames.env_pickUpMaterial, "[scrap dings]");
+        soundsToCaptions.Add(AudioClipNames.env_pickUpBiomass, "[biomass spatters]");
 
         #endregion
 
