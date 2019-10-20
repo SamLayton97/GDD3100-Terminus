@@ -653,7 +653,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -767788363
-  m_SortingLayer: 8
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -694,6 +694,7 @@ MonoBehaviour:
   minVelocityToDamage: 10
   damageScalar: 1
   damageConstant: 0
+  myCollisionSound: 2
 --- !u!1 &8837587110780965448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1066,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 1.0627277e-34, g: 1.0627277e-34, b: 1.0627277e-34, a: 1.0627277e-34}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_Origin: {x: -12, y: -11, z: 0}
   m_Size: {x: 30, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -1496,7 +1497,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 1.5068644e-34, g: 1.5068644e-34, b: 1.5068644e-34, a: 1.5068644e-34}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_Origin: {x: -11, y: -12, z: 0}
   m_Size: {x: 26, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
