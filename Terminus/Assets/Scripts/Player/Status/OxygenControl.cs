@@ -11,6 +11,7 @@ using EZCameraShake;
 [RequireComponent(typeof(FaceMousePosition))]
 [RequireComponent(typeof(PlayerFire))]
 [RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class OxygenControl : LevelEnder
 {
     // private variables
@@ -21,6 +22,7 @@ public class OxygenControl : LevelEnder
     FaceMousePosition myLook;               // player's look-input component (disabled on death)
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
+    AudioSource myBreathingSource;          // audio source used to play looping breathing effect
 
     // public variables
     public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
