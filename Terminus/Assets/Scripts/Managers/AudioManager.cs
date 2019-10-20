@@ -8,10 +8,12 @@ using UnityEngine;
 public static class AudioManager
 {
     // private variables
-    static bool initialized = false;                            // flag determining whether object has been initialized
-    static AudioSource myAudioSource;                           // reference to audio source to play sounds from
-    static Dictionary<AudioClipNames, AudioClip> audioClips =   // dictionary pairing sound effects with names in enumeration
+    static bool initialized = false;                                // flag determining whether object has been initialized
+    static AudioSource myAudioSource;                               // reference to audio source to play sounds from
+    static Dictionary<AudioClipNames, AudioClip> audioClips =       // dictionary pairing sound effects with names in enumeration
         new Dictionary<AudioClipNames, AudioClip>();
+    static Dictionary<AudioClipNames, string> soundsToCaptions =    // dictionary pairing sound effects with captions
+        new Dictionary<AudioClipNames, string>();                   // NOTE: not all sounds may have captions -- CC controller accounts for this
 
     /// <summary>
     /// Read-access property returning whether manager has
@@ -33,7 +35,7 @@ public static class AudioManager
         initialized = true;
         myAudioSource = audioSource;
 
-        // load in sounds from Resources/Sounds
+        // load in sounds from Resources/Sounds and pair sound effects with captions
 
         #region Enemy Agent Sounds
 
@@ -43,6 +45,13 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.agent_chaserHurt, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserHurt"));
         audioClips.Add(AudioClipNames.agent_chaserHurt1, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserHurt1"));
         audioClips.Add(AudioClipNames.agent_chaserHurt2, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserHurt2"));
+
+        soundsToCaptions.Add(AudioClipNames.agent_chaserAttack, "[alien bites]");
+        soundsToCaptions.Add(AudioClipNames.agent_chaserAlert, "[alien hisses]");
+        soundsToCaptions.Add(AudioClipNames.agent_chaserDeath, "[alien dying]");
+        soundsToCaptions.Add(AudioClipNames.agent_chaserHurt, "[alien gasps]");
+        soundsToCaptions.Add(AudioClipNames.agent_chaserHurt1, "[alien gasps]");
+        soundsToCaptions.Add(AudioClipNames.agent_chaserHurt2, "[alien gasps]");
 
         #endregion
 
@@ -56,6 +65,11 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.env_pickUpMaterial, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpMaterial"));
         audioClips.Add(AudioClipNames.env_pickUpBiomass, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpBiomass"));
 
+        soundsToCaptions.Add(AudioClipNames.env_airlockReached, "[airlock closes]");
+        soundsToCaptions.Add(AudioClipNames.env_collectOxygen, "[cannister opens]");
+        soundsToCaptions.Add(AudioClipNames.env_pickUpWeapon, "[weapon loads]");
+        soundsToCaptions.Add(AudioClipNames.env_bioExplosion, "[bioshot bursts]");
+
         #endregion
 
         #region Player Sounds
@@ -65,6 +79,12 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.player_hurt2, Resources.Load<AudioClip>("Sounds/sfx_player_hurt2"));
         audioClips.Add(AudioClipNames.player_death, Resources.Load<AudioClip>("Sounds/sfx_player_death"));
         audioClips.Add(AudioClipNames.player_swapWeapon, Resources.Load<AudioClip>("Sounds/sfx_player_swapWeapon"));
+
+        soundsToCaptions.Add(AudioClipNames.player_hurt, "[astronaut gasps]");
+        soundsToCaptions.Add(AudioClipNames.player_hurt1, "[astronaut wheezes]");
+        soundsToCaptions.Add(AudioClipNames.player_hurt2, "[astronaut groans]");
+        soundsToCaptions.Add(AudioClipNames.player_death, "[astronaut chokes]");
+        soundsToCaptions.Add(AudioClipNames.player_swapWeapon, "[weapon cocks]");
 
         #endregion
 
@@ -92,6 +112,15 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.weapon_shootPhoton, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootPhoton"));
         audioClips.Add(AudioClipNames.weapon_shootBioshot, Resources.Load<AudioClip>("Sounds/sfx_weapon_shootBioshot"));
 
+        soundsToCaptions.Add(AudioClipNames.weapon_shootPistol, "[rifle fires]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootPistol1, "[rifle fires]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootPistol2, "[rifle fires]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootShotgun, "[shotgun bursts]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootShotgun1, "[shotgun bursts]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootShotgun2, "[shotgun bursts]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootPhoton, "[particle-projector whirs]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootBioshot, "[geiger counter crackles]");
+
         #endregion
 
     }
@@ -109,6 +138,10 @@ public static class AudioManager
         // TODO: otherwise, create separate, controllable audio source and play from there
         else
             Debug.LogWarning("Warning: Loopable sounds not yet implemented.");
+
+        // write closed captioning if enabled and sound has captions
+        if (ClosedCaptions.Instance.ccEnabled && soundsToCaptions.ContainsKey(soundName))
+            ClosedCaptions.Instance.DisplayCaptions(soundsToCaptions[soundName]);
     }
 
 }

@@ -77,7 +77,7 @@ public class ClosedCaptions : MonoBehaviour
     /// Starts coroutine to draw captions on-screen
     /// </summary>
     /// <param name="caption"></param>
-    void DisplayCaptions(string caption)
+    public void DisplayCaptions(string caption)
     {
         // if closed captions are enabled
         if (ccEnabled)
