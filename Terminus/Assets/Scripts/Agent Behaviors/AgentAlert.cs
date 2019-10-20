@@ -24,21 +24,10 @@ public class AgentAlert : MonoBehaviour
     /// <summary>
     /// Used for initialization
     /// </summary>
-    void Awake()
+    void Start()
     {
         // retrieve necessary components
         myRenderer = GetComponent<SpriteRenderer>();
-
-        // if indicator is offscreen
-        if (!myRenderer.isVisible)
-        {
-            // move indicator to within camera's periphery
-            Debug.Log(Camera.main.transform.position);
-            Vector2 fromCamera = Camera.main.transform.position - transform.position;
-
-
-            Debug.LogError("throw");
-        }
 
         // set self to detroy after lifetime
         Destroy(gameObject, lifetime);

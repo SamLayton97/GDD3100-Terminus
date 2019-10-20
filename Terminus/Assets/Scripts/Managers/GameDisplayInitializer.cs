@@ -15,7 +15,7 @@ public class GameDisplayInitializer : MonoBehaviour
     // singleton objects
     [SerializeField]
     List<GameObject> displaySingletons =    // list of display-controlling singletons to spawn/initialize on application start
-        new List<GameObject>();     
+        new List<GameObject>();
 
     /// <summary>
     /// Used for early display initialization
@@ -29,16 +29,10 @@ public class GameDisplayInitializer : MonoBehaviour
 
             // lock framerate
             Application.targetFrameRate = targetFrameRate;
+
+            // instantiate each display singleton
+            foreach (GameObject singleton in displaySingletons)
+                Instantiate(singleton);
         }
-
-        // instantiate each display singleton
-        foreach (GameObject singleton in displaySingletons)
-            Instantiate(singleton);
-
-    }
-
-    void Update()
-    {
-        //Debug.Log(Application.targetFrameRate + " " + 1f / Time.deltaTime);
     }
 }
