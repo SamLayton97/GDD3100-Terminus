@@ -345,8 +345,9 @@ PrefabInstance:
         - Left mouse to aim and shoot.\r\n - Mouse scrollwheel to cycle between ammo
         types.\r\n - Right click to open crafting menu.\r\n - Click in-inventory materials
         to add them to the crafting deck.\r\n - ESC to pause.\r\n\r\nCheats:\r\n-
-        Press 1-3 to add ammo to your inventory. Press 4 to add every crafting material
-        to your inventory.\r\n"
+        Press 1-3 to add ammo to your inventory. Press 4 to add every crafting \n\tmaterial
+        to your inventory.\r\n- Press F2/F3 to cycle between colorblind filters.\n-
+        Press F1 to reset colorblind filter.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
