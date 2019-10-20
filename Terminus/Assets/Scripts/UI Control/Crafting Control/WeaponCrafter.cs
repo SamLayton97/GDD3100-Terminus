@@ -71,8 +71,8 @@ public class WeaponCrafter : WeaponAdder
         // otherwise (user didn't enter good combination)
         else
         {
-            // play standard push items sound
-            AudioManager.Play(AudioClipNames.UI_pushMaterial, true);
+            // play denied sound effect
+            AudioManager.Play(AudioClipNames.UI_denied, true);
         }
     }
 
