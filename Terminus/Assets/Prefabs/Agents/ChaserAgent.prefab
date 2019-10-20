@@ -152,6 +152,7 @@ MonoBehaviour:
     type: 3}
   alertIndicator: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,
     type: 3}
+  alertOffset: {x: 0.5, y: 0.5}
   myAttackSound: 15
   myAlertSound: 17
 --- !u!61 &3894786361680885713
