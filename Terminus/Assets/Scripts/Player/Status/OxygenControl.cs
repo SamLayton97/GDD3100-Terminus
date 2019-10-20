@@ -126,8 +126,8 @@ public class OxygenControl : LevelEnder
             CameraShaker.Instance.ShakeOnce((screenShakeMagnitudeScalar * amountEmptied), screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
 
-        // if damage exceeds arbitrary threshold, play random hurt sound
-        if (amountEmptied >= hurtSoundThreshold)
+        // if player isn't "dead" and damage exceeds arbitrary threshold, play random hurt sound
+        if (!softDisabled && amountEmptied >= hurtSoundThreshold)
             AudioManager.Play(myHurtSounds[Random.Range(0, myHurtSounds.Length)], true);
 
         // update O2 display
