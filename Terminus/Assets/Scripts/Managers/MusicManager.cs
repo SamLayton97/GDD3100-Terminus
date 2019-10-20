@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Manages playing and stopping of music throughout game
 /// </summary>
-public class MusicManager : MonoBehaviour
+public static class MusicManager
 {
     // private variables
     static bool initialized = false;                        // flag determining whether object has been initialized
@@ -14,6 +14,8 @@ public class MusicManager : MonoBehaviour
         new Dictionary<SongNames, AudioClip>();
     static Dictionary<string, SongNames> scenesToTracks =   // dictionary pairing track names with scenes
         new Dictionary<string, SongNames>();
+    static Dictionary<SongNames, string> tracksToCaptions = // dictionary pairing track names with appropriate captions
+        new Dictionary<SongNames, string>();                // NOTE: all tracks should have captions
 
     /// <summary>
     /// Read-access property returning whether manager has
@@ -38,6 +40,10 @@ public class MusicManager : MonoBehaviour
         tracks.Add(SongNames.mus_menu, Resources.Load<AudioClip>("Music/mus_menu"));
         tracks.Add(SongNames.mus_gameplay, Resources.Load<AudioClip>("Music/mus_gameplay"));
 
+        // pair track names with appropriate captions
+        tracksToCaptions.Add(SongNames.mus_gameplay, "[space station rumbling]");
+        tracksToCaptions.Add(SongNames.mus_menu, "[ethereal choir singing]");
+
         // pair scenes with songs
         scenesToTracks.Add("GameplayLevel1", SongNames.mus_gameplay);
     }
@@ -52,6 +58,10 @@ public class MusicManager : MonoBehaviour
         myAudioSource.Stop();
         myAudioSource.clip = tracks[newTrack];
         myAudioSource.Play();
+
+        // if closed captions are enabled, display appropriate caption for track
+        if (ClosedCaptions.Instance.ccEnabled)
+            ClosedCaptions.Instance.DisplayCaptions(tracksToCaptions[newTrack]);
     }
 
     /// <summary>

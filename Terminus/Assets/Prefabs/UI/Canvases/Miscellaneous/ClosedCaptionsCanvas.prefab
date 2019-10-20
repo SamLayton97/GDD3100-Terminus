@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayTime: 2
   ccText: {fileID: 9206329120910413175}
-  ccEnabled: 1
+  ccEnabled: 0
 --- !u!1 &2957376069762026628
 GameObject:
   m_ObjectHideFlags: 0
