@@ -280,17 +280,27 @@ PrefabInstance:
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Objectives:\r\n - Locate and pass through the last functioning airlock
-        before your O2 runs out.\r\n - Replenish your O2 by collecting refill cannisters.\r\n
-        - Propel yourself by shooting your vacuum-fitted rifle.\r\n - Avoid creatures
-        and their corruption.\r\n - Collect ammo pickups to gain new combat capabilities.\r\n
-        - Find crafting materials to build new weapons.\r\n\r\nStandard Controls:\r\n
-        - Left mouse to aim and shoot.\r\n - Mouse scrollwheel to cycle between ammo
-        types.\r\n - Right click to open crafting menu.\r\n - Click in-inventory materials
-        to add them to the crafting deck.\r\n - ESC to pause.\r\n\r\nCheats:\r\n-
-        Press 1-3 to add ammo to your inventory. Press 4 to add every crafting \n\tmaterial
-        to your inventory.\r\n- Press F2/F3 to cycle between colorblind filters.\n-
-        Press F1 to reset colorblind filter.\n"
+      value: "Colorblind Support:\r\nTo help colorblind players distinguish between
+        various ammo pickups and bullet types (which were previously color-based),
+        I added unique particle effects to each pickup/bullet that indicate their
+        in-universe behavior (e.g., smoke for poison ammo). I also incorporated unique
+        effects for when bullets collide with walls or enemies. To help players distinguish
+        between the environment and important objects, I decreased the brightness
+        of the environmental tileset, making objects like oxygen cannisters and enemies
+        stand out more. In a similar vein, I increased the opacity of each HUD element\u2019s
+        background so that their symbols wouldn\u2019t blend with objects in the scene.
+        I also gave the \u201Ccorrupted\u201D environment a unique spikey asset so
+        that players wouldn\u2019t need to rely on color-differentiation to see it.
+        To cycle between colorblind filters, press F2 or F3. Press F1 to reset the
+        filter.\r\n\r\nReduced Vision Support:\r\nPrior to this assignment, several
+        sound effects were added to respond to positive and negative player actions
+        both inside and outside (i.e., menus) the game. Notable audio cues include
+        the player grunting when they collide with a wall at speed, weapons playing
+        different sounds for different ammo types, and an atmospheric sound playing
+        for reaching the airlock. Background sounds and music also play to help immerse
+        players in the sci-fi experience. This week, a choking sound plays as players
+        run out of oxygen and a \u201Cdenied\u201D sound plays when players attempt
+        to craft something with a bad combination of materials.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -305,25 +315,22 @@ PrefabInstance:
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Feature Descriptions:\r\nMulti-Item Select \u2013 This week, I added
-        a crafting system where players can build weapons from materials that they
-        collect in the game world. Players can bring up the crafting menu by right-clicking.
-        They can then add/remove materials by clicking on their icons. If they have
-        a good combination of materials (e.g., powder, casing, and biomass -- order
-        doesn\u2019t matter), they can click the craft button to add the weapon to
-        their inventory. For left-handed players, they can bring up the menu on left
-        mouse click and add, remove, and craft with the right mouse button. For easy
-        testing, players can press 4 to add all crafting materials to their inventory.\r\n\r\nConfigurable
-        Controls \u2013 I also added 3 new controls schemes (plus 1 default), accessible
-        from the title menu. To swap between control schemes, simply go to the options
-        menu, select the desired scheme, and start the game.\r\n\r\n3 Improvements
-        \u2013 (1) Darkened sprites of enemy corpses to make their death more apparent.
-        (2) Collectable objects in game world gravitate toward player when player
-        approaches them, making it clearer that something has been added to the player\u2019s
-        inventory. (3) Increased color contrast and decreased speed of poisoned enemies,
-        making their negative status more apparent.\r\n\r\nOld Features\r\nList \u2013
-        Weapon Select\r\nNavigation \u2013 Level Preview\r\nRenewable Resources -
-        Oxygen depletion\r\nPerformance - Players' link with reality\r\n"
+      value: "Deaf Players Support:\r\nTo visually reinforce positive behaviors, I
+        added various particle and post-processing effects. For instance, shooting
+        an enemy causes blood to spurt out of them while collecting an oxygen tank
+        flashes a blue vignette around the screen. Some reinforcers indicate where
+        players would see the mechanical effect (e.g., collecting crafting materials
+        causes the bottom of the screen to flash while collecting a weapon highlights
+        the weapon select bar). For negative behaviors, I added visual effects such
+        as the player bleeding when they get hit and dust flying around when players
+        collide with a wall at speed. To communicate atmosphere, I incorporated a
+        closed captioning system (toggleable in the options menu). Enemy alerts (a
+        directional sound) do not use this. Instead, icons flash on-screen to represent
+        that enemies have spotted the player.\r\n\r\nController Support:\r\nController
+        support was not implemented in this submission. :(\r\n\r\nOld Features:\r\nMulti-Item
+        Select: Weapon Crafting\r\nConfigurable Controls: Under Options\r\nList: Weapon
+        Select\r\nNavigation: Level Preview\r\nRenewable Resources: Oxygen Depletion\r\nPerformance:
+        Player\u2019s Link with Reality\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7310666603472538117, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
