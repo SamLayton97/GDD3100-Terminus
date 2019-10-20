@@ -531,30 +531,31 @@ PrefabInstance:
       propertyPath: m_Text
       value: "A Game by Sam Layton\r\n\r\nVisual Artists:\r\nansimuz - Space Background\r\nCethiel
         - Simple Health Bars\r\nDREAMLEVEL - DL Simple Sci-Fi UI Elements\r\nFreepik
-        - Brain Inside Human Head icon, Bullet icon, Cursor icon, \n\tExplosion icon,
-        Mouse icon, Oxygen Symbol icon\r\nGregor Cresnar - Back icon, Star Icon\r\nMatthias
-        Stuetzer - 2D Pixel Spacecraft Tileset\r\nOpenClipart-Vectors - Keyboard\r\nSmashicons
-        - Biohazard icon, Flash icon\r\n\r\nFont Artists:\r\nAxel Lymphos - Infinium
-        Guardiam\r\nJoe Prince - Maven Pro\r\nMuraKnockout Media & Design - Elite
-        Hacker Corroded\r\n\r\nVisual Effects Artists:\r\nandersonaddo - EZ Camera
-        Shake\r\n\r\nComposers:\r\nTristan Lohengrin - Spaceship Atmosphere 02, 04\n\nSound
-        Effects Artists:\r\nAris621 - Nasty Knife Stab\r\nbeerbelly38 - airlock_1_3_sec_mast\r\nChristopherderp
-        - Hurt 1-3 - (Male)\r"
+        - Brain Inside Human Head icon, Bullet icon, Cursor icon, Explosion \n\ticon,
+        Mouse icon, Oxygen Symbol icon,\r\nWarning Sign icon\r\nGregor Cresnar - Back
+        icon, Star Icon\r\nMatthias Stuetzer - 2D Pixel Spacecraft Tileset\r\nOpenClipart-Vectors
+        - Keyboard\r\nSmashicons - Biohazard icon, Flash icon\r\n\r\nFont Artists:\r\nAxel
+        Lymphos - Infinium Guardiam\r\nJoe Prince - Maven Pro\r\nMuraKnockout Media
+        & Design - Elite Hacker Corroded\r\n\r\nVisual Effects Artists:\r\nandersonaddo
+        - EZ Camera Shake\r\nSlightly Odd Games - CVD Filter\r\n\r\nComposers:\r\nTristan
+        Lohengrin - Spaceship Atmosphere 02, 04\r\n\r\nSound Effects Artists:\r\nAris621
+        - Nasty Knife Stab\r\nbeerbelly38 - airlock_1_3_sec_mast\r\nb-train - Heartbeat
+        with beep\r"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Sound Effects Artists cont.\ncolumbia23 - Spider Voice\r\nDANMITCH3LL
-        - Metallic Door Hits\r\ndavidlay1 - Air release\r\neditor_adp - Smashing /
-        squishing\r\nGameAudio - Button Confirm Spacey, Win Spacey\r\nGokhanBiyik
+      value: "ceberation - Heavy Breathing\nChristopherderp - Hurt 1-3 - (Male)\r\ncolumbia23
+        - Spider Voice\r\nDANMITCH3LL - Metallic Door Hits\r\ndavidlay1 - Air release\r\neditor_adp
+        - Smashing / squishing\r\nGameAudio - Button Confirm Spacey, Win Spacey\r\nGokhanBiyik
         - gunshort01\r\ngiddster - Alien Hiss FX 1\r\nHakren - Iron-Wood Slam\r\nIanStarGem
         - laser phaser\r\njoedeshon - industrial_elevator_door_open\r\njosepharoah99
-        - Sci Fi Interface\r\nkokopetiyot - gasp01\r\nlebaston100 - Click\r\nleonelmail
-        - Radioactive Machine\r\nLeszek_Szary - shoot 3\r\nMATTIX - Cannon_Shot_01\r\nn_audioman
-        - BPH A Phaser\r\nnebulasnails - Pistol Cock\r\nnoirenex - OverheadExplosion\r\npengo_au
-        - steam_burst\r\nRSilveira_88 - Sliding_Metal_13\r\nsophiehall3535 - Pick
-        Up Keys 1\r\nstratcat322 - trauma_and_flatlining\r\nsuntemple - Access Denied\r\nvinnerminner
-        - Metal keys pickup sound 1"
+        - Sci Fi Interface\r\nlebaston100 - Click\r\nleonelmail - Radioactive Machine\r\nLeszek_Szary
+        - shoot 3\r\nMATTIX - Cannon_Shot_01\r\nn_audioman - BPH A Phaser\r\nnebulasnails
+        - Pistol Cock\r\nnoirenex - OverheadExplosion\r\npengo_au - steam_burst\r\nPococebas
+        - 6_Boton Presionado\r\nRSilveira_88 - Sliding_Metal_13\r\nsophiehall3535
+        - Pick Up Keys 1\r\nsuntemple - Access Denied\r\nvinnerminner - Metal keys
+        pickup sound 1"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
