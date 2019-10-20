@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7eebe52acc77346a791c4a76500108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 2
+  displayTime: 2.5
   ccQueueLimit: 50
   ccText: {fileID: 9206329120910413175}
   ccEnabled: 0

@@ -83,16 +83,13 @@ public class ClosedCaptions : MonoBehaviour
     /// <param name="caption"></param>
     public void DisplayCaptions(string caption)
     {
-        // if closed captions are enabled
-        if (ccEnabled)
+        // if closed captions are enabled and caption isn't duplicate
+        if (ccEnabled && !activeCaptions.Contains(caption))
         {
             // add new caption onto captions box
             coroutineCC = DrawCaption(caption, displayTime);
             if (coroutineCC != null) StartCoroutine(coroutineCC);
         }
-        // otherwise, log warning
-        else
-            Debug.LogWarning("Warning: Attempted to display closed captions when option was disabled.");
     }
 
     /// <summary>

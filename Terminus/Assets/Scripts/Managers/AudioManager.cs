@@ -120,7 +120,7 @@ public static class AudioManager
         soundsToCaptions.Add(AudioClipNames.weapon_shootShotgun, "[shotgun bursts]");
         soundsToCaptions.Add(AudioClipNames.weapon_shootShotgun1, "[shotgun bursts]");
         soundsToCaptions.Add(AudioClipNames.weapon_shootShotgun2, "[shotgun bursts]");
-        soundsToCaptions.Add(AudioClipNames.weapon_shootPhoton, "[particle-projector whirs]");
+        soundsToCaptions.Add(AudioClipNames.weapon_shootPhoton, "[photon whirs]");
         soundsToCaptions.Add(AudioClipNames.weapon_shootBioshot, "[geiger counter crackles]");
 
         #endregion
