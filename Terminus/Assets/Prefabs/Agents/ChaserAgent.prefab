@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 15
-  deathHSV: {x: -0.34, y: 0.5, z: -0.3, w: 0}
+  deathHSV: {x: -0.34, y: 0.05, z: -0.2, w: 0}
   damagePartcileEffect: {fileID: 38349726419631341, guid: ee51ba982368f794cb76ac2ac366215b,
     type: 3}
   myDeathSound: 16
@@ -147,7 +147,7 @@ MonoBehaviour:
   attackCooldown: 3
   startingState: 0
   attackHSV: {x: -0.34, y: 0.5, z: 0.2, w: 0}
-  cooldownHSV: {x: -0.34, y: 0.5, z: -0.22, w: 0}
+  cooldownHSV: {x: -0.34, y: 0.4, z: -0.2, w: 0}
   attackParticleEffect: {fileID: 38349726419631341, guid: f75c561fb980bed489ef714e448e5db7,
     type: 3}
   alertIndicator: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,

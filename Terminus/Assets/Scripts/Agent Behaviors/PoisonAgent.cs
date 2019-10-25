@@ -19,6 +19,8 @@ public class PoisonAgent : AgentStatusEffect
     float poisonTimer = 0;                      // helps track when to hurt agent
     Color32 poisonColor =                       // color agent gradually transitions to while poisoned
         new Color32(0x32, 0xB7, 0x4B, 0xFF);
+    Vector4 poisonHSV =                         // HSV agent's material gradually transitions to while poisoned
+        new Vector4(0.2f, 0.15f, -0.25f);
 
     /// <summary>
     /// Write-access property for how much damage
@@ -49,8 +51,10 @@ public class PoisonAgent : AgentStatusEffect
     // Update is called once per frame
     void Update()
     {
-        // lerp agent's color to dark green
-        mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, poisonColor, Time.deltaTime);
+        // lerp agent's HSV to poisoned color
+        //mySpriteRenderer.material.SetVector("_HSVAAdjust",
+        //    Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), poisonHSV, Time.deltaTime));
+        mySpriteRenderer.material.SetVector("_HSVAAdjust", poisonHSV);
 
         // decrement timer
         poisonTimer -= Time.deltaTime;
