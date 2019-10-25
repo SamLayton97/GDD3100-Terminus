@@ -24,7 +24,7 @@ public class CursorManager : MonoBehaviour
 
     // cursor resources
     [SerializeField]
-    List<Texture2D> cursors = new List<Texture2D>();                    // list of textures user's mouse cursor can change to throughout game
+    List<Texture2D> cursorTextures = new List<Texture2D>();             // list of textures user's mouse cursor can change to throughout game
                                                                         // NOTE: items must be entered as they appear in the Cursors enum
 
     /// <summary>
@@ -52,6 +52,19 @@ public class CursorManager : MonoBehaviour
         // set this object as instance of singleton
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // initialize cursor to standard
+        SetCursor(Cursors.Standard);
+    }
+
+    /// <summary>
+    /// Sets user's mouse cursor to one of
+    /// a given enumeration of cursors
+    /// </summary>
+    /// <param name="newCursor">new cursor to display</param>
+    public void SetCursor(Cursors newCursor)
+    {
+        Cursor.SetCursor(cursorTextures[(int)newCursor], Vector2.zero, CursorMode.Auto);
     }
 
 }
