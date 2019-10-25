@@ -78,7 +78,8 @@ public class PursueAndAttack : O2Remover
     {
         // slow agent to halt and lerp color to normal
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
-        mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, standardColor, Time.deltaTime);
+        mySpriteRenderer.material.SetVector("_HSVAAdjust",
+            Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), standardHSV, Time.deltaTime));
 
         // if agent can see target
         if (CanSeeTarget())
@@ -115,7 +116,8 @@ public class PursueAndAttack : O2Remover
     void UpdatePursue()
     {
         // lerp agent's color to normal
-        mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, standardColor, Time.deltaTime);
+        mySpriteRenderer.material.SetVector("_HSVAAdjust",
+            Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), standardHSV, Time.deltaTime));
 
         // find distance from agent to target
         float distToTarget = (transform.position - targetTransform.position).magnitude;
@@ -155,7 +157,7 @@ public class PursueAndAttack : O2Remover
     {
         // set attack color and attack target, shaking camera
         //mySpriteRenderer.color = attackColor;
-        //mySpriteRenderer.material.SetVector("_HSVAAdjust", );
+        mySpriteRenderer.material.SetVector("_HSVAAdjust", attackHSV);
         deductO2Event.Invoke(attackDamage, true);
 
         // create instance of attack particle on target's position
@@ -185,8 +187,9 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void UpdateWait()
     {
-        // deactivate agent
-        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
+        // gradually darken agent
+        mySpriteRenderer.material.SetVector("_HSVAAdjust",
+            Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), cooldownHSV, Time.deltaTime));
 
         // decrease wait counter by time between frames
         waitCounter -= Time.deltaTime;
