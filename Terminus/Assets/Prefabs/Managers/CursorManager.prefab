@@ -45,3 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorTextures:
   - {fileID: 2800000, guid: 352d31e3be096de41a9750e7d1c80efd, type: 3}
+  - {fileID: 2800000, guid: 00209ccfea589a741831971ec6c4d15e, type: 3}
+  - {fileID: 2800000, guid: 93c4ec44544b5664ea986c077a846cb6, type: 3}
+  - {fileID: 2800000, guid: 33183c7027a794744a440d89ef718738, type: 3}
+  - {fileID: 2800000, guid: 6220b4738e419b642b9d168db75e9503, type: 3}

@@ -64,7 +64,7 @@ public class CursorManager : MonoBehaviour
     /// <param name="newCursor">new cursor to display</param>
     public void SetCursor(Cursors newCursor)
     {
-        Cursor.SetCursor(cursorTextures[(int)newCursor], Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(cursorTextures[(int)newCursor], Vector2.zero, CursorMode.ForceSoftware);
     }
 
 }
