@@ -29,9 +29,7 @@ public class PursueAndAttack : O2Remover
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
-    public Color attackColor;                               // color agent transitions to when attacking
     public Vector4 attackHSV;                               // HSV agent's shader adjusts to when attacking
-    public Color cooldownColor;                             // color agent transitions to when under cooldown
     public Vector4 cooldownHSV;                             // HSV agent's shader adjusts to when under cooldown
     public GameObject attackParticleEffect;                 // effect instantiated when agent lands attack on target
     public GameObject alertIndicator;                       // visual indicator shown when agent detects its target
@@ -43,7 +41,6 @@ public class PursueAndAttack : O2Remover
 
     // private variables
     ChaseStates currState;              // current state of agent
-    Color standardColor;                // color of agent's sprite while idle
     Vector4 standardHSV;                // HSV of agent's shader while idle
     Rigidbody2D myRigidbody;            // agent's rigidbody component
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component
@@ -156,7 +153,6 @@ public class PursueAndAttack : O2Remover
     void EnterAttack()
     {
         // set attack color and attack target, shaking camera
-        //mySpriteRenderer.color = attackColor;
         mySpriteRenderer.material.SetVector("_HSVAAdjust", attackHSV);
         deductO2Event.Invoke(attackDamage, true);
 
@@ -172,8 +168,8 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void ExitAttack()
     {
-        // set cooldown color and initializes cooldown timer
-        mySpriteRenderer.color = cooldownColor;
+        // darken agent and initializes cooldown timer
+        mySpriteRenderer.material.SetVector("_HSVAAdjust", cooldownHSV);
         waitCounter = attackCooldown;
 
         // set animation triggers and transition to wait state
@@ -187,9 +183,8 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void UpdateWait()
     {
-        // gradually darken agent
-        mySpriteRenderer.material.SetVector("_HSVAAdjust",
-            Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), cooldownHSV, Time.deltaTime));
+        // gradually slow agent to a halt
+        myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, Vector2.zero, Time.deltaTime);
 
         // decrease wait counter by time between frames
         waitCounter -= Time.deltaTime;
@@ -230,7 +225,6 @@ public class PursueAndAttack : O2Remover
 
         // initialize agent and set internal variables
         currState = startingState;
-        standardColor = mySpriteRenderer.color;
         standardHSV = mySpriteRenderer.material.GetVector("_HSVAAdjust");
         ignoreLayerMask = ~(1 << 12);
 
