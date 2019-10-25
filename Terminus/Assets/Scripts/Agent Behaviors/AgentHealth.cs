@@ -11,7 +11,7 @@ public class AgentHealth : MonoBehaviour
 {
     // public variables
     public float maxHealth = 15f;               // starting health of enemy agent
-    public Color deathColor;                    // color to darken agent to on death
+    public Vector4 deathHSV;                    // HSV to darken agent's material to on death
     public GameObject damagePartcileEffect;
 
     // sound effect support
@@ -89,7 +89,7 @@ public class AgentHealth : MonoBehaviour
             // soft-disable agent
             softDisabled = true;
             myBehavior.enabled = false;
-            mySpriteRenderer.color = deathColor;
+            mySpriteRenderer.material.SetVector("_HSVAAdjust", deathHSV);
             gameObject.layer = LayerMask.NameToLayer("Corpses");
             mySpriteRenderer.sortingLayerName = "Corpses";
 
