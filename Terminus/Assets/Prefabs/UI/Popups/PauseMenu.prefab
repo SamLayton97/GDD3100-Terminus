@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.29411766, g: 0.93333334, b: 0.4392157, a: 1}
+  m_Color: {r: 0.03529412, g: 0.99607843, b: 0.36078432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -664,11 +664,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Help
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036267429368359819, guid: 0f4e898659cf2c74084d099b7c0abaf5,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4e898659cf2c74084d099b7c0abaf5, type: 3}
