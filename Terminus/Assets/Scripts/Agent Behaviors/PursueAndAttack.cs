@@ -30,7 +30,9 @@ public class PursueAndAttack : O2Remover
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Color attackColor;                               // color agent transitions to when attacking
+    public Vector4 attackHSV;                               // HSV agent's shader adjusts to when attacking
     public Color cooldownColor;                             // color agent transitions to when under cooldown
+    public Vector4 cooldownHSV;                             // HSV agent's shader adjusts to when under cooldown
     public GameObject attackParticleEffect;                 // effect instantiated when agent lands attack on target
     public GameObject alertIndicator;                       // visual indicator shown when agent detects its target
     public Vector2 alertOffset;                             // relative offset alert display above agent
@@ -42,6 +44,7 @@ public class PursueAndAttack : O2Remover
     // private variables
     ChaseStates currState;              // current state of agent
     Color standardColor;                // color of agent's sprite while idle
+    Vector4 standardHSV;                // HSV of agent's shader while idle
     Rigidbody2D myRigidbody;            // agent's rigidbody component
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component
     Rigidbody2D targetRigidbody;        // target's rigidbody component
@@ -151,7 +154,8 @@ public class PursueAndAttack : O2Remover
     void EnterAttack()
     {
         // set attack color and attack target, shaking camera
-        mySpriteRenderer.color = attackColor;
+        //mySpriteRenderer.color = attackColor;
+        //mySpriteRenderer.material.SetVector("_HSVAAdjust", );
         deductO2Event.Invoke(attackDamage, true);
 
         // create instance of attack particle on target's position
@@ -224,6 +228,7 @@ public class PursueAndAttack : O2Remover
         // initialize agent and set internal variables
         currState = startingState;
         standardColor = mySpriteRenderer.color;
+        standardHSV = mySpriteRenderer.material.GetVector("_HSVAAdjust");
         ignoreLayerMask = ~(1 << 12);
 
         // if target wasn't set before launch
