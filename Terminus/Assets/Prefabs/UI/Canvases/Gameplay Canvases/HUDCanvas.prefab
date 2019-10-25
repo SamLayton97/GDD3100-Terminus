@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8306598996406835774}
   - component: {fileID: 2079997492005694815}
   m_Layer: 5
-  m_Name: SanityIcon
+  m_Name: LinkIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.92941177, b: 0.3137255, a: 1}
+  m_Color: {r: 0.5803922, g: 0.101960786, b: 0.99607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 94e440f2293158a42aa85567dac72e7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5397cebdc5ae84249aeeea1fb9c5efaf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 1760938709661025596}
   - component: {fileID: 5880968352209825295}
   m_Layer: 5
-  m_Name: SanityGuageHolder
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 8770736216679081627}
   - component: {fileID: 5486284560047903474}
   m_Layer: 5
-  m_Name: SanityMeter
+  m_Name: LinkMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 6516349311772032406}
   - component: {fileID: 6516349311772032407}
   m_Layer: 5
-  m_Name: O2GuageFill
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 6516349313305512720}
   - component: {fileID: 6516349313305512721}
   m_Layer: 5
-  m_Name: O2GuageHolder
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2109,7 +2109,7 @@ GameObject:
   - component: {fileID: 2031491591290510932}
   - component: {fileID: 6063375168570076177}
   m_Layer: 5
-  m_Name: SanityIconBorder
+  m_Name: LinkIconBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2790,7 +2790,7 @@ GameObject:
   - component: {fileID: 5971243222043922044}
   - component: {fileID: 854905280109012611}
   m_Layer: 5
-  m_Name: SanityGuageFill
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
