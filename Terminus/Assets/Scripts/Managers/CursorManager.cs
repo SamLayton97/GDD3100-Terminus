@@ -7,15 +7,34 @@ using UnityEngine;
 /// </summary>
 public class CursorManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // singleton variables
+    static CursorManager instance;
+
+    /// <summary>
+    /// Static read-access property returning
+    /// instance of cursor manager.
+    /// </summary>
+    public static CursorManager Instance
     {
-        
+        get { return instance; }
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
     {
-        
+        // if singleton has already initialized as another instance
+        if (instance != null && Instance != this)
+        {
+            // destroy this instance and break
+            Destroy(gameObject);
+            return;
+        }
+
+        // set this object as instance of singleton
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
+
 }
