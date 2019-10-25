@@ -1182,6 +1182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRectTransform: {fileID: 3881650801070519185}
+  growWithIncrease: 0
 --- !u!1 &3764466680897767624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRectTransform: {fileID: 6516349311772032400}
+  growWithIncrease: 1
 --- !u!1 &6516349311772032401
 GameObject:
   m_ObjectHideFlags: 0

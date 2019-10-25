@@ -13,6 +13,7 @@ public abstract class MeterScaler : MonoBehaviour
 {
     // protected variables
     [SerializeField] RectTransform myRectTransform;     // scalable RectTransform component of meter
+    [SerializeField] bool growWithIncrease = true;      // flag determining whether meter should scale or shrink with increasing value
 
     /// <summary>
     /// Used for initialization
@@ -35,6 +36,7 @@ public abstract class MeterScaler : MonoBehaviour
     /// <param name="newValue">new value from 0 - 100 to scale to</param>
     protected void UpdateDisplay(float newValue)
     {
+        if (!growWithIncrease) newValue = 100 - newValue;
         myRectTransform.localScale = new Vector2(Mathf.Clamp01(newValue / 100), myRectTransform.localScale.y);
     }
 }
