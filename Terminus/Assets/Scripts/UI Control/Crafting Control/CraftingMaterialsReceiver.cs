@@ -18,8 +18,6 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
     [SerializeField] GameObject onDeckMaterialTemplate;         // generic UI representation of material added to crafting menu
     [SerializeField] Sprite[] craftingMaterialsIcons;           // list of sprites corresponding to each crafting material
                                                                 // NOTE: must be entered in order as they appear in CraftingMaterials enumeration
-    [SerializeField] Color[] onDeckIconColors;                  // list of sprite colors corresponding to each crafting material icon
-                                                                // NOTE: like above, must be entered in same order as CraftingMaterials enumeration
 
     // private variables
     WeaponCrafter myWeaponCrafter;                              // sibling component used to craft weapons from crafting materials
@@ -74,7 +72,6 @@ public class CraftingMaterialsReceiver : CraftingMaterialAdder
 
             // modify visual elements of new on deck crafting material
             newOnDeck.Icon = craftingMaterialsIcons[(int)materialToPush];
-            newOnDeck.IconColor = onDeckIconColors[(int)materialToPush];
             newOnDeck.MaterialType = materialToPush;
 
             // if user pushed last material onto deck

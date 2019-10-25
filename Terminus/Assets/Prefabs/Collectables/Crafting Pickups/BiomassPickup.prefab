@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1230818343
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2480202468039611683, guid: 7bab1bf1ae251e3419536eed1585da43,
+  m_Sprite: {fileID: 1808211770506698806, guid: 7bab1bf1ae251e3419536eed1585da43,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.08, y: 0.08}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritesToChoose:
-  - {fileID: -2480202468039611683, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
   - {fileID: 1808211770506698806, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
+  - {fileID: -4014444783217500743, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
 --- !u!58 &2694478516642472639
 CircleCollider2D:
   m_ObjectHideFlags: 0

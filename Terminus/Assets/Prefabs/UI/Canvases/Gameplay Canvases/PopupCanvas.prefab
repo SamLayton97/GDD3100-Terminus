@@ -1440,12 +1440,8 @@ MonoBehaviour:
   parentContainer: {fileID: 7706704313711976893}
   craftingMaterialsIcons:
   - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  - {fileID: 21300018, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  - {fileID: 21300012, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  iconColors:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
+  - {fileID: 4024524976310661146, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
+  - {fileID: -4148667895854711244, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
 --- !u!225 &9110846905692006214
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2875,12 +2871,8 @@ MonoBehaviour:
     type: 3}
   craftingMaterialsIcons:
   - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  - {fileID: 21300018, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  - {fileID: 21300012, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
-  onDeckIconColors:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
+  - {fileID: 4024524976310661146, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
+  - {fileID: -4148667895854711244, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
 --- !u!114 &5979714208259544526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3565,6 +3557,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2409395555957676617}
     m_Modifications:
+    - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
+        type: 3}
+      propertyPath: m_Name
+      value: ExitButton
+      objectReference: {fileID: 0}
     - target: {fileID: 375332899488782925, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3720,11 +3717,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -60
       objectReference: {fileID: 0}
-    - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
-        type: 3}
-      propertyPath: m_Name
-      value: ExitButton
-      objectReference: {fileID: 0}
     - target: {fileID: 9036267429368359819, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_Text
@@ -3745,6 +3737,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8169048507416702502}
     m_Modifications:
+    - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
+        type: 3}
+      propertyPath: m_Name
+      value: CraftButton
+      objectReference: {fileID: 0}
     - target: {fileID: 375332899488782925, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3935,11 +3932,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
-        type: 3}
-      propertyPath: m_Name
-      value: CraftButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3467416526698362618, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_Name
@@ -4023,6 +4015,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8477516771413050565}
     m_Modifications:
+    - target: {fileID: 1325855178087317889, guid: 9157efc13755b2b42ab08453e0935d90,
+        type: 3}
+      propertyPath: m_Name
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1325855178087317889, guid: 9157efc13755b2b42ab08453e0935d90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4894004101669515366, guid: 9157efc13755b2b42ab08453e0935d90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4127,16 +4129,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325855178087317889, guid: 9157efc13755b2b42ab08453e0935d90,
-        type: 3}
-      propertyPath: m_Name
-      value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325855178087317889, guid: 9157efc13755b2b42ab08453e0935d90,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7376509858024223101, guid: 9157efc13755b2b42ab08453e0935d90,
         type: 3}
@@ -4274,6 +4266,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5668747813468799236}
     m_Modifications:
+    - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
+        type: 3}
+      propertyPath: m_Name
+      value: RetryButton
+      objectReference: {fileID: 0}
     - target: {fileID: 375332899488782925, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4429,11 +4426,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -70
       objectReference: {fileID: 0}
-    - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
-        type: 3}
-      propertyPath: m_Name
-      value: RetryButton
-      objectReference: {fileID: 0}
     - target: {fileID: 9036267429368359819, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_Text
@@ -4454,6 +4446,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8477516771413050565}
     m_Modifications:
+    - target: {fileID: 4208276387217384109, guid: 284f515526291c944be5895a4c11d490,
+        type: 3}
+      propertyPath: m_Name
+      value: InGameInstructionsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208276387217384109, guid: 284f515526291c944be5895a4c11d490,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6012940246553231573, guid: 284f515526291c944be5895a4c11d490,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4558,16 +4560,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4208276387217384109, guid: 284f515526291c944be5895a4c11d490,
-        type: 3}
-      propertyPath: m_Name
-      value: InGameInstructionsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4208276387217384109, guid: 284f515526291c944be5895a4c11d490,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6744721589283170522, guid: 284f515526291c944be5895a4c11d490,
         type: 3}
