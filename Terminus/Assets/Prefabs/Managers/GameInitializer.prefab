@@ -51,6 +51,7 @@ MonoBehaviour:
   displaySingletons:
   - {fileID: 1082089417313413081, guid: ca75c0c05c81e034db1ee3beb36dcc6e, type: 3}
   - {fileID: 2773982589595208761, guid: ac44d8e38d6138346833bb9a7e1829d1, type: 3}
+  - {fileID: 8244399434567507730, guid: 8170396d8e6edbb47a235d591452b8a9, type: 3}
 --- !u!114 &7020844412749983250
 MonoBehaviour:
   m_ObjectHideFlags: 0
