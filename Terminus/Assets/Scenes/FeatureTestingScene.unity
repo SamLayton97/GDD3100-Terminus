@@ -9422,21 +9422,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8837587110281381234, guid: 3b9838fa901266447a9968df36080775,
         type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837587110281381234, guid: 3b9838fa901266447a9968df36080775,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837587110281381234, guid: 3b9838fa901266447a9968df36080775,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837587110281381234, guid: 3b9838fa901266447a9968df36080775,
-        type: 3}
       propertyPath: m_Tiles.Array.data[0].first.x
       value: -6
       objectReference: {fileID: 0}

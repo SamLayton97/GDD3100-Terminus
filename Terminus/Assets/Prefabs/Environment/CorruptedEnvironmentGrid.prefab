@@ -594,7 +594,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 1.074681e-34, g: 1.074681e-34, b: 1.074681e-34, a: 1.074681e-34}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69517535, g: 0.3443396, b: 1, a: 1}
   m_Origin: {x: -14, y: -11, z: 0}
   m_Size: {x: 37, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -706,6 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2c89acc5c275542bd4b993fda83649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toColor: {r: 1, g: 0.092920355, b: 0, a: 1}
-  fromColor: {r: 0.7169812, g: 0.06763973, b: 0, a: 1}
+  toColor: {r: 0.69517535, g: 0.3443396, b: 1, a: 1}
+  fromColor: {r: 0.35837033, g: 0, b: 0.6698113, a: 1}
   pulsationRate: 0.1
