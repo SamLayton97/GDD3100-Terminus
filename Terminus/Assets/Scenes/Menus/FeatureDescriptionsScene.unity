@@ -490,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Menu
+      value: Return
       objectReference: {fileID: 0}
     - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -520,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 3170639784540268152, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Help
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 3170639784540268152, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
