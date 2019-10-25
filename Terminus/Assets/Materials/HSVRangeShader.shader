@@ -1,4 +1,6 @@
-﻿/*
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+/*
 MIT License
 
 Copyright 2015, Gregg Tavares.
@@ -97,7 +99,7 @@ Shader "Custom/HSVRangeShader"
 			   {
 				   Fragment o;
 
-				   o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				   o.vertex = UnityObjectToClipPos(v.vertex);
 				   o.uv_MainTex = v.uv_MainTex;
 
 				   return o;
