@@ -2786,9 +2786,9 @@ GameObject:
   - component: {fileID: 4067860528218875338}
   - component: {fileID: 3292868201946412639}
   - component: {fileID: 1652405910334974310}
-  - component: {fileID: 1624778786180500764}
   - component: {fileID: 5979714208259544526}
   - component: {fileID: 1415640263400470442}
+  - component: {fileID: 1624778786180500764}
   m_Layer: 5
   m_Name: CraftingMenu
   m_TagString: Untagged
@@ -2881,18 +2881,6 @@ MonoBehaviour:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.9254902, b: 0.30588236, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
---- !u!225 &1624778786180500764
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7350911885507710352}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!114 &5979714208259544526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2925,6 +2913,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4b6dd7762e5ba1149b1779e5a610f169, type: 3}
   - {fileID: 21300000, guid: cefd4fe921d66a040aed050b58e82981, type: 3}
   - {fileID: 21300000, guid: 42673746e9cb1004e97554fc1b0b5e47, type: 3}
+--- !u!225 &1624778786180500764
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350911885507710352}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8305444456518256805
 GameObject:
   m_ObjectHideFlags: 0
