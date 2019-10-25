@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8306598996406835774}
   - component: {fileID: 2079997492005694815}
   m_Layer: 5
-  m_Name: LinkIcon
+  m_Name: DistortionIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2289,7 +2289,7 @@ GameObject:
   - component: {fileID: 2031491591290510932}
   - component: {fileID: 6063375168570076177}
   m_Layer: 5
-  m_Name: LinkIconBorder
+  m_Name: DistortionMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
