@@ -3,12 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// Enumeration of mouse cursors and reticles
+/// </summary>
+public enum Cursors
+{
+    Standard,
+    PistolReticle,
+    ShotgunReticle,
+    PhotonReticle,
+    BioRifleReticle
+}
+
+/// <summary>
 /// Singleton managing design and size of user's mouse cursor.
 /// </summary>
 public class CursorManager : MonoBehaviour
 {
     // singleton variables
     static CursorManager instance;
+
+    // cursor resources
+    [SerializeField]
+    List<Texture2D> cursors = new List<Texture2D>();                    // list of textures user's mouse cursor can change to throughout game
+                                                                        // NOTE: items must be entered as they appear in the Cursors enum
 
     /// <summary>
     /// Static read-access property returning
