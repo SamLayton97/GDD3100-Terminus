@@ -44,7 +44,11 @@ public class ControlSchemeSelector : MonoBehaviour
     /// within ControlSchemes enum</param>
     public void SelectControlScheme(int newScheme)
     {
-        Debug.Log("New Scheme: " + (ControlSchemes)Mathf.Max(0, Mathf.Min(System.Enum.GetNames(typeof(ControlSchemes)).Length, newScheme)));
+        // update control scheme and diagram
+        ControlSchemeManager.SetControlScheme((ControlSchemes)Mathf.Max(0, 
+            Mathf.Min(System.Enum.GetNames(typeof(ControlSchemes)).Length, newScheme)));
+        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
+        UpdateDiagram();
     }
 
     #endregion
