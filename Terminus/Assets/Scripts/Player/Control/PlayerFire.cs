@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 /// <summary>
 /// Registers user's fire input, firing weapon/tool in direction
@@ -13,6 +14,10 @@ public class PlayerFire : MonoBehaviour
     // private variables
     Weapon currWeapon = null;           // current weapon wielded by player character
     bool firedLastFrame = false;        // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
+
+    // configuration variables
+    [SerializeField] float fireShakeMagnitude = 1.25f;      // magnitude of screen shake when player fires weapon
+    [SerializeField] float fireShakeRoughness = 0.8f;       // roughness of screen shake when player fires weapon
 
     /// <summary>
     /// Public read/write-access property returning
@@ -41,6 +46,12 @@ public class PlayerFire : MonoBehaviour
             // register input in weapon and set fired last frame flag to true
             currWeapon.RegisterInput(firedLastFrame);
             firedLastFrame = true;
+
+            // TODO: shake screen
+            CameraShaker.Instance.ShakeOnce(1.25f, 0.8f, 0.1f, 0.1f);
+
+            // TODO: brighten player for a frame
+
         }
         // otherwise (no input registered), reset fired last frame flag
         else
