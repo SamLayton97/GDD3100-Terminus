@@ -29,6 +29,8 @@ public class PlayerFire : MonoBehaviour
         set { currWeapon = value; }
     }
 
+    #region Unity Methods
+
     // Used for initialization
     void Awake()
     {
@@ -52,10 +54,32 @@ public class PlayerFire : MonoBehaviour
                 , fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
 
             // TODO: brighten player for a frame
+            StartCoroutine(BrightenPlayer());
 
         }
         // otherwise (no input registered), reset fired last frame flag
         else
             firedLastFrame = false;
     }
+
+    #endregion
+
+    #region Coroutines
+
+    /// <summary>
+    /// Brightens player for a single frame. Used when
+    /// player fires their weapon.
+    /// </summary>
+    /// <returns>coroutine ending on next frame</returns>
+    IEnumerator BrightenPlayer()
+    {
+        // TODO: brighten player
+
+        // TODO: return player to standard brightness after a frame
+        yield return new WaitForEndOfFrame();
+
+    }
+
+
+    #endregion
 }
