@@ -10,8 +10,7 @@ public enum CraftingMaterials
 {
     casing,
     powder,
-    biomass,
-    energy
+    biomass
 }
 
 /// <summary>

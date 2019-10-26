@@ -32,8 +32,8 @@ public static class CraftableItemsRegistry
             // pair material combinations with craftable weapons
             readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.powder, CraftingMaterials.powder },
                 WeaponType.Shotgun);
-            readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.casing, CraftingMaterials.energy },
-                WeaponType.PhotonThrower);
+            //readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.casing, CraftingMaterials.energy },
+            //    WeaponType.PhotonThrower);
             readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder },
                 WeaponType.BioRifle);
             
