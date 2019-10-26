@@ -5,7 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 /// <summary>
 /// Generic parent class for all post-processing effect controllers.
-/// Used for initialization of post-processing volume.
+/// Used for initialization of post-processing volume(s).
 /// </summary>
 [RequireComponent(typeof(PostProcessVolume))]
 public abstract class PostProcessEffectController : MonoBehaviour
