@@ -81,13 +81,17 @@ public class WeaponCrafter : WeaponAdder
     /// </summary>
     public void CraftWeapon()
     {
-        // add craftable weapon to player's inventory and play sound
-        pickUpWeaponEvent.Invoke(currCraftableWeapon);
-        AudioManager.Play(AudioClipNames.env_pickUpWeapon, true);
+        // if current craftable weapon isn't default pistol (error failsafe)
+        if (currCraftableWeapon != WeaponType.Pistol)
+        {
+            // add craftable weapon to player's inventory and play sound
+            pickUpWeaponEvent.Invoke(currCraftableWeapon);
+            AudioManager.Play(AudioClipNames.env_pickUpWeapon, true);
 
-        // clear crafting materials on deck and empty craftable item slot
-        myReceiver.ClearDeck();
-        EmptyCraftableItemSlot();
+            // clear crafting materials on deck and empty craftable item slot
+            myReceiver.ClearDeck();
+            EmptyCraftableItemSlot();
+        }
     }
 
     /// <summary>
