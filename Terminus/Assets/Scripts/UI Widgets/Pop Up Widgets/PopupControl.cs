@@ -78,6 +78,7 @@ public class PopupControl : SceneTransitioner
             Time.timeScale = 0;
             togglePauseEvent.Invoke(true);
             AudioManager.Play(myPauseSound, true);
+            CursorManager.Instance.HandlePause(true);
 
             // enable pause menu components
             darkenGameOnPause.SetActive(true);
@@ -95,6 +96,7 @@ public class PopupControl : SceneTransitioner
             Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
             AudioManager.Play(myUnpauseSound, true);
+            CursorManager.Instance.HandlePause(false);
         }
 
         // Crafting Menu Control
