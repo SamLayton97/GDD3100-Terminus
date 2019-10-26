@@ -12,15 +12,21 @@ public class ControlSchemeSelector : MonoBehaviour
     // serialized UI variables
     [SerializeField] Image controlsDiagramImage;            // diagram displaying control scheme player has selected
     [SerializeField] Text controlsDiagramName;              // name of control scheme currently selected
-    [SerializeField] List<Button> controlsSelectButtons;    // control scheme selector buttons
+    [SerializeField] ToggleGroup controlsToggleGroup;       // group of toggles allowing user to select control scheme
+
+    // support variables
+    List<Toggle> controlToggles = new List<Toggle>();
 
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
-        // initialize buttons and diagram to reflect currently selected control scheme
-        controlsSelectButtons[(int)ControlSchemeManager.CurrentScheme].Select();
+        // register toggles under toggle group
+        for (int i = 0; i < controlsToggleGroup.transform.childCount; i++)
+            controlsToggleGroup.RegisterToggle(controlsToggleGroup.transform.GetChild(i).GetComponent<Toggle>());
+
+        // initialize diagram
         UpdateDiagram();
     }
 
