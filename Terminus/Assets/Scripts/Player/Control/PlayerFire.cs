@@ -21,7 +21,7 @@ public class PlayerFire : MonoBehaviour
     // configuration variables
     [SerializeField] float fireShakeMagnitude = 1.25f;      // magnitude of screen shake when player fires weapon
     [SerializeField] float fireShakeRoughness = 0.8f;       // roughness of screen shake when player fires weapon
-    [SerializeField] Vector4 fireHSV = new Vector4();
+    [SerializeField] Vector4 fireHSV = new Vector4();       // HSV of shader when player fires weapon
 
     /// <summary>
     /// Public read/write-access property returning

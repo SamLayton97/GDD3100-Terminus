@@ -41,6 +41,7 @@ public class OxygenControl : LevelEnder
     public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
     public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
     public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
+    public Vector4 hurtHSV = new Vector4();             // HSV of shader when player takes damage
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
