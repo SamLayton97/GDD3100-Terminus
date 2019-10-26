@@ -48,8 +48,8 @@ public class PlayerFire : MonoBehaviour
             firedLastFrame = true;
 
             // shake screen, scaling magnitude and roughness by weapon type
-            CameraShaker.Instance.ShakeOnce(1.25f * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f)
-                , 0.8f * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
+            CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f)
+                , fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
 
             // TODO: brighten player for a frame
 
