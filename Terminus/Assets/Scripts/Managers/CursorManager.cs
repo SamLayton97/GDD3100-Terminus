@@ -27,6 +27,9 @@ public class CursorManager : MonoBehaviour
     List<Texture2D> cursorTextures = new List<Texture2D>();             // list of textures user's mouse cursor can change to throughout game
                                                                         // NOTE: items must be entered as they appear in the Cursors enum
 
+    // support variables
+    List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
+
     /// <summary>
     /// Static read-access property returning
     /// instance of cursor manager.
@@ -53,8 +56,22 @@ public class CursorManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // initialize cursor to standard
-        SetCursor(Cursors.Standard);
+        // initialize hotspots of each cursor
+        foreach (Texture2D cursor in cursorTextures)
+        {
+            // set default hotspot for first cursor (standard mouse cursor)
+            if (cursorTextures.IndexOf(cursor) == 0)
+            {
+                hotspots.Add(Vector2.zero);
+                continue;
+            }
+
+            // set hotspot as dead center for all reticle cursors
+            hotspots.Add(new Vector2(cursor.width / 2f, cursor.height / 2f));
+        }
+
+        // set starting cursor
+        SetCursor(Cursors.PistolReticle);
     }
 
     /// <summary>
@@ -64,7 +81,7 @@ public class CursorManager : MonoBehaviour
     /// <param name="newCursor">new cursor to display</param>
     public void SetCursor(Cursors newCursor)
     {
-        Cursor.SetCursor(cursorTextures[(int)newCursor], Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorTextures[(int)newCursor], hotspots[(int)newCursor], CursorMode.ForceSoftware);
     }
 
 }
