@@ -187,6 +187,7 @@ MonoBehaviour:
   hurtSoundThreshold: 1
   hurtParticleEffect: {fileID: 38349726419631341, guid: f75c561fb980bed489ef714e448e5db7,
     type: 3}
+  hurtHSV: {x: 0, y: 0, z: -0.5, w: -0.5}
 --- !u!82 &4275031816730586811
 AudioSource:
   m_ObjectHideFlags: 0

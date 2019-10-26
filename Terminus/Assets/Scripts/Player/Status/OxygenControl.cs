@@ -7,7 +7,6 @@ using EZCameraShake;
 /// <summary>
 /// Manages oxygen depletion and re-gain of agent, including instances of player death
 /// </summary>
-[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(FaceMousePosition))]
 [RequireComponent(typeof(PlayerFire))]
 [RequireComponent(typeof(CircleCollider2D))]
@@ -18,12 +17,10 @@ public class OxygenControl : LevelEnder
     int maxOxygen = 100;                    // total capacity of agent's oxygen tank
     float currOxygen = 0;                   // remaining percentage of agent's oxygen tank
     bool softDisabled = false;              // flag determining whether player object has been disabled (used for handling death)
-    SpriteRenderer mySpriteRenderer;        // object's sprite renderer component (used to control color of sprite)
     FaceMousePosition myLook;               // player's look-input component (disabled on death)
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
     AudioSource myBreathingSource;          // audio source used to play looping breathing effect
-    Vector4 standardHSV = new Vector4();    // HSV of player's shader under no special conditions
 
     // public variables
     public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
@@ -41,7 +38,6 @@ public class OxygenControl : LevelEnder
     public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
     public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
     public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
-    public Vector4 hurtHSV = new Vector4();             // HSV of shader when player takes damage
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -63,14 +59,10 @@ public class OxygenControl : LevelEnder
     void Awake()
     {
         // retrieve necessary components
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
         myLook = GetComponent<FaceMousePosition>();
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
         myBreathingSource = GetComponent<AudioSource>();
-
-        // retrieve starting HSV
-        standardHSV = mySpriteRenderer.material.GetVector("_HSVAAdjust");
     }
 
     // Start is called before the first frame update
@@ -133,7 +125,7 @@ public class OxygenControl : LevelEnder
             CameraShaker.Instance.ShakeOnce((screenShakeMagnitudeScalar * amountEmptied), screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
 
-            // create instance of blood particle effect
+            // play visual feedback
             Instantiate(hurtParticleEffect, transform.position, Quaternion.identity);
         }
 
@@ -168,17 +160,6 @@ public class OxygenControl : LevelEnder
             endLevelEvent.Invoke(false, 0);
         }
 
-    }
-
-    /// <summary>
-    /// Darkens player for a single frame. Used when
-    /// player loses significant amount of oxygen.
-    /// </summary>
-    /// <returns>coroutine ending on next frame</returns>
-    IEnumerator DarkenPlayer()
-    {
-        // TODO: darken player, returning to normal after a frame
-        yield return new WaitForEndOfFrame();
     }
 
     #endregion
