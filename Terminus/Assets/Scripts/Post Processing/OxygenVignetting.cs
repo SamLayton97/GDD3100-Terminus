@@ -8,17 +8,36 @@ using UnityEngine.Rendering.PostProcessing;
 /// </summary>
 public class OxygenVignetting : PostProcessEffectController
 {
-    // vignetting support variables
+    // vignetting configuration variables
     [Range(0.01f, 5f)]
     [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
+    [SerializeField] Color restorationColor;                // color of vignette when player's oxygen is restored (typically blue)
+
+    // support variables
+    IEnumerator restore;
+    bool restoring = false;
 
     /// <summary>
     /// Called before first frame Update
     /// </summary>
     void Start()
     {
-        // add self as listener to relevant events
+        // TODO: add self as listener to relevant events
+        EventManager.AddUpdateO2Listener(ScaleSuffocationVignette);
         EventManager.AddRefillO2Listener(HandleOxygenRestored);
+    }
+
+    /// <summary>
+    /// Increases weight of black vignette as players continue to lose oxygen
+    /// </summary>
+    /// <param name="remainingOxygen">oxygen left in player's tank</param>
+    void ScaleSuffocationVignette(float remainingOxygen)
+    {
+        // do not conflict with restoration vignette
+        if (!restoring)
+        {
+            
+        }
     }
 
     /// <summary>
@@ -29,8 +48,8 @@ public class OxygenVignetting : PostProcessEffectController
     void HandleOxygenRestored(float amountRestored)
     {
         // start oxygen vignette coroutine
-        IEnumerator O2Restore = FlashOxygenVignette(1f);
-        StartCoroutine(O2Restore);
+        restore = FlashOxygenVignette(1f);
+        StartCoroutine(restore);
     }
 
     /// <summary>
@@ -41,7 +60,10 @@ public class OxygenVignetting : PostProcessEffectController
     /// <returns></returns>
     IEnumerator FlashOxygenVignette(float flashTime)
     {
+        // initialize post-process volume
+        restoring = true;
         myVolume.weight = 0;
+
         bool increaseWeight = true;
         do
         {
@@ -52,6 +74,10 @@ public class OxygenVignetting : PostProcessEffectController
 
             yield return new WaitForEndOfFrame();
         } while (myVolume.weight > 0);
+
+        // TODO: uninitialize weight
+        restoring = false;
+
     }
 
 }
