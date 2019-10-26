@@ -35,6 +35,7 @@ public class WeaponSelect : MonoBehaviour
     [SerializeField] GameObject[] allWeapons;               // serialized array of all weapons objects player could have
                                                             // Note: must be populated in order they appear in enumeration
 
+
     #region Unity Methods
 
     /// <summary>
