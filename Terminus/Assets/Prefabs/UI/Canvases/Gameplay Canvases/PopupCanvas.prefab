@@ -3689,7 +3689,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7667080687060625682}
-        m_MethodName: HandleCloseInstructionsOnClick
+        m_MethodName: HandleResumeOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4688,7 +4688,7 @@ PrefabInstance:
     - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_Name
-      value: ResumeButton
+      value: RestartButton
       objectReference: {fileID: 0}
     - target: {fileID: 5166414541475602813, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
@@ -4823,7 +4823,7 @@ PrefabInstance:
     - target: {fileID: 3859454819864779317, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandleResumeOnClick
+      value: HandleRetryOnClick
       objectReference: {fileID: 0}
     - target: {fileID: 3859454819864779317, guid: 0f4e898659cf2c74084d099b7c0abaf5,
         type: 3}
