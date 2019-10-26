@@ -7,20 +7,22 @@ using UnityEngine.Rendering.PostProcessing;
 /// Generic parent class for all post-processing effect controllers.
 /// Used for initialization of post-processing volume.
 /// </summary>
-[DisallowMultipleComponent]
 [RequireComponent(typeof(PostProcessVolume))]
 public abstract class PostProcessEffectController : MonoBehaviour
 {
-    // volume support variables
-    protected PostProcessVolume myVolume;
+    // volume configuration variables
+    [SerializeField]
+    protected List<PostProcessVolume> myVolumes;
 
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
-        // set up volume
-        myVolume = GetComponent<PostProcessVolume>();
-        myVolume.isGlobal = true;
+        // set up volumes, adding required component if not added
+        if (myVolumes.Count < 1)
+            myVolumes.Add(GetComponent<PostProcessVolume>());
+        foreach (PostProcessVolume volume in myVolumes)
+            volume.isGlobal = true;
     }
 }

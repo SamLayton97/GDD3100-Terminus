@@ -11,7 +11,6 @@ public class OxygenVignetting : PostProcessEffectController
     // vignetting configuration variables
     [Range(0.01f, 5f)]
     [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
-    [SerializeField] Color restorationColor;                // color of vignette when player's oxygen is restored (typically blue)
 
     // support variables
     IEnumerator restore;
@@ -62,20 +61,20 @@ public class OxygenVignetting : PostProcessEffectController
     {
         // initialize post-process volume
         restoring = true;
-        myVolume.weight = 0;
+        myVolumes[0].weight = 0;
 
         bool increaseWeight = true;
         do
         {
             // increment/decrement weight of volume, reversing direction at apex
-            myVolume.weight += Time.deltaTime * (2f / flashTime) * (increaseWeight ? 1 : -1);
-            if (myVolume.weight >= 1)
+            myVolumes[0].weight += Time.deltaTime * (2f / flashTime) * (increaseWeight ? 1 : -1);
+            if (myVolumes[0].weight >= 1)
                 increaseWeight = !increaseWeight;
 
             yield return new WaitForEndOfFrame();
-        } while (myVolume.weight > 0);
+        } while (myVolumes[0].weight > 0);
 
-        // TODO: uninitialize weight
+        // set restore flag to false
         restoring = false;
 
     }
