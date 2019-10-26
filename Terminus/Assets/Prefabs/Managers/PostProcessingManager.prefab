@@ -49,7 +49,7 @@ MonoBehaviour:
   - {fileID: 8025818637686769376}
   - {fileID: 7570646606483693714}
   restorationFlashRate: 0.4
-  startSuffocating: 40
+  startSuffocating: 50
 --- !u!114 &8025818637686769376
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,13 +34,8 @@ public class OxygenVignetting : PostProcessEffectController
     /// <param name="remainingOxygen">oxygen left in player's tank</param>
     void ScaleSuffocationVignette(float remainingOxygen)
     {
-        Debug.Log(remainingOxygen);
-
         // do not conflict with restoration vignette
-        if (!restoring)
-        {
-            myVolumes[1].weight = 1 - (remainingOxygen / 100);
-        }
+        myVolumes[1].weight = Mathf.Max(0, (1 - (remainingOxygen / startSuffocating)) * (restoring ? 0 : 1));
     }
 
     /// <summary>
@@ -63,10 +58,9 @@ public class OxygenVignetting : PostProcessEffectController
     /// <returns></returns>
     IEnumerator FlashOxygenVignette(float flashTime)
     {
-        // initialize post-process volumes
+        // initialize post-process volume
         restoring = true;
         myVolumes[0].weight = 0;
-        myVolumes[1].weight = 0;
 
         bool increaseWeight = true;
         do
