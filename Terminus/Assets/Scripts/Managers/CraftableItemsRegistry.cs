@@ -30,9 +30,13 @@ public static class CraftableItemsRegistry
             initialized = true;
 
             // pair material combinations with craftable weapons
+            readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.powder, CraftingMaterials.powder },
+                WeaponType.Shotgun);
+            readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.casing, CraftingMaterials.casing, CraftingMaterials.energy },
+                WeaponType.PhotonThrower);
             readInMaterialsToWeapons.Add(new CraftingMaterials[] { CraftingMaterials.biomass, CraftingMaterials.casing, CraftingMaterials.powder },
                 WeaponType.BioRifle);
-
+            
             // for each combination and yield, add all possible permutations into materials to weapons registry
             foreach (KeyValuePair<CraftingMaterials[], WeaponType> combination in readInMaterialsToWeapons)
                 Permute(combination.Key, combination.Value, 0, combination.Key.Length - 1);
