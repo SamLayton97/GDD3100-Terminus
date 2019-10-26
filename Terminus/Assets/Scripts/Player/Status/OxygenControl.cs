@@ -34,7 +34,6 @@ public class OxygenControl : LevelEnder
     public AudioClipNames myDeathSound =                // sound effect played when player dies
         AudioClipNames.player_death;
     public float oxygenDepletionRate = 1f;              // percent of oxygen used per second
-    public Color deathColor;                            // color player's sprite transitions to on death
     public float screenShakeMagnitudeScalar = 0.8f;     // scale by which screen shakes according to damage taken by player
     public float screenShakeRoughness = 4f;             // how rough screen shake is
     public float screenShakeFadeInTime = 0.5f;          // time it takes for screen shake to reach peak magnitude
@@ -151,7 +150,6 @@ public class OxygenControl : LevelEnder
         {
             // soft-disable player
             softDisabled = true;
-            mySpriteRenderer.color = deathColor;
             myLook.enabled = false;
             myFire.enabled = false;
             myTriggerCollider.enabled = false;
