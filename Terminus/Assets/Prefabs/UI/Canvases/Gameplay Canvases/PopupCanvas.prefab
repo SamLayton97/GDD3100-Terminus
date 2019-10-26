@@ -1942,8 +1942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 0, y: 50.8}
+  m_AnchoredPosition: {x: 0, y: -0.000032425}
+  m_SizeDelta: {x: 0, y: 65.8}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9155555162904703315
 CanvasRenderer:
@@ -1975,10 +1975,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c95484903ed069f43832f3f447cd0d04, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 35
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -1986,7 +1986,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Control Scheme
+  m_Text: Controls
 --- !u!1 &3265555533344716505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,8 +3247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -30, y: 138.3}
+  m_AnchoredPosition: {x: 0, y: 17.5}
+  m_SizeDelta: {x: -60, y: 120.8}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &8090832209790685020
 CanvasRenderer:
@@ -5245,7 +5245,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 15
+  m_Spacing: 25
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -5525,8 +5525,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -30, y: 291.7}
+  m_AnchoredPosition: {x: 0, y: -15}
+  m_SizeDelta: {x: -60, y: 276.7}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5813814229301105597
 CanvasRenderer:
@@ -5769,7 +5769,6 @@ MonoBehaviour:
   darkenGameOnPause: {fileID: 4573737062008034848}
   pauseMenu: {fileID: 4555135152653625899}
   instructionsMenu: {fileID: 6934237216926026752}
-  controlsDiagram: {fileID: 147630444487234161}
   endOfLevelMenu: {fileID: 3436701447828792399}
   materialsInventory: {fileID: 9110846905692006214}
   craftingMenu: {fileID: 1624778786180500764}
@@ -6276,7 +6275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Display Options
+  m_Text: Display
 --- !u!1 &9172401856181229713
 GameObject:
   m_ObjectHideFlags: 0
@@ -6467,10 +6466,10 @@ RectTransform:
   m_Father: {fileID: 9136487010756281487}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -32.899002}
-  m_SizeDelta: {x: -20, y: 206.89}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -22.320007}
+  m_SizeDelta: {x: -20, y: -86.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8388209244412315360
 CanvasRenderer:
@@ -6528,7 +6527,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 15
+  m_Spacing: 25
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -8169,6 +8168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Closed Captions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334171609546084210, guid: 874832f6b6a412747943a09575cdad1b,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874832f6b6a412747943a09575cdad1b, type: 3}

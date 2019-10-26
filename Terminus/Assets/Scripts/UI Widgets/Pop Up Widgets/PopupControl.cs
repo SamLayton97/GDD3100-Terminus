@@ -15,8 +15,7 @@ public class PopupControl : SceneTransitioner
     public KeyCode pauseKey = KeyCode.Escape;               // key to pause/unpause game
     public GameObject darkenGameOnPause;                    // semi-transparent panel covering game when paused
     public GameObject pauseMenu;                            // pop-up pause menu
-    public GameObject instructionsMenu;                     // in-game instructions page
-    public Image controlsDiagram;                           // control scheme diagram shown on instructions page
+    public GameObject instructionsMenu;                     // in-game instructions/options menu
     public GameObject endOfLevelMenu;                       // menu displayed when user completes a level
     public CanvasGroup materialsInventory;                  // canvas group component of inventory containing crafting materials player has collected
     public CanvasGroup craftingMenu;                        // canvas group of menu displayed along with inventory, allowing user to craft items
@@ -62,9 +61,6 @@ public class PopupControl : SceneTransitioner
 
         // add self as listener for end level event
         EventManager.AddEndLevelListener(HandleEndLevel);
-
-        // ensure that control scheme diagram matches one in use
-        controlsDiagram.sprite = ControlSchemeManager.CurrentSchemeDiagram;
     }
 
     // Update is called once per frame
