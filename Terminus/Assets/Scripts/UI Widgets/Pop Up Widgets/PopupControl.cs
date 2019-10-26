@@ -113,6 +113,7 @@ public class PopupControl : SceneTransitioner
                 // pause game
                 Time.timeScale = 0;
                 AudioManager.Play(myPauseSound, true);
+                CursorManager.Instance.HandlePause(true);
 
                 // reveal materials inventory and crafting menu
                 materialsInventory.alpha = 1;
@@ -127,6 +128,7 @@ public class PopupControl : SceneTransitioner
                 // pause game
                 Time.timeScale = 1;
                 AudioManager.Play(myUnpauseSound, true);
+                CursorManager.Instance.HandlePause(false);
 
                 // hide materials inventory and crafting menu
                 materialsInventory.alpha = 0;
