@@ -97,8 +97,8 @@ public class OxygenVignetting : PostProcessEffectController
         // clear each vignette in use
         foreach (PostProcessVolume vignette in myVolumes)
         {
-            vignette.weight = 0;
             vignette.isGlobal = false;
+            vignette.weight = 0;
         }
     }
 
