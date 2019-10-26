@@ -14,15 +14,13 @@ public class ControlSchemeSelector : MonoBehaviour
     [SerializeField] Text controlsDiagramName;              // name of control scheme currently selected
     [SerializeField] ToggleGroup controlsToggleGroup;       // group of toggles allowing user to select control scheme
 
-    // support variables
-    List<Toggle> controlToggles = new List<Toggle>();
-
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
-        // initialize diagram
+        // initialize diagram and toggle group with current control scheme
+        controlsToggleGroup.transform.GetChild((int)ControlSchemeManager.CurrentScheme).GetComponent<Toggle>().isOn = true;
         UpdateDiagram();
     }
 
