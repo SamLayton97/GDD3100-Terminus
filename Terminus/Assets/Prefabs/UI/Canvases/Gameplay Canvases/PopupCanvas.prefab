@@ -1442,6 +1442,7 @@ MonoBehaviour:
   - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
   - {fileID: 4024524976310661146, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
   - {fileID: -4148667895854711244, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
+  - {fileID: 21300022, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
 --- !u!225 &9110846905692006214
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2873,6 +2874,7 @@ MonoBehaviour:
   - {fileID: 21300016, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
   - {fileID: 4024524976310661146, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
   - {fileID: -4148667895854711244, guid: 7bab1bf1ae251e3419536eed1585da43, type: 3}
+  - {fileID: 21300022, guid: b36e91e4d6a6b0d43baa15d96bd43782, type: 3}
 --- !u!114 &5979714208259544526
 MonoBehaviour:
   m_ObjectHideFlags: 0
