@@ -71,7 +71,7 @@ public class CursorManager : MonoBehaviour
         }
 
         // set starting cursor
-        SetCursor(Cursors.PistolReticle);
+        SetCursor(Cursors.Standard);
     }
 
     /// <summary>
