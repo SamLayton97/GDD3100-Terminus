@@ -29,6 +29,8 @@ public class CursorManager : MonoBehaviour
 
     // support variables
     List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
+    Cursors currCursor = Cursors.PistolReticle;                         // current cursor used by player
+    Cursors cursorBeforePause = Cursors.PistolReticle;                  // holds cursor displayed before player paused game
 
     /// <summary>
     /// Static read-access property returning
@@ -81,7 +83,28 @@ public class CursorManager : MonoBehaviour
     /// <param name="newCursor">new cursor to display</param>
     public void SetCursor(Cursors newCursor)
     {
+        currCursor = newCursor;
         Cursor.SetCursor(cursorTextures[(int)newCursor], hotspots[(int)newCursor], CursorMode.ForceSoftware);
+    }
+
+    /// <summary>
+    /// Sets user's mouse cursor to reflect whether player
+    /// is interacting with weapons or in-game menus, restoring
+    /// cursor to cursor before pause in former case.
+    /// </summary>
+    /// <param name="gamePaused">whether game is now paused</param>
+    public void HandlePause(bool gamePaused)
+    {
+        // if game is paused
+        if (gamePaused)
+        {
+            // save cursor before pause and set cursor to standard mouse
+            cursorBeforePause = currCursor;
+            SetCursor(Cursors.Standard);
+        }
+        // otherwise, restore cursor before pause
+        else
+            SetCursor(cursorBeforePause);
     }
 
 }
