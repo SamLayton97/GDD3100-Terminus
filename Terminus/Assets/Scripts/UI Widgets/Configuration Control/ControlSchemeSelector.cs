@@ -37,10 +37,14 @@ public class ControlSchemeSelector : MonoBehaviour
 
     #region Public Methods
 
-
-    public void SelectControlScheme(bool schemeSelected)
+    /// <summary>
+    /// Sets control scheme when user interacts with a toggle
+    /// </summary>
+    /// <param name="newScheme">bounded index of selected control scheme
+    /// within ControlSchemes enum</param>
+    public void SelectControlScheme(int newScheme)
     {
-        controlsToggleGroup.SetAllTogglesOff();
+        Debug.Log("New Scheme: " + (ControlSchemes)Mathf.Max(0, Mathf.Min(System.Enum.GetNames(typeof(ControlSchemes)).Length, newScheme)));
     }
 
     #endregion
