@@ -45,10 +45,7 @@ public class WeaponSelect : MonoBehaviour
         // retrieve necessary components
         playerFire = GetComponent<PlayerFire>();
 
-        // initialize starting weapon and load type to object dictionary
-        playerFire.CurrentWeapon = GetComponentInChildren<Weapon>();
-
-        // for all additional weapons, spawn them under player but as inactive
+        // for all limited-ammo weapons, spawn them under player but as inactive
         for (int i = 1; i < allWeapons.Length; i++)
             Instantiate(allWeapons[i], transform).SetActive(false);
     }
@@ -65,6 +62,9 @@ public class WeaponSelect : MonoBehaviour
         // add self as listener to relevant events
         EventManager.AddPickUpWeaponListener(AddWeapon);
         EventManager.AddEmptyWeaponListener(HandleEmptyWeapon);
+
+        // initialize starting weapon
+        SelectWeapon((int)WeaponType.Pistol);
     }
 
     /// <summary>
