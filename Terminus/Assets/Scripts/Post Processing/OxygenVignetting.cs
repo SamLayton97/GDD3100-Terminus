@@ -11,6 +11,8 @@ public class OxygenVignetting : PostProcessEffectController
     // vignetting configuration variables
     [Range(0.01f, 5f)]
     [SerializeField] float restorationFlashRate = 1f;       // time (seconds) it takes for O2 restoration vignette to flash
+    [Range(0, 100)]
+    [SerializeField] int startSuffocating = 40;             // remaining oxygen at which player begins suffocating
 
     // support variables
     IEnumerator restore;
@@ -21,7 +23,7 @@ public class OxygenVignetting : PostProcessEffectController
     /// </summary>
     void Start()
     {
-        // TODO: add self as listener to relevant events
+        // add self as listener to relevant events
         EventManager.AddUpdateO2Listener(ScaleSuffocationVignette);
         EventManager.AddRefillO2Listener(HandleOxygenRestored);
     }
@@ -32,10 +34,12 @@ public class OxygenVignetting : PostProcessEffectController
     /// <param name="remainingOxygen">oxygen left in player's tank</param>
     void ScaleSuffocationVignette(float remainingOxygen)
     {
+        Debug.Log(remainingOxygen);
+
         // do not conflict with restoration vignette
         if (!restoring)
         {
-            
+            myVolumes[1].weight = 1 - (remainingOxygen / 100);
         }
     }
 
@@ -59,9 +63,10 @@ public class OxygenVignetting : PostProcessEffectController
     /// <returns></returns>
     IEnumerator FlashOxygenVignette(float flashTime)
     {
-        // initialize post-process volume
+        // initialize post-process volumes
         restoring = true;
         myVolumes[0].weight = 0;
+        myVolumes[1].weight = 0;
 
         bool increaseWeight = true;
         do

@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2610d55525a79324b9423b7e899fbf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myVolumes: []
+  myVolumes:
+  - {fileID: 8025818637686769376}
+  - {fileID: 7570646606483693714}
   restorationFlashRate: 0.4
+  startSuffocating: 40
 --- !u!114 &8025818637686769376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +82,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: abd5bb9094e1afb4bb7da86c7439868b, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 1
+  weight: 0
   priority: 0
 --- !u!1 &1082089417313413081
 GameObject:
