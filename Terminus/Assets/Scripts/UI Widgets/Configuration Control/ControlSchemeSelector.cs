@@ -17,7 +17,7 @@ public class ControlSchemeSelector : MonoBehaviour
     /// <summary>
     /// Used for initialization
     /// </summary>
-    void Awake()
+    void Start()
     {
         // initialize diagram and toggle group with current control scheme
         controlsToggleGroup.transform.GetChild((int)ControlSchemeManager.CurrentScheme).GetComponent<Toggle>().isOn = true;
