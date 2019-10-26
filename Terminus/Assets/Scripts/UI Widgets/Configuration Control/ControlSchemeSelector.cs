@@ -22,10 +22,6 @@ public class ControlSchemeSelector : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        // register toggles under toggle group
-        for (int i = 0; i < controlsToggleGroup.transform.childCount; i++)
-            controlsToggleGroup.RegisterToggle(controlsToggleGroup.transform.GetChild(i).GetComponent<Toggle>());
-
         // initialize diagram
         UpdateDiagram();
     }
@@ -41,48 +37,10 @@ public class ControlSchemeSelector : MonoBehaviour
 
     #region Public Methods
 
-    /// <summary>
-    /// Swaps player's control scheme to standard
-    /// </summary>
-    public void SwapToStandard()
-    {
-        // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.Standard);
-        UpdateDiagram();
-        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
-    }
 
-    /// <summary>
-    /// Swaps player's control scheme to specialist
-    /// </summary>
-    public void SwapToSpecialist()
+    public void SelectControlScheme(bool schemeSelected)
     {
-        // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.Specialist);
-        UpdateDiagram();
-        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
-    }
-
-    /// <summary>
-    /// Swaps player's control scene to left-handed
-    /// </summary>
-    public void SwapToLeftHanded()
-    {
-        // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.LeftHanded);
-        UpdateDiagram();
-        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
-    }
-
-    /// <summary>
-    /// Swaps player's control scheme to lefty-specialist
-    /// </summary>
-    public void SwapToLeftySpecialist()
-    {
-        // update control scheme and play select sound effect
-        ControlSchemeManager.SetControlScheme(ControlSchemes.LeftySpecialist);
-        UpdateDiagram();
-        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
+        controlsToggleGroup.SetAllTogglesOff();
     }
 
     #endregion
