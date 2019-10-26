@@ -23,6 +23,7 @@ public class OxygenControl : LevelEnder
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
     AudioSource myBreathingSource;          // audio source used to play looping breathing effect
+    Vector4 standardHSV = new Vector4();    // HSV of player's shader under no special conditions
 
     // public variables
     public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
@@ -66,6 +67,9 @@ public class OxygenControl : LevelEnder
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
         myBreathingSource = GetComponent<AudioSource>();
+
+        // retrieve starting HSV
+        standardHSV = mySpriteRenderer.material.GetVector("_HSVAAdjust");
     }
 
     // Start is called before the first frame update
@@ -163,6 +167,17 @@ public class OxygenControl : LevelEnder
             endLevelEvent.Invoke(false, 0);
         }
 
+    }
+
+    /// <summary>
+    /// Darkens player for a single frame. Used when
+    /// player loses significant amount of oxygen.
+    /// </summary>
+    /// <returns>coroutine ending on next frame</returns>
+    IEnumerator DarkenPlayer()
+    {
+        // TODO: darken player, returning to normal after a frame
+        yield return new WaitForEndOfFrame();
     }
 
     #endregion
