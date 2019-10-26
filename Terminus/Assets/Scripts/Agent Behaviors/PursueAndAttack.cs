@@ -31,7 +31,6 @@ public class PursueAndAttack : O2Remover
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
     public Vector4 attackHSV;                               // HSV agent's shader adjusts to when attacking
     public Vector4 cooldownHSV;                             // HSV agent's shader adjusts to when under cooldown
-    public GameObject attackParticleEffect;                 // effect instantiated when agent lands attack on target
     public GameObject alertIndicator;                       // visual indicator shown when agent detects its target
     public Vector2 alertOffset;                             // relative offset alert display above agent
 
@@ -99,12 +98,9 @@ public class PursueAndAttack : O2Remover
         // play agent's alert sound
         AudioManager.Play(AudioClipNames.agent_chaserAlert, true);
 
-        // if agent isn't showing attack indicator
+        // if agent isn't showing attack indicator, display one at agent's position
         if (transform.childCount < 1)
-        {
-            // display one at agent plus offset
             Instantiate(alertIndicator, transform).transform.position += (Vector3)alertOffset;
-        }
     }
 
     /// <summary>
@@ -155,9 +151,6 @@ public class PursueAndAttack : O2Remover
         // set attack color and attack target, shaking camera
         mySpriteRenderer.material.SetVector("_HSVAAdjust", attackHSV);
         deductO2Event.Invoke(attackDamage, true);
-
-        // create instance of attack particle on target's position
-        Instantiate(attackParticleEffect, targetTransform.position, Quaternion.identity);
 
         // play attack sound effect
         AudioManager.Play(myAttackSound, true);

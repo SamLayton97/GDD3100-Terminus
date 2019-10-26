@@ -183,6 +183,8 @@ MonoBehaviour:
   screenShakeFadeInTime: 0.5
   screenShakeFadeOutTime: 0.5
   hurtSoundThreshold: 1
+  hurtParticleEffect: {fileID: 38349726419631341, guid: f75c561fb980bed489ef714e448e5db7,
+    type: 3}
 --- !u!82 &4275031816730586811
 AudioSource:
   m_ObjectHideFlags: 0

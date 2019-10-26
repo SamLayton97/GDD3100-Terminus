@@ -40,6 +40,7 @@ public class OxygenControl : LevelEnder
     public float screenShakeFadeInTime = 0.5f;          // time it takes for screen shake to reach peak magnitude
     public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
     public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
+    public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -121,10 +122,16 @@ public class OxygenControl : LevelEnder
         currOxygen = Mathf.Max(0, currOxygen - amountEmptied);
         if (currOxygen <= 0) KillPlayer();
 
-        // shake camera by how much damage player took
+        // if damage was significant enough to shake camera
         if (shakeCamera)
+        {
+            // scale camera shake by oxygen lost
             CameraShaker.Instance.ShakeOnce((screenShakeMagnitudeScalar * amountEmptied), screenShakeRoughness,
                 screenShakeFadeInTime, screenShakeFadeOutTime);
+
+            // create instance of blood particle effect
+            Instantiate(hurtParticleEffect, transform.position, Quaternion.identity);
+        }
 
         // if player isn't "dead" and damage exceeds arbitrary threshold, play random hurt sound
         if (!softDisabled && amountEmptied >= hurtSoundThreshold)
