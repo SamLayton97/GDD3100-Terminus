@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6217a5c79f9e6b9428d0c3cd7a7331e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireShakeMagnitude: 1.25
   fireShakeRoughness: 0.8
+  fireHSV: {x: 0.1, y: 0.05, z: 0.5, w: 0}
 --- !u!114 &479563488531953364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +180,6 @@ MonoBehaviour:
   myHurtSounds: 040000000500000006000000
   myDeathSound: 8
   oxygenDepletionRate: 1
-  deathColor: {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
   screenShakeMagnitudeScalar: 1.1
   screenShakeRoughness: 4
   screenShakeFadeInTime: 0.5

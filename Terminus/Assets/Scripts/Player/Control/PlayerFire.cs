@@ -11,13 +11,15 @@ using EZCameraShake;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerFire : MonoBehaviour
 {
-    // private variables
-    Weapon currWeapon = null;           // current weapon wielded by player character
-    bool firedLastFrame = false;        // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
+    // support variables
+    Weapon currWeapon = null;               // current weapon wielded by player character
+    bool firedLastFrame = false;            // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
+    Vector4 standardHSV = new Vector4();    // HSV of player's shader under no special conditions
 
     // configuration variables
     [SerializeField] float fireShakeMagnitude = 1.25f;      // magnitude of screen shake when player fires weapon
     [SerializeField] float fireShakeRoughness = 0.8f;       // roughness of screen shake when player fires weapon
+    [SerializeField] Vector4 fireHSV = new Vector4();
 
     /// <summary>
     /// Public read/write-access property returning
@@ -37,6 +39,9 @@ public class PlayerFire : MonoBehaviour
         // if current weapon was not set in inspector, retrieve first weapon component in children
         if (currWeapon == null)
             currWeapon = GetComponentInChildren<Weapon>();
+
+        // TODO: retrieve starting HSV
+
     }
 
     // Update is called once per frame
