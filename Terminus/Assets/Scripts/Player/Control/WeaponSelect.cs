@@ -72,7 +72,7 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // TEST CODE: add weapon to inventory on input
+        // CHEAT CODE: add weapon to inventory on input
         if (Input.GetKeyDown(KeyCode.Alpha1))
             AddWeapon(WeaponType.Shotgun);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -126,9 +126,10 @@ public class WeaponSelect : MonoBehaviour
         }
         while (!transform.GetChild(newWeaponIndex).gameObject.activeSelf);
 
-        // swap weapon and play sound
+        // swap weapon, play sound, and update cursor
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
+        CursorManager.Instance.SetCursor((Cursors)(newWeaponIndex + 1));
 
         // invoke event to update current weapon on UI
         updateCurrentWeapon.Invoke(newWeaponIndex);
@@ -144,9 +145,10 @@ public class WeaponSelect : MonoBehaviour
         // if child weapon object is active
         if (transform.GetChild(switchToIndex).gameObject.activeSelf)
         {
-            // swap weapon and play sound
+            // swap weapon, update cursor, and play sound
             playerFire.CurrentWeapon = transform.GetChild(switchToIndex).GetComponent<Weapon>();
             updateCurrentWeapon.Invoke(switchToIndex);
+            CursorManager.Instance.SetCursor((Cursors)(switchToIndex + 1));
             AudioManager.Play(mySwapSound, true);
         }
         // otherwise (player lacks ammo for given weapon type)
