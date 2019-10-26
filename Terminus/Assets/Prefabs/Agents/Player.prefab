@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireShakeMagnitude: 1.25
   fireShakeRoughness: 0.8
-  fireHSV: {x: 0.1, y: 0.05, z: 0.5, w: 0}
+  fireHSV: {x: 0, y: 0.05, z: 0.5, w: 0}
 --- !u!114 &479563488531953364
 MonoBehaviour:
   m_ObjectHideFlags: 0

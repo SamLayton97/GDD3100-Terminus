@@ -8,12 +8,14 @@ using EZCameraShake;
 /// of mouse and sending player in opposite direction.
 /// Note: Requires player character to have the Rigidbody2D component.
 /// </summary>
+[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerFire : MonoBehaviour
 {
     // support variables
     Weapon currWeapon = null;               // current weapon wielded by player character
     bool firedLastFrame = false;            // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
+    SpriteRenderer myRenderer;              // player's sprite renderer (used to adjust their HSV)
     Vector4 standardHSV = new Vector4();    // HSV of player's shader under no special conditions
 
     // configuration variables
@@ -36,12 +38,13 @@ public class PlayerFire : MonoBehaviour
     // Used for initialization
     void Awake()
     {
-        // if current weapon was not set in inspector, retrieve first weapon component in children
+        // retrieve necessary components from self and children
+        myRenderer = GetComponent<SpriteRenderer>();
         if (currWeapon == null)
             currWeapon = GetComponentInChildren<Weapon>();
 
-        // TODO: retrieve starting HSV
-
+        // retrieve starting HSV
+        standardHSV = myRenderer.material.GetVector("_HSVAAdjust");
     }
 
     // Update is called once per frame
@@ -55,10 +58,10 @@ public class PlayerFire : MonoBehaviour
             firedLastFrame = true;
 
             // shake screen, scaling magnitude and roughness by weapon type
-            CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f)
-                , fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
+            CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 
+                fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
 
-            // TODO: brighten player for a frame
+            // brighten player for a frame
             StartCoroutine(BrightenPlayer());
 
         }
@@ -78,11 +81,10 @@ public class PlayerFire : MonoBehaviour
     /// <returns>coroutine ending on next frame</returns>
     IEnumerator BrightenPlayer()
     {
-        // TODO: brighten player
-
-        // TODO: return player to standard brightness after a frame
+        // brighten player, returning to normal after a frame
+        myRenderer.material.SetVector("_HSVAAdjust", fireHSV);
         yield return new WaitForEndOfFrame();
-
+        myRenderer.material.SetVector("_HSVAAdjust", standardHSV);
     }
 
 
