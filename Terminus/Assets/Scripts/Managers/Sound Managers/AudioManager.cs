@@ -64,6 +64,7 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.env_bioExplosion, Resources.Load<AudioClip>("Sounds/sfx_env_bioExplosion"));
         audioClips.Add(AudioClipNames.env_pickUpMaterial, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpMaterial"));
         audioClips.Add(AudioClipNames.env_pickUpBiomass, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpBiomass"));
+        audioClips.Add(AudioClipNames.env_pickUpEnergy, Resources.Load<AudioClip>("Sounds/sfx_env_pickUpEnergy"));
 
         soundsToCaptions.Add(AudioClipNames.env_airlockReached, "[airlock closes]");
         soundsToCaptions.Add(AudioClipNames.env_collectOxygen, "[cannister opens]");
@@ -71,6 +72,7 @@ public static class AudioManager
         soundsToCaptions.Add(AudioClipNames.env_bioExplosion, "[bioshot bursts]");
         soundsToCaptions.Add(AudioClipNames.env_pickUpMaterial, "[scrap dings]");
         soundsToCaptions.Add(AudioClipNames.env_pickUpBiomass, "[biomass spatters]");
+        soundsToCaptions.Add(AudioClipNames.env_pickUpEnergy, "[energy core buzzes]");
 
         #endregion
 

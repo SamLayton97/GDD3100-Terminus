@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialToAdd: 3
   amountToAdd: 1
-  collisionSound: 28
+  collisionSound: 34
 --- !u!58 &8383242793447678648
 CircleCollider2D:
   m_ObjectHideFlags: 0

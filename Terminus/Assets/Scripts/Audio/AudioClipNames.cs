@@ -40,5 +40,6 @@ public enum AudioClipNames
     UI_pushMaterial,
     UI_popMaterial,
     UI_denied,
-    UI_pushLastMaterial
+    UI_pushLastMaterial,
+    env_pickUpEnergy
 }
