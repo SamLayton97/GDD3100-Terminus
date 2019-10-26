@@ -18,6 +18,8 @@ public class OxygenVignetting : PostProcessEffectController
     IEnumerator restore;
     bool restoring = false;
 
+    #region Unity Methods
+
     /// <summary>
     /// Called before first frame Update
     /// </summary>
@@ -26,7 +28,12 @@ public class OxygenVignetting : PostProcessEffectController
         // add self as listener to relevant events
         EventManager.AddUpdateO2Listener(ScaleSuffocationVignette);
         EventManager.AddRefillO2Listener(HandleOxygenRestored);
+        EventManager.AddEndLevelListener(ClearVignettes);
     }
+
+    #endregion
+
+    #region Private Methods
 
     /// <summary>
     /// Increases weight of black vignette as players continue to lose oxygen
@@ -78,4 +85,22 @@ public class OxygenVignetting : PostProcessEffectController
 
     }
 
+    /// <summary>
+    /// Clears oxygen vignettes when level ends in success of failure
+    /// </summary>
+    /// <param name="playerWon">Whether level ended in success.
+    /// Note: Only needed to listen for End Level event.</param>
+    /// <param name="remainingSanity">Amount of sanity player has at level's end.
+    /// Note: Only needed to listen for End Level event.</param>
+    void ClearVignettes(bool playerWon, float remainingSanity)
+    {
+        // clear each vignette in use
+        foreach (PostProcessVolume vignette in myVolumes)
+        {
+            vignette.weight = 0;
+            vignette.isGlobal = false;
+        }
+    }
+
+    #endregion
 }
