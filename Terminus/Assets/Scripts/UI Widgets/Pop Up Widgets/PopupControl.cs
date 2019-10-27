@@ -157,6 +157,7 @@ public class PopupControl : SceneTransitioner
         Time.timeScale = 1;
         togglePauseEvent.Invoke(false);
         AudioManager.Play(myUnpauseSound, true);
+        CursorManager.Instance.HandlePause(false);
     }
 
     /// <summary>
