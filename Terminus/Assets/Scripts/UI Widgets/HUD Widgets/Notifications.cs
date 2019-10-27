@@ -20,6 +20,8 @@ public class Notifications : MonoBehaviour
     // configuration support
     [SerializeField] float growRate = 1f;       // rate at which HUD element grows/shrinks before showing text
     [SerializeField] float displayTime = 3f;    // time notification remains at full size before shrinking
+    [SerializeField] Color textFlashColor;      // color text flashes to when displayed
+    [SerializeField] float flashRate = 5f;      // speed at which notifaction text flashes before disappearing
 
     // singleton support
     static Notifications instance;
@@ -85,13 +87,18 @@ public class Notifications : MonoBehaviour
         while (myTransform.localScale.x < 1)
         {
             myTransform.localScale = new Vector2(Mathf.Min(1, myTransform.localScale.x + (Time.deltaTime * growRate)), 1);
-            Debug.Log("waiting");
             yield return new WaitForEndOfFrame();
         }
 
-        // display notifcation
+        // display flashing notifcation text
+        float displayCounter = 0;
         notificationText.color = textColor;
-        yield return new WaitForSeconds(displayTime);
+        while (displayCounter < displayTime)
+        {
+            notificationText.color = Color.Lerp(textColor, textFlashColor, Mathf.PingPong(Time.time * flashRate, 1));
+            displayCounter += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
 
         // hide text and shrink notification
         notificationText.color = invisible;
