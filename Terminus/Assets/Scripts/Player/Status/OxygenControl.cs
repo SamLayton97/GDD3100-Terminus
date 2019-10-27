@@ -21,6 +21,7 @@ public class OxygenControl : LevelEnder
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
     AudioSource myBreathingSource;          // audio source used to play looping breathing effect
+    bool lowOxygen = false;                 // flag indicating whether player is low on oxygen
 
     // public variables
     public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
@@ -38,6 +39,7 @@ public class OxygenControl : LevelEnder
     public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
     public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
     public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
+    public float lowOxygenThreshold = 40f;              // arbitrary point where player should be mindful of their oxygen
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -90,6 +92,17 @@ public class OxygenControl : LevelEnder
 
         // scale volume of breathing sound by player's remaining oxygen
         myBreathingSource.volume = Mathf.Clamp01(1 - (currOxygen / maxOxygen));
+
+        // display audio-visual low oxygen warning if oxygen falls below threshold
+        if (!lowOxygen && currOxygen < lowOxygenThreshold)
+        {
+            lowOxygen = true;
+            Notifications.Instance.Display("Monitor Oxygen");
+            AudioManager.Play(AudioClipNames.player_oxygenWarning, true);
+        }
+        // reset low oxygen flag if O2 rises above threshold
+        else if (lowOxygen && currOxygen >= lowOxygenThreshold)
+            lowOxygen = false;
     }
 
     #endregion
