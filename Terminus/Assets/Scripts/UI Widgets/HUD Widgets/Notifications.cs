@@ -13,7 +13,7 @@ public class Notifications : MonoBehaviour
     // display support
     [SerializeField] Text notificationText;
     RectTransform myTransform;
-    IEnumerator displayCoroutine;
+    bool displaying = false;
 
     // configuration support
     [SerializeField] float growRate = 1f;       // rate at which HUD element grows/shrinks before showing text
@@ -46,13 +46,19 @@ public class Notifications : MonoBehaviour
         notificationText.text = "";
     }
 
+    void Start()
+    {
+        Display("Critical Oxygen!");
+    }
+
     /// <summary>
     /// Starts coroutine to display notification on-screen
     /// </summary>
     /// <param name="notification">text displayed to user</param>
-    public void DisplayNotification(string notification)
+    public void Display(string notification)
     {
-        
+        // if not already displaying something, show notification
+        if (!displaying) StartCoroutine(DrawNotification(notification));
     }
 
     /// <summary>
@@ -63,6 +69,26 @@ public class Notifications : MonoBehaviour
     /// <returns></returns>
     IEnumerator DrawNotification(string notification)
     {
-        yield return new WaitForEndOfFrame();
+        // set text
+        displaying = true;
+        notificationText.text = notification;
+
+        Debug.Log(myTransform.localScale.x);
+
+        // TODO: expand notification
+        while (myTransform.localScale.x < 1)
+        {
+            myTransform.localScale = new Vector2(myTransform.localScale.x + (Time.deltaTime * growRate), 1);
+            Debug.Log("waiting");
+            yield return new WaitForEndOfFrame();
+        }
+
+        Debug.Log("Done!");
+        displaying = false;
+
+        // TODO: display notifcation
+
+        // TODO: shrink notification
+
     }
 }

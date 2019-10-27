@@ -58,9 +58,6 @@ public class ClosedCaptions : MonoBehaviour
         // retrieve and initialize necessary components
         myCanvasGroup = GetComponent<CanvasGroup>();
         myCanvasGroup.alpha = 0;
-
-        // TEST CODE: test notifications
-
     }
 
     /// <summary>
