@@ -20,7 +20,6 @@ public class OxygenControl : LevelEnder
     FaceMousePosition myLook;               // player's look-input component (disabled on death)
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
-    AudioSource myBreathingSource;          // audio source used to play looping breathing effect
     bool lowOxygen = false;                 // flag indicating whether player is low on oxygen
 
     // configuration variables
@@ -40,9 +39,12 @@ public class OxygenControl : LevelEnder
     public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
     public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
     [SerializeField] float lowOxygenThreshold = 40f;    // arbitrary point where player should be mindful of their oxygen
+    [SerializeField] AudioSource myBreathingSource;     // audio source used to play looping breathing effect
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
+
+    #region Properties
 
     /// <summary>
     /// Property with read-access returning amount of O2
@@ -62,6 +64,7 @@ public class OxygenControl : LevelEnder
         get { return lowOxygenThreshold; }
     }
 
+    #endregion
 
     #region Unity Methods
 
@@ -74,7 +77,6 @@ public class OxygenControl : LevelEnder
         myLook = GetComponent<FaceMousePosition>();
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
-        myBreathingSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
