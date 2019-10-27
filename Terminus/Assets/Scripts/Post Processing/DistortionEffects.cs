@@ -9,5 +9,11 @@ using UnityEngine.Rendering.PostProcessing;
 /// </summary>
 public class DistortionEffects : PostProcessEffectController
 {
-
+    /// <summary>
+    /// Called once before first frame Update()
+    /// </summary>
+    void Start()
+    {
+        myVolumes[0].weight = 1;
+    }
 }
