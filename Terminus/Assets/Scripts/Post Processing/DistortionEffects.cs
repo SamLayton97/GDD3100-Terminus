@@ -59,8 +59,8 @@ public class DistortionEffects : PostProcessEffectController
         // scale weight and volume by negative change in sanity
         float newScale = Mathf.Lerp(myVolumes[1].weight,
             Mathf.Clamp01(sanityLastFrame - remainingSanity) / (Time.deltaTime * distortionCeiling), Time.deltaTime);
-        myVolumes[1].weight = newScale;
-        myDistortSource.volume = newScale;
+        myVolumes[1].weight = (float.IsNaN(newScale) ? 0 : newScale);
+        myDistortSource.volume = (float.IsNaN(newScale) ? 0 : newScale);
 
         // store sanity to calculate delta for next frame
         sanityLastFrame = remainingSanity;
