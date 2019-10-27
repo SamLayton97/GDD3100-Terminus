@@ -55,12 +55,6 @@ public class Notifications : MonoBehaviour
         notificationText.color = invisible;
     }
 
-    void Start()
-    {
-        // TEST: test notifications
-        Display("Critical Oxygen!");
-    }
-
     /// <summary>
     /// Starts coroutine to display notification on-screen
     /// </summary>

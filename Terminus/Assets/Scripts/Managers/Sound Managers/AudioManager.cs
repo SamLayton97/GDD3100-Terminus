@@ -83,12 +83,16 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.player_hurt2, Resources.Load<AudioClip>("Sounds/sfx_player_hurt2"));
         audioClips.Add(AudioClipNames.player_death, Resources.Load<AudioClip>("Sounds/sfx_player_death"));
         audioClips.Add(AudioClipNames.player_swapWeapon, Resources.Load<AudioClip>("Sounds/sfx_player_swapWeapon"));
+        audioClips.Add(AudioClipNames.player_oxygenWarning, Resources.Load<AudioClip>("Sounds/sfx_player_oxygenWarning"));
+        audioClips.Add(AudioClipNames.player_distortionWarning, Resources.Load<AudioClip>("Sounds/sfx_player_distortionWarning"));
 
         soundsToCaptions.Add(AudioClipNames.player_hurt, "[astronaut gasps]");
         soundsToCaptions.Add(AudioClipNames.player_hurt1, "[astronaut wheezes]");
         soundsToCaptions.Add(AudioClipNames.player_hurt2, "[astronaut groans]");
         soundsToCaptions.Add(AudioClipNames.player_death, "[astronaut chokes]");
         soundsToCaptions.Add(AudioClipNames.player_swapWeapon, "[weapon cocks]");
+        soundsToCaptions.Add(AudioClipNames.player_oxygenWarning, "LOW OXYGEN");
+        soundsToCaptions.Add(AudioClipNames.player_distortionWarning, "DISTORTION DETECTED");
 
         #endregion
 
