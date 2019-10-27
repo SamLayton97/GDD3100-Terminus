@@ -9,11 +9,26 @@ using UnityEngine.Rendering.PostProcessing;
 /// </summary>
 public class DistortionEffects : PostProcessEffectController
 {
+    // post processing configuration variables
+    [Range(0f, 100f)]
+    [SerializeField] float startHallucinating = 40f;        // point at which persistent hallucination effect begins playing
+
     /// <summary>
-    /// Called once before first frame Update()
+    /// Called before first frame of Update()
     /// </summary>
     void Start()
     {
-        myVolumes[0].weight = 1;
+        // add self as listener to appropriate events
+        EventManager.AddUpdateSanityListener(ScalePersistentEffect);
+    }
+
+    /// <summary>
+    /// Increases weight of persistent hallucination 
+    /// effect as players continue to lose sanity
+    /// </summary>
+    /// <param name="remainingSanity">player's remaining sanity</param>
+    void ScalePersistentEffect(float remainingSanity)
+    {
+        myVolumes[0].weight = Mathf.Max(0, (1 - (remainingSanity / startHallucinating)));
     }
 }
