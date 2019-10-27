@@ -132,26 +132,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AuxiliaryMenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 790
-      objectReference: {fileID: 0}
-    - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 449703528}
-    - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReturnButtonOnClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711642615620099841, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_Name
-      value: BackButton
-      objectReference: {fileID: 0}
     - target: {fileID: 5406229844983255542, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Name
@@ -270,27 +250,11 @@ PrefabInstance:
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Colorblind Support:\r\nTo help colorblind players distinguish between
-        various ammo pickups and bullet types (which were previously color-based),
-        I added unique particle effects to each pickup/bullet that indicate their
-        in-universe behavior (e.g., smoke for poison ammo). I also incorporated unique
-        effects for when bullets collide with walls or enemies. To help players distinguish
-        between the environment and important objects, I decreased the brightness
-        of the environmental tileset, making objects like oxygen cannisters and enemies
-        stand out more. In a similar vein, I increased the opacity of each HUD element\u2019s
-        background so that their symbols wouldn\u2019t blend with objects in the scene.
-        I also gave the \u201Ccorrupted\u201D environment a unique spikey asset so
-        that players wouldn\u2019t need to rely on color-differentiation to see it.
-        To cycle between colorblind filters, press F2 or F3. Press F1 to reset the
-        filter.\r\n\r\nReduced Vision Support:\r\nPrior to this assignment, several
-        sound effects were added to respond to positive and negative player actions
-        both inside and outside (i.e., menus) the game. Notable audio cues include
-        the player grunting when they collide with a wall at speed, weapons playing
-        different sounds for different ammo types, and an atmospheric sound playing
-        for reaching the airlock. Background sounds and music also play to help immerse
-        players in the sci-fi experience. This week, a choking sound plays as players
-        run out of oxygen and a \u201Cdenied\u201D sound plays when players attempt
-        to craft something with a bad combination of materials.\r\n"
+      value: "Refactoring Your Game Improvements:\r\n\tSee write-up for color palette,
+        font, and \n\tgeneral improvements.\r\n\r\nOld Features: \r\nColorblind Support:
+        Particle effects for \n\tdifferent weapon types, UI/game world \n\tcontrast
+        changes, Reworked corrupted \n\tenvironment sprites\r\nReduced Vision Support:
+        Enhanced audio \n\tcues\r"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -305,82 +269,66 @@ PrefabInstance:
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Deaf Players Support:\r\nTo visually reinforce positive behaviors, I
-        added various particle and post-processing effects. For instance, shooting
-        an enemy causes blood to spurt out of them while collecting an oxygen tank
-        flashes a blue vignette around the screen. Some reinforcers indicate where
-        players would see the mechanical effect (e.g., collecting crafting materials
-        causes the bottom of the screen to flash while collecting a weapon highlights
-        the weapon select bar). For negative behaviors, I added visual effects such
-        as the player bleeding when they get hit and dust flying around when players
-        collide with a wall at speed. To communicate atmosphere, I incorporated a
-        closed captioning system (toggleable in the options menu). Enemy alerts (a
-        directional sound) do not use this. Instead, icons flash on-screen to represent
-        that enemies have spotted the player.\r\n\r\nController Support:\r\nController
-        support was not implemented in this submission. :(\r\n\r\nOld Features:\r\nMulti-Item
-        Select: Weapon Crafting\r\nConfigurable Controls: Under Options\r\nList: Weapon
-        Select\r\nNavigation: Level Preview\r\nRenewable Resources: Oxygen Depletion\r\nPerformance:
-        Player\u2019s Link with Reality\r\n"
+      value: "Deaf Players Support: Enhanced visual \n\teffects, closed captioning
+        in options, \n\talert indicators\r\nController Support: No\r\nMulti-Item Select:
+        Weapon crafting\r\nConfigurable Controls: See options\r\nList: Weapon select\r\nNavigation:
+        Level preview\r\nRenewable Resources: Oxygen depletion\r\nPerformance: Player\u2019s
+        physical distortion \n\tlevels\r"
       objectReference: {fileID: 0}
     - target: {fileID: 7310666603472538117, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1108425619}
-    - target: {fileID: 3812158600106705719, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 790
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 3822749144063005110, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 8756587555153995600, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -60
+      propertyPath: m_Name
+      value: ProceedButtonPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1079508391202566314, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      propertyPath: m_Text
+      value: Return
       objectReference: {fileID: 0}
-    - target: {fileID: 8605658916432139788, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Color.r
+      value: 0.03529412
       objectReference: {fileID: 0}
-    - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -119.9
+      propertyPath: m_Color.g
+      value: 0.99607843
       objectReference: {fileID: 0}
-    - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 557.3
+      propertyPath: m_Color.b
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: transitionTo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: transitionTo.Array.data[1]
+      value: TitleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: transitionTo.Array.data[0]
+      value: InstructionsScene
       objectReference: {fileID: 0}
     - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -417,10 +365,25 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -0.00024414
       objectReference: {fileID: 0}
-    - target: {fileID: 3822749144063005110, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: -119.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 557.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812158600106705719, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 790
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 790
       objectReference: {fileID: 0}
     - target: {fileID: 5344407513502573791, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -430,16 +393,6 @@ PrefabInstance:
     - target: {fileID: 5344407513502573791, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756587555153995600, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_Name
-      value: ProceedButtonPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1079508391202566314, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4465181158365540754, guid: 315562e6c8d52524eaaed2bea3429a0a,
@@ -467,45 +420,45 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: transitionTo.Array.size
-      value: 2
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: transitionTo.Array.data[1]
-      value: TitleScene
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: transitionTo.Array.data[0]
-      value: InstructionsScene
+      propertyPath: m_SizeDelta.x
+      value: -60
       objectReference: {fileID: 0}
-    - target: {fileID: 4903930375234686581, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ProceedButton
+      propertyPath: m_SizeDelta.y
+      value: -60
       objectReference: {fileID: 0}
-    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_Text
-      value: Return
+      propertyPath: m_Pivot.y
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.03529412
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 1261239566780637131, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_Color.g
-      value: 0.99607843
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    - target: {fileID: 8711642615620099841, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.36078432
+      propertyPath: m_Name
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 6240735913093072168, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -516,6 +469,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 417.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605658916432139788, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903930375234686581, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ProceedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 449703528}
+    - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnButtonOnClick
       objectReference: {fileID: 0}
     - target: {fileID: 3170639784540268152, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
