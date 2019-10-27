@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 5935055323855635184}
   - component: {fileID: 4513253696919111495}
   - component: {fileID: 3185736422583386083}
+  - component: {fileID: 7177588738029939432}
   m_Layer: 16
   m_Name: DistortionEffects
   m_TagString: Untagged
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myVolumes:
   - {fileID: 3185736422583386083}
+  startHallucinating: 40
 --- !u!114 &3185736422583386083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: e1c26d5e4403a0e419af0efcb83d8b07, type: 2}
   isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &7177588738029939432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446210177413131829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 0}
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0

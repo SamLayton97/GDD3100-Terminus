@@ -19,7 +19,7 @@ public class DistortionEffects : PostProcessEffectController
     void Start()
     {
         // add self as listener to appropriate events
-        EventManager.AddUpdateSanityListener(ScalePersistentEffect);
+        EventManager.AddUpdateSanityListener(ScaleHallucinationEffect);
     }
 
     /// <summary>
@@ -27,7 +27,7 @@ public class DistortionEffects : PostProcessEffectController
     /// effect as players continue to lose sanity
     /// </summary>
     /// <param name="remainingSanity">player's remaining sanity</param>
-    void ScalePersistentEffect(float remainingSanity)
+    void ScaleHallucinationEffect(float remainingSanity)
     {
         myVolumes[0].weight = Mathf.Max(0, (1 - (remainingSanity / startHallucinating)));
     }

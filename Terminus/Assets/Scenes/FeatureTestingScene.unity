@@ -7546,6 +7546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcessingManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1082089417313413081, guid: ca75c0c05c81e034db1ee3beb36dcc6e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1082089417313413080, guid: ca75c0c05c81e034db1ee3beb36dcc6e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7601,10 +7606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4513253696919111495, guid: ca75c0c05c81e034db1ee3beb36dcc6e,
+    - target: {fileID: 7446210177413131829, guid: ca75c0c05c81e034db1ee3beb36dcc6e,
         type: 3}
-      propertyPath: startHallucinating
-      value: 40
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca75c0c05c81e034db1ee3beb36dcc6e, type: 3}
