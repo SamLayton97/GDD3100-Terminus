@@ -14,19 +14,24 @@ public class Notifications : MonoBehaviour
     [SerializeField] Text notificationText;
     RectTransform myTransform;
     bool displaying = false;
+    Color textColor;
+    Color invisible;
 
     // configuration support
     [SerializeField] float growRate = 1f;       // rate at which HUD element grows/shrinks before showing text
-    [SerializeField] float displayTime = 1f;    // time notification remains at full size before shrinking
+    [SerializeField] float displayTime = 3f;    // time notification remains at full size before shrinking
 
     // singleton support
     static Notifications instance;
 
+    /// <summary>
+    /// Universally-accessible read-access property returning
+    /// instance of this notification controller.
+    /// </summary>
     public static Notifications Instance
     {
         get { return instance; }
     }
-
 
     /// <summary>
     /// Used for initialization
@@ -36,18 +41,21 @@ public class Notifications : MonoBehaviour
         // set universally retrievable instance as self
         instance = this;
 
-        // retrieve necessary components
+        // retrieve necessary components/info from components
         myTransform = GetComponent<RectTransform>();
         if (notificationText == null)
             notificationText = GetComponentInChildren<Text>();
+        textColor = notificationText.color;
+        invisible = new Color(textColor.r, textColor.g, textColor.b, 0);
 
         // initialize notifications panel
         myTransform.localScale = new Vector2(0, myTransform.localScale.y);
-        notificationText.text = "";
+        notificationText.color = invisible;
     }
 
     void Start()
     {
+        // TEST: test notifications
         Display("Critical Oxygen!");
     }
 
@@ -69,11 +77,9 @@ public class Notifications : MonoBehaviour
     /// <returns></returns>
     IEnumerator DrawNotification(string notification)
     {
-        // set text
+        // set text box's content -- determines size of panel
         displaying = true;
         notificationText.text = notification;
-
-        Debug.Log(myTransform.localScale.x);
 
         // expand notification
         while (myTransform.localScale.x < 1)
@@ -83,13 +89,17 @@ public class Notifications : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        // TODO: display notifcation
+        // display notifcation
+        notificationText.color = textColor;
+        yield return new WaitForSeconds(displayTime);
 
-        // shrink notification
+        // hide text and shrink notification
+        notificationText.color = invisible;
         while (myTransform.localScale.x > 0)
         {
             myTransform.localScale = new Vector2(Mathf.Max(0, myTransform.localScale.x - (Time.deltaTime * growRate)), 1);
             yield return new WaitForEndOfFrame();
         }
+        displaying = false;
     }
 }
