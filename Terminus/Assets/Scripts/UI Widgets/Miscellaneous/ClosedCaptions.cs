@@ -7,7 +7,6 @@ using UnityEngine.UI;
 /// Singleton controlling display of closed-captions
 /// throughout application.
 /// </summary>
-[RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasGroup))]
 public class ClosedCaptions : MonoBehaviour
 {
