@@ -12,8 +12,12 @@ public class Notifications : MonoBehaviour
 {
     // display support
     [SerializeField] Text notificationText;
-    CanvasGroup myCanvasGroup;
     RectTransform myTransform;
+    IEnumerator displayCoroutine;
+
+    // configuration support
+    [SerializeField] float growRate = 1f;       // rate at which HUD element grows/shrinks before showing text
+    [SerializeField] float displayTime = 1f;    // time notification remains at full size before shrinking
 
     // singleton support
     static Notifications instance;
@@ -33,14 +37,32 @@ public class Notifications : MonoBehaviour
         instance = this;
 
         // retrieve necessary components
-        myCanvasGroup = GetComponent<CanvasGroup>();
         myTransform = GetComponent<RectTransform>();
         if (notificationText == null)
             notificationText = GetComponentInChildren<Text>();
+
+        // initialize notifications panel
+        myTransform.localScale = new Vector2(0, myTransform.localScale.y);
+        notificationText.text = "";
     }
 
-    public void UpdateText(string newText)
+    /// <summary>
+    /// Starts coroutine to display notification on-screen
+    /// </summary>
+    /// <param name="notification">text displayed to user</param>
+    public void DisplayNotification(string notification)
     {
-        notificationText.text = newText;
+        
+    }
+
+    /// <summary>
+    /// Expands panel to full size, displaying notification
+    /// before shrinking it back down.
+    /// </summary>
+    /// <param name="notification">notification displayed to user</param>
+    /// <returns></returns>
+    IEnumerator DrawNotification(string notification)
+    {
+        yield return new WaitForEndOfFrame();
     }
 }
