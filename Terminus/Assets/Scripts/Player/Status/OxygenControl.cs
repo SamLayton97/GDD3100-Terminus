@@ -23,7 +23,7 @@ public class OxygenControl : LevelEnder
     AudioSource myBreathingSource;          // audio source used to play looping breathing effect
     bool lowOxygen = false;                 // flag indicating whether player is low on oxygen
 
-    // public variables
+    // configuration variables
     public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
         {
         AudioClipNames.player_hurt,
@@ -39,7 +39,7 @@ public class OxygenControl : LevelEnder
     public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
     public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
     public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
-    public float lowOxygenThreshold = 40f;              // arbitrary point where player should be mindful of their oxygen
+    [SerializeField] float lowOxygenThreshold = 40f;    // arbitrary point where player should be mindful of their oxygen
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -52,6 +52,16 @@ public class OxygenControl : LevelEnder
     {
         get { return currOxygen; }
     }
+
+    /// <summary>
+    /// Read-access property returning point where player should
+    /// be mindful of their oxygen
+    /// </summary>
+    public float LowOxygenThreshold
+    {
+        get { return lowOxygenThreshold; }
+    }
+
 
     #region Unity Methods
 

@@ -14,14 +14,14 @@ public class SanityControl : MonoBehaviour
     // public variables
     public float sanityReductionRate = 0.5f;        // amount of sanity lost per second when player undergoes stressful situation
     public float sanityReplinishmentRate = 0.1f;    // amount of sanity gained per second when player avoids stressful situation
-    public float lowOxygenThreshold = 40f;          // inclusive threshold on which player starts losing sanity due to low oxygen
+    public float lowSanityThreshold = 40f;          // arbitrary point where player should be mindful of their sanity
 
     // private variables
     int maxSanity = 100;                            // max sanity player can have
     float currSanity = 0;                           // remaining percent of player's sanity
     float sanityLastFrame = 0;                      // variable storing player's sanity on the previous frame (used to control sanity replinishment)
     OxygenControl myOxygenControl;                  // reference to player's oxygen control (sanity depletes when below O2 threshold)
-    CircleCollider2D myProximityTrigger;            // reference to player's circle collider (used to deduct sanity when enemies/corruption are nearby)
+    bool lowSanity = false;                         // flag indicating whether player is low on sanity
 
     // event support
     UpdateSanityDisplayEvent updateDisplayEvent;    // event invoked to update UI corresponding to player's sanity
@@ -66,11 +66,22 @@ public class SanityControl : MonoBehaviour
     void Update()
     {
         // reduce sanity by rate if player lacks oxygen
-        DeductSanity((myOxygenControl.CurrentOxygen <= lowOxygenThreshold) ? (sanityReductionRate * Time.deltaTime) : 0);
+        DeductSanity((myOxygenControl.CurrentOxygen <= myOxygenControl.LowOxygenThreshold) ? (sanityReductionRate * Time.deltaTime) : 0);
 
         // if player hasn't undergone things causing stress, replinish sanity by rate
         if (currSanity >= sanityLastFrame)
             ReplinishSanity(sanityReplinishmentRate * Time.deltaTime);
+
+        // display audio-visual physical distortion warning if sanity falls below threshold
+        if (!lowSanity && currSanity < lowSanityThreshold)
+        {
+            lowSanity = true;
+            Notifications.Instance.Display("Distortion Detected");
+            AudioManager.Play(AudioClipNames.player_distortionWarning, true);
+        }
+        // reset low oxygen flag if O2 rises above threshold
+        else if (lowSanity && currSanity >= lowSanityThreshold)
+            lowSanity = false;
     }
 
     /// <summary>
