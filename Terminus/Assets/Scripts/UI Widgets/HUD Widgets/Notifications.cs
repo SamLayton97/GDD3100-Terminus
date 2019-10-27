@@ -75,20 +75,21 @@ public class Notifications : MonoBehaviour
 
         Debug.Log(myTransform.localScale.x);
 
-        // TODO: expand notification
+        // expand notification
         while (myTransform.localScale.x < 1)
         {
-            myTransform.localScale = new Vector2(myTransform.localScale.x + (Time.deltaTime * growRate), 1);
+            myTransform.localScale = new Vector2(Mathf.Min(1, myTransform.localScale.x + (Time.deltaTime * growRate)), 1);
             Debug.Log("waiting");
             yield return new WaitForEndOfFrame();
         }
 
-        Debug.Log("Done!");
-        displaying = false;
-
         // TODO: display notifcation
 
-        // TODO: shrink notification
-
+        // shrink notification
+        while (myTransform.localScale.x > 0)
+        {
+            myTransform.localScale = new Vector2(Mathf.Max(0, myTransform.localScale.x - (Time.deltaTime * growRate)), 1);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
