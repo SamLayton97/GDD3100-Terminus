@@ -2045,7 +2045,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c95484903ed069f43832f3f447cd0d04, type: 3}
-    m_FontSize: 0
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
@@ -2056,7 +2056,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Something something test test test '
+  m_Text: Critical Oxygen
 --- !u!1 &6516349311756975256
 GameObject:
   m_ObjectHideFlags: 0

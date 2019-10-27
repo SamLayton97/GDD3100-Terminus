@@ -15,15 +15,32 @@ public class Notifications : MonoBehaviour
     CanvasGroup myCanvasGroup;
     RectTransform myTransform;
 
+    // singleton support
+    static Notifications instance;
+
+    public static Notifications Instance
+    {
+        get { return instance; }
+    }
+
+
     /// <summary>
     /// Used for initialization
     /// </summary>
     void Awake()
     {
+        // set universally retrievable instance as self
+        instance = this;
+
         // retrieve necessary components
         myCanvasGroup = GetComponent<CanvasGroup>();
         myTransform = GetComponent<RectTransform>();
         if (notificationText == null)
             notificationText = GetComponentInChildren<Text>();
+    }
+
+    public void UpdateText(string newText)
+    {
+        notificationText.text = newText;
     }
 }
