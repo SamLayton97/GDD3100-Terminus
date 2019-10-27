@@ -12,6 +12,8 @@ public class DistortionEffects : PostProcessEffectController
     // post processing configuration variables
     [Range(0f, 100f)]
     [SerializeField] float startHallucinating = 40f;        // point at which persistent hallucination effect begins playing
+    [Range(0f, 10f)]
+    [SerializeField] float distortionCeiling = 3f;          // negative change in sanity that translates to max distortion weight
 
     // support variables
     float sanityLastFrame = 100f;
@@ -43,7 +45,9 @@ public class DistortionEffects : PostProcessEffectController
     /// <param name="remainingSanity"></param>
     void ScaleDistortionEffect(float remainingSanity)
     {
-        Debug.Log("Delta: " + ((remainingSanity - sanityLastFrame) / Time.deltaTime));
+        // TODO: scale weight and volume by negative change in sanity
+        myVolumes[1].weight = Mathf.Lerp(myVolumes[1].weight, 
+            Mathf.Clamp01(sanityLastFrame - remainingSanity) / (Time.deltaTime * distortionCeiling), Time.deltaTime);
 
         // store sanity to calculate delta for next frame
         sanityLastFrame = remainingSanity;
