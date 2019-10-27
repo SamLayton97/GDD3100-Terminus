@@ -9,12 +9,14 @@ using UnityEngine.Events;
 /// </summary>
 [RequireComponent(typeof(OxygenControl))]
 [RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class SanityControl : MonoBehaviour
 {
-    // public variables
-    public float sanityReductionRate = 0.5f;        // amount of sanity lost per second when player undergoes stressful situation
-    public float sanityReplinishmentRate = 0.1f;    // amount of sanity gained per second when player avoids stressful situation
-    public float lowSanityThreshold = 40f;          // arbitrary point where player should be mindful of their sanity
+    // configuration variables
+    public float sanityReductionRate = 0.5f;                // amount of sanity lost per second when player undergoes stressful situation
+    public float sanityReplinishmentRate = 0.1f;            // amount of sanity gained per second when player avoids stressful situation
+    public float lowSanityThreshold = 40f;                  // arbitrary point where player should be mindful of their sanity
+    [SerializeField] AudioSource persistentSource;          // audio-source used to play persistent distortion sound effect
 
     // private variables
     int maxSanity = 100;                            // max sanity player can have
@@ -71,6 +73,9 @@ public class SanityControl : MonoBehaviour
         // if player hasn't undergone things causing stress, replinish sanity by rate
         if (currSanity >= sanityLastFrame)
             ReplinishSanity(sanityReplinishmentRate * Time.deltaTime);
+
+        // scale volume of persistent distortion sound by remaining sanity
+        persistentSource.volume = Mathf.Max(0, (1 - (currSanity / lowSanityThreshold)));
 
         // display audio-visual physical distortion warning if sanity falls below threshold
         if (!lowSanity && currSanity < lowSanityThreshold)
