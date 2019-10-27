@@ -7,6 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 /// Reflects player's 'sanity'/physical distortion using 
 /// post-processing effects.
 /// </summary>
+[RequireComponent(typeof(AudioSource))]
 public class DistortionEffects : PostProcessEffectController
 {
     // post processing configuration variables
@@ -17,6 +18,16 @@ public class DistortionEffects : PostProcessEffectController
 
     // support variables
     float sanityLastFrame = 100f;
+    AudioSource myDistortSource;
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // retrieve relevant components
+        myDistortSource = GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// Called before first frame of Update()
@@ -45,9 +56,11 @@ public class DistortionEffects : PostProcessEffectController
     /// <param name="remainingSanity"></param>
     void ScaleDistortionEffect(float remainingSanity)
     {
-        // TODO: scale weight and volume by negative change in sanity
-        myVolumes[1].weight = Mathf.Lerp(myVolumes[1].weight, 
+        // scale weight and volume by negative change in sanity
+        float newScale = Mathf.Lerp(myVolumes[1].weight,
             Mathf.Clamp01(sanityLastFrame - remainingSanity) / (Time.deltaTime * distortionCeiling), Time.deltaTime);
+        myVolumes[1].weight = newScale;
+        myDistortSource.volume = newScale;
 
         // store sanity to calculate delta for next frame
         sanityLastFrame = remainingSanity;
