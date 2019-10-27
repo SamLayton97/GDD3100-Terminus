@@ -1105,6 +1105,8 @@ GameObject:
   - component: {fileID: 3575844866799016350}
   - component: {fileID: 3008873227856361885}
   - component: {fileID: 2064966311997698847}
+  - component: {fileID: 4448494196923796795}
+  - component: {fileID: 7835323138493614179}
   m_Layer: 5
   m_Name: NotificationPanel
   m_TagString: Untagged
@@ -1209,6 +1211,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!225 &4448494196923796795
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3481320445795997109}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &7835323138493614179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3481320445795997109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b844cc40d843eb4e9d5581f557cd0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationText: {fileID: 2520592051732734122}
 --- !u!1 &3648690922690143896
 GameObject:
   m_ObjectHideFlags: 0
