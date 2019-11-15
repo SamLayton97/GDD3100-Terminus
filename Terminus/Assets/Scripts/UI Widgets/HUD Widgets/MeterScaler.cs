@@ -11,9 +11,9 @@ using UnityEngine.UI;
 /// </summary>
 public abstract class MeterScaler : MonoBehaviour
 {
-    // protected variables
-    [SerializeField] RectTransform myRectTransform;     // scalable RectTransform component of meter
-    [SerializeField] bool growWithIncrease = true;      // flag determining whether meter should scale or shrink with increasing value
+    // display support variables
+    [SerializeField] protected RectTransform myRectTransform;       // scalable RectTransform component of meter
+    [SerializeField] bool growWithIncrease = true;                  // flag determining whether meter should scale or shrink with increasing value
 
     /// <summary>
     /// Used for initialization
