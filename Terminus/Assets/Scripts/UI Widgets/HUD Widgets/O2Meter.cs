@@ -36,7 +36,8 @@ public class O2Meter : MeterScaler
         // if oxygen loss was significant
         if ((myRectTransform.localScale.x * 100) - newValue >= significantLoss)
         {
-            // start coroutine to shrink lazy fill
+            // start/restart coroutine to shrink lazy fill
+            if (lazyFillCoroutine != null) StopCoroutine(lazyFillCoroutine);
             lazyFillCoroutine = ShrinkLazyFill();
             StartCoroutine(lazyFillCoroutine);
         }
@@ -56,5 +57,7 @@ public class O2Meter : MeterScaler
         Debug.Log("lock");
         yield return new WaitForSeconds(lazyFillWait);
         Debug.Log("unlock");
+
+        // TODO: 
     }
 }
