@@ -34,7 +34,7 @@ public abstract class MeterScaler : MonoBehaviour
     /// Scales meter to passed-in value
     /// </summary>
     /// <param name="newValue">new value from 0 - 100 to scale to</param>
-    protected void UpdateDisplay(float newValue)
+    protected virtual void UpdateDisplay(float newValue)
     {
         if (!growWithIncrease) newValue = 100 - newValue;
         myRectTransform.localScale = new Vector2(Mathf.Clamp01(newValue / 100), myRectTransform.localScale.y);
