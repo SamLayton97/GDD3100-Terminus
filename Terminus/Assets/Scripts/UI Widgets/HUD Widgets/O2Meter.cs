@@ -53,7 +53,7 @@ public class O2Meter : MeterScaler
             lazyFillCoroutine = LockLazyFill();
             StartCoroutine(lazyFillCoroutine);
 
-            // startcoroutine to cause meter to flash
+            // start coroutine to cause meter to flash
             flashCoroutine = FlashMeter();
             StartCoroutine(flashCoroutine);
         }
