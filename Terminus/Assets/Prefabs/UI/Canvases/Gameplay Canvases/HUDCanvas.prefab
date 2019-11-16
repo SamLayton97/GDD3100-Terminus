@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillTransform: {fileID: 6516349311772032400}
   growWithIncrease: 1
-  lazyFillWait: 2
+  lazyFillWait: 1.6
   scaleRate: 0.8
   significantChange: 10
   backFill: {fileID: 1468251621197047374}
