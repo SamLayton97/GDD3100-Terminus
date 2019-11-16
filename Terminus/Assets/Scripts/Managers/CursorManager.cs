@@ -61,13 +61,16 @@ public class CursorManager : MonoBehaviour
         new List<Texture2DListWrapper>();           // NOTE: rows must be entered as they appear in the Cursors enum
                                                     // columns must be entered in order of CursorStates enum
 
-    // support variables
+    // cursor type support variables
     List<Vector2> hotspots = new List<Vector2>();           // list of hotspots for each cursor type
     Cursors currCursor = Cursors.PistolReticle;             // current cursor used by player
     Cursors cursorBeforePause = Cursors.PistolReticle;      // holds cursor displayed before player paused game
     CursorStates currState = CursorStates.Standard;         // current state of cursor used by player
+
+    // cursor depression support variables
     IEnumerable depressedCoroutine;                         // coroutine controlling depression of cursor
     [SerializeField] float depressionTime = 0.05f;          // realtime seconds cursor is locked in depressed state
+    bool depressed = false;
 
     /// <summary>
     /// Static read-access property returning
@@ -165,6 +168,21 @@ public class CursorManager : MonoBehaviour
 
     #region Private Methods
 
+    /// <summary>
+    /// Locks cursor in depressed state for unscaled time
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator DepressCursor()
+    {
+        // set cursor's state to depressed
+        SetCursorState(CursorStates.Depressed);
+        depressed = true;
+        yield return new WaitForSecondsRealtime(depressionTime);
+
+        // return cursor to default state after waiting
+        SetCursorState(CursorStates.Standard);
+        depressed = false;
+    }
 
     #endregion
 
