@@ -23,6 +23,9 @@ public enum WeaponType
 [RequireComponent(typeof(PlayerFire))]
 public class WeaponSelect : MonoBehaviour
 {
+    // weapon container support
+    [SerializeField] Transform weaponContainer;               // child game object holding all of player's weapons
+
     // private variables
     PlayerFire playerFire;                                  // player fire component (gets its current weapon property updated)
     AudioClipNames mySwapSound =                            // sound played when player swaps to different weapon
@@ -46,9 +49,13 @@ public class WeaponSelect : MonoBehaviour
         // retrieve necessary components
         playerFire = GetComponent<PlayerFire>();
 
+        // if not set before startup, grab transform of first child gameobject (assume to be weapons holder)
+        if (!weaponContainer)
+            weaponContainer = transform.GetChild(0);
+
         // for all limited-ammo weapons, spawn them under player but as inactive
         for (int i = 1; i < allWeapons.Length; i++)
-            Instantiate(allWeapons[i], transform).SetActive(false);
+            Instantiate(allWeapons[i], weaponContainer).SetActive(false);
     }
 
     /// <summary>
@@ -122,13 +129,13 @@ public class WeaponSelect : MonoBehaviour
         do
         {
             newWeaponIndex += swapDirection;
-            if (newWeaponIndex >= transform.childCount || newWeaponIndex < 0)
-                newWeaponIndex += transform.childCount * ((newWeaponIndex < 0) ? 1 : -1);
+            if (newWeaponIndex >= weaponContainer.childCount || newWeaponIndex < 0)
+                newWeaponIndex += weaponContainer.childCount * ((newWeaponIndex < 0) ? 1 : -1);
         }
-        while (!transform.GetChild(newWeaponIndex).gameObject.activeSelf);
+        while (!weaponContainer.GetChild(newWeaponIndex).gameObject.activeSelf);
 
         // swap weapon, play sound, and update cursor
-        playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
+        playerFire.CurrentWeapon = weaponContainer.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
         CursorManager.Instance.SetCursorType((Cursors)(newWeaponIndex + 1));
 
@@ -144,10 +151,11 @@ public class WeaponSelect : MonoBehaviour
     void SelectWeapon(int switchToIndex)
     {
         // if child weapon object is active
-        if (transform.GetChild(switchToIndex).gameObject.activeSelf)
+        if (weaponContainer.GetChild(switchToIndex).gameObject.activeSelf)
         {
             // swap weapon, update cursor, and play sound
-            playerFire.CurrentWeapon = transform.GetChild(switchToIndex).GetComponent<Weapon>();
+            Debug.Log("set weapon here " + switchToIndex);
+            playerFire.CurrentWeapon = weaponContainer.GetChild(switchToIndex).GetComponent<Weapon>();
             updateCurrentWeapon.Invoke(switchToIndex);
             CursorManager.Instance.SetCursorType((Cursors)(switchToIndex + 1));
             AudioManager.Play(mySwapSound, true);
@@ -169,11 +177,11 @@ public class WeaponSelect : MonoBehaviour
     void AddWeapon(WeaponType newWeapon)
     {
         // if corresponding weapon isn't active, activate it
-        if (!transform.GetChild((int)newWeapon).gameObject.activeSelf)
-            transform.GetChild((int)newWeapon).gameObject.SetActive(true);
+        if (!weaponContainer.GetChild((int)newWeapon).gameObject.activeSelf)
+            weaponContainer.GetChild((int)newWeapon).gameObject.SetActive(true);
 
         // refill corresponding weapon's ammo
-        transform.GetChild((int)newWeapon).GetComponent<Weapon>().RefillAmmo();
+        weaponContainer.GetChild((int)newWeapon).GetComponent<Weapon>().RefillAmmo();
     }
 
     /// <summary>

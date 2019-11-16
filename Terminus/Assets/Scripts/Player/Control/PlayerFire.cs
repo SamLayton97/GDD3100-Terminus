@@ -38,10 +38,8 @@ public class PlayerFire : MonoBehaviour
     // Used for initialization
     void Awake()
     {
-        // retrieve necessary components from self and children
+        // retrieve necessary components from self
         myRenderer = GetComponent<SpriteRenderer>();
-        if (currWeapon == null)
-            currWeapon = GetComponentInChildren<Weapon>();
 
         // retrieve starting HSV
         standardHSV = myRenderer.material.GetVector("_HSVAAdjust");
@@ -50,6 +48,8 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(CurrentWeapon.gameObject.name);
+
         // if player fires weapon and game isn't paused
         if (CustomInputManager.GetMouseButton("Fire") && Time.timeScale != 0)
         {
