@@ -13,8 +13,8 @@ public class O2Meter : MeterScaler
     [SerializeField] float lazyFillWait = 1f;               // time 'lazy' oxygen meter fill waits before shrinking
     [Range(0f, 2f)]
     [SerializeField] float scaleRate = 1f;                  // rate at which lazy fill matches scale of meter
-    [Range(1, 100)]
-    [SerializeField] int significantChange = 10;            // amount of oxygen player must lose to activate lazy fill
+    [Range(-100, 1)]
+    [SerializeField] int significantLoss = -10;             // amount of oxygen player must lose to activate lazy fill
 
     // lazy loss support variables
     [SerializeField] RectTransform backFill;                // fill appearing behind meter -- used for 'lazy' O2 loss
@@ -52,41 +52,35 @@ public class O2Meter : MeterScaler
         float oxygenChange = newValue - fillTransform.localScale.x * 100;
         base.UpdateDisplay(newValue);
 
-        // if oxygen change was significant
-        if (Mathf.Abs(oxygenChange) >= significantChange)
+        // if player lost significant amount of oxygen
+        if (oxygenChange <= significantLoss)
         {
-            // if player lost oxygen
-            if (oxygenChange < 0)
-            {
-                // start/restart coroutine to lock lazy loss
-                if (lazyLossRunning) StopCoroutine(lazyLossCoroutine);
-                lazyLossCoroutine = LockLazyLoss();
-                StartCoroutine(lazyLossCoroutine);
+            // start/restart coroutine to lock lazy loss
+            if (lazyLossRunning) StopCoroutine(lazyLossCoroutine);
+            lazyLossCoroutine = LockLazyLoss();
+            StartCoroutine(lazyLossCoroutine);
 
-                // start coroutine to cause meter to flash
-                flashCoroutine = FlashMeter();
-                StartCoroutine(flashCoroutine);
-            }
-            // otherwise (player gained oxygen)
-            else
-            {
-                // start/restart coroutine to lock lazy regain
-                if (lazyRegainRunning) StopCoroutine(lazyRegainCoroutine);
-                lazyRegainCoroutine = LockLazyRegain();
-                StartCoroutine(lazyRegainCoroutine);
-            }
+            // start coroutine to cause meter to flash
+            flashCoroutine = FlashMeter();
+            StartCoroutine(flashCoroutine);
         }
-        // otherwise, gradually scale lazy meters
-        else
+        // but if player regained oxygen
+        else if (oxygenChange > 0)
         {
-            backFill.localScale = new Vector3(Mathf.Max(backFill.localScale.x + 
+            // start/restart coroutine to lock lazy regain
+            if (lazyRegainRunning) StopCoroutine(lazyRegainCoroutine);
+            lazyRegainCoroutine = LockLazyRegain();
+            StartCoroutine(lazyRegainCoroutine);
+        }
+
+        // gradually scale unlocked lazy meters
+        backFill.localScale = new Vector3(Mathf.Max(backFill.localScale.x +
                 Mathf.Sign(oxygenChange) * scaleRate * Time.deltaTime * (lazyLossRunning ? 0 : 1),
                 fillTransform.localScale.x), 1, 1);
-            foreFill.localScale = new Vector3(Mathf.Min(foreFill.localScale.x - 
+        foreFill.localScale = new Vector3(Mathf.Min(foreFill.localScale.x -
                 Mathf.Sign(oxygenChange) * scaleRate * Time.deltaTime * (lazyRegainRunning ? 0 : 1),
-                fillTransform.localScale.x), 
+                fillTransform.localScale.x),
                 1, 1);
-        }
     }
 
     /// <summary>
