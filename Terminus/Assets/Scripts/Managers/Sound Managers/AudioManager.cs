@@ -85,7 +85,8 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.player_swapWeapon, Resources.Load<AudioClip>("Sounds/sfx_player_swapWeapon"));
         audioClips.Add(AudioClipNames.player_oxygenWarning, Resources.Load<AudioClip>("Sounds/sfx_player_oxygenWarning"));
         audioClips.Add(AudioClipNames.player_distortionWarning, Resources.Load<AudioClip>("Sounds/sfx_player_distortionWarning"));
-
+        audioClips.Add(AudioClipNames.player_mouseOverHostile, Resources.Load<AudioClip>("Sounds/sfx_player_mouseOverHostile"));
+        
         soundsToCaptions.Add(AudioClipNames.player_hurt, "[astronaut gasps]");
         soundsToCaptions.Add(AudioClipNames.player_hurt1, "[astronaut wheezes]");
         soundsToCaptions.Add(AudioClipNames.player_hurt2, "[astronaut groans]");

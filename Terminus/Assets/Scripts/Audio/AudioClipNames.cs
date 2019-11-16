@@ -43,5 +43,6 @@ public enum AudioClipNames
     UI_pushLastMaterial,
     env_pickUpEnergy,
     player_oxygenWarning,
-    player_distortionWarning
+    player_distortionWarning,
+    player_mouseOverHostile
 }
