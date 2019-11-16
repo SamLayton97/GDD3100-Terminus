@@ -18,7 +18,7 @@ public abstract class MeterScaler : MonoBehaviour
     /// <summary>
     /// Used for initialization
     /// </summary>
-    protected void Awake()
+    protected virtual void Awake()
     {
         // if not set prior to launch, retrieve meter's rect transform component
         if (fillTransform == null)

@@ -2311,6 +2311,7 @@ MonoBehaviour:
   foreFill: {fileID: 6362872103079761885}
   meterFlash: {fileID: 5299393433075980638}
   flashRate: 9
+  popTransform: {fileID: 782614527542993703}
 --- !u!1 &6516349311772032401
 GameObject:
   m_ObjectHideFlags: 0

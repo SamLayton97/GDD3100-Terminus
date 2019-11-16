@@ -36,6 +36,19 @@ public class O2Meter : MeterScaler
     [SerializeField] RectTransform popTransform;            // controls size of meter pop microinteraction
     CanvasGroup popCanvasGroup;                             // controls visibility of meter pop interaction
     Vector2 popTargetScale = new Vector2();                 // scale meter pop grows to
+    IEnumerator popCoroutine;                               // coroutine controlling visibility and scale of pop image
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    protected override void Awake()
+    {
+        base.Awake();
+
+        // retrieve pop components/information
+        popCanvasGroup = popTransform.GetComponent<CanvasGroup>();
+        popTargetScale = popTransform.localScale;
+    }
 
     /// <summary>
     /// Called before first frame of Update
