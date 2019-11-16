@@ -32,7 +32,6 @@ public class O2Meter : MeterScaler
     [SerializeField] float flashRate = 1f;                  // rate at which meter overlay flashes
     IEnumerator flashCoroutine;                             // coroutine controlling visibility of flash image
 
-
     /// <summary>
     /// Called before first frame of Update
     /// </summary>
