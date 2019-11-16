@@ -56,14 +56,18 @@ public class O2Meter : MeterScaler
         // if oxygen change was significant
         if (Mathf.Abs(oxygenChange) >= significantChange)
         {
-            // start/restart coroutine to shrink lazy fill
-            if (lazyLossRunning) StopCoroutine(lazyLossCoroutine);
-            lazyLossCoroutine = LockLazyLoss();
-            StartCoroutine(lazyLossCoroutine);
+            // if player lost oxygen
+            if (oxygenChange < 0)
+            {
+                // start/restart coroutine to shrink lazy fill
+                if (lazyLossRunning) StopCoroutine(lazyLossCoroutine);
+                lazyLossCoroutine = LockLazyLoss();
+                StartCoroutine(lazyLossCoroutine);
 
-            // start coroutine to cause meter to flash
-            flashCoroutine = FlashMeter();
-            StartCoroutine(flashCoroutine);
+                // start coroutine to cause meter to flash
+                flashCoroutine = FlashMeter();
+                StartCoroutine(flashCoroutine);
+            }
         }
         // otherwise, gradually scale lazy meters
         else
