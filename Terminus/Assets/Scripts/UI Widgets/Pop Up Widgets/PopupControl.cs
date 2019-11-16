@@ -245,7 +245,7 @@ public class PopupControl : SceneTransitioner
             Time.timeScale = 0;
 
         // set player's mouse cursor
-        CursorManager.Instance.SetCursor(Cursors.Standard);
+        CursorManager.Instance.SetCursorType(Cursors.Standard);
 
         // enable end-of-level menu components
         darkenGameOnPause.SetActive(true);

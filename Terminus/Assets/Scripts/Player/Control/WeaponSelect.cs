@@ -130,7 +130,7 @@ public class WeaponSelect : MonoBehaviour
         // swap weapon, play sound, and update cursor
         playerFire.CurrentWeapon = transform.GetChild(newWeaponIndex).GetComponent<Weapon>();
         AudioManager.Play(mySwapSound, true);
-        CursorManager.Instance.SetCursor((Cursors)(newWeaponIndex + 1));
+        CursorManager.Instance.SetCursorType((Cursors)(newWeaponIndex + 1));
 
         // invoke event to update current weapon on UI
         updateCurrentWeapon.Invoke(newWeaponIndex);
@@ -149,7 +149,7 @@ public class WeaponSelect : MonoBehaviour
             // swap weapon, update cursor, and play sound
             playerFire.CurrentWeapon = transform.GetChild(switchToIndex).GetComponent<Weapon>();
             updateCurrentWeapon.Invoke(switchToIndex);
-            CursorManager.Instance.SetCursor((Cursors)(switchToIndex + 1));
+            CursorManager.Instance.SetCursorType((Cursors)(switchToIndex + 1));
             AudioManager.Play(mySwapSound, true);
         }
         // otherwise (player lacks ammo for given weapon type)

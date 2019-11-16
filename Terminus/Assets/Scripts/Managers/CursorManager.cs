@@ -17,7 +17,7 @@ public enum Cursors
 /// <summary>
 /// Enumerations of cursor variation states
 /// </summary>
-public enum CursorState
+public enum CursorStates
 {
     Standard,
     Depressed,
@@ -65,6 +65,7 @@ public class CursorManager : MonoBehaviour
     List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
     Cursors currCursor = Cursors.PistolReticle;                         // current cursor used by player
     Cursors cursorBeforePause = Cursors.PistolReticle;                  // holds cursor displayed before player paused game
+    CursorStates currState = CursorStates.Standard;                     // current state of cursor used by player
 
     /// <summary>
     /// Static read-access property returning
@@ -107,20 +108,31 @@ public class CursorManager : MonoBehaviour
         }
 
         // set starting cursor
-        SetCursor(Cursors.Standard);
+        SetCursorType(Cursors.Standard);
     }
 
     /// <summary>
     /// Sets user's mouse cursor to one of
-    /// a given enumeration of cursors
+    /// a given enumeration of cursors types
     /// </summary>
-    /// <param name="newCursor">new cursor to display</param>
-    public void SetCursor(Cursors newCursor)
+    /// <param name="newCursor">new cursor type to display</param>
+    public void SetCursorType(Cursors newCursor)
     {
         currCursor = newCursor;
-        //Cursor.SetCursor(standardCursors[(int)newCursor], hotspots[(int)newCursor], CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor], CursorMode.ForceSoftware);
     }
     
+    /// <summary>
+    /// Sets cursor's state to one of a given
+    /// enumeration of states
+    /// </summary>
+    /// <param name="newState">new state of cursor</param>
+    public void SetCursorState(CursorStates newState)
+    {
+        currState = newState;
+        Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor], CursorMode.ForceSoftware);
+    }
+
     /// <summary>
     /// Sets user's mouse cursor to reflect whether player
     /// is interacting with weapons or in-game menus, restoring
@@ -134,11 +146,11 @@ public class CursorManager : MonoBehaviour
         {
             // save cursor before pause and set cursor to standard mouse
             cursorBeforePause = currCursor;
-            SetCursor(Cursors.Standard);
+            SetCursorType(Cursors.Standard);
         }
         // otherwise, restore cursor before pause
         else
-            SetCursor(cursorBeforePause);
+            SetCursorType(cursorBeforePause);
     }
 
 }
