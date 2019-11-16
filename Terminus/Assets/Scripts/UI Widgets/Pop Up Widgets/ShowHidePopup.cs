@@ -12,7 +12,7 @@ public class ShowHidePopup : MonoBehaviour
 {
     // display support variables
     RectTransform myTransform;
-    Vector2 targetScale = new Vector2();
+    Vector2 showScale = new Vector2();
     IEnumerator showCoroutine;                              // coroutine controlling expansion of popup into full view
     IEnumerator hideCoroutine;                              // coroutine controlling flattening of popup
 
@@ -29,7 +29,7 @@ public class ShowHidePopup : MonoBehaviour
     {
         // retrieve relevant information
         myTransform = GetComponent<RectTransform>();
-        targetScale = myTransform.localScale;
+        showScale = myTransform.localScale;
 
         // if content visibility controller wasn't set before startup
         if (!contentVisibility)
@@ -65,7 +65,20 @@ public class ShowHidePopup : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShowPopUp()
     {
-        yield return new WaitForEndOfFrame();
+        // expand pop-up into full view
+        float showProgress = 0f;
+        do
+        {
+            showProgress += Time.deltaTime * growRate;
+            myTransform.localScale = Vector2.Lerp(hiddenScale, showScale, showProgress);
+            yield return new WaitForEndOfFrame();
+
+        } while ((Vector2)myTransform.localScale != showScale);
+
+        // once fully expanded, show pop-up's content
+        contentVisibility.alpha = 1;
+        contentVisibility.blocksRaycasts = true;
+        contentVisibility.interactable = true;
     }
 
     /// <summary>
@@ -75,19 +88,19 @@ public class ShowHidePopup : MonoBehaviour
     /// <returns></returns>
     IEnumerator HidePopUp()
     {
-        // expand pop-up into full view
-        float showProgress = 0f;
+        // hide pop-up's content
+        contentVisibility.alpha = 0;
+        contentVisibility.blocksRaycasts = false;
+        contentVisibility.interactable = false;
+
+        // shrink popup into hidden scale
+        float hideProgress = 0f;
         do
         {
-            showProgress += Time.deltaTime * growRate;
-            myTransform.localScale = Vector2.Lerp(hiddenScale, targetScale, showProgress);
+            hideProgress += Time.deltaTime * growRate;
+            myTransform.localScale = Vector2.Lerp(showScale, hiddenScale, hideProgress);
             yield return new WaitForEndOfFrame();
 
-        } while ((Vector2)myTransform.localScale != targetScale);
-
-        // once fully expanded, show pop-up's content
-        contentVisibility.alpha = 1;
-        contentVisibility.blocksRaycasts = true;
-        contentVisibility.interactable = true;
+        } while ((Vector2)myTransform.localScale != hiddenScale);
     }
 }
