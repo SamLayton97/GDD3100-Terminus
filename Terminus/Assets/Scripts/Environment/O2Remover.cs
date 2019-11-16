@@ -20,6 +20,24 @@ public abstract class O2Remover : MonoBehaviour
     }
 
     /// <summary>
+    /// Called when user mouses over hostile entity's collider
+    /// </summary>
+    void OnMouseEnter()
+    {
+        // set cursor to its hostile state
+        CursorManager.Instance.SetCursorState(CursorStates.Hostile);
+    }
+
+    /// <summary>
+    /// Called when user's mouse leaves hostile entity's collider
+    /// </summary>
+    void OnMouseLeave()
+    {
+        // set cursor to its standard state
+        CursorManager.Instance.SetCursorState(CursorStates.Standard);
+    }
+
+    /// <summary>
     /// Adds given method as listener to deduct player O2 event
     /// </summary>
     /// <param name="newListener">listener of deduct oxygen event</param>
