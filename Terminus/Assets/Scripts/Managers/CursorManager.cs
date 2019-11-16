@@ -15,6 +15,16 @@ public enum Cursors
 }
 
 /// <summary>
+/// Enumerations of cursor variation states
+/// </summary>
+public enum CursorState
+{
+    Standard,
+    Depressed,
+    Hostile         // used when user mouses over enemies
+}
+
+/// <summary>
 /// Texture2D list wrapper class used to modify
 /// a list of lists in the inspector
 /// </summary>
@@ -46,12 +56,10 @@ public class CursorManager : MonoBehaviour
     static CursorManager instance;
 
     // cursor resources
-
-
-    // cursor resources
-    //[SerializeField]
-    //List<Texture2D> cursorTextures = new List<Texture2D>();             // list of standard textures user's mouse cursor can change to throughout game
-    //                                                                    // NOTE: items must be entered as they appear in the Cursors enum
+    [SerializeField]
+    List<Texture2DListWrapper> cursorTextures =     // 2D list of textures user's mouse cursor can change to throughout game
+        new List<Texture2DListWrapper>();           // NOTE: rows must be entered as they appear in the Cursors enum
+                                                    // columns must be entered in order of CursorStates enum
 
     // support variables
     List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
