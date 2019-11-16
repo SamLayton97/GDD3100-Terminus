@@ -35,8 +35,11 @@ public class O2Meter : MeterScaler
     // meter pop support variables
     [SerializeField] RectTransform popTransform;            // controls size of meter pop microinteraction
     CanvasGroup popCanvasGroup;                             // controls visibility of meter pop interaction
-    Vector2 popTargetScale = new Vector2();                 // scale meter pop grows to
+    Vector2 popPeakScale = new Vector2();                   // scale meter pop grows to
     IEnumerator popCoroutine;                               // coroutine controlling visibility and scale of pop image
+    [SerializeField] float popExpandRate = 1f;              // rate at which pop overlay expands to its peak scale
+
+    #region Unity Methods
 
     /// <summary>
     /// Used for initialization
@@ -47,7 +50,11 @@ public class O2Meter : MeterScaler
 
         // retrieve pop components/information
         popCanvasGroup = popTransform.GetComponent<CanvasGroup>();
-        popTargetScale = popTransform.localScale;
+        popPeakScale = popTransform.localScale;
+
+        // initialize pop overlay
+        popTransform.localScale = Vector2.zero;
+
     }
 
     /// <summary>
@@ -58,6 +65,10 @@ public class O2Meter : MeterScaler
         // add self as listener to Update O2 display event
         EventManager.AddUpdateO2Listener(UpdateDisplay);
     }
+
+    #endregion
+
+    #region Overridden Methods
 
     /// <summary>
     /// Scales oxygen meter to passed in value,
@@ -89,6 +100,10 @@ public class O2Meter : MeterScaler
             if (lazyRegainRunning) StopCoroutine(lazyRegainCoroutine);
             lazyRegainCoroutine = LockLazyRegain();
             StartCoroutine(lazyRegainCoroutine);
+
+            // start/restart pop coroutines
+            popCoroutine = PopMeter();
+            StartCoroutine(popCoroutine);
         }
 
         // gradually scale unlocked lazy meters
@@ -100,6 +115,10 @@ public class O2Meter : MeterScaler
                 fillTransform.localScale.x),
                 1, 1);
     }
+
+    #endregion
+
+    #region Coroutines
 
     /// <summary>
     /// Locks oxygen meter's lazy loss fill for duration
@@ -151,6 +170,17 @@ public class O2Meter : MeterScaler
     /// <returns></returns>
     IEnumerator PopMeter()
     {
+        // expand pop overlay to its peak
+        float popProgress = 0f;
+        while ((Vector2)popTransform.localScale != popPeakScale)
+        {
+            popTransform.localScale = Vector2.Lerp(Vector2.zero, popPeakScale, 1);
+            yield return new WaitForEndOfFrame();
+        }
+
         yield return new WaitForEndOfFrame();
     }
+
+    #endregion
+
 }
