@@ -88,31 +88,6 @@ public class O2Meter : MeterScaler
                 fillTransform.localScale.x), 
                 1, 1);
         }
-
-        //// scale meter
-        //float loss = fillTransform.localScale.x * 100 - newValue;
-        //base.UpdateDisplay(newValue);
-
-        //// if oxygen loss was significant
-        //if (loss >= significantLoss)
-        //{
-        //    // start/restart coroutine to shrink lazy fill
-        //    if (lazyFillRunning) StopCoroutine(lazyFillCoroutine);
-        //    lazyFillCoroutine = LockLazyFill();
-        //    StartCoroutine(lazyFillCoroutine);
-
-        //    // start coroutine to cause meter to flash
-        //    flashCoroutine = FlashMeter();
-        //    StartCoroutine(flashCoroutine);
-
-        //    // TODO: start/restart coroutine rotating and scaling meter
-
-        //}
-        //// but if no lazy fill coroutine is running (damage isn't significant)
-        //else if (!lazyFillRunning)
-        //    // gradually scale lazy fill with meter
-        //    backFill.localScale = new Vector3(Mathf.Max(backFill.localScale.x - Mathf.Sign(loss) * scaleRate * Time.deltaTime, 
-        //        fillTransform.localScale.x), 1, 1);
     }
 
     /// <summary>
@@ -135,7 +110,6 @@ public class O2Meter : MeterScaler
     /// <returns></returns>
     IEnumerator LockLazyRegain()
     {
-        Debug.Log("running!");
         // lock lazy fill's scale for wait duration
         lazyRegainRunning = true;
         yield return new WaitForSeconds(lazyFillWait);
