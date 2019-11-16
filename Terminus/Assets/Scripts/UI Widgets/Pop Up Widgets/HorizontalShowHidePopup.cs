@@ -39,6 +39,35 @@ public class HorizontalShowHidePopup : MonoBehaviour
         contentVisibility.alpha = 0;
         contentVisibility.blocksRaycasts = false;
         contentVisibility.interactable = false;
-        //myTransform.localScale = flattenedScale;
+        myTransform.localScale = flattenedScale;
+    }
+
+    /// <summary>
+    /// Displays/hides pop-up using coroutines
+    /// </summary>
+    /// <param name="display">whether popup should now display</param>
+    public void ToggleDisplay(bool display)
+    {
+
+    }
+
+    /// <summary>
+    /// Gradually expands pop-up into view before
+    /// displaying its contents
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ShowPopUp()
+    {
+        yield return new WaitForEndOfFrame();
+    }
+
+    /// <summary>
+    /// Hides pop-up's content before gradually
+    /// flattening it vertically.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator HidePopUp()
+    {
+        yield return new WaitForEndOfFrame();
     }
 }
