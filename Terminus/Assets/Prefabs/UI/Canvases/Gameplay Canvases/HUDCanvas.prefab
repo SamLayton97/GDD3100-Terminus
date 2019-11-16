@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffff653cb232ae4f83a7c1d80f8ba4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRectTransform: {fileID: 3881650801070519185}
+  fillTransform: {fileID: 3881650801070519185}
   growWithIncrease: 0
 --- !u!1 &3764466680897767624
 GameObject:
@@ -2225,7 +2225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f4c67fde784d545ba40bf4ea72cf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRectTransform: {fileID: 6516349311772032400}
+  fillTransform: {fileID: 6516349311772032400}
   growWithIncrease: 1
   lazyFill: {fileID: 1468251621197047374}
   lazyFillWait: 2

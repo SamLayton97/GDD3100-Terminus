@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public abstract class MeterScaler : MonoBehaviour
 {
     // display support variables
-    [SerializeField] protected RectTransform myRectTransform;       // scalable RectTransform component of meter
+    [SerializeField] protected RectTransform fillTransform;         // scalable RectTransform component of meter's fill image
     [SerializeField] bool growWithIncrease = true;                  // flag determining whether meter should scale or shrink with increasing value
 
     /// <summary>
@@ -21,8 +21,8 @@ public abstract class MeterScaler : MonoBehaviour
     protected void Awake()
     {
         // if not set prior to launch, retrieve meter's rect transform component
-        if (myRectTransform == null)
-            myRectTransform = GetComponent<RectTransform>();
+        if (fillTransform == null)
+            fillTransform = GetComponent<RectTransform>();
     }
 
     /// <summary>
@@ -37,6 +37,6 @@ public abstract class MeterScaler : MonoBehaviour
     protected virtual void UpdateDisplay(float newValue)
     {
         if (!growWithIncrease) newValue = 100 - newValue;
-        myRectTransform.localScale = new Vector2(Mathf.Clamp01(newValue / 100), myRectTransform.localScale.y);
+        fillTransform.localScale = new Vector2(Mathf.Clamp01(newValue / 100), fillTransform.localScale.y);
     }
 }

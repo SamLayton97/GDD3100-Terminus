@@ -25,6 +25,8 @@ public class O2Meter : MeterScaler
     [SerializeField] float flashRate = 1f;                  // rate at which meter overlay flashes
     IEnumerator flashCoroutine;                             // coroutine controlling visibility of flash image
 
+    // meter transformation support variables
+
     /// <summary>
     /// Called before first frame of Update
     /// </summary>
@@ -42,7 +44,7 @@ public class O2Meter : MeterScaler
     protected override void UpdateDisplay(float newValue)
     {
         // scale meter
-        float loss = myRectTransform.localScale.x * 100 - newValue;
+        float loss = fillTransform.localScale.x * 100 - newValue;
         base.UpdateDisplay(newValue);
 
         // if oxygen loss was significant
@@ -56,12 +58,15 @@ public class O2Meter : MeterScaler
             // start coroutine to cause meter to flash
             flashCoroutine = FlashMeter();
             StartCoroutine(flashCoroutine);
+
+            // TODO: start/restart corouting rotating and scaling meter
+
         }
         // but if no lazy fill coroutine is running (damage isn't significant)
         else if (!lazyFillRunning)
             // gradually scale lazy fill with meter
             lazyFill.localScale = new Vector3(Mathf.Max(lazyFill.localScale.x - Mathf.Sign(loss) * scaleRate * Time.deltaTime, 
-                myRectTransform.localScale.x), 1, 1);
+                fillTransform.localScale.x), 1, 1);
     }
 
     /// <summary>
