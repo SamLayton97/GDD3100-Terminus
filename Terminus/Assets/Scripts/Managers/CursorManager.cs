@@ -166,21 +166,6 @@ public class CursorManager : MonoBehaviour
         currCursor = newCursor;
         Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
     }
-    
-    /// <summary>
-    /// Sets cursor's state to one of a given
-    /// enumeration of states
-    /// </summary>
-    /// <param name="newState">new state of cursor</param>
-    public void SetCursorState(CursorStates newState)
-    {
-        // change state if button isn't currently depressed
-        if (!depressed)
-        {
-            currState = newState;
-            Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
-        }
-    }
 
     /// <summary>
     /// Sets user's mouse cursor to reflect whether player
@@ -205,6 +190,21 @@ public class CursorManager : MonoBehaviour
     #endregion
 
     #region Private Methods
+
+    /// <summary>
+    /// Sets cursor's state to one of a given
+    /// enumeration of states
+    /// </summary>
+    /// <param name="newState">new state of cursor</param>
+    void SetCursorState(CursorStates newState)
+    {
+        // change state if button isn't currently depressed
+        if (!depressed)
+        {
+            currState = newState;
+            Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
+        }
+    }
 
     /// <summary>
     /// Locks cursor in depressed state for unscaled time
