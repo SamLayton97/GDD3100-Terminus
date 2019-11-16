@@ -73,6 +73,9 @@ public class CursorManager : MonoBehaviour
     [SerializeField] float depressionTime = 0.1f;           // realtime seconds cursor is locked in depressed state
     bool depressed = false;
 
+    // hostile detection support variables
+    RaycastHit2D hostileHit;
+
     #region Properties
 
     /// <summary>
@@ -131,6 +134,16 @@ public class CursorManager : MonoBehaviour
         // depress cursor on mouse button down
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             StartCoroutine(DepressCursor());
+
+        // detect if user is mousing over hostile entity
+        hostileHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition), Mathf.Infinity, 1 << LayerMask.NameToLayer("Alien"));
+
+        // change cursor state to reflect hit's hostility
+        if (hostileHit.transform != null)
+            SetCursorState(CursorStates.Hostile);
+        else
+            SetCursorState(CursorStates.Standard);
+
     }
 
     #endregion
