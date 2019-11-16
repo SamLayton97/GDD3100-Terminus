@@ -49,6 +49,7 @@ public class OxygenControl : LevelEnder
     [SerializeField] GameObject hurtParticleEffect;                 // particle effect played when player loses significant amount of oxygen at once
     [SerializeField] List<GameObject> regainEffects =               // particle effects played (and replayed) when players regains oxygen -- set in editor
         new List<GameObject>();
+    [Range(0, 1f)]
     [SerializeField] float effectDelay = 0.5f;                      // delay between playing each regain particle effect
     [SerializeField] float lowOxygenThreshold = 40f;                // arbitrary point where player should be mindful of their oxygen
     [SerializeField] AudioSource myBreathingSource;                 // audio source used to play looping breathing effect
@@ -146,10 +147,23 @@ public class OxygenControl : LevelEnder
         updateO2Event.Invoke(currOxygen);
 
         // play particle feedback
-        int particleCount = Random.Range(1, 3);
-        for (int i = 0; i < particleCount; i++)
+        StartCoroutine(OpenCannister());
+    }
+
+    /// <summary>
+    /// Coroutine controlling playing of air burst
+    /// particle effects when player collides with 
+    /// an oxygen cannister.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator OpenCannister()
+    {
+        // play each effect in sequence
+        foreach (GameObject effect in regainEffects)
         {
-            
+            // play and wait
+            effect.SetActive(true);
+            yield return new WaitForSeconds(effectDelay);
         }
     }
 
