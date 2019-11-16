@@ -2228,8 +2228,8 @@ MonoBehaviour:
   myRectTransform: {fileID: 6516349311772032400}
   growWithIncrease: 1
   lazyFill: {fileID: 1468251621197047374}
-  lazyFillWait: 1
-  scaleRate: 1
+  lazyFillWait: 2
+  scaleRate: 0.8
   significantLoss: 10
 --- !u!1 &6516349311772032401
 GameObject:

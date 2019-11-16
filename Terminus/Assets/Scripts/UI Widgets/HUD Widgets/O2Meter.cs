@@ -11,7 +11,7 @@ public class O2Meter : MeterScaler
     [SerializeField] RectTransform lazyFill;
     [Range(0f, 3f)]
     [SerializeField] float lazyFillWait = 1f;               // time 'lazy' oxygen meter fill waits before shrinking
-    [Range(0f, 10f)]
+    [Range(0f, 2f)]
     [SerializeField] float scaleRate = 1f;                  // rate at which lazy fill matches scale of meter
     [Range(1, 100)]
     [SerializeField] int significantLoss = 10;              // amount of oxygen player must lose to activate lazy fill
