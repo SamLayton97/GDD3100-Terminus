@@ -37,8 +37,10 @@ public class O2Meter : MeterScaler
     CanvasGroup popCanvasGroup;                             // controls visibility of meter pop interaction
     Vector2 popPeakScale = new Vector2();                   // scale meter pop grows to
     IEnumerator popCoroutine;                               // coroutine controlling visibility and scale of pop image
-    [Range(0f, 1f)]
+    [Range(0f, 10f)]
     [SerializeField] float popExpandRate = 1f;              // rate at which pop overlay expands to its peak scale
+    [Range(0f, 5f)]
+    [SerializeField] float popDiminishRate = 1f;            // rate at which pop diminishes after reaching peak scale
 
     #region Unity Methods
 
@@ -52,9 +54,6 @@ public class O2Meter : MeterScaler
         // retrieve pop components/information
         popCanvasGroup = popTransform.GetComponent<CanvasGroup>();
         popPeakScale = popTransform.localScale;
-
-        // initialize pop overlay
-        popTransform.localScale = Vector2.zero;
 
     }
 
@@ -171,16 +170,27 @@ public class O2Meter : MeterScaler
     /// <returns></returns>
     IEnumerator PopMeter()
     {
+        // initialize pop overlay
+        popCanvasGroup.alpha = 1;
+
         // expand pop overlay to its peak
         float popProgress = 0f;
-        while ((Vector2)popTransform.localScale != popPeakScale)
+        do
         {
             popProgress += Time.deltaTime * popExpandRate;
             popTransform.localScale = Vector2.Lerp(Vector2.zero, popPeakScale, popProgress);
             yield return new WaitForEndOfFrame();
-        }
+        } while ((Vector2)popTransform.localScale != popPeakScale);
 
-        Debug.Log("done!");
+        // shrink and fade overlay
+        float diminishProgress = 0f;
+        do
+        {
+            diminishProgress += Time.deltaTime * popDiminishRate;
+            popTransform.localScale = Vector2.Lerp(popPeakScale, Vector2.one, diminishProgress);
+            popCanvasGroup.alpha = Mathf.Lerp(1, 0, diminishProgress);
+            yield return new WaitForEndOfFrame();
+        } while (popCanvasGroup.alpha > 0);
     }
 
     #endregion
