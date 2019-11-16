@@ -23,7 +23,7 @@ public abstract class Weapon : MonoBehaviour
 
     // protected variables
     protected bool firedLastFrame = false;      // flag determining whether weapon registered a shot on the previous frame
-    protected Rigidbody2D parentRigidbody;      // rigidbody 2d component of agent firing weapon
+    protected Rigidbody2D playerRigidbody;      // rigidbody 2d component of agent firing weapon
     protected Animator myAnimator;              // animation component used to play firing animation
     protected ParticleSystem fireEffect;        // particle effect played when weapon is fired
                                                 // NOTE: assumes weapon has a child object with a one-shot particle system component
@@ -43,7 +43,7 @@ public abstract class Weapon : MonoBehaviour
     void Awake()
     {
         // retrieve necessary components
-        parentRigidbody = transform.parent.gameObject.GetComponent<Rigidbody2D>();
+        playerRigidbody = transform.parent.parent.gameObject.GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         fireEffect = GetComponentInChildren<ParticleSystem>();
 
@@ -92,12 +92,12 @@ public abstract class Weapon : MonoBehaviour
             float agentRotation = transform.parent.rotation.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 fireVector = new Vector2(Mathf.Cos(agentRotation), Mathf.Sin(agentRotation)).normalized;
             GameObject newProjectile = Instantiate(projectileObject, transform.position, Quaternion.identity);
-            newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + parentRigidbody.velocity,
+            newProjectile.GetComponent<Rigidbody2D>().AddForce((fireVector * projectileForce) + playerRigidbody.velocity,
                 ForceMode2D.Impulse);
-            newProjectile.GetComponent<FaceVelocity>().RelativeTo = parentRigidbody;
+            newProjectile.GetComponent<FaceVelocity>().RelativeTo = playerRigidbody;
 
             // apply reactive force to weapon user in opposite direction
-            parentRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
+            playerRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
 
             // play random firing sound
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);

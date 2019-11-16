@@ -48,8 +48,6 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(CurrentWeapon.gameObject.name);
-
         // if player fires weapon and game isn't paused
         if (CustomInputManager.GetMouseButton("Fire") && Time.timeScale != 0)
         {

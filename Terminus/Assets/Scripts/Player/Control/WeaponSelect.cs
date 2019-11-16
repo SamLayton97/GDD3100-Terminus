@@ -154,7 +154,6 @@ public class WeaponSelect : MonoBehaviour
         if (weaponContainer.GetChild(switchToIndex).gameObject.activeSelf)
         {
             // swap weapon, update cursor, and play sound
-            Debug.Log("set weapon here " + switchToIndex);
             playerFire.CurrentWeapon = weaponContainer.GetChild(switchToIndex).GetComponent<Weapon>();
             updateCurrentWeapon.Invoke(switchToIndex);
             CursorManager.Instance.SetCursorType((Cursors)(switchToIndex + 1));
