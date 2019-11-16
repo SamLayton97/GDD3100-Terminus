@@ -35,11 +35,11 @@ public class O2Meter : MeterScaler
     protected override void UpdateDisplay(float newValue)
     {
         // scale meter
-        float deltaValue = myRectTransform.localScale.x * 100 - newValue;
+        float loss = myRectTransform.localScale.x * 100 - newValue;
         base.UpdateDisplay(newValue);
 
         // if oxygen loss was significant
-        if (deltaValue >= significantLoss)
+        if (loss >= significantLoss)
         {
             // start/restart coroutine to shrink lazy fill
             if (lazyFillRunning) StopCoroutine(lazyFillCoroutine);
@@ -48,11 +48,9 @@ public class O2Meter : MeterScaler
         }
         // but if no lazy fill coroutine is running (damage isn't significant)
         else if (!lazyFillRunning)
-        {
             // gradually scale lazy fill with meter
-            lazyFill.localScale = new Vector3(Mathf.Max(lazyFill.localScale.x - Mathf.Sign(deltaValue) * scaleRate * Time.deltaTime, 
+            lazyFill.localScale = new Vector3(Mathf.Max(lazyFill.localScale.x - Mathf.Sign(loss) * scaleRate * Time.deltaTime, 
                 myRectTransform.localScale.x), 1, 1);
-        }
     }
 
     /// <summary>
