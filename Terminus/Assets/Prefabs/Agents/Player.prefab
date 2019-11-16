@@ -26,7 +26,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2578838663206522415}
   m_Father: {fileID: 6207548652762762169}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,6 +350,7 @@ MonoBehaviour:
   effectsContainer: {fileID: 4951778468996464207}
   hurtParticleEffect: {fileID: 38349726419631341, guid: f75c561fb980bed489ef714e448e5db7,
     type: 3}
+  regainParticleEffect: {fileID: 2578838663206031887}
   lowOxygenThreshold: 40
   myBreathingSource: {fileID: 4275031816730586811}
 --- !u!82 &4275031816730586811
@@ -529,6 +531,57 @@ MonoBehaviour:
   scaleWithMagnitude: 1
   scaleBounds: {x: 0, y: 1.2}
   scaleRate: 0.05
+--- !u!1001 &775106302595923411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4951778468996464207}
+    m_Modifications:
+    - target: {fileID: 2956713256025403356, guid: 82c5b2513309c654780749c2df96ecac,
+        type: 3}
+      propertyPath: m_Name
+      value: CannisterPop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956713256025240572, guid: 82c5b2513309c654780749c2df96ecac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956713256025240572, guid: 82c5b2513309c654780749c2df96ecac,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5963678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956713256025240572, guid: 82c5b2513309c654780749c2df96ecac,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3799282
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956713256025240572, guid: 82c5b2513309c654780749c2df96ecac,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.3799283
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956713256025240572, guid: 82c5b2513309c654780749c2df96ecac,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5963677
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82c5b2513309c654780749c2df96ecac, type: 3}
+--- !u!1 &2578838663206031887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2956713256025403356, guid: 82c5b2513309c654780749c2df96ecac,
+    type: 3}
+  m_PrefabInstance: {fileID: 775106302595923411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2578838663206522415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2956713256025240572, guid: 82c5b2513309c654780749c2df96ecac,
+    type: 3}
+  m_PrefabInstance: {fileID: 775106302595923411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7418265347672332107
 PrefabInstance:
   m_ObjectHideFlags: 0

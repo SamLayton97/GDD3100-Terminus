@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2956713256025240572
 Transform:
   m_ObjectHideFlags: 0
@@ -28,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 2956713256025403356}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25, y: -90.00001, z: 90.00001}
 --- !u!198 &2956713256044639932
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2956713256025403356}
   serializedVersion: 6
-  lengthInSec: 1
+  lengthInSec: 0.75
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3

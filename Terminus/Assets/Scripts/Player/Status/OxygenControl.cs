@@ -21,6 +21,8 @@ public class OxygenControl : LevelEnder
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
     bool lowOxygen = false;                 // flag indicating whether player is low on oxygen
+    Vector3 regainOrientation
+        = new Vector3();
 
     // depletion configuration variables
     [SerializeField] float oxygenDepletionRate = 1f;                // percent of oxygen used per second
@@ -42,14 +44,16 @@ public class OxygenControl : LevelEnder
     [SerializeField] float screenShakeFadeInTime = 0.5f;            // time it takes for screen shake to reach peak magnitude
     [SerializeField] float screenShakeFadeOutTime = 0.5f;           // time it takes for screen shake to end
 
-    // particle effects configuration variables
+    // effects configuration variables
     [SerializeField] Transform effectsContainer;                    // transform of child object holding all particle effects
-    [SerializeField] GameObject hurtParticleEffect;                 // particle effect spawned when player loses significant amount of oxygen at once
+    [SerializeField] GameObject hurtParticleEffect;                 // particle effect played when player loses significant amount of oxygen at once
+    [SerializeField] GameObject regainParticleEffect;               // particle effect played (and replayed) when player regains oxygen
+    [SerializeField] float regainRotationArc = 15f;                 // arc which regain effect can rotate within (in degrees) when it plays
     [SerializeField] float lowOxygenThreshold = 40f;                // arbitrary point where player should be mindful of their oxygen
     [SerializeField] AudioSource myBreathingSource;                 // audio source used to play looping breathing effect
 
     // event support
-    UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
+    UpdateO2DisplayEvent updateO2Event;                             // event invoked to update player's oxygen on UI
 
     #region Properties
 
@@ -80,12 +84,13 @@ public class OxygenControl : LevelEnder
     /// </summary>
     void Awake()
     {
-        // retrieve necessary components
+        // retrieve necessary components and information
         myLook = GetComponent<FaceMousePosition>();
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
         if (!effectsContainer)
             effectsContainer = transform.GetChild(1);       // assumed to be second child under player
+        regainOrientation = regainParticleEffect.transform.localEulerAngles;
     }
 
     // Start is called before the first frame update
@@ -136,8 +141,12 @@ public class OxygenControl : LevelEnder
     /// <param name="amountRefilled">amount of O2 filled</param>
     void RefillO2Tank(float amountRefilled)
     {
+        // increase oxygen
         currOxygen = Mathf.Min(maxOxygen, currOxygen + amountRefilled);
         updateO2Event.Invoke(currOxygen);
+
+        // play particle feedback
+        regainParticleEffect.SetActive(true);
     }
 
     /// <summary>
