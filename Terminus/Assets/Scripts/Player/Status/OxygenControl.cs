@@ -47,8 +47,9 @@ public class OxygenControl : LevelEnder
     // effects configuration variables
     [SerializeField] Transform effectsContainer;                    // transform of child object holding all particle effects
     [SerializeField] GameObject hurtParticleEffect;                 // particle effect played when player loses significant amount of oxygen at once
-    [SerializeField] GameObject regainParticleEffect;               // particle effect played (and replayed) when player regains oxygen
-    [SerializeField] float regainRotationArc = 15f;                 // arc which regain effect can rotate within (in degrees) when it plays
+    [SerializeField] List<GameObject> regainEffects =               // particle effects played (and replayed) when players regains oxygen -- set in editor
+        new List<GameObject>();
+    [SerializeField] float effectDelay = 0.5f;                      // delay between playing each regain particle effect
     [SerializeField] float lowOxygenThreshold = 40f;                // arbitrary point where player should be mindful of their oxygen
     [SerializeField] AudioSource myBreathingSource;                 // audio source used to play looping breathing effect
 
@@ -90,7 +91,6 @@ public class OxygenControl : LevelEnder
         myTriggerCollider = GetComponent<CircleCollider2D>();
         if (!effectsContainer)
             effectsContainer = transform.GetChild(1);       // assumed to be second child under player
-        regainOrientation = regainParticleEffect.transform.localEulerAngles;
     }
 
     // Start is called before the first frame update
@@ -146,7 +146,11 @@ public class OxygenControl : LevelEnder
         updateO2Event.Invoke(currOxygen);
 
         // play particle feedback
-        regainParticleEffect.SetActive(true);
+        int particleCount = Random.Range(1, 3);
+        for (int i = 0; i < particleCount; i++)
+        {
+            
+        }
     }
 
     /// <summary>
