@@ -52,6 +52,10 @@ public class O2Meter : MeterScaler
             if (lazyFillRunning) StopCoroutine(lazyFillCoroutine);
             lazyFillCoroutine = LockLazyFill();
             StartCoroutine(lazyFillCoroutine);
+
+            // startcoroutine to cause meter to flash
+            flashCoroutine = FlashMeter();
+            StartCoroutine(flashCoroutine);
         }
         // but if no lazy fill coroutine is running (damage isn't significant)
         else if (!lazyFillRunning)
@@ -83,7 +87,9 @@ public class O2Meter : MeterScaler
         bool ascending = true;
         do
         {
-            // increase/decrease opacity of flash overlay
+            // increase/decrease opacity of flash overlay, reversing direction when appropriate
+            meterFlash.alpha += flashRate * Time.deltaTime * (ascending ? 1 : -1);
+            if (meterFlash.alpha >= 1) ascending = !ascending;
             yield return new WaitForEndOfFrame();
 
         } while (meterFlash.alpha > 0);
