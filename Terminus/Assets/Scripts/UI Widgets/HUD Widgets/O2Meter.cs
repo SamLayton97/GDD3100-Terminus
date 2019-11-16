@@ -32,6 +32,11 @@ public class O2Meter : MeterScaler
     [SerializeField] float flashRate = 1f;                  // rate at which meter overlay flashes
     IEnumerator flashCoroutine;                             // coroutine controlling visibility of flash image
 
+    // meter pop support variables
+    [SerializeField] RectTransform popTransform;            // controls size of meter pop microinteraction
+    CanvasGroup popCanvasGroup;                             // controls visibility of meter pop interaction
+    Vector2 popTargetScale = new Vector2();                 // scale meter pop grows to
+
     /// <summary>
     /// Called before first frame of Update
     /// </summary>
@@ -125,5 +130,14 @@ public class O2Meter : MeterScaler
             yield return new WaitForEndOfFrame();
 
         } while (meterFlash.alpha > 0);
+    }
+
+    /// <summary>
+    /// Causes oxygen meter to 'pop' when player gains oxygen
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator PopMeter()
+    {
+        yield return new WaitForEndOfFrame();
     }
 }
