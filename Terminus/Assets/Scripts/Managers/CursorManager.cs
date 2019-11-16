@@ -62,10 +62,12 @@ public class CursorManager : MonoBehaviour
                                                     // columns must be entered in order of CursorStates enum
 
     // support variables
-    List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
-    Cursors currCursor = Cursors.PistolReticle;                         // current cursor used by player
-    Cursors cursorBeforePause = Cursors.PistolReticle;                  // holds cursor displayed before player paused game
-    CursorStates currState = CursorStates.Standard;                     // current state of cursor used by player
+    List<Vector2> hotspots = new List<Vector2>();           // list of hotspots for each cursor type
+    Cursors currCursor = Cursors.PistolReticle;             // current cursor used by player
+    Cursors cursorBeforePause = Cursors.PistolReticle;      // holds cursor displayed before player paused game
+    CursorStates currState = CursorStates.Standard;         // current state of cursor used by player
+    IEnumerable depressedCoroutine;                         // coroutine controlling depression of cursor
+    [SerializeField] float depressionTime = 0.05f;          // realtime seconds cursor is locked in depressed state
 
     /// <summary>
     /// Static read-access property returning
@@ -75,6 +77,8 @@ public class CursorManager : MonoBehaviour
     {
         get { return instance; }
     }
+
+    #region Unity Methods
 
     /// <summary>
     /// Used for initialization
@@ -110,6 +114,10 @@ public class CursorManager : MonoBehaviour
         // set starting cursor
         SetCursorType(Cursors.Standard);
     }
+
+    #endregion
+
+    #region Public Methods
 
     /// <summary>
     /// Sets user's mouse cursor to one of
@@ -152,5 +160,12 @@ public class CursorManager : MonoBehaviour
         else
             SetCursorType(cursorBeforePause);
     }
+
+    #endregion
+
+    #region Private Methods
+
+
+    #endregion
 
 }
