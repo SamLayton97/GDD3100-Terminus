@@ -73,6 +73,8 @@ public class CursorManager : MonoBehaviour
     [SerializeField] float depressionTime = 0.1f;           // realtime seconds cursor is locked in depressed state
     bool depressed = false;
 
+    #region Properties
+
     /// <summary>
     /// Static read-access property returning
     /// instance of cursor manager.
@@ -81,6 +83,8 @@ public class CursorManager : MonoBehaviour
     {
         get { return instance; }
     }
+
+    #endregion
 
     #region Unity Methods
 
