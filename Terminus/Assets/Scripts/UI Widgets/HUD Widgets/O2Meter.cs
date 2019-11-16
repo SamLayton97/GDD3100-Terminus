@@ -94,7 +94,7 @@ public class O2Meter : MeterScaler
             StartCoroutine(flashCoroutine);
         }
         // but if player regained oxygen
-        else if (oxygenChange > 0)
+        else if (oxygenChange > 1)
         {
             // start/restart coroutine to lock lazy regain
             if (lazyRegainRunning) StopCoroutine(lazyRegainCoroutine);
@@ -104,6 +104,7 @@ public class O2Meter : MeterScaler
             // start/restart pop coroutines
             popCoroutine = PopMeter();
             StartCoroutine(popCoroutine);
+            Debug.Log(oxygenChange);
         }
 
         // gradually scale unlocked lazy meters
