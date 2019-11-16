@@ -2229,7 +2229,7 @@ MonoBehaviour:
   growWithIncrease: 1
   lazyFill: {fileID: 1468251621197047374}
   lazyFillWait: 1
-  lazyFillShrinkRate: 1
+  scaleRate: 1
   significantLoss: 10
 --- !u!1 &6516349311772032401
 GameObject:

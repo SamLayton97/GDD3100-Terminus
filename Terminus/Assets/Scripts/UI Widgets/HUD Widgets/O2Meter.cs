@@ -12,10 +12,11 @@ public class O2Meter : MeterScaler
     [Range(0f, 3f)]
     [SerializeField] float lazyFillWait = 1f;               // time 'lazy' oxygen meter fill waits before shrinking
     [Range(0f, 10f)]
-    [SerializeField] float lazyFillShrinkRate = 1f;         // rate at which meter shrinks
+    [SerializeField] float scaleRate = 1f;                  // rate at which lazy fill matches scale of meter
     [Range(1, 100)]
     [SerializeField] int significantLoss = 10;              // amount of oxygen player must lose to activate lazy fill
     IEnumerator lazyFillCoroutine;                          // coroutine controlling oxygen meter's lazy fill
+    bool lazyFillRunning = false;
 
     /// <summary>
     /// Called before first frame of Update
@@ -33,31 +34,37 @@ public class O2Meter : MeterScaler
     /// <param name="newValue">new value from 0 - 100 to scale to</param>
     protected override void UpdateDisplay(float newValue)
     {
+        // scale meter
+        float deltaValue = myRectTransform.localScale.x * 100 - newValue;
+        base.UpdateDisplay(newValue);
+
         // if oxygen loss was significant
-        if ((myRectTransform.localScale.x * 100) - newValue >= significantLoss)
+        if (deltaValue >= significantLoss)
         {
             // start/restart coroutine to shrink lazy fill
-            if (lazyFillCoroutine != null) StopCoroutine(lazyFillCoroutine);
-            lazyFillCoroutine = ShrinkLazyFill();
+            if (lazyFillRunning) StopCoroutine(lazyFillCoroutine);
+            lazyFillCoroutine = LockLazyFill();
             StartCoroutine(lazyFillCoroutine);
         }
-        
-        // scale meter
-        base.UpdateDisplay(newValue);
+        // but if no lazy fill coroutine is running (damage isn't significant)
+        else if (!lazyFillRunning)
+        {
+            // gradually scale lazy fill with meter
+            lazyFill.localScale = new Vector3(Mathf.Max(lazyFill.localScale.x - Mathf.Sign(deltaValue) * scaleRate * Time.deltaTime, 
+                myRectTransform.localScale.x), 1, 1);
+        }
     }
 
     /// <summary>
-    /// Shrinks oxygen meter's lazy fill to match 
-    /// scale of actual meter after waiting a period.
+    /// Locks oxygen meter's lazy fill for duration
+    /// to highlight damage dealt to player.
     /// </summary>
     /// <returns></returns>
-    IEnumerator ShrinkLazyFill()
+    IEnumerator LockLazyFill()
     {
         // lock lazy fill's scale for wait duration
-        Debug.Log("lock");
+        lazyFillRunning = true;
         yield return new WaitForSeconds(lazyFillWait);
-        Debug.Log("unlock");
-
-        // TODO: 
+        lazyFillRunning = false;
     }
 }
