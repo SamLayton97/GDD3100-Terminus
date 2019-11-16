@@ -115,6 +115,18 @@ public class O2Meter : MeterScaler
         lazyLossRunning = false;
     }
 
+    /// <summary>
+    /// Locks oxygen meter's lazy regain fill for duration
+    /// to highlight oxygen player received.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator LockLazyRegain()
+    {
+        // lock lazy fill's scale for wait duration
+        lazyRegainRunning = true;
+        yield return new WaitForSeconds(lazyFillWait);
+        lazyRegainRunning = false;
+    }
 
     /// <summary>
     /// Causes oxygen meter to flash when player loses significant 
