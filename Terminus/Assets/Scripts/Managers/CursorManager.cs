@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -62,7 +63,8 @@ public class CursorManager : MonoBehaviour
                                                     // columns must be entered in order of CursorStates enum
 
     // cursor type support variables
-    List<Vector2> hotspots = new List<Vector2>();           // list of hotspots for each cursor type
+    List<List<Vector2>> hotspots =                          // 2D list of hotspots for each cursor type and state
+        new List<List<Vector2>>(); 
     Cursors currCursor = Cursors.PistolReticle;             // current cursor used by player
     Cursors cursorBeforePause = Cursors.PistolReticle;      // holds cursor displayed before player paused game
     CursorStates currState = CursorStates.Standard;         // current state of cursor used by player
@@ -108,18 +110,22 @@ public class CursorManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // initialize hotspots of each cursor
+        // initialize hotspots for each cursor type
         foreach (Texture2DListWrapper wrapper in cursorTextures)
         {
             // set default hotspot for first cursor type (standard mouse cursor)
             if (cursorTextures.IndexOf(wrapper) == 0)
             {
-                hotspots.Add(Vector2.zero);
+                hotspots.Add(Enumerable.Repeat(Vector2.zero, wrapper.myList.Count()).ToList());
                 continue;
             }
 
-            // set hotspot as dead center for all reticle cursors
-            hotspots.Add(new Vector2(wrapper[0].width / 2f, wrapper[0].height / 2f));
+            // set hotspot as dead center for all reticle cursors (and their variations)
+            List<Vector2> stateHotspots = new List<Vector2>();
+            foreach (Texture2D cursor in wrapper.myList)
+                stateHotspots.Add(new Vector2(cursor.width / 2f, cursor.height / 2f));
+
+            hotspots.Add(stateHotspots);
         }
 
         // set starting cursor
@@ -158,7 +164,7 @@ public class CursorManager : MonoBehaviour
     public void SetCursorType(Cursors newCursor)
     {
         currCursor = newCursor;
-        Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor], CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
     }
     
     /// <summary>
@@ -172,7 +178,7 @@ public class CursorManager : MonoBehaviour
         if (!depressed)
         {
             currState = newState;
-            Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor], CursorMode.ForceSoftware);
+            Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
         }
     }
 
