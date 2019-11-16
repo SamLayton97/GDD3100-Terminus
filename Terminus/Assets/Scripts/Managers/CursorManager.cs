@@ -69,7 +69,8 @@ public class CursorManager : MonoBehaviour
 
     // cursor depression support variables
     IEnumerable depressedCoroutine;                         // coroutine controlling depression of cursor
-    [SerializeField] float depressionTime = 0.05f;          // realtime seconds cursor is locked in depressed state
+    [Range(0f, 0.3f)]
+    [SerializeField] float depressionTime = 0.1f;           // realtime seconds cursor is locked in depressed state
     bool depressed = false;
 
     /// <summary>
@@ -118,6 +119,16 @@ public class CursorManager : MonoBehaviour
         SetCursorType(Cursors.Standard);
     }
 
+    /// <summary>
+    /// Called once per frame
+    /// </summary>
+    void Update()
+    {
+        // depress cursor on mouse button down
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            StartCoroutine(DepressCursor());
+    }
+
     #endregion
 
     #region Public Methods
@@ -140,8 +151,12 @@ public class CursorManager : MonoBehaviour
     /// <param name="newState">new state of cursor</param>
     public void SetCursorState(CursorStates newState)
     {
-        currState = newState;
-        Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor], CursorMode.ForceSoftware);
+        // change state if button isn't currently depressed
+        if (!depressed)
+        {
+            currState = newState;
+            Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor], CursorMode.ForceSoftware);
+        }
     }
 
     /// <summary>
@@ -180,8 +195,8 @@ public class CursorManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(depressionTime);
 
         // return cursor to default state after waiting
-        SetCursorState(CursorStates.Standard);
         depressed = false;
+        SetCursorState(CursorStates.Standard);
     }
 
     #endregion
