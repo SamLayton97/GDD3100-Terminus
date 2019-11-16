@@ -14,7 +14,7 @@ public class DeactivateParticleOnEnd : MonoBehaviour
     void Awake()
     {
         // start deactivation coroutine
-        LateDeactivate(GetComponent<ParticleSystem>().main.duration);
+        StartCoroutine(LateDeactivate(GetComponent<ParticleSystem>().main.startLifetime.constant));
     }
 
     /// <summary>

@@ -354,7 +354,7 @@ MonoBehaviour:
   regainEffects:
   - {fileID: 2578838663206031887}
   - {fileID: 915255972995692101}
-  effectDelay: 0.5
+  effectDelay: 0.6
   lowOxygenThreshold: 40
   myBreathingSource: {fileID: 4275031816730586811}
 --- !u!82 &4275031816730586811

@@ -373,6 +373,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 4954093395389413554, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
+        type: 3}
+      propertyPath: effectDelay
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2578838663206031887, guid: ebf9e00e7abd1254c84ec7b9dbd41ae1,
         type: 3}
       propertyPath: m_IsActive
