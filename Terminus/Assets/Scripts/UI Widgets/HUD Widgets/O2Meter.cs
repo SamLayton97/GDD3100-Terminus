@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Graphically displays player's remaining oxygen by scaling a meter
@@ -17,6 +18,12 @@ public class O2Meter : MeterScaler
     [SerializeField] int significantLoss = 10;              // amount of oxygen player must lose to activate lazy fill
     IEnumerator lazyFillCoroutine;                          // coroutine controlling oxygen meter's lazy fill
     bool lazyFillRunning = false;
+
+    // meter flash support variables
+    [SerializeField] CanvasGroup meterFlash;                // controls visibility of flash overlay
+    [Range(0f, 10f)]
+    [SerializeField] float flashRate = 1f;                  // rate at which meter overlay flashes
+    IEnumerator flashCoroutine;                             // coroutine controlling visibility of flash image
 
     /// <summary>
     /// Called before first frame of Update
@@ -64,5 +71,21 @@ public class O2Meter : MeterScaler
         lazyFillRunning = true;
         yield return new WaitForSeconds(lazyFillWait);
         lazyFillRunning = false;
+    }
+
+    /// <summary>
+    /// Causes oxygen meter to flash when player loses significant 
+    /// amount by controlling opacity of overlay image.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator FlashMeter()
+    {
+        bool ascending = true;
+        do
+        {
+            // increase/decrease opacity of flash overlay
+            yield return new WaitForEndOfFrame();
+
+        } while (meterFlash.alpha > 0);
     }
 }
