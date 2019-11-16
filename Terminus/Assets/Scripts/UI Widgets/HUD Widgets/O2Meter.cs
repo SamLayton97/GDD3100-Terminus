@@ -37,6 +37,7 @@ public class O2Meter : MeterScaler
     CanvasGroup popCanvasGroup;                             // controls visibility of meter pop interaction
     Vector2 popPeakScale = new Vector2();                   // scale meter pop grows to
     IEnumerator popCoroutine;                               // coroutine controlling visibility and scale of pop image
+    [Range(0f, 1f)]
     [SerializeField] float popExpandRate = 1f;              // rate at which pop overlay expands to its peak scale
 
     #region Unity Methods
@@ -174,11 +175,12 @@ public class O2Meter : MeterScaler
         float popProgress = 0f;
         while ((Vector2)popTransform.localScale != popPeakScale)
         {
-            popTransform.localScale = Vector2.Lerp(Vector2.zero, popPeakScale, 1);
+            popProgress += Time.deltaTime * popExpandRate;
+            popTransform.localScale = Vector2.Lerp(Vector2.zero, popPeakScale, popProgress);
             yield return new WaitForEndOfFrame();
         }
 
-        yield return new WaitForEndOfFrame();
+        Debug.Log("done!");
     }
 
     #endregion
