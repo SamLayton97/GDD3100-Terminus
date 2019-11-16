@@ -201,6 +201,10 @@ public class CursorManager : MonoBehaviour
         // change state if button isn't currently depressed
         if (!depressed)
         {
+            // play sound effect on initial mouse over of enemy
+            if (newState == CursorStates.Hostile && currState != CursorStates.Hostile)
+                AudioManager.Play(AudioClipNames.player_mouseOverHostile, true);
+
             currState = newState;
             Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
         }
