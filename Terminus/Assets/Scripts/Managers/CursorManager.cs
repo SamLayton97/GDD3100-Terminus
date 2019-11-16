@@ -26,6 +26,7 @@ public class CursorManager : MonoBehaviour
     [SerializeField]
     List<Texture2D> cursorTextures = new List<Texture2D>();             // list of textures user's mouse cursor can change to throughout game
                                                                         // NOTE: items must be entered as they appear in the Cursors enum
+    List<Color> pointerDownColors = new List<Color>();
 
     // support variables
     List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
@@ -76,6 +77,11 @@ public class CursorManager : MonoBehaviour
         SetCursor(Cursors.Standard);
     }
 
+    void OnGUI()
+    {
+        GUI.skin.settings.cursorColor = Color.green;
+    }
+
     /// <summary>
     /// Sets user's mouse cursor to one of
     /// a given enumeration of cursors
@@ -86,7 +92,7 @@ public class CursorManager : MonoBehaviour
         currCursor = newCursor;
         Cursor.SetCursor(cursorTextures[(int)newCursor], hotspots[(int)newCursor], CursorMode.ForceSoftware);
     }
-
+    
     /// <summary>
     /// Sets user's mouse cursor to reflect whether player
     /// is interacting with weapons or in-game menus, restoring
