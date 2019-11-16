@@ -8,14 +8,16 @@ using UnityEngine.UI;
 /// Typically used by in-game menus.
 /// </summary>
 [RequireComponent(typeof(RectTransform))]
-public class HorizontalShowHidePopup : MonoBehaviour
+public class ShowHidePopup : MonoBehaviour
 {
     // display support variables
     RectTransform myTransform;
     Vector2 targetScale = new Vector2();
-    Vector2 flattenedScale = new Vector2();
+    IEnumerator showCoroutine;                              // coroutine controlling expansion of popup into full view
+    IEnumerator hideCoroutine;                              // coroutine controlling flattening of popup
 
     // display configuration variables
+    [SerializeField] Vector2 hiddenScale = new Vector2();   // dimension of pop-up when it is hidden -- in use, typically contains at least one 0
     [SerializeField] CanvasGroup contentVisibility;         // controls visibility of popup's content
     [Range(0f, 10f)]
     [SerializeField] float growRate = 3f;                   // rate at which popup expands horizontally
@@ -28,7 +30,6 @@ public class HorizontalShowHidePopup : MonoBehaviour
         // retrieve relevant information
         myTransform = GetComponent<RectTransform>();
         targetScale = myTransform.localScale;
-        flattenedScale = new Vector2(0, targetScale.y);
 
         // if content visibility controller wasn't set before startup
         if (!contentVisibility)
@@ -39,7 +40,7 @@ public class HorizontalShowHidePopup : MonoBehaviour
         contentVisibility.alpha = 0;
         contentVisibility.blocksRaycasts = false;
         contentVisibility.interactable = false;
-        myTransform.localScale = flattenedScale;
+        myTransform.localScale = hiddenScale;
     }
 
     /// <summary>
@@ -48,7 +49,13 @@ public class HorizontalShowHidePopup : MonoBehaviour
     /// <param name="display">whether popup should now display</param>
     public void ToggleDisplay(bool display)
     {
-
+        // if user requested to display popup
+        if (display)
+        {
+            // start show coroutine
+            showCoroutine = ShowPopUp();
+            StartCoroutine(showCoroutine);
+        }
     }
 
     /// <summary>
@@ -68,6 +75,19 @@ public class HorizontalShowHidePopup : MonoBehaviour
     /// <returns></returns>
     IEnumerator HidePopUp()
     {
-        yield return new WaitForEndOfFrame();
+        // expand pop-up into full view
+        float showProgress = 0f;
+        do
+        {
+            showProgress += Time.deltaTime * growRate;
+            myTransform.localScale = Vector2.Lerp(hiddenScale, targetScale, showProgress);
+            yield return new WaitForEndOfFrame();
+
+        } while ((Vector2)myTransform.localScale != targetScale);
+
+        // once fully expanded, show pop-up's content
+        contentVisibility.alpha = 1;
+        contentVisibility.blocksRaycasts = true;
+        contentVisibility.interactable = true;
     }
 }
