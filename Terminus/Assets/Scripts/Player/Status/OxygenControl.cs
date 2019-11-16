@@ -22,24 +22,31 @@ public class OxygenControl : LevelEnder
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
     bool lowOxygen = false;                 // flag indicating whether player is low on oxygen
 
-    // configuration variables
-    public AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
+    // depletion configuration variables
+    [SerializeField] float oxygenDepletionRate = 1f;                // percent of oxygen used per second
+
+    // audio configuration variables
+    [SerializeField] AudioClipNames[] myHurtSounds =              // sound effects played when player is hurt
         {
         AudioClipNames.player_hurt,
         AudioClipNames.player_hurt1,
         AudioClipNames.player_hurt2
         };
-    public AudioClipNames myDeathSound =                // sound effect played when player dies
+    [SerializeField] AudioClipNames myDeathSound =                  // sound effect played when player dies
         AudioClipNames.player_death;
-    public float oxygenDepletionRate = 1f;              // percent of oxygen used per second
-    public float screenShakeMagnitudeScalar = 0.8f;     // scale by which screen shakes according to damage taken by player
-    public float screenShakeRoughness = 4f;             // how rough screen shake is
-    public float screenShakeFadeInTime = 0.5f;          // time it takes for screen shake to reach peak magnitude
-    public float screenShakeFadeOutTime = 0.5f;         // time it takes for screen shake to end
-    public float hurtSoundThreshold = 0.5f;             // amount of oxygen depleted to play a hurt sound effect
-    public GameObject hurtParticleEffect;               // particle effect spawned when player loses significant amount of oxygen at once
-    [SerializeField] float lowOxygenThreshold = 40f;    // arbitrary point where player should be mindful of their oxygen
-    [SerializeField] AudioSource myBreathingSource;     // audio source used to play looping breathing effect
+    [SerializeField] float hurtSoundThreshold = 0.5f;               // amount of oxygen depleted to play a hurt sound effect
+    
+    // screen shake configuration
+    [SerializeField] float screenShakeMagnitudeScalar = 0.8f;       // scale by which screen shakes according to damage taken by player
+    [SerializeField] float screenShakeRoughness = 4f;               // how rough screen shake is
+    [SerializeField] float screenShakeFadeInTime = 0.5f;            // time it takes for screen shake to reach peak magnitude
+    [SerializeField] float screenShakeFadeOutTime = 0.5f;           // time it takes for screen shake to end
+
+    // particle effects configuration variables
+    [SerializeField] Transform effectsContainer;                    // transform of child object holding all particle effects
+    [SerializeField] GameObject hurtParticleEffect;                 // particle effect spawned when player loses significant amount of oxygen at once
+    [SerializeField] float lowOxygenThreshold = 40f;                // arbitrary point where player should be mindful of their oxygen
+    [SerializeField] AudioSource myBreathingSource;                 // audio source used to play looping breathing effect
 
     // event support
     UpdateO2DisplayEvent updateO2Event;    // event invoked to update player's oxygen on UI
@@ -77,6 +84,8 @@ public class OxygenControl : LevelEnder
         myLook = GetComponent<FaceMousePosition>();
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
+        if (!effectsContainer)
+            effectsContainer = transform.GetChild(1);       // assumed to be second child under player
     }
 
     // Start is called before the first frame update
@@ -151,7 +160,7 @@ public class OxygenControl : LevelEnder
                 screenShakeFadeInTime, screenShakeFadeOutTime);
 
             // play visual feedback
-            Instantiate(hurtParticleEffect, transform.position, Quaternion.identity);
+            Instantiate(hurtParticleEffect, effectsContainer.position, Quaternion.identity);
         }
 
         // if player isn't "dead" and damage exceeds arbitrary threshold, play random hurt sound

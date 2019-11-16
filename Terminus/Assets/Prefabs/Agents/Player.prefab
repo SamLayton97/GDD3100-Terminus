@@ -338,14 +338,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41d1a1ac06a28247a959ec7dd250195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oxygenDepletionRate: 1
   myHurtSounds: 040000000500000006000000
   myDeathSound: 8
-  oxygenDepletionRate: 1
+  hurtSoundThreshold: 1
   screenShakeMagnitudeScalar: 1.1
   screenShakeRoughness: 4
   screenShakeFadeInTime: 0.5
   screenShakeFadeOutTime: 0.5
-  hurtSoundThreshold: 1
+  effectsContainer: {fileID: 4951778468996464207}
   hurtParticleEffect: {fileID: 38349726419631341, guid: f75c561fb980bed489ef714e448e5db7,
     type: 3}
   lowOxygenThreshold: 40
