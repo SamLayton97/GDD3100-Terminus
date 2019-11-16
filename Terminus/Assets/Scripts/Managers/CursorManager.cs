@@ -93,26 +93,21 @@ public class CursorManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // initialize hotspots of each cursor
-        //foreach (Texture2D cursor in cursorTextures)
-        //{
-        //    // set default hotspot for first cursor (standard mouse cursor)
-        //    if (cursorTextures.IndexOf(cursor) == 0)
-        //    {
-        //        hotspots.Add(Vector2.zero);
-        //        continue;
-        //    }
+        foreach (Texture2DListWrapper wrapper in cursorTextures)
+        {
+            // set default hotspot for first cursor type (standard mouse cursor)
+            if (cursorTextures.IndexOf(wrapper) == 0)
+            {
+                hotspots.Add(Vector2.zero);
+                continue;
+            }
 
-        //    // set hotspot as dead center for all reticle cursors
-        //    hotspots.Add(new Vector2(cursor.width / 2f, cursor.height / 2f));
-        //}
+            // set hotspot as dead center for all reticle cursors
+            hotspots.Add(new Vector2(wrapper[0].width / 2f, wrapper[0].height / 2f));
+        }
 
         // set starting cursor
         SetCursor(Cursors.Standard);
-    }
-
-    void OnGUI()
-    {
-        GUI.skin.settings.cursorColor = Color.green;
     }
 
     /// <summary>
