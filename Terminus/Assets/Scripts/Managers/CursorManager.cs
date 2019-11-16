@@ -15,6 +15,29 @@ public enum Cursors
 }
 
 /// <summary>
+/// Texture2D list wrapper class used to modify
+/// a list of lists in the inspector
+/// </summary>
+[System.Serializable]
+public class Texture2DListWrapper
+{
+    // list wrapped by class
+    public List<Texture2D> myList;
+
+    /// <summary>
+    /// Read-write property accessing texture at a given index of list.
+    /// Implements brackets accessor to behave similar to normal list.
+    /// </summary>
+    /// <param name="key">index of texture</param>
+    /// <returns>texture2d at given index</returns>
+    public Texture2D this[int key]
+    {
+        get { return myList[key]; }
+        set { myList[key] = value; }
+    }
+}
+
+/// <summary>
 /// Singleton managing design and size of user's mouse cursor.
 /// </summary>
 public class CursorManager : MonoBehaviour
@@ -23,10 +46,12 @@ public class CursorManager : MonoBehaviour
     static CursorManager instance;
 
     // cursor resources
-    [SerializeField]
-    List<Texture2D> cursorTextures = new List<Texture2D>();             // list of textures user's mouse cursor can change to throughout game
-                                                                        // NOTE: items must be entered as they appear in the Cursors enum
-    List<Color> pointerDownColors = new List<Color>();
+
+
+    // cursor resources
+    //[SerializeField]
+    //List<Texture2D> cursorTextures = new List<Texture2D>();             // list of standard textures user's mouse cursor can change to throughout game
+    //                                                                    // NOTE: items must be entered as they appear in the Cursors enum
 
     // support variables
     List<Vector2> hotspots = new List<Vector2>();                       // list of hotspots for each cursor type
@@ -60,18 +85,18 @@ public class CursorManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // initialize hotspots of each cursor
-        foreach (Texture2D cursor in cursorTextures)
-        {
-            // set default hotspot for first cursor (standard mouse cursor)
-            if (cursorTextures.IndexOf(cursor) == 0)
-            {
-                hotspots.Add(Vector2.zero);
-                continue;
-            }
+        //foreach (Texture2D cursor in cursorTextures)
+        //{
+        //    // set default hotspot for first cursor (standard mouse cursor)
+        //    if (cursorTextures.IndexOf(cursor) == 0)
+        //    {
+        //        hotspots.Add(Vector2.zero);
+        //        continue;
+        //    }
 
-            // set hotspot as dead center for all reticle cursors
-            hotspots.Add(new Vector2(cursor.width / 2f, cursor.height / 2f));
-        }
+        //    // set hotspot as dead center for all reticle cursors
+        //    hotspots.Add(new Vector2(cursor.width / 2f, cursor.height / 2f));
+        //}
 
         // set starting cursor
         SetCursor(Cursors.Standard);
@@ -90,7 +115,7 @@ public class CursorManager : MonoBehaviour
     public void SetCursor(Cursors newCursor)
     {
         currCursor = newCursor;
-        Cursor.SetCursor(cursorTextures[(int)newCursor], hotspots[(int)newCursor], CursorMode.ForceSoftware);
+        //Cursor.SetCursor(standardCursors[(int)newCursor], hotspots[(int)newCursor], CursorMode.ForceSoftware);
     }
     
     /// <summary>
