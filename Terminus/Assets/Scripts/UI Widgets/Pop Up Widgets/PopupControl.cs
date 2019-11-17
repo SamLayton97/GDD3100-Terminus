@@ -27,6 +27,7 @@ public class PopupControl : SceneTransitioner
     // pop-up menus
     [SerializeField] ShowHidePopup pauseMenuControl;
     [SerializeField] ShowHidePopup optionsMenuControl;
+    [SerializeField] ShowHidePopup levelEndMenuControl;
 
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
@@ -101,7 +102,7 @@ public class PopupControl : SceneTransitioner
 
         // Crafting Menu Control
         // if no other pause-controlling UI elements are visible
-        if (!(pauseMenuControl.Shown || optionsMenuControl.Shown || endOfLevelMenu.activeSelf))
+        if (!(pauseMenuControl.Shown || optionsMenuControl.Shown || levelEndMenuControl.Shown))
         {
             // determine whether to read button or key
             bool buttonInput = !ControlSchemeManager.UsingSpecialist;
@@ -252,8 +253,8 @@ public class PopupControl : SceneTransitioner
         CursorManager.Instance.SetCursorType(Cursors.Standard);
 
         // enable end-of-level menu components
+        levelEndMenuControl.ToggleDisplay(true);
         darkenGameOnPause.SetActive(true);
-        endOfLevelMenu.SetActive(true);
 
         // set end-of-level popup components to reflect player's success status
         endOfLevelStatus.text = (endedInSuccess ? endedInSuccessText : endedInFailureText);
