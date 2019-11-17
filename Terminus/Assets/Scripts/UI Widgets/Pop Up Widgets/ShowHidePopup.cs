@@ -24,6 +24,8 @@ public class ShowHidePopup : MonoBehaviour
     [Range(0f, 5f)]
     [SerializeField] float growRate = 3f;                   // rate at which popup expands horizontally
 
+    #region Unity Methods
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -38,14 +40,16 @@ public class ShowHidePopup : MonoBehaviour
             // assume it's part of immediate child of object
             contentVisibility = GetComponentInChildren<CanvasGroup>();
 
-        // initialize popup to invisible and flattened
+        // hide content
         contentVisibility.alpha = 0;
         contentVisibility.blocksRaycasts = false;
         contentVisibility.interactable = false;
         myTransform.localScale = hiddenScale;
-
-        ToggleDisplay(true);
     }
+
+    #endregion
+
+    #region Public Methods
 
     /// <summary>
     /// Displays/hides pop-up using coroutines
@@ -75,6 +79,10 @@ public class ShowHidePopup : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Coroutines
+
     /// <summary>
     /// Gradually expands pop-up into view before
     /// displaying its contents
@@ -90,7 +98,7 @@ public class ShowHidePopup : MonoBehaviour
         {
             showProgress += Time.deltaTime * growRate;
             myTransform.localScale = Vector2.Lerp(hiddenScale, showScale, showProgress);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(0.017f);
 
         } while ((Vector2)myTransform.localScale != showScale);
 
@@ -128,4 +136,7 @@ public class ShowHidePopup : MonoBehaviour
 
         shrinking = false;
     }
+
+    #endregion
+
 }

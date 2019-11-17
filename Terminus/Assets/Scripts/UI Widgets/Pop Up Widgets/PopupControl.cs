@@ -24,6 +24,10 @@ public class PopupControl : SceneTransitioner
     public AudioClipNames myUnpauseSound =                  // sound played when user unpauses game
         AudioClipNames.UI_gameUnpause;
 
+    // pop-up menus
+    [SerializeField] ShowHidePopup pauseMenuControl;
+    [SerializeField] ShowHidePopup instructionsMenuControl;
+
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
     public string endedInSuccessText = "Level Complete";    // text displayed when user completes level
@@ -71,68 +75,68 @@ public class PopupControl : SceneTransitioner
         if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0)
         {
             // pause game
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             togglePauseEvent.Invoke(true);
             AudioManager.Play(myPauseSound, true);
             CursorManager.Instance.HandlePause(true);
 
-            // enable pause menu components
+            // show pause menu
             darkenGameOnPause.SetActive(true);
-            pauseMenu.SetActive(true);
+            pauseMenuControl.ToggleDisplay(true);
         }
         // but if user attempts to unpause game and game is paused
         else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0)
         {
-            // disable pause menu components
+            // hide pause menu and instructions
             darkenGameOnPause.SetActive(false);
-            pauseMenu.SetActive(false);
+            pauseMenuControl.ToggleDisplay(false);
             instructionsMenu.SetActive(false);
 
             // unpause game
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
             AudioManager.Play(myUnpauseSound, true);
             CursorManager.Instance.HandlePause(false);
         }
 
         // Crafting Menu Control
-        // if no other pause-controlling UI elements are active
-        if (!(pauseMenu.activeSelf || instructionsMenu.activeSelf || endOfLevelMenu.activeSelf))
-        {
-            // determine whether to read button or key
-            bool buttonInput = !ControlSchemeManager.UsingSpecialist;
+        // if no other pause-controlling UI elements are visible
+        //if (!(pauseMenu.activeSelf || instructionsMenu.activeSelf || endOfLevelMenu.activeSelf))
+        //{
+        //    // determine whether to read button or key
+        //    bool buttonInput = !ControlSchemeManager.UsingSpecialist;
 
-            // if user attempts to bring up crafting menu and game isn't paused
-            if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu")) 
-                || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
-            {
-                // pause game
-                Time.timeScale = 0;
-                AudioManager.Play(myPauseSound, true);
-                CursorManager.Instance.HandlePause(true);
+        //    // if user attempts to bring up crafting menu and game isn't paused
+        //    if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu")) 
+        //        || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
+        //    {
+        //        // pause game
+        //        Time.timeScale = 0;
+        //        AudioManager.Play(myPauseSound, true);
+        //        CursorManager.Instance.HandlePause(true);
 
-                // reveal materials inventory and crafting menu
-                materialsInventory.alpha = 1;
-                materialsInventory.blocksRaycasts = true;
-                craftingMenu.alpha = 1;
-                craftingMenu.blocksRaycasts = true;
-            }
-            // but if user attempts to close crafting menu and game is paused
-            else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
-                    || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
-            {
-                // pause game
-                Time.timeScale = 1;
-                AudioManager.Play(myUnpauseSound, true);
-                CursorManager.Instance.HandlePause(false);
+        //        // reveal materials inventory and crafting menu
+        //        materialsInventory.alpha = 1;
+        //        materialsInventory.blocksRaycasts = true;
+        //        craftingMenu.alpha = 1;
+        //        craftingMenu.blocksRaycasts = true;
+        //    }
+        //    // but if user attempts to close crafting menu and game is paused
+        //    else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
+        //            || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
+        //    {
+        //        // pause game
+        //        Time.timeScale = 1;
+        //        AudioManager.Play(myUnpauseSound, true);
+        //        CursorManager.Instance.HandlePause(false);
 
-                // hide materials inventory and crafting menu
-                materialsInventory.alpha = 0;
-                materialsInventory.blocksRaycasts = false;
-                craftingMenu.alpha = 0;
-                craftingMenu.blocksRaycasts = false;
-            }
-        }
+        //        // hide materials inventory and crafting menu
+        //        materialsInventory.alpha = 0;
+        //        materialsInventory.blocksRaycasts = false;
+        //        craftingMenu.alpha = 0;
+        //        craftingMenu.blocksRaycasts = false;
+        //    }
+        //}
     }
 
     #endregion
@@ -146,9 +150,9 @@ public class PopupControl : SceneTransitioner
     /// </summary>
     public void HandleResumeOnClick()
     {
-        // disable pause menu components
+        // hide pause menu
         darkenGameOnPause.SetActive(false);
-        pauseMenu.SetActive(false);
+        pauseMenuControl.ToggleDisplay(false);
 
         // play button press sound
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
@@ -166,7 +170,7 @@ public class PopupControl : SceneTransitioner
     public void HandleControlsOnClick()
     {
         // remove pause menu and display instructions
-        pauseMenu.SetActive(false);
+        pauseMenuControl.ToggleDisplay(false);
         instructionsMenu.SetActive(true);
 
         // play button press sound
@@ -181,7 +185,7 @@ public class PopupControl : SceneTransitioner
     {
         // remove instructions and display pause menu
         instructionsMenu.SetActive(false);
-        pauseMenu.SetActive(true);
+        pauseMenuControl.ToggleDisplay(true);
 
         // play button press sound
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);

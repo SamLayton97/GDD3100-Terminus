@@ -5945,6 +5945,8 @@ MonoBehaviour:
   craftingMenu: {fileID: 1624778786180500764}
   myPauseSound: 21
   myUnpauseSound: 22
+  pauseMenuControl: {fileID: 3642980744176109326}
+  instructionsMenuControl: {fileID: 0}
   endOfLevelStatus: {fileID: 5343321259584970825}
   endedInSuccessText: Level Complete
   successTextColor: {r: 0.03529412, g: 0.99607843, b: 0.36078432, a: 1}
