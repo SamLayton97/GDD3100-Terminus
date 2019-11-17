@@ -37,6 +37,16 @@ public static class AudioManager
 
         // load in sounds from Resources/Sounds and pair sound effects with captions
 
+        #region Atmospheric Sounds
+
+        audioClips.Add(AudioClipNames.atm_kayagum, Resources.Load<AudioClip>("Sounds/sfx_atm_kayagum"));
+        audioClips.Add(AudioClipNames.atm_piano, Resources.Load<AudioClip>("Sounds/sfx_atm_piano"));
+
+        soundsToCaptions.Add(AudioClipNames.atm_kayagum, "[kayagum stings]");
+        soundsToCaptions.Add(AudioClipNames.atm_piano, "[piano stings]");
+
+        #endregion
+
         #region Enemy Agent Sounds
 
         audioClips.Add(AudioClipNames.agent_chaserAttack, Resources.Load<AudioClip>("Sounds/sfx_agent_chaserAttack"));
@@ -75,7 +85,7 @@ public static class AudioManager
         soundsToCaptions.Add(AudioClipNames.env_pickUpEnergy, "[energy core buzzes]");
 
         #endregion
-
+        
         #region Player Sounds
 
         audioClips.Add(AudioClipNames.player_hurt, Resources.Load<AudioClip>("Sounds/sfx_player_hurt"));

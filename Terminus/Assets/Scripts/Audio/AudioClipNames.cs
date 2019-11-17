@@ -44,5 +44,7 @@ public enum AudioClipNames
     env_pickUpEnergy,
     player_oxygenWarning,
     player_distortionWarning,
-    player_mouseOverHostile
+    player_mouseOverHostile,
+    atm_piano,
+    atm_kayagum
 }
