@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class ColorFlashOnCollect : MonoBehaviour
 {
     // configuration variables
+    [SerializeField] WeaponType myWeapon;       // weapon this object corresponds to
     [SerializeField] Color toColor;             // color to flash to
     [SerializeField] float flashTime = 1f;      // time (seconds) to flash from one color to another
 
@@ -42,13 +43,17 @@ public class ColorFlashOnCollect : MonoBehaviour
     /// Starts coroutine to flash HUD element when
     /// player pickups up weapon.
     /// </summary>
-    /// <param name="type">Weapon type collected.
-    /// NOTE: discarded; only needed to listen for Pick Up Weapon event.</param>
+    /// <param name="type">Weapon type collected</param>
     void HandleWeaponPickup(WeaponType type)
     {
-        if (flashCoroutine != null) StopCoroutine(flashCoroutine);
-        flashCoroutine = FlashHUDElement(flashTime);
-        StartCoroutine(flashCoroutine);
+        // if collected weapon matches weapon represented by object
+        if (type == myWeapon)
+        {
+            // start/restart collection coroutine
+            if (flashCoroutine != null) StopCoroutine(flashCoroutine);
+            flashCoroutine = FlashHUDElement(flashTime);
+            StartCoroutine(flashCoroutine);
+        }
     }
 
     /// <summary>
