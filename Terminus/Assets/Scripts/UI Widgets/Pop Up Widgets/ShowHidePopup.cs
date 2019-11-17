@@ -100,10 +100,11 @@ public class ShowHidePopup : MonoBehaviour
 
         // expand pop-up into full view
         float showProgress = 0f;
+        Vector2 startScale = myTransform.localScale;
         do
         {
             showProgress += iDeltaTime * growRate;
-            myTransform.localScale = Vector2.Lerp(hiddenScale, showScale, showProgress);
+            myTransform.localScale = Vector2.Lerp(startScale, showScale, showProgress);
             yield return new WaitForSecondsRealtime(iDeltaTime);
 
         } while ((Vector2)myTransform.localScale != showScale);
@@ -133,10 +134,11 @@ public class ShowHidePopup : MonoBehaviour
 
         // shrink popup into hidden scale
         float hideProgress = 0f;
+        Vector2 startScale = myTransform.localScale;
         do
         {
             hideProgress += iDeltaTime * shrinkRate;
-            myTransform.localScale = Vector2.Lerp(showScale, hiddenScale, hideProgress);
+            myTransform.localScale = Vector2.Lerp(startScale, hiddenScale, hideProgress);
             yield return new WaitForSecondsRealtime(iDeltaTime);
 
         } while ((Vector2)myTransform.localScale != hiddenScale);
