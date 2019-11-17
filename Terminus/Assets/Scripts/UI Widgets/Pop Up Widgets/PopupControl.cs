@@ -47,7 +47,7 @@ public class PopupControl : SceneTransitioner
     /// Used for initialization
     /// </summary>
     void Awake()
-    {
+    {      
         // retrieve relevant components
         myEoLEvaluator = GetComponent<EndOfLevelEvaluator>();
     }
