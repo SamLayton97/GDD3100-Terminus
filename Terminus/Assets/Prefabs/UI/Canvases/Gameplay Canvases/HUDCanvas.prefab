@@ -745,8 +745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myWeapon: 3
   popTransform: {fileID: 6752603618130318585}
-  popExpandRate: 1
-  popDiminishRate: 1
+  popExpandRate: 6
+  popDiminishRate: 3
 --- !u!1 &1548826600104286676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,8 +1009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myWeapon: 2
   popTransform: {fileID: 8254270616743642165}
-  popExpandRate: 1
-  popDiminishRate: 1
+  popExpandRate: 6
+  popDiminishRate: 3
 --- !u!1 &2476414613076653045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,8 +1120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myWeapon: 1
   popTransform: {fileID: 6491091928832850425}
-  popExpandRate: 1
-  popDiminishRate: 1
+  popExpandRate: 6
+  popDiminishRate: 3
 --- !u!1 &2588982621498034864
 GameObject:
   m_ObjectHideFlags: 0

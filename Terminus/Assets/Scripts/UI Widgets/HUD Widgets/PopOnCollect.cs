@@ -69,7 +69,29 @@ public class PopOnCollect : MonoBehaviour
     IEnumerator PopMeter()
     {
         Debug.Log(myWeapon);
-        yield return new WaitForEndOfFrame();
+
+        // initialize pop overlay
+        popCanvasGroup.alpha = 1;
+
+        // expand pop overlay to its peak
+        float popProgress = 0f;
+        do
+        {
+            popProgress += Time.deltaTime * popExpandRate;
+            popTransform.localScale = Vector2.Lerp(Vector2.zero, popPeakScale, popProgress);
+            yield return new WaitForEndOfFrame();
+        } while ((Vector2)popTransform.localScale != popPeakScale);
+
+        // shrink and fade overlay
+        float diminishProgress = 0f;
+        do
+        {
+            diminishProgress += Time.deltaTime * popDiminishRate;
+            popTransform.localScale = Vector2.Lerp(popPeakScale, Vector2.one, diminishProgress);
+            popCanvasGroup.alpha = Mathf.Lerp(1, 0, diminishProgress);
+            yield return new WaitForEndOfFrame();
+        } while (popCanvasGroup.alpha > 0);
+
         Debug.Log("Done!");
     }
 
