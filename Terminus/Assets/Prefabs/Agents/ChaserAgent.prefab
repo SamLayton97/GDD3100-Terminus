@@ -142,7 +142,7 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   attackDamage: 25
   maxSpeed: 6
-  sightRange: 5
+  sightRange: 6.5
   attackRange: 1.2
   attackCooldown: 3
   startingState: 0

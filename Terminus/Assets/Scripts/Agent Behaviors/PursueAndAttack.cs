@@ -199,7 +199,8 @@ public class PursueAndAttack : O2Remover
     bool CanSeeTarget()
     {
         // Shoot raycast towards target, returning whether it hit
-        return (Physics2D.Raycast(transform.position, targetTransform.position - transform.position, sightRange, ignoreLayerMask).transform == targetTransform);
+        return ((targetTransform.position - transform.position).magnitude <= sightRange) && 
+            (Physics2D.Raycast(transform.position, targetTransform.position - transform.position, Mathf.Infinity, ignoreLayerMask).transform == targetTransform);
     }
 
     #endregion
@@ -244,8 +245,6 @@ public class PursueAndAttack : O2Remover
     // Update is called once per frame
     void Update()
     {
-        Debug.Log((targetTransform.position - transform.position).magnitude);
-
         // call state-appropriate Update behavior
         switch (currState)
         {
