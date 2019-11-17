@@ -18,8 +18,8 @@ public class NotifyTrigger : MonoBehaviour
     /// <param name="other">collision info</param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if player's body entered trigger
-        if (!other.isTrigger)
+        // if player's body entered trigger and checkpoint has message
+        if (!other.isTrigger && message != "")
         {
             // send notification
             Notifications.Instance.Display(message);
