@@ -71,8 +71,8 @@ public class PopupControl : SceneTransitioner
     void Update()
     {
         // Pause Control
-        // if user attempts to pause game and game is not already paused
-        if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0)
+        // if user attempts to pause game, game is not already paused, and level hasn't ended
+        if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0 && !levelEndMenuControl.Shown)
         {
             // pause game
             Time.timeScale = 0;
@@ -84,8 +84,8 @@ public class PopupControl : SceneTransitioner
             darkenGameOnPause.SetActive(true);
             pauseMenuControl.ToggleDisplay(true);
         }
-        // but if user attempts to unpause game and game is paused
-        else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0)
+        // but if user attempts to unpause game, game is paused, and level hasn't ended
+        else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0 && !levelEndMenuControl.Shown)
         {
             // hide pause menu and options
             darkenGameOnPause.SetActive(false);
