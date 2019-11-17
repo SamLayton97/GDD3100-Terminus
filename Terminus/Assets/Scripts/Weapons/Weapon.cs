@@ -8,7 +8,7 @@ using UnityEngine.Events;
 /// and apply a force to the user in the opposite direction.
 /// </summary>
 [RequireComponent(typeof(Animator))]
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : SanityDeductor
 {
     // public variables
     public WeaponType myType = WeaponType.Pistol;           // type of weapon this object is
@@ -68,8 +68,10 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// Called before first frame Update
     /// </summary>
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
+
         // add self as invoker of relevant events
         emptyWeaponEvent = new EmptyWeaponEvent();
         EventManager.AddEmptyWeaponInvoker(this);

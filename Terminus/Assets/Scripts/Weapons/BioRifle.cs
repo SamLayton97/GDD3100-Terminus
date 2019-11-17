@@ -10,23 +10,8 @@ using UnityEngine.Events;
 /// </summary>
 public class BioRifle : Weapon
 {
-    // public variables
+    // configuration variables
     public float sanityLostOnShot = 10f;    // amount of sanity player looses when they fire weapon
-
-    // event support
-    DeductSanityEvent deductSanityEvent;
-
-    /// <summary>
-    /// Called before first frame of Update
-    /// </summary>
-    protected override void Start()
-    {
-        base.Start();
-
-        // add self as invoker of deduct sanity on fire event
-        deductSanityEvent = new DeductSanityEvent();
-        EventManager.AddDeductSanityOnFireInvoker(this);
-    }
 
     /// <summary>
     /// Fires a bio-projectile, applying reactionary force to user
@@ -44,14 +29,5 @@ public class BioRifle : Weapon
             // perform basic fire input behavior
             base.RegisterInput(firedLastFrame);
         }
-    }
-
-    /// <summary>
-    /// Adds given method as listener to deduct sanity on fire event
-    /// </summary>
-    /// <param name="newListener">new listener of event</param>
-    public void AddDeductSanityInvoker(UnityAction<float> newListener)
-    {
-        deductSanityEvent.AddListener(newListener);
     }
 }
