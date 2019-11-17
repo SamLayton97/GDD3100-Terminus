@@ -56,7 +56,8 @@ public class PopOnCollect : MonoBehaviour
         if (type == myWeapon)
         {
             // start/restart pop coroutine
-
+            popCoroutine = PopMeter();
+            StartCoroutine(popCoroutine);
         }
     }
 
@@ -67,7 +68,9 @@ public class PopOnCollect : MonoBehaviour
     /// <returns></returns>
     IEnumerator PopMeter()
     {
+        Debug.Log(myWeapon);
         yield return new WaitForEndOfFrame();
+        Debug.Log("Done!");
     }
 
 }
