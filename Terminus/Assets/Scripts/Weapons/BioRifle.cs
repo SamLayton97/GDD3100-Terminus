@@ -14,7 +14,7 @@ public class BioRifle : Weapon
     public float sanityLostOnShot = 10f;    // amount of sanity player looses when they fire weapon
 
     // event support
-    DeductSanityOnFire deductSanityEvent;
+    DeductSanityEvent deductSanityEvent;
 
     /// <summary>
     /// Called before first frame of Update
@@ -24,7 +24,7 @@ public class BioRifle : Weapon
         base.Start();
 
         // add self as invoker of deduct sanity on fire event
-        deductSanityEvent = new DeductSanityOnFire();
+        deductSanityEvent = new DeductSanityEvent();
         EventManager.AddDeductSanityOnFireInvoker(this);
     }
 

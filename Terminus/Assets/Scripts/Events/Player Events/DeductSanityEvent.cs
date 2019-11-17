@@ -6,6 +6,6 @@ using UnityEngine.Events;
 /// <summary>
 /// Event invoked to deduct float amount of player's sanity.
 /// </summary>
-public class DeductSanityOnFire : UnityEvent<float>
+public class DeductSanityEvent : UnityEvent<float>
 {
 }
