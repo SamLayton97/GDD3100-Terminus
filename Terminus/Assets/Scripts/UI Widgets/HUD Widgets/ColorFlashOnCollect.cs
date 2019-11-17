@@ -11,12 +11,12 @@ using UnityEngine.UI;
 public class ColorFlashOnCollect : MonoBehaviour
 {
     // configuration variables
+    [SerializeField] Image flashImage;          // image that flashes on collect
     [SerializeField] WeaponType myWeapon;       // weapon this object corresponds to
     [SerializeField] Color toColor;             // color to flash to
     [SerializeField] float flashTime = 1f;      // time (seconds) to flash from one color to another
 
     // support variables
-    Image flashImage;
     Color fromColor;
     IEnumerator flashCoroutine;
     float iDeltaTime;                           // timescale independent estimate of Time.deltaTime
@@ -26,8 +26,11 @@ public class ColorFlashOnCollect : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        // if not set in editor, assume image flashing is this object's image
+        if (!flashImage)
+            flashImage = GetComponent<Image>();
+
         // retrieve necessary components/information
-        flashImage = GetComponent<Image>();
         fromColor = flashImage.color;
         iDeltaTime = 1f / Application.targetFrameRate;
     }

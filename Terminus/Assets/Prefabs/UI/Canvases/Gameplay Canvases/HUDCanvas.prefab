@@ -572,7 +572,6 @@ GameObject:
   - component: {fileID: 3092856015501033041}
   - component: {fileID: 852588052506396058}
   - component: {fileID: 4829303382215451409}
-  - component: {fileID: 4827613580955120425}
   m_Layer: 5
   m_Name: CollectHighlight
   m_TagString: Untagged
@@ -637,21 +636,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4827613580955120425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475427089224790464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myWeapon: 0
-  toColor: {r: 1, g: 1, b: 1, a: 1}
-  flashTime: 0.5
 --- !u!1 &1546988734453130600
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +647,7 @@ GameObject:
   - component: {fileID: 4413026513197396737}
   - component: {fileID: 5926730020636402119}
   - component: {fileID: 4295924872566326880}
+  - component: {fileID: 5115302284533087167}
   m_Layer: 5
   m_Name: BioRifleHolder
   m_TagString: Untagged
@@ -729,6 +714,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5115302284533087167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546988734453130600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashImage: {fileID: 6106143768311415143}
+  myWeapon: 3
+  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  flashTime: 0.5
 --- !u!1 &1548826600104286676
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +894,7 @@ GameObject:
   - component: {fileID: 2666503278330202480}
   - component: {fileID: 7266915958483295965}
   - component: {fileID: 5852874141159937947}
+  - component: {fileID: 8125721947637438425}
   m_Layer: 5
   m_Name: PhotonHolder
   m_TagString: Untagged
@@ -959,6 +961,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8125721947637438425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980688992114210766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashImage: {fileID: 8301236263594666997}
+  myWeapon: 2
+  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  flashTime: 0.5
 --- !u!1 &2476414613076653045
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +988,7 @@ GameObject:
   - component: {fileID: 6026499168094654297}
   - component: {fileID: 326380901986830413}
   - component: {fileID: 4354875545153204783}
+  - component: {fileID: 5885834123000728035}
   m_Layer: 5
   m_Name: ShotgunHolder
   m_TagString: Untagged
@@ -1036,6 +1055,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5885834123000728035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476414613076653045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashImage: {fileID: 5828644029057009581}
+  myWeapon: 1
+  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  flashTime: 0.5
 --- !u!1 &2588982621498034864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1157,6 @@ GameObject:
   - component: {fileID: 3295219968506282159}
   - component: {fileID: 7196279114674028418}
   - component: {fileID: 6106143768311415143}
-  - component: {fileID: 4676998560794179545}
   m_Layer: 5
   m_Name: CollectHighlight
   m_TagString: Untagged
@@ -1187,21 +1221,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4676998560794179545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2994510455877299351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myWeapon: 3
-  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
-  flashTime: 0.5
 --- !u!1 &3064947211102599693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1623,7 @@ GameObject:
   - component: {fileID: 8254270616743642165}
   - component: {fileID: 6433605070936919750}
   - component: {fileID: 3761634089420487257}
+  - component: {fileID: 1436507685532477215}
   m_Layer: 5
   m_Name: BarPop
   m_TagString: Untagged
@@ -1668,6 +1688,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1436507685532477215
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652326326884260645}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3684384791108699618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1711,6 @@ GameObject:
   - component: {fileID: 3869423964525695388}
   - component: {fileID: 427196211743145018}
   - component: {fileID: 5828644029057009581}
-  - component: {fileID: 435963635642748144}
   m_Layer: 5
   m_Name: CollectHighlight
   m_TagString: Untagged
@@ -1744,21 +1775,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &435963635642748144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3684384791108699618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myWeapon: 1
-  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
-  flashTime: 0.5
 --- !u!1 &3764466680897767624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,6 +2193,7 @@ GameObject:
   - component: {fileID: 1052855394156040715}
   - component: {fileID: 8548424841101555446}
   - component: {fileID: 1691524457686212198}
+  - component: {fileID: 3565762107494170091}
   m_Layer: 5
   m_Name: PistolHolder
   m_TagString: Untagged
@@ -2242,6 +2259,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3565762107494170091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524446379445526093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashImage: {fileID: 5828644029057009581}
+  myWeapon: 0
+  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  flashTime: 0.5
 --- !u!1 &5147488739732658536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,7 +2514,6 @@ GameObject:
   - component: {fileID: 5756929560026265900}
   - component: {fileID: 4500380629266469487}
   - component: {fileID: 8301236263594666997}
-  - component: {fileID: 8811980448556838347}
   m_Layer: 5
   m_Name: CollectHighlight
   m_TagString: Untagged
@@ -2546,21 +2578,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8811980448556838347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6129609567053542619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13564c3e92753346b10eb6a098dcd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myWeapon: 2
-  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
-  flashTime: 0.5
 --- !u!1 &6289538676775804398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3125,7 @@ GameObject:
   - component: {fileID: 6752603618130318585}
   - component: {fileID: 3995800873174819909}
   - component: {fileID: 6599317213558562973}
+  - component: {fileID: 2558295769188449027}
   m_Layer: 5
   m_Name: BarPop
   m_TagString: Untagged
@@ -3172,6 +3190,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2558295769188449027
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245600543286294586}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7425576394919147392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,6 +4060,7 @@ GameObject:
   - component: {fileID: 6491091928832850425}
   - component: {fileID: 5464058147327374585}
   - component: {fileID: 1874136240599237939}
+  - component: {fileID: 460916253771842605}
   m_Layer: 5
   m_Name: BarPop
   m_TagString: Untagged
@@ -4094,6 +4125,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &460916253771842605
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313308942280693972}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8773434390731612533
 GameObject:
   m_ObjectHideFlags: 0
