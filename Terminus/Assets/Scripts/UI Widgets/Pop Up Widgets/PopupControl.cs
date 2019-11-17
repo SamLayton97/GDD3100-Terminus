@@ -75,7 +75,7 @@ public class PopupControl : SceneTransitioner
         if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0)
         {
             // pause game
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             togglePauseEvent.Invoke(true);
             AudioManager.Play(myPauseSound, true);
             CursorManager.Instance.HandlePause(true);
@@ -93,7 +93,7 @@ public class PopupControl : SceneTransitioner
             instructionsMenu.SetActive(false);
 
             // unpause game
-            //Time.timeScale = 1;
+            Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
             AudioManager.Play(myUnpauseSound, true);
             CursorManager.Instance.HandlePause(false);
