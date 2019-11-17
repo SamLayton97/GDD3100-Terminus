@@ -25,8 +25,8 @@ public class PopupControl : SceneTransitioner
     [SerializeField] ShowHidePopup levelEndMenuControl;
 
     // crafting menu support
-    [SerializeField] CanvasGroup materialsInventory;        // canvas group component of inventory containing crafting materials player has collected
-    [SerializeField] CanvasGroup craftingMenu;              // canvas group of menu displayed along with inventory, allowing user to craft items
+    [SerializeField] ShowHidePopup inventoryController;
+    [SerializeField] ShowHidePopup craftingMenuController;
 
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
@@ -92,6 +92,10 @@ public class PopupControl : SceneTransitioner
             pauseMenuControl.ToggleDisplay(false);
             optionsMenuControl.ToggleDisplay(false);
 
+            // hide crafting menu components
+            craftingMenuController.ToggleDisplay(false);
+            inventoryController.ToggleDisplay(false);
+
             // unpause game
             Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
@@ -116,25 +120,21 @@ public class PopupControl : SceneTransitioner
                 CursorManager.Instance.HandlePause(true);
 
                 // reveal materials inventory and crafting menu
-                materialsInventory.alpha = 1;
-                materialsInventory.blocksRaycasts = true;
-                craftingMenu.alpha = 1;
-                craftingMenu.blocksRaycasts = true;
+                inventoryController.ToggleDisplay(true);
+                craftingMenuController.ToggleDisplay(true);
             }
             // but if user attempts to close crafting menu and game is paused
             else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
                     || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
             {
-                // pause game
+                // unpause game
                 Time.timeScale = 1;
                 AudioManager.Play(myUnpauseSound, true);
                 CursorManager.Instance.HandlePause(false);
 
                 // hide materials inventory and crafting menu
-                materialsInventory.alpha = 0;
-                materialsInventory.blocksRaycasts = false;
-                craftingMenu.alpha = 0;
-                craftingMenu.blocksRaycasts = false;
+                inventoryController.ToggleDisplay(false);
+                craftingMenuController.ToggleDisplay(false);
             }
         }
     }
