@@ -15,11 +15,13 @@ public class ShowHidePopup : MonoBehaviour
     Vector2 showScale = new Vector2();
     IEnumerator showCoroutine;                              // coroutine controlling expansion of popup into full view
     IEnumerator hideCoroutine;                              // coroutine controlling flattening of popup
+    bool growing = false;
+    bool shrinking = false;
 
     // display configuration variables
     [SerializeField] Vector2 hiddenScale = new Vector2();   // dimension of pop-up when it is hidden -- in use, typically contains at least one 0
     [SerializeField] CanvasGroup contentVisibility;         // controls visibility of popup's content
-    [Range(0f, 10f)]
+    [Range(0f, 5f)]
     [SerializeField] float growRate = 3f;                   // rate at which popup expands horizontally
 
     /// <summary>
@@ -41,6 +43,8 @@ public class ShowHidePopup : MonoBehaviour
         contentVisibility.blocksRaycasts = false;
         contentVisibility.interactable = false;
         myTransform.localScale = hiddenScale;
+
+        ToggleDisplay(true);
     }
 
     /// <summary>
@@ -52,9 +56,22 @@ public class ShowHidePopup : MonoBehaviour
         // if user requested to display popup
         if (display)
         {
+            // interrupt hide coroutine if active
+            if (shrinking) StopCoroutine(hideCoroutine);
+
             // start show coroutine
             showCoroutine = ShowPopUp();
             StartCoroutine(showCoroutine);
+        }
+        // otherwise (user requested to hide popup)
+        else
+        {
+            // interrupt show coroutine if active
+            if (growing) StopCoroutine(showCoroutine);
+
+            // hide popup
+            hideCoroutine = HidePopUp();
+            StartCoroutine(hideCoroutine);
         }
     }
 
@@ -65,6 +82,8 @@ public class ShowHidePopup : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShowPopUp()
     {
+        growing = true;
+
         // expand pop-up into full view
         float showProgress = 0f;
         do
@@ -79,6 +98,8 @@ public class ShowHidePopup : MonoBehaviour
         contentVisibility.alpha = 1;
         contentVisibility.blocksRaycasts = true;
         contentVisibility.interactable = true;
+
+        growing = false;
     }
 
     /// <summary>
@@ -88,6 +109,8 @@ public class ShowHidePopup : MonoBehaviour
     /// <returns></returns>
     IEnumerator HidePopUp()
     {
+        shrinking = true;
+
         // hide pop-up's content
         contentVisibility.alpha = 0;
         contentVisibility.blocksRaycasts = false;
@@ -102,5 +125,7 @@ public class ShowHidePopup : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
         } while ((Vector2)myTransform.localScale != hiddenScale);
+
+        shrinking = false;
     }
 }
