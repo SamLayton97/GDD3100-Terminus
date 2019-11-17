@@ -244,6 +244,8 @@ public class PursueAndAttack : O2Remover
     // Update is called once per frame
     void Update()
     {
+        Debug.Log((targetTransform.position - transform.position).magnitude);
+
         // call state-appropriate Update behavior
         switch (currState)
         {
