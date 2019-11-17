@@ -70,8 +70,6 @@ public class PopOnCollect : MonoBehaviour
     /// <returns></returns>
     IEnumerator PopMeter()
     {
-        Debug.Log(myWeapon);
-
         // initialize pop overlay
         popCanvasGroup.alpha = 1;
 
@@ -93,8 +91,6 @@ public class PopOnCollect : MonoBehaviour
             popCanvasGroup.alpha = Mathf.Lerp(1, 0, diminishProgress);
             yield return new WaitForSecondsRealtime(iDeltaTime);
         } while (popCanvasGroup.alpha > 0);
-
-        Debug.Log("Done!");
     }
 
 }
