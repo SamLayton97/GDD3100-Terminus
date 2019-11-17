@@ -19,6 +19,7 @@ public class ColorFlashOnCollect : MonoBehaviour
     Image flashImage;
     Color fromColor;
     IEnumerator flashCoroutine;
+    float iDeltaTime;                           // timescale independent estimate of Time.deltaTime
 
     /// <summary>
     /// Used for initialization
@@ -28,6 +29,7 @@ public class ColorFlashOnCollect : MonoBehaviour
         // retrieve necessary components/information
         flashImage = GetComponent<Image>();
         fromColor = flashImage.color;
+        iDeltaTime = 1f / Application.targetFrameRate;
     }
 
     /// <summary>
@@ -72,13 +74,13 @@ public class ColorFlashOnCollect : MonoBehaviour
         do
         {
             // shift color by increment, reversing direction at apex
-            lerpProgress += Time.deltaTime * (2f / flashTime) * (movingTo ? 1 : -1);
+            lerpProgress += iDeltaTime * (2f / flashTime) * (movingTo ? 1 : -1);
             flashImage.color = Color.Lerp(fromColor, toColor, lerpProgress);
             if (flashImage.color == toColor)
                 movingTo = !movingTo;
 
             // wait a frame before lerping again
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(iDeltaTime);
 
         } while (flashImage.color != fromColor);
     }
