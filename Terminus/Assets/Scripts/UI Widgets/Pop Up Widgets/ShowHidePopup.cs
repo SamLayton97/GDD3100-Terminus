@@ -23,7 +23,9 @@ public class ShowHidePopup : MonoBehaviour
     [SerializeField] Vector2 hiddenScale = new Vector2();   // dimension of pop-up when it is hidden -- in use, typically contains at least one 0
     [SerializeField] CanvasGroup contentVisibility;         // controls visibility of popup's content
     [Range(0f, 5f)]
-    [SerializeField] float growRate = 3f;                   // rate at which popup expands horizontally
+    [SerializeField] float growRate = 3f;                   // rate at which popup shows itself
+    [Range(0f, 5f)]
+    [SerializeField] float shrinkRate = 3f;                 // rate at which popup hides
 
     #region Unity Methods
 
@@ -130,7 +132,7 @@ public class ShowHidePopup : MonoBehaviour
         float hideProgress = 0f;
         do
         {
-            hideProgress += iDeltaTime * growRate;
+            hideProgress += iDeltaTime * shrinkRate;
             myTransform.localScale = Vector2.Lerp(showScale, hiddenScale, hideProgress);
             yield return new WaitForSecondsRealtime(iDeltaTime);
 

@@ -104,7 +104,6 @@ public class O2Meter : MeterScaler
             // start/restart pop coroutines
             popCoroutine = PopMeter();
             StartCoroutine(popCoroutine);
-            Debug.Log(oxygenChange);
         }
 
         // gradually scale unlocked lazy meters
