@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityReductionRate: 2
-  sanityReplinishmentRate: 1.3
+  sanityReplinishmentRate: 1.5
   lowSanityThreshold: 40
   persistentSource: {fileID: 5528685196292820580}
 --- !u!82 &5528685196292820580
