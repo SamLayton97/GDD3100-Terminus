@@ -14,20 +14,19 @@ public class PopupControl : SceneTransitioner
     // public variables
     public KeyCode pauseKey = KeyCode.Escape;               // key to pause/unpause game
     public GameObject darkenGameOnPause;                    // semi-transparent panel covering game when paused
-    public GameObject pauseMenu;                            // pop-up pause menu
-    public GameObject instructionsMenu;                     // in-game instructions/options menu
-    public GameObject endOfLevelMenu;                       // menu displayed when user completes a level
-    public CanvasGroup materialsInventory;                  // canvas group component of inventory containing crafting materials player has collected
-    public CanvasGroup craftingMenu;                        // canvas group of menu displayed along with inventory, allowing user to craft items
     public AudioClipNames myPauseSound =                    // sound played when user pauses game
         AudioClipNames.UI_gamePause;
     public AudioClipNames myUnpauseSound =                  // sound played when user unpauses game
         AudioClipNames.UI_gameUnpause;
 
-    // pop-up menus
+    // pop-up menu support
     [SerializeField] ShowHidePopup pauseMenuControl;
     [SerializeField] ShowHidePopup optionsMenuControl;
     [SerializeField] ShowHidePopup levelEndMenuControl;
+
+    // crafting menu support
+    [SerializeField] CanvasGroup materialsInventory;        // canvas group component of inventory containing crafting materials player has collected
+    [SerializeField] CanvasGroup craftingMenu;              // canvas group of menu displayed along with inventory, allowing user to craft items
 
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
