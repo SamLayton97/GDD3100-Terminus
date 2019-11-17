@@ -11,7 +11,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(EndOfLevelEvaluator))]
 public class PopupControl : SceneTransitioner
 {
-    // public variables
+    // configuration variables
     public KeyCode pauseKey = KeyCode.Escape;               // key to pause/unpause game
     public GameObject darkenGameOnPause;                    // semi-transparent panel covering game when paused
     public AudioClipNames myPauseSound =                    // sound played when user pauses game
@@ -19,12 +19,12 @@ public class PopupControl : SceneTransitioner
     public AudioClipNames myUnpauseSound =                  // sound played when user unpauses game
         AudioClipNames.UI_gameUnpause;
 
-    // pop-up menu support
+    // pop-up menu support variables
     [SerializeField] ShowHidePopup pauseMenuControl;
     [SerializeField] ShowHidePopup optionsMenuControl;
     [SerializeField] ShowHidePopup levelEndMenuControl;
 
-    // crafting menu support
+    // crafting menu support variables
     [SerializeField] ShowHidePopup inventoryController;
     [SerializeField] ShowHidePopup craftingMenuController;
 
