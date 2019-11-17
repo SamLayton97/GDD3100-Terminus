@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class ShowHidePopup : MonoBehaviour
 {
     // display support variables
+    bool shown = false;
     RectTransform myTransform;
     Vector2 showScale = new Vector2();
     IEnumerator showCoroutine;                              // coroutine controlling expansion of popup into full view
@@ -62,7 +63,7 @@ public class ShowHidePopup : MonoBehaviour
     public void ToggleDisplay(bool display)
     {
         // if user requested to display popup
-        if (display)
+        if (display && !shown)
         {
             // interrupt hide coroutine if active
             if (shrinking) StopCoroutine(hideCoroutine);
@@ -72,7 +73,7 @@ public class ShowHidePopup : MonoBehaviour
             StartCoroutine(showCoroutine);
         }
         // otherwise (user requested to hide popup)
-        else
+        else if (!display && shown)
         {
             // interrupt show coroutine if active
             if (growing) StopCoroutine(showCoroutine);
@@ -95,6 +96,7 @@ public class ShowHidePopup : MonoBehaviour
     IEnumerator ShowPopUp()
     {
         growing = true;
+        shown = true;
 
         // expand pop-up into full view
         float showProgress = 0f;
@@ -122,6 +124,7 @@ public class ShowHidePopup : MonoBehaviour
     IEnumerator HidePopUp()
     {
         shrinking = true;
+        shown = false;
 
         // hide pop-up's content
         contentVisibility.alpha = 0;
