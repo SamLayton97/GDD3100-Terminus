@@ -31,7 +31,7 @@ Transform:
   - {fileID: 5940274010719285372}
   - {fileID: 5112991560994710583}
   - {fileID: 3707201915873975593}
-  - {fileID: 6536753065484506497}
+  - {fileID: 4824769361417130308}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -875,7 +875,7 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7573956902250111602}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7655244371123670609
+--- !u!1001 &8250265067639016084
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -945,22 +945,22 @@ PrefabInstance:
     - target: {fileID: 3498120939378629584, guid: 235c996b75bf63c4ba76c89de1e7ce26,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 230.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3498120939378629584, guid: 235c996b75bf63c4ba76c89de1e7ce26,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 129.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3498120939378629584, guid: 235c996b75bf63c4ba76c89de1e7ce26,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 461
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3498120939378629584, guid: 235c996b75bf63c4ba76c89de1e7ce26,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 259
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3498120939378629584, guid: 235c996b75bf63c4ba76c89de1e7ce26,
         type: 3}
@@ -994,9 +994,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235c996b75bf63c4ba76c89de1e7ce26, type: 3}
---- !u!224 &6536753065484506497 stripped
+--- !u!224 &4824769361417130308 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3498120939378629584, guid: 235c996b75bf63c4ba76c89de1e7ce26,
     type: 3}
-  m_PrefabInstance: {fileID: 7655244371123670609}
+  m_PrefabInstance: {fileID: 8250265067639016084}
   m_PrefabAsset: {fileID: 0}
