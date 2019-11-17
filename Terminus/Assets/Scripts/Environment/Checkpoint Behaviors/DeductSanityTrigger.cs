@@ -1,18 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class DeductSanityTrigger : MonoBehaviour
+/// <summary>
+/// Deducts set amount of sanity from player
+/// when they collide with trigger
+/// </summary>
+public class DeductSanityTrigger : SanityDeductor
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // configuration variables
+    [Range(0, 100)]
+    [SerializeField] int sanityLost = 0;        // amount of sanity lost on collision
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Called when player enters trigger box
+    /// </summary>
+    /// <param name="other">collision info</param>
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // if player's body entered trigger
+        if (!other.isTrigger)
+        {
+            // deduct set amount of sanity
+            deductSanityEvent.Invoke(sanityLost);
+        }
     }
 }
