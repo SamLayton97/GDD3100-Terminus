@@ -28,6 +28,19 @@ public class ShowHidePopup : MonoBehaviour
     [Range(0f, 5f)]
     [SerializeField] float shrinkRate = 3f;                 // rate at which popup hides
 
+    #region Properties
+
+    /// <summary>
+    /// Read-access property returning
+    /// whether pop-up is currently visible
+    /// </summary>
+    public bool Shown
+    {
+        get { return shown; }
+    }
+
+    #endregion
+
     #region Unity Methods
 
     /// <summary>

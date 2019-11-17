@@ -101,42 +101,42 @@ public class PopupControl : SceneTransitioner
 
         // Crafting Menu Control
         // if no other pause-controlling UI elements are visible
-        //if (!(pauseMenu.activeSelf || instructionsMenu.activeSelf || endOfLevelMenu.activeSelf))
-        //{
-        //    // determine whether to read button or key
-        //    bool buttonInput = !ControlSchemeManager.UsingSpecialist;
+        if (!(pauseMenuControl.Shown || optionsMenuControl.Shown || endOfLevelMenu.activeSelf))
+        {
+            // determine whether to read button or key
+            bool buttonInput = !ControlSchemeManager.UsingSpecialist;
 
-        //    // if user attempts to bring up crafting menu and game isn't paused
-        //    if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu")) 
-        //        || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
-        //    {
-        //        // pause game
-        //        Time.timeScale = 0;
-        //        AudioManager.Play(myPauseSound, true);
-        //        CursorManager.Instance.HandlePause(true);
+            // if user attempts to bring up crafting menu and game isn't paused
+            if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
+                || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
+            {
+                // pause game
+                Time.timeScale = 0;
+                AudioManager.Play(myPauseSound, true);
+                CursorManager.Instance.HandlePause(true);
 
-        //        // reveal materials inventory and crafting menu
-        //        materialsInventory.alpha = 1;
-        //        materialsInventory.blocksRaycasts = true;
-        //        craftingMenu.alpha = 1;
-        //        craftingMenu.blocksRaycasts = true;
-        //    }
-        //    // but if user attempts to close crafting menu and game is paused
-        //    else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
-        //            || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
-        //    {
-        //        // pause game
-        //        Time.timeScale = 1;
-        //        AudioManager.Play(myUnpauseSound, true);
-        //        CursorManager.Instance.HandlePause(false);
+                // reveal materials inventory and crafting menu
+                materialsInventory.alpha = 1;
+                materialsInventory.blocksRaycasts = true;
+                craftingMenu.alpha = 1;
+                craftingMenu.blocksRaycasts = true;
+            }
+            // but if user attempts to close crafting menu and game is paused
+            else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
+                    || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
+            {
+                // pause game
+                Time.timeScale = 1;
+                AudioManager.Play(myUnpauseSound, true);
+                CursorManager.Instance.HandlePause(false);
 
-        //        // hide materials inventory and crafting menu
-        //        materialsInventory.alpha = 0;
-        //        materialsInventory.blocksRaycasts = false;
-        //        craftingMenu.alpha = 0;
-        //        craftingMenu.blocksRaycasts = false;
-        //    }
-        //}
+                // hide materials inventory and crafting menu
+                materialsInventory.alpha = 0;
+                materialsInventory.blocksRaycasts = false;
+                craftingMenu.alpha = 0;
+                craftingMenu.blocksRaycasts = false;
+            }
+        }
     }
 
     #endregion
