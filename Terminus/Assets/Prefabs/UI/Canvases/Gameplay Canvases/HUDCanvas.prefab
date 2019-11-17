@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 5926730020636402119}
   - component: {fileID: 4295924872566326880}
   - component: {fileID: 5115302284533087167}
+  - component: {fileID: 8474251367623208364}
   m_Layer: 5
   m_Name: BioRifleHolder
   m_TagString: Untagged
@@ -730,6 +731,22 @@ MonoBehaviour:
   myWeapon: 3
   toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   flashTime: 0.5
+--- !u!114 &8474251367623208364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546988734453130600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe7043af38ea754a8cd3b709df43ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myWeapon: 3
+  popTransform: {fileID: 6752603618130318585}
+  popExpandRate: 1
+  popDiminishRate: 1
 --- !u!1 &1548826600104286676
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +912,7 @@ GameObject:
   - component: {fileID: 7266915958483295965}
   - component: {fileID: 5852874141159937947}
   - component: {fileID: 8125721947637438425}
+  - component: {fileID: 4613305665133925042}
   m_Layer: 5
   m_Name: PhotonHolder
   m_TagString: Untagged
@@ -977,6 +995,22 @@ MonoBehaviour:
   myWeapon: 2
   toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   flashTime: 0.5
+--- !u!114 &4613305665133925042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980688992114210766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe7043af38ea754a8cd3b709df43ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myWeapon: 2
+  popTransform: {fileID: 8254270616743642165}
+  popExpandRate: 1
+  popDiminishRate: 1
 --- !u!1 &2476414613076653045
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1023,7 @@ GameObject:
   - component: {fileID: 326380901986830413}
   - component: {fileID: 4354875545153204783}
   - component: {fileID: 5885834123000728035}
+  - component: {fileID: 5254556750182082057}
   m_Layer: 5
   m_Name: ShotgunHolder
   m_TagString: Untagged
@@ -1071,6 +1106,22 @@ MonoBehaviour:
   myWeapon: 1
   toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   flashTime: 0.5
+--- !u!114 &5254556750182082057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476414613076653045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe7043af38ea754a8cd3b709df43ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myWeapon: 1
+  popTransform: {fileID: 6491091928832850425}
+  popExpandRate: 1
+  popDiminishRate: 1
 --- !u!1 &2588982621498034864
 GameObject:
   m_ObjectHideFlags: 0

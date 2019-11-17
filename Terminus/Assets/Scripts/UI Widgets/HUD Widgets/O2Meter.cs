@@ -54,7 +54,6 @@ public class O2Meter : MeterScaler
         // retrieve pop components/information
         popCanvasGroup = popTransform.GetComponent<CanvasGroup>();
         popPeakScale = popTransform.localScale;
-
     }
 
     /// <summary>
