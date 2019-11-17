@@ -23,7 +23,7 @@ public class NotifyTrigger : MonoBehaviour
         {
             // send notification
             Notifications.Instance.Display(message);
-
+            AudioManager.Play(AudioClipNames.player_generalAlert, true);
         }
     }
 }
