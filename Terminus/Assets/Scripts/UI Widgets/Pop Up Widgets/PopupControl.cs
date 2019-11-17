@@ -26,7 +26,7 @@ public class PopupControl : SceneTransitioner
 
     // pop-up menus
     [SerializeField] ShowHidePopup pauseMenuControl;
-    [SerializeField] ShowHidePopup instructionsMenuControl;
+    [SerializeField] ShowHidePopup optionsMenuControl;
 
     // end-of-level component variables
     public Text endOfLevelStatus;                           // text displaying whether user successfully ended level
@@ -87,10 +87,10 @@ public class PopupControl : SceneTransitioner
         // but if user attempts to unpause game and game is paused
         else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0)
         {
-            // hide pause menu and instructions
+            // hide pause menu and options
             darkenGameOnPause.SetActive(false);
             pauseMenuControl.ToggleDisplay(false);
-            instructionsMenu.SetActive(false);
+            optionsMenuControl.ToggleDisplay(false);
 
             // unpause game
             Time.timeScale = 1;
@@ -171,7 +171,7 @@ public class PopupControl : SceneTransitioner
     {
         // remove pause menu and display instructions
         pauseMenuControl.ToggleDisplay(false);
-        instructionsMenu.SetActive(true);
+        optionsMenuControl.ToggleDisplay(true);
 
         // play button press sound
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
@@ -184,7 +184,7 @@ public class PopupControl : SceneTransitioner
     public void HandleCloseInstructionsOnClick()
     {
         // remove instructions and display pause menu
-        instructionsMenu.SetActive(false);
+        optionsMenuControl.ToggleDisplay(false);
         pauseMenuControl.ToggleDisplay(true);
 
         // play button press sound
