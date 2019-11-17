@@ -46,5 +46,6 @@ public enum AudioClipNames
     player_distortionWarning,
     player_mouseOverHostile,
     atm_piano,
-    atm_kayagum
+    atm_kayagum,
+    player_generalAlert
 }

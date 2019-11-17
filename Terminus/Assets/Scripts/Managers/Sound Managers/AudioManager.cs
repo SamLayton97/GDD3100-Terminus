@@ -96,6 +96,7 @@ public static class AudioManager
         audioClips.Add(AudioClipNames.player_oxygenWarning, Resources.Load<AudioClip>("Sounds/sfx_player_oxygenWarning"));
         audioClips.Add(AudioClipNames.player_distortionWarning, Resources.Load<AudioClip>("Sounds/sfx_player_distortionWarning"));
         audioClips.Add(AudioClipNames.player_mouseOverHostile, Resources.Load<AudioClip>("Sounds/sfx_player_mouseOverHostile"));
+        audioClips.Add(AudioClipNames.player_generalAlert, Resources.Load<AudioClip>("Sounds/sfx_player_generalAlert"));
         
         soundsToCaptions.Add(AudioClipNames.player_hurt, "[astronaut gasps]");
         soundsToCaptions.Add(AudioClipNames.player_hurt1, "[astronaut wheezes]");
@@ -104,6 +105,7 @@ public static class AudioManager
         soundsToCaptions.Add(AudioClipNames.player_swapWeapon, "[weapon cocks]");
         soundsToCaptions.Add(AudioClipNames.player_oxygenWarning, "LOW OXYGEN");
         soundsToCaptions.Add(AudioClipNames.player_distortionWarning, "DISTORTION DETECTED");
+        soundsToCaptions.Add(AudioClipNames.player_generalAlert, "[alert pings]");
 
         #endregion
 
