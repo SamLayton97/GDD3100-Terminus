@@ -21,7 +21,8 @@ public class PopOnCollect : MonoBehaviour
     CanvasGroup popCanvasGroup;                             // controls visibility of meter pop interaction
     Vector2 popPeakScale = new Vector2();                   // scale meter pop grows to
     IEnumerator popCoroutine;                               // coroutine controlling visibility and scale of pop image
-    
+    float iDeltaTime = 0f;                                  // approximate timeScale independent Time.deltaTime
+
     /// <summary>
     /// Used for initialization
     /// </summary>
@@ -34,6 +35,7 @@ public class PopOnCollect : MonoBehaviour
         // retrieve relevant components/information
         popCanvasGroup = popTransform.GetComponent<CanvasGroup>();
         popPeakScale = popTransform.localScale;
+        iDeltaTime = (1f / Application.targetFrameRate);
     }
 
     /// <summary>
@@ -77,19 +79,19 @@ public class PopOnCollect : MonoBehaviour
         float popProgress = 0f;
         do
         {
-            popProgress += Time.deltaTime * popExpandRate;
+            popProgress += iDeltaTime * popExpandRate;
             popTransform.localScale = Vector2.Lerp(Vector2.zero, popPeakScale, popProgress);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(iDeltaTime);
         } while ((Vector2)popTransform.localScale != popPeakScale);
 
         // shrink and fade overlay
         float diminishProgress = 0f;
         do
         {
-            diminishProgress += Time.deltaTime * popDiminishRate;
+            diminishProgress += iDeltaTime * popDiminishRate;
             popTransform.localScale = Vector2.Lerp(popPeakScale, Vector2.one, diminishProgress);
             popCanvasGroup.alpha = Mathf.Lerp(1, 0, diminishProgress);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(iDeltaTime);
         } while (popCanvasGroup.alpha > 0);
 
         Debug.Log("Done!");
