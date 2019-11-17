@@ -48,6 +48,9 @@ TagManager:
   - name: EnvironmentBackground
     uniqueID: 3610194951
     locked: 0
+  - name: WorldSpaceUI
+    uniqueID: 1174743749
+    locked: 0
   - name: EnvironmentMidground
     uniqueID: 58263823
     locked: 0
