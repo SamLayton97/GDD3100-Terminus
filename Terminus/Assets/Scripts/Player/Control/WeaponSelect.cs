@@ -176,8 +176,9 @@ public class WeaponSelect : MonoBehaviour
         // otherwise (player lacks ammo for given weapon type)
         else
         {
-            // play denied sound effect
+            // play denied audio-visual feedback
             AudioManager.Play(AudioClipNames.UI_denied, true);
+            StartCoroutine(ColorSwap(deniedSwapHSV, swapDuration));
         }
     }
 
