@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,8 +40,9 @@ public class WeaponSelect : MonoBehaviour
 
     // configuration variables
     [SerializeField] GameObject[] allWeapons;               // serialized array of all weapons objects player could have
-                                                            // Note: must be populated in order they appear in enumeration
-    [SerializeField] Vector4 swapHSV;                       // HSV of shader when player swaps weapons
+                                                            // NOTE: must be populated in order they appear in enumeration
+    [SerializeField] List<Vector4> swapHSVs =               // list of HSV colors player sprite swaps to when changing weapons
+        new List<Vector4>();                                // NOTE: must be populated in order they appear in enumeration
     [SerializeField] Vector4 deniedSwapHSV;                 // HSV of shader when player fails to swap weapon (no ammo)
     [Range(1, 60)]
     [SerializeField] int swapDuration = 2;                  // number of frames sprite tint remains swapped
@@ -148,7 +150,7 @@ public class WeaponSelect : MonoBehaviour
         CursorManager.Instance.SetCursorType((Cursors)(newWeaponIndex + 1));
 
         // start coroutine changing sprite HSV
-        StartCoroutine(ColorSwap(swapHSV, swapDuration));
+        //StartCoroutine(ColorSwap(swapHSV, swapDuration));
 
         // invoke event to update current weapon on UI
         updateCurrentWeapon.Invoke(newWeaponIndex);
@@ -171,7 +173,7 @@ public class WeaponSelect : MonoBehaviour
             AudioManager.Play(mySwapSound, true);
 
             // start coroutine to changing sprite HSV
-            StartCoroutine(ColorSwap(swapHSV, swapDuration));
+            //StartCoroutine(ColorSwap(swapHSV, swapDuration));
         }
         // otherwise (player lacks ammo for given weapon type)
         else

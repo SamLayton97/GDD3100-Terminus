@@ -85,6 +85,5 @@ public class PlayerFire : MonoBehaviour
         myRenderer.material.SetVector("_HSVAAdjust", standardHSV);
     }
 
-
     #endregion
 }
