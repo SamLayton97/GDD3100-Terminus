@@ -14,21 +14,21 @@ public class SpritePulsateOpacity : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] float pulsePeak = 1f;
     [Range(0f, 5f)]
-    [SerializeField] float pulseRate = 1f;
+    [SerializeField] float minimumPulseRate = 1f;
 
     // pulse support variables
     Color startingColor;
     bool ascending = true;
+    float pulseRate = 0f;
 
     /// <summary>
     /// Read/write-access property returning the
-    /// highest opacity sprite will pulsate to.
-    /// Clamped between 0 and 1.
+    /// rate at which the sprite pulsates.
     /// </summary>
-    public float PulsePeak
+    public float PulseRate
     {
-        get { return pulsePeak; }
-        set { pulsePeak = Mathf.Clamp01(value); }
+        get { return pulseRate; }
+        set { pulseRate = Mathf.Clamp01(value) * 5f + minimumPulseRate; }
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ public class SpritePulsateOpacity : MonoBehaviour
     {
         // adjust alpha of sprite
         pulseRenderer.color = new Color(startingColor.r, startingColor.g, startingColor.b,
-            Mathf.Clamp(pulseRenderer.color.a + Time.deltaTime * pulseRate * (ascending ? 1 : -1), pulseValley, pulsePeak));
+            Mathf.Clamp(pulseRenderer.color.a + Time.deltaTime * PulseRate * (ascending ? 1 : -1), pulseValley, pulsePeak));
 
         // reverse direction at peak/valley
         if (pulseRenderer.color.a >= pulsePeak || pulseRenderer.color.a <= pulseValley)

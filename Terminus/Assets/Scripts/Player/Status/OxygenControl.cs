@@ -53,6 +53,7 @@ public class OxygenControl : LevelEnder
     [SerializeField] float effectDelay = 0.5f;                      // delay between playing each regain particle effect
     [SerializeField] float lowOxygenThreshold = 40f;                // arbitrary point where player should be mindful of their oxygen
     [SerializeField] AudioSource myBreathingSource;                 // audio source used to play looping breathing effect
+    [SerializeField] SpritePulsateOpacity healthLight;              // controls opacity of pseudo-light visually representing player's health
 
     // event support
     UpdateO2DisplayEvent updateO2Event;                             // event invoked to update player's oxygen on UI
@@ -117,8 +118,9 @@ public class OxygenControl : LevelEnder
         // reduce oxygen by rate * time
         EmptyO2Tank(oxygenDepletionRate * Time.deltaTime, false);
 
-        // scale volume of breathing sound by player's remaining oxygen
+        // scale audio-visual feedback
         myBreathingSource.volume = Mathf.Clamp01(1 - (currOxygen / maxOxygen));
+        healthLight.PulseRate = 1 - (currOxygen / maxOxygen);
 
         // display audio-visual low oxygen warning if oxygen falls below threshold
         if (!lowOxygen && currOxygen < lowOxygenThreshold)

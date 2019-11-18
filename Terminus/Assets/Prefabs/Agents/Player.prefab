@@ -95,8 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pulseRenderer: {fileID: 4268431504717688052}
   pulseValley: 0
-  pulsePeak: 1
-  pulseRate: 2.5
+  pulsePeak: 0.75
+  minimumPulseRate: 1
 --- !u!1 &3116935075759263925
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +635,7 @@ MonoBehaviour:
   effectDelay: 0.6
   lowOxygenThreshold: 40
   myBreathingSource: {fileID: 4275031816730586811}
+  healthLight: {fileID: 9107279479330726785}
 --- !u!82 &4275031816730586811
 AudioSource:
   m_ObjectHideFlags: 0
