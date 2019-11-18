@@ -42,6 +42,8 @@ public class WeaponSelect : MonoBehaviour
                                                             // Note: must be populated in order they appear in enumeration
     [SerializeField] Vector4 swapHSV;                       // HSV of shader when player swaps weapons
     [SerializeField] Vector4 deniedSwapHSV;                 // HSV of shader when player fails to swap weapon (no ammo)
+    [Range(1, 60)]
+    [SerializeField] int swapDuration = 2;                  // number of frames sprite tint remains swapped
 
     #region Unity Methods
 
@@ -146,7 +148,7 @@ public class WeaponSelect : MonoBehaviour
         CursorManager.Instance.SetCursorType((Cursors)(newWeaponIndex + 1));
 
         // start coroutine changing sprite HSV
-        StartCoroutine(ColorSwap(swapHSV));
+        StartCoroutine(ColorSwap(swapHSV, swapDuration));
 
         // invoke event to update current weapon on UI
         updateCurrentWeapon.Invoke(newWeaponIndex);
@@ -167,6 +169,9 @@ public class WeaponSelect : MonoBehaviour
             updateCurrentWeapon.Invoke(switchToIndex);
             CursorManager.Instance.SetCursorType((Cursors)(switchToIndex + 1));
             AudioManager.Play(mySwapSound, true);
+
+            // start coroutine to changing sprite HSV
+            StartCoroutine(ColorSwap(swapHSV, swapDuration));
         }
         // otherwise (player lacks ammo for given weapon type)
         else
@@ -203,16 +208,24 @@ public class WeaponSelect : MonoBehaviour
     }
 
     /// <summary>
-    /// Changes color of player for a single frame.
+    /// Changes color of player for n-number of frames.
     /// Used when player attempts to change their weapon.
     /// </summary>
     /// <param name="frameHSV">HSV sprite changes to for frame</param>
+    /// <param name="frames">number of frames color is swapped</param>
     /// <returns></returns>
-    IEnumerator ColorSwap(Vector4 frameHSV)
+    IEnumerator ColorSwap(Vector4 frameHSV, int frames)
     {
-        // swap color and reset at end of frame
+        // swap color
         myRenderer.material.SetVector("_HSVAAdjust", frameHSV);
-        yield return new WaitForEndOfFrame();
+
+        // reset color after n frames
+        int frameCount = 0;
+        while (frameCount < frames)
+        {
+            frameCount++;
+            yield return new WaitForEndOfFrame();
+        }
         myRenderer.material.SetVector("_HSVAAdjust", standardHSV);
     }
 
