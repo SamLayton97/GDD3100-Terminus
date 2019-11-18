@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +20,7 @@ public enum WeaponType
 /// Also adds and removes weapons from inventory when necessary.
 /// </summary>
 [RequireComponent(typeof(PlayerFire))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class WeaponSelect : MonoBehaviour
 {
     // weapon container support
@@ -28,16 +28,20 @@ public class WeaponSelect : MonoBehaviour
 
     // private variables
     PlayerFire playerFire;                                  // player fire component (gets its current weapon property updated)
+    SpriteRenderer myRenderer;                              // player object's sprite renderer -- used to change its HSV on weapon swap
     AudioClipNames mySwapSound =                            // sound played when player swaps to different weapon
         AudioClipNames.player_swapWeapon;
+    Vector4 standardHSV = new Vector4();                    // standard HSV of player's color tint shader
+    IEnumerator colorSwap;                                  // coroutine controlling color swap of player sprite
 
     // event support
     SwapWeaponUIEvent updateCurrentWeapon;                  // event invoked to update player's current weapon on HUD
 
-    // serialized variables
+    // configuration variables
     [SerializeField] GameObject[] allWeapons;               // serialized array of all weapons objects player could have
                                                             // Note: must be populated in order they appear in enumeration
-
+    [SerializeField] Vector4 swapHSV;                       // HSV of shader when player swaps weapons
+    [SerializeField] Vector4 deniedSwapHSV;                 // HSV of shader when player fails to swap weapon (no ammo)
 
     #region Unity Methods
 
@@ -46,8 +50,10 @@ public class WeaponSelect : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        // retrieve necessary components
+        // retrieve necessary components/information
         playerFire = GetComponent<PlayerFire>();
+        myRenderer = GetComponent<SpriteRenderer>();
+        standardHSV = myRenderer.material.GetVector("_HSVAAdjust");
 
         // if not set before startup, grab transform of first child gameobject (assume to be weapons holder)
         if (!weaponContainer)
@@ -139,6 +145,9 @@ public class WeaponSelect : MonoBehaviour
         AudioManager.Play(mySwapSound, true);
         CursorManager.Instance.SetCursorType((Cursors)(newWeaponIndex + 1));
 
+        // start coroutine changing sprite HSV
+        StartCoroutine(ColorSwap(swapHSV));
+
         // invoke event to update current weapon on UI
         updateCurrentWeapon.Invoke(newWeaponIndex);
     }
@@ -191,6 +200,20 @@ public class WeaponSelect : MonoBehaviour
     void HandleEmptyWeapon()
     {
         SwapWeapon(false);
+    }
+
+    /// <summary>
+    /// Changes color of player for a single frame.
+    /// Used when player attempts to change their weapon.
+    /// </summary>
+    /// <param name="frameHSV">HSV sprite changes to for frame</param>
+    /// <returns></returns>
+    IEnumerator ColorSwap(Vector4 frameHSV)
+    {
+        // swap color and reset at end of frame
+        myRenderer.material.SetVector("_HSVAAdjust", frameHSV);
+        yield return new WaitForEndOfFrame();
+        myRenderer.material.SetVector("_HSVAAdjust", standardHSV);
     }
 
     #endregion
