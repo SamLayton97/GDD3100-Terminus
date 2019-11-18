@@ -150,7 +150,7 @@ public class WeaponSelect : MonoBehaviour
         CursorManager.Instance.SetCursorType((Cursors)(newWeaponIndex + 1));
 
         // start coroutine changing sprite HSV
-        //StartCoroutine(ColorSwap(swapHSV, swapDuration));
+        StartCoroutine(ColorSwap(swapHSVs[newWeaponIndex], swapDuration));
 
         // invoke event to update current weapon on UI
         updateCurrentWeapon.Invoke(newWeaponIndex);
@@ -173,7 +173,7 @@ public class WeaponSelect : MonoBehaviour
             AudioManager.Play(mySwapSound, true);
 
             // start coroutine to changing sprite HSV
-            //StartCoroutine(ColorSwap(swapHSV, swapDuration));
+            StartCoroutine(ColorSwap(swapHSVs[switchToIndex], swapDuration));
         }
         // otherwise (player lacks ammo for given weapon type)
         else
