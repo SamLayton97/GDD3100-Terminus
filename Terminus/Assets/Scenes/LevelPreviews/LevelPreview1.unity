@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -433,11 +433,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: Back
       objectReference: {fileID: 0}
-    - target: {fileID: 3804827513322305116, guid: 92070c61b91a8a84583086a1df85d5d4,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 4685373369309732229, guid: 92070c61b91a8a84583086a1df85d5d4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -447,6 +442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414343244174453373, guid: 92070c61b91a8a84583086a1df85d5d4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00024414062
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92070c61b91a8a84583086a1df85d5d4, type: 3}
