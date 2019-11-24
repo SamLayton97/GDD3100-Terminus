@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -740,11 +740,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 991876049}
-    - target: {fileID: 2100268428689264623, guid: fa600a6cb3a307f4f86ed498b304ded4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4414343244174453373, guid: fa600a6cb3a307f4f86ed498b304ded4,
         type: 3}
       propertyPath: m_AnchoredPosition.y

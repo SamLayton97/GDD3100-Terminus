@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Reflects player's 'sanity'/physical distortion using 
@@ -23,8 +24,11 @@ public class DistortionEffects : PostProcessEffectController
     /// <summary>
     /// Used for initialization
     /// </summary>
-    void Awake()
+    protected override void Awake()
     {
+        // perform base controller initialization
+        base.Awake();
+
         // retrieve relevant components
         myDistortSource = GetComponent<AudioSource>();
     }
@@ -37,6 +41,7 @@ public class DistortionEffects : PostProcessEffectController
         // add self as listener to appropriate events
         EventManager.AddUpdateSanityListener(ScaleHallucinationEffect);
         EventManager.AddUpdateSanityListener(ScaleDistortionEffect);
+        SceneManager.sceneUnloaded += ctx => ClearEffects();
     }
 
     /// <summary>
@@ -64,5 +69,21 @@ public class DistortionEffects : PostProcessEffectController
 
         // store sanity to calculate delta for next frame
         sanityLastFrame = remainingSanity;
+    }
+
+    /// <summary>
+    /// Clears sanity post-processing effects when level ends in success of failure
+    /// </summary>
+    void ClearEffects()
+    {
+        // silence proximity distortion sounds
+        myDistortSource.volume = 0;
+
+        // clear each post-processing volume in use
+        foreach (PostProcessVolume effect in myVolumes)
+        {
+            effect.isGlobal = false;
+            effect.weight = 0;
+        }
     }
 }

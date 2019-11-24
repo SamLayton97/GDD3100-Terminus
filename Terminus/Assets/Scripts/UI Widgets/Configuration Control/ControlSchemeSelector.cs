@@ -11,7 +11,6 @@ public class ControlSchemeSelector : MonoBehaviour
 {
     // serialized UI variables
     [SerializeField] Image controlsDiagramImage;            // diagram displaying control scheme player has selected
-    [SerializeField] Text controlsDiagramName;              // name of control scheme currently selected
     [SerializeField] ToggleGroup controlsToggleGroup;       // group of toggles allowing user to select control scheme
 
     /// <summary>
@@ -30,7 +29,6 @@ public class ControlSchemeSelector : MonoBehaviour
     void UpdateDiagram()
     {
         controlsDiagramImage.sprite = ControlSchemeManager.CurrentSchemeDiagram;
-        controlsDiagramName.text = (ControlSchemeManager.CurrentScheme).ToString();
     }
 
     #region Public Methods

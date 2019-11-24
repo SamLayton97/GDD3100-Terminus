@@ -682,21 +682,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionsButtonClick
       objectReference: {fileID: 0}
-    - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.99607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.4881362
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235661628274386204, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.10196079
-      objectReference: {fileID: 0}
     - target: {fileID: 1741508311581019015, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
       propertyPath: m_Camera
@@ -776,6 +761,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173682164062820729, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173682164062820729, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173682164062820729, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1, type: 3}
