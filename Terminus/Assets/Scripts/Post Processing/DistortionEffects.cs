@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Reflects player's 'sanity'/physical distortion using 
@@ -40,7 +41,7 @@ public class DistortionEffects : PostProcessEffectController
         // add self as listener to appropriate events
         EventManager.AddUpdateSanityListener(ScaleHallucinationEffect);
         EventManager.AddUpdateSanityListener(ScaleDistortionEffect);
-        EventManager.AddEndLevelListener(ClearEffects);
+        SceneManager.sceneUnloaded += ctx => ClearEffects();
     }
 
     /// <summary>
@@ -73,11 +74,7 @@ public class DistortionEffects : PostProcessEffectController
     /// <summary>
     /// Clears sanity post-processing effects when level ends in success of failure
     /// </summary>
-    /// <param name="playerWon">Whether level ended in success.
-    /// Note: Only needed to listen for End Level event.</param>
-    /// <param name="remainingSanity">Amount of sanity player has at level's end.
-    /// Note: Only needed to listen for End Level event.</param>
-    void ClearEffects(bool playerWon, float remainingSanity)
+    void ClearEffects()
     {
         // silence proximity distortion sounds
         myDistortSource.volume = 0;
