@@ -37,6 +37,7 @@ public class DistortionEffects : PostProcessEffectController
         // add self as listener to appropriate events
         EventManager.AddUpdateSanityListener(ScaleHallucinationEffect);
         EventManager.AddUpdateSanityListener(ScaleDistortionEffect);
+        EventManager.AddEndLevelListener(ClearEffects);
     }
 
     /// <summary>
@@ -64,5 +65,22 @@ public class DistortionEffects : PostProcessEffectController
 
         // store sanity to calculate delta for next frame
         sanityLastFrame = remainingSanity;
+    }
+
+    /// <summary>
+    /// Clears sanity post-processing effects when level ends in success of failure
+    /// </summary>
+    /// <param name="playerWon">Whether level ended in success.
+    /// Note: Only needed to listen for End Level event.</param>
+    /// <param name="remainingSanity">Amount of sanity player has at level's end.
+    /// Note: Only needed to listen for End Level event.</param>
+    void ClearEffects(bool playerWon, float remainingSanity)
+    {
+        // clear each post-processing volume in use
+        foreach (PostProcessVolume effect in myVolumes)
+        {
+            effect.isGlobal = false;
+            effect.weight = 0;
+        }
     }
 }
