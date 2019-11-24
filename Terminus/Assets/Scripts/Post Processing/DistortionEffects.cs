@@ -79,14 +79,14 @@ public class DistortionEffects : PostProcessEffectController
     /// Note: Only needed to listen for End Level event.</param>
     void ClearEffects(bool playerWon, float remainingSanity)
     {
+        // silence proximity distortion sounds
+        myDistortSource.volume = 0;
+
         // clear each post-processing volume in use
         foreach (PostProcessVolume effect in myVolumes)
         {
             effect.isGlobal = false;
             effect.weight = 0;
         }
-
-        // silence proximity distortion sound
-        //myDistortSource.volume = 0;
     }
 }

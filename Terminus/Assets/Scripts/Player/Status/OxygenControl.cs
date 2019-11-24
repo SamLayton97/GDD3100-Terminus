@@ -11,6 +11,7 @@ using EZCameraShake;
 [RequireComponent(typeof(PlayerFire))]
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(SanityControl))]
 public class OxygenControl : LevelEnder
 {
     // private variables
@@ -20,6 +21,7 @@ public class OxygenControl : LevelEnder
     FaceMousePosition myLook;               // player's look-input component (disabled on death)
     PlayerFire myFire;                      // player's combat component (disabled on death)
     CircleCollider2D myTriggerCollider;     // player's trigger collider component (disabled on death)
+    SanityControl mySanity;                 // player's sanity controller component (disabled on death)
     bool lowOxygen = false;                 // flag indicating whether player is low on oxygen
     Vector3 regainOrientation
         = new Vector3();
@@ -91,6 +93,7 @@ public class OxygenControl : LevelEnder
         myLook = GetComponent<FaceMousePosition>();
         myFire = GetComponent<PlayerFire>();
         myTriggerCollider = GetComponent<CircleCollider2D>();
+        mySanity = GetComponent<SanityControl>();
         if (!effectsContainer)
             effectsContainer = transform.GetChild(1);       // assumed to be second child under player
     }
@@ -213,6 +216,7 @@ public class OxygenControl : LevelEnder
             myLook.enabled = false;
             myFire.enabled = false;
             myTriggerCollider.enabled = false;
+            mySanity.enabled = false;
             gameObject.layer = LayerMask.NameToLayer("Corpses");
 
             // play death sound effect
