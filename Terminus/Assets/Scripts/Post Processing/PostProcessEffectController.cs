@@ -18,7 +18,7 @@ public abstract class PostProcessEffectController : MonoBehaviour
     /// <summary>
     /// Used for initialization
     /// </summary>
-    void Awake()
+    protected virtual void Awake()
     {
         // grab post process volume if not set up beforehand
         if (myVolumes.Count < 1)

@@ -23,8 +23,11 @@ public class DistortionEffects : PostProcessEffectController
     /// <summary>
     /// Used for initialization
     /// </summary>
-    void Awake()
+    protected override void Awake()
     {
+        // perform base controller initialization
+        base.Awake();
+
         // retrieve relevant components
         myDistortSource = GetComponent<AudioSource>();
     }
@@ -82,5 +85,8 @@ public class DistortionEffects : PostProcessEffectController
             effect.isGlobal = false;
             effect.weight = 0;
         }
+
+        // silence proximity distortion sound
+        //myDistortSource.volume = 0;
     }
 }

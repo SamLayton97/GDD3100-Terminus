@@ -59,6 +59,7 @@ public class SanityControl : MonoBehaviour
 
         // add self as listener of relevant events
         EventManager.AddDeductSanityListener(DeductSanity);
+        //EventManager.AddEndLevelListener(ClearDistortionEffects);
 
         // initialize player with full sanity
         currSanity = maxSanity;
@@ -132,6 +133,17 @@ public class SanityControl : MonoBehaviour
     {
         currSanity = Mathf.Min(100, currSanity + sanityGained);
         updateDisplayEvent.Invoke(currSanity);
+    }
+
+    /// <summary>
+    /// Stops localized distortion audio effects
+    /// when level ends in success of failure.
+    /// </summary>
+    void ClearDistortionEffects(bool playerWon, float remainingSanity)
+    {
+        Debug.Log("here");
+        persistentSource.volume = 0;
+        Debug.Log(persistentSource.volume);
     }
 
     #endregion
