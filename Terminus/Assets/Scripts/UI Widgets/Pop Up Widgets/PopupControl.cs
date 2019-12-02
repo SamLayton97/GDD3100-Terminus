@@ -60,11 +60,11 @@ public class PopupControl : SceneTransitioner
     {
         base.Start();
 
-        // TODO: add self as invoker of appropriate events
+        // add self as invoker of appropriate events
         togglePauseEvent = new TogglePauseEvent();
         EventManager.AddTogglePauseInvoker(this);
         showControlsEvent = new ShowMobileControlsEvent();
-        
+        EventManager.AddMobileControlsInvoker(this);
 
         // add self as listener for end level event
         EventManager.AddEndLevelListener(HandleEndLevel);

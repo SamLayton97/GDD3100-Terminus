@@ -426,4 +426,30 @@ public static class EventManager
 
     #endregion
 
+    #region Show/Hide Mobile Controls
+
+    // declare lists to hold invokers and listeners to show/hide mobile controls event
+    static List<PopupControl> showControlsInvokers = new List<PopupControl>();
+    static List<UnityAction<bool>> showControlsListeners = new List<UnityAction<bool>>();
+
+    // Adds given popup controler as invoker of show/hide controls event
+    public static void AddMobileControlsInvoker(PopupControl invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        showControlsInvokers.Add(invoker);
+        foreach (UnityAction<bool> listener in showControlsListeners)
+            invoker.AddShowControlsListener(listener);
+    }
+
+    // Adds given method as listener to show/hide mobile controls event
+    public static void AddMobileControlsListener(UnityAction<bool> listener)
+    {
+        // adds listener to list and to all invokers of event
+        showControlsListeners.Add(listener);
+        foreach (PopupControl invoker in showControlsInvokers)
+            invoker.AddShowControlsListener(listener);
+    }
+
+    #endregion
+
 }
