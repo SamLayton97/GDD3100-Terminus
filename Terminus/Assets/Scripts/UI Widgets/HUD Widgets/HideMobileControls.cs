@@ -14,7 +14,32 @@ public class HideMobileControls : HideOnPause
     /// </summary>
     protected override void Start()
     {
-        // TODO: add self as listener for show/hide controls event
-
+        // add self as listener for show/hide controls event
+        EventManager.AddMobileControlsListener(ToggleVisibility);
     }
+
+    /// <summary>
+    /// Hide/reveal UI element when user pauses/unpauses game
+    /// </summary>
+    /// <param name="isPaused">whether user has paused game</param>
+    protected override void ToggleVisibility(bool isPaused)
+    {
+        // if game is paused/menus are hidden
+        if (isPaused)
+        {
+            // hide controls and disable interaction
+            myCanvasGroup.alpha = 0;
+            myCanvasGroup.blocksRaycasts = false;
+            myCanvasGroup.interactable = false;
+        }
+        // otherwise (return to gameplay)
+        else
+        {
+            // show controls and enable interaction
+            myCanvasGroup.alpha = 1;
+            myCanvasGroup.blocksRaycasts = true;
+            myCanvasGroup.interactable = true;
+        }
+    }
+
 }

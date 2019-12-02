@@ -9,10 +9,10 @@ using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
 public class HideOnPause : MonoBehaviour
 {
-    // private variables
-    CanvasGroup myCanvasGroup;                  // component used to control alpha value of UI element
-    bool blockRaycastsBeforePause = false;      // whether UI element blocked raycasts before player paused game
-    float visibilityBeforePause = 0f;           // current alpha value when user paused game
+    // visibility support variables
+    protected CanvasGroup myCanvasGroup;                    // component used to control alpha value of UI element
+    protected bool blockRaycastsBeforePause = false;        // whether UI element blocked raycasts before player paused game
+    protected float visibilityBeforePause = 0f;             // current alpha value when user paused game
 
     /// <summary>
     /// Used for initialization
@@ -40,7 +40,7 @@ public class HideOnPause : MonoBehaviour
     /// Hide/reveal UI element when user pauses/unpauses game
     /// </summary>
     /// <param name="isPaused">whether user has paused game</param>
-    void ToggleVisibility(bool isPaused)
+    protected virtual void ToggleVisibility(bool isPaused)
     {
         // if user has paused game
         if (isPaused)

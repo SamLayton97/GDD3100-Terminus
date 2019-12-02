@@ -40,7 +40,7 @@ public class PopupControl : SceneTransitioner
 
     // event support
     TogglePauseEvent togglePauseEvent;
-    ShowMobileControlsEvent showControlsEvent;
+    HideMobileControlsEvent hideControlsEvent;
 
     #region Unity Methods
 
@@ -63,7 +63,7 @@ public class PopupControl : SceneTransitioner
         // add self as invoker of appropriate events
         togglePauseEvent = new TogglePauseEvent();
         EventManager.AddTogglePauseInvoker(this);
-        showControlsEvent = new ShowMobileControlsEvent();
+        hideControlsEvent = new HideMobileControlsEvent();
         EventManager.AddMobileControlsInvoker(this);
 
         // add self as listener for end level event
@@ -77,9 +77,10 @@ public class PopupControl : SceneTransitioner
         // if user attempts to pause game, game is not already paused, and level hasn't ended
         if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0 && !levelEndMenuControl.Shown)
         {
-            // pause game
+            // pause game and hide mobile controls
             Time.timeScale = 0;
             togglePauseEvent.Invoke(true);
+            hideControlsEvent.Invoke(true);
             AudioManager.Play(myPauseSound, true);
             CursorManager.Instance.HandlePause(true);
 
@@ -99,9 +100,10 @@ public class PopupControl : SceneTransitioner
             craftingMenuController.ToggleDisplay(false);
             inventoryController.ToggleDisplay(false);
 
-            // unpause game
+            // unpause game and show mobile controls
             Time.timeScale = 1;
             togglePauseEvent.Invoke(false);
+            hideControlsEvent.Invoke(false);
             AudioManager.Play(myUnpauseSound, true);
             CursorManager.Instance.HandlePause(false);
         }
@@ -117,10 +119,11 @@ public class PopupControl : SceneTransitioner
             if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
                 || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
             {
-                // pause game
+                // pause game and hide mobile controls
                 Time.timeScale = 0;
                 AudioManager.Play(myPauseSound, true);
                 CursorManager.Instance.HandlePause(true);
+                hideControlsEvent.Invoke(true);
 
                 // reveal materials inventory and crafting menu
                 inventoryController.ToggleDisplay(true);
@@ -130,10 +133,11 @@ public class PopupControl : SceneTransitioner
             else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
                     || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
             {
-                // unpause game
+                // unpause game and show mobile controls
                 Time.timeScale = 1;
                 AudioManager.Play(myUnpauseSound, true);
                 CursorManager.Instance.HandlePause(false);
+                hideControlsEvent.Invoke(false);
 
                 // hide materials inventory and crafting menu
                 inventoryController.ToggleDisplay(false);
@@ -243,7 +247,7 @@ public class PopupControl : SceneTransitioner
     /// <param name="newListener">listener of event</param>
     public void AddShowControlsListener(UnityAction<bool> newListener)
     {
-        showControlsEvent.AddListener(newListener);
+        hideControlsEvent.AddListener(newListener);
     }
 
     #region Private Methods

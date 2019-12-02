@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 11400012}
   - component: {fileID: 8259787430372753122}
-  - component: {fileID: 8741619907546665800}
+  - component: {fileID: 2882076721401871580}
   m_Layer: 5
   m_Name: AimAndFireControls
   m_TagString: Untagged
@@ -104,7 +104,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &8741619907546665800
+--- !u!114 &2882076721401871580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 881f86fe6c740684fbbc87f080692d91, type: 3}
+  m_Script: {fileID: 11500000, guid: cdb953f4f02059e43a53b214d704794e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &100002
