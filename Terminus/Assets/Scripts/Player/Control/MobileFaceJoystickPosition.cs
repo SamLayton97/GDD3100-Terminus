@@ -20,7 +20,13 @@ public class MobileFaceJoystickPosition : MonoBehaviour
         // if game isn't paused
         if (Time.timeScale != 0)
         {
-            // TODO: find direction vector of joystick
+            // find angle of mobile joystick
+            float rotation = Mathf.Atan2(CrossPlatformInputManager.GetAxis("AimVertical"),
+                CrossPlatformInputManager.GetAxis("AimHorizontal")) * Mathf.Rad2Deg;
+
+            Debug.Log(rotation);
+
+            
         }
     }
 }
