@@ -21,12 +21,13 @@ public class MobileFaceJoystickPosition : MonoBehaviour
         if (Time.timeScale != 0)
         {
             // find angle of mobile joystick
-            float rotation = Mathf.Atan2(CrossPlatformInputManager.GetAxis("AimVertical"),
+            float joystickAngle = Mathf.Atan2(CrossPlatformInputManager.GetAxis("AimVertical"),
                 CrossPlatformInputManager.GetAxis("AimHorizontal")) * Mathf.Rad2Deg;
 
-            Debug.Log(rotation);
-
-            
+            // turn object to face joystick direction
+            Quaternion targetOrientation = new Quaternion();
+            targetOrientation.eulerAngles = new Vector3(0, 0, joystickAngle);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetOrientation, rotationSpeed);
         }
     }
 }
