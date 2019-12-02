@@ -260,6 +260,7 @@ public class PopupControl : SceneTransitioner
     void HandleEndLevel(bool endedInSuccess, float remainingSanity)
     {
         // hide UI elements, only freezing game on success
+        hideControlsEvent.Invoke(true);
         togglePauseEvent.Invoke(true);
         if (endedInSuccess)
             Time.timeScale = 0;
