@@ -20,7 +20,7 @@ public class MobileFaceJoystickPosition : MonoBehaviour
         // if game isn't paused
         if (Time.timeScale != 0)
         {
-            // 
+            // TODO: find direction vector of joystick
         }
     }
 }
