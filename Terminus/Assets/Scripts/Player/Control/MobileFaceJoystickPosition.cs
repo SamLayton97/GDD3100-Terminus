@@ -15,24 +15,43 @@ public class MobileFaceJoystickPosition : MonoBehaviour
     // rotation support variables
     float faceHorizontal = 0f;
     float faceVertical = 0f;
+    float idleHorizontal = 0f;
+    float idleVertical = 0f;
 
     /// <summary>
     /// Called once per frame
     /// </summary>
     void Update()
     {
+        // if game is paused, skip update
+        if (Time.timeScale == 0)
+            return;
+
         // get joystick input
         faceHorizontal = CrossPlatformInputManager.GetAxis("AimHorizontal");
         faceVertical = CrossPlatformInputManager.GetAxis("AimVertical");
 
-        // if game isn't paused and player gave some input
-        if (Time.timeScale != 0 && !(faceHorizontal == 0 && faceVertical == 0))
+        // if player gave some input
+        if (!(faceHorizontal == 0 && faceVertical == 0))
         {
             // turn object to face joystick direction
             Quaternion targetOrientation = new Quaternion();
             targetOrientation.eulerAngles = new Vector3(0, 0, 
                 Mathf.Atan2(faceVertical, faceHorizontal) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetOrientation, rotationSpeed);
+
+            // update idle rotation components (should user stop providing input)
+            idleHorizontal = faceHorizontal;
+            idleVertical = faceVertical;
+        }
+        // otherwise (no input)
+        else
+        {
+            // turn object to face last input direction
+            Quaternion idleOrientation = new Quaternion();
+            idleOrientation.eulerAngles = new Vector3(0, 0,
+                Mathf.Atan2(idleVertical, idleHorizontal) * Mathf.Rad2Deg);
+            transform.rotation = Quaternion.Lerp(transform.rotation, idleOrientation, rotationSpeed);
         }
     }
 }
