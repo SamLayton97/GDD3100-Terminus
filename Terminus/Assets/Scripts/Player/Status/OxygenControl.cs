@@ -7,7 +7,6 @@ using EZCameraShake;
 /// <summary>
 /// Manages oxygen depletion and re-gain of agent, including instances of player death
 /// </summary>
-[RequireComponent(typeof(FaceMousePosition))]
 [RequireComponent(typeof(PlayerFire))]
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(AudioSource))]
@@ -213,10 +212,11 @@ public class OxygenControl : LevelEnder
         {
             // soft-disable player
             softDisabled = true;
-            myLook.enabled = false;
             myFire.enabled = false;
             myTriggerCollider.enabled = false;
             mySanity.enabled = false;
+            if (myLook != null)
+                myLook.enabled = false;
             gameObject.layer = LayerMask.NameToLayer("Corpses");
 
             // play death sound effect
