@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Hides/reveals UI element when player
@@ -31,7 +30,7 @@ public class HideOnPause : MonoBehaviour
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
-    void Start()
+    protected virtual void Start()
     {
         // add self as listener for toggle pause event
         EventManager.AddTogglePauseListener(ToggleVisibility);
