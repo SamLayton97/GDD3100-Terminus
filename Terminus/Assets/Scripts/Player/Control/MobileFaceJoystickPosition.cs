@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityStandardAssets.CrossPlatformInput;
 
 /// <summary>
 /// Rotates object to face direction of mobile joystick
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public class MobileFaceJoystickPosition : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // configuration variables
+    [SerializeField] float rotationSpeed = 10f;     // rate at which object turns to face joystick direction
 
-    // Update is called once per frame
+    /// <summary>
+    /// Called once per frame
+    /// </summary>
     void Update()
     {
-        
+        // if game isn't paused
+        if (Time.timeScale != 0)
+        {
+            // 
+        }
     }
 }
