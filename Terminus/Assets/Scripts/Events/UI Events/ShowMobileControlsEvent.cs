@@ -1,18 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ShowMobileControlsEvent : MonoBehaviour
+/// <summary>
+/// Event used to toggle visibility of mobile controls
+/// </summary>
+public class ShowMobileControlsEvent : UnityEvent<bool>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
