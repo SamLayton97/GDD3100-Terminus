@@ -40,6 +40,7 @@ public class PopupControl : SceneTransitioner
 
     // event support
     TogglePauseEvent togglePauseEvent;
+    ShowMobileControlsEvent showControlsEvent;
 
     #region Unity Methods
 
@@ -59,9 +60,11 @@ public class PopupControl : SceneTransitioner
     {
         base.Start();
 
-        // add self as invoker of toggle pause event
+        // TODO: add self as invoker of appropriate events
         togglePauseEvent = new TogglePauseEvent();
         EventManager.AddTogglePauseInvoker(this);
+        showControlsEvent = new ShowMobileControlsEvent();
+        
 
         // add self as listener for end level event
         EventManager.AddEndLevelListener(HandleEndLevel);
@@ -233,6 +236,15 @@ public class PopupControl : SceneTransitioner
     }
 
     #endregion
+
+    /// <summary>
+    /// Adds given method as listener of show/hide mobile controls event
+    /// </summary>
+    /// <param name="newListener">listener of event</param>
+    public void AddShowControlsListener(UnityAction<bool> newListener)
+    {
+        showControlsEvent.AddListener(newListener);
+    }
 
     #region Private Methods
 
