@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 4295924872566326880}
   - component: {fileID: 5115302284533087167}
   - component: {fileID: 8474251367623208364}
+  - component: {fileID: 168719767387499285}
   m_Layer: 5
   m_Name: BioRifleHolder
   m_TagString: Untagged
@@ -747,6 +748,36 @@ MonoBehaviour:
   popTransform: {fileID: 6752603618130318585}
   popExpandRate: 6
   popDiminishRate: 3
+--- !u!114 &168719767387499285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546988734453130600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6254975708931271631}
+          m_MethodName: SelectWeapon
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1548826600104286676
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +944,7 @@ GameObject:
   - component: {fileID: 5852874141159937947}
   - component: {fileID: 8125721947637438425}
   - component: {fileID: 4613305665133925042}
+  - component: {fileID: 3970121487526387064}
   m_Layer: 5
   m_Name: PhotonHolder
   m_TagString: Untagged
@@ -1011,6 +1043,36 @@ MonoBehaviour:
   popTransform: {fileID: 8254270616743642165}
   popExpandRate: 6
   popDiminishRate: 3
+--- !u!114 &3970121487526387064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980688992114210766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6254975708931271631}
+          m_MethodName: SelectWeapon
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &2476414613076653045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1086,7 @@ GameObject:
   - component: {fileID: 4354875545153204783}
   - component: {fileID: 5885834123000728035}
   - component: {fileID: 5254556750182082057}
+  - component: {fileID: 1303905613245790602}
   m_Layer: 5
   m_Name: ShotgunHolder
   m_TagString: Untagged
@@ -1122,6 +1185,36 @@ MonoBehaviour:
   popTransform: {fileID: 6491091928832850425}
   popExpandRate: 6
   popDiminishRate: 3
+--- !u!114 &1303905613245790602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476414613076653045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6254975708931271631}
+          m_MethodName: SelectWeapon
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &2588982621498034864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2351,7 @@ GameObject:
   - component: {fileID: 8548424841101555446}
   - component: {fileID: 1691524457686212198}
   - component: {fileID: 3565762107494170091}
+  - component: {fileID: 3942445769872241738}
   m_Layer: 5
   m_Name: PistolHolder
   m_TagString: Untagged
@@ -2339,6 +2433,36 @@ MonoBehaviour:
   myWeapon: 0
   toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   flashTime: 0.5
+--- !u!114 &3942445769872241738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524446379445526093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6254975708931271631}
+          m_MethodName: SelectWeapon
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &5147488739732658536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,7 +3134,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &7577595086911863424
 MonoBehaviour:

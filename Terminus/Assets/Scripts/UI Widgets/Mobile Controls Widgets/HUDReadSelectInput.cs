@@ -18,9 +18,19 @@ public class HUDReadSelectInput : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // TODO: add self as invoker of HUD select event
+        // add self as invoker of HUD select event
         selectEvent = new HUDSelectWeaponEvent();
         EventManager.AddHUDSelectWeaponInvoker(this);
+    }
+
+    /// <summary>
+    /// Initates weapon selection of particular type from HUD
+    /// </summary>
+    /// <param name="type">index of selected weapon type within
+    /// WeaponTypes enum</param>
+    public void SelectWeapon(int typeIndex)
+    {
+        Debug.Log((WeaponType)typeIndex);
     }
 
     /// <summary>
