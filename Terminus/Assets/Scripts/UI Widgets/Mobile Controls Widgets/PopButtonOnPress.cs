@@ -19,4 +19,12 @@ public class PopButtonOnPress : MonoBehaviour
     CanvasGroup popCanvasGroup;                         // controls visibility of meter pop interaction
     Vector2 popPeakScale = new Vector2();               // scale meter pop grows to
     IEnumerator popCoroutine;                           // coroutine controlling visibility and scale of pop image
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+
+    }
 }
