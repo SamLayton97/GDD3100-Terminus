@@ -17,7 +17,8 @@ public class PopButtonOnPress : MonoBehaviour
 
     // pop support variables
     CanvasGroup popCanvasGroup;                         // controls visibility of meter pop interaction
-    Vector2 popPeakScale = new Vector2();               // scale meter pop grows to
+    Vector3 popPeakScale = new Vector3();               // scale meter pop grows to
+    IEnumerator popCoroutine;                           // coroutine controlling button's "pop" microinteraction
 
     /// <summary>
     /// Used for initialization
@@ -39,7 +40,8 @@ public class PopButtonOnPress : MonoBehaviour
     public void HandlePress()
     {
         // initiate button pop
-        StartCoroutine(PopButton());
+        popCoroutine = PopButton();
+        StartCoroutine(popCoroutine);
     }
 
     /// <summary>
@@ -48,9 +50,26 @@ public class PopButtonOnPress : MonoBehaviour
     /// <returns></returns>
     IEnumerator PopButton()
     {
-        Debug.Log("here");
+        // initialize pop overlay
+        popCanvasGroup.alpha = 1f;
 
-        yield return new WaitForEndOfFrame();
+        // expand pop overlay to its peak
+        float popProgress = 0f;
+        do
+        {
+            popProgress += Time.deltaTime * popExpandRate;
+            popTransform.localScale = Vector3.Lerp(Vector3.zero, popPeakScale, popProgress);
+            yield return new WaitForEndOfFrame();
+        } while (popProgress < 1);
+
+        //// shrink and fade away
+        float diminishProgress = 0f;
+        do
+        {
+            diminishProgress += Time.deltaTime * popDiminishRate;
+            popTransform.localScale = Vector3.Lerp(popPeakScale, Vector3.one, diminishProgress);
+            popCanvasGroup.alpha = Mathf.Lerp(1, 0, diminishProgress);
+            yield return new WaitForEndOfFrame();
+        } while (diminishProgress < 1);
     }
-
 }
