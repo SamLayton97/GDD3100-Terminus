@@ -80,6 +80,7 @@ public class WeaponSelect : MonoBehaviour
         // add self as listener to relevant events
         EventManager.AddPickUpWeaponListener(AddWeapon);
         EventManager.AddEmptyWeaponListener(HandleEmptyWeapon);
+        EventManager.AddHUDSelectWeaponListener(SelectWeapon);
 
         // initialize starting weapon
         SelectWeapon((int)WeaponType.Pistol);

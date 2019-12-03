@@ -30,7 +30,8 @@ public class HUDReadSelectInput : MonoBehaviour
     /// WeaponTypes enum</param>
     public void SelectWeapon(int typeIndex)
     {
-        Debug.Log((WeaponType)typeIndex);
+        // initiate weapon selection
+        selectEvent.Invoke(typeIndex);
     }
 
     /// <summary>
