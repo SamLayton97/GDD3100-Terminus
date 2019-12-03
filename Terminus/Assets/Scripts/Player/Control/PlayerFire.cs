@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityStandardAssets.CrossPlatformInput;
 
 /// <summary>
-/// Registers user's fire input, firing weapon/tool in direction
-/// of mouse and sending player in opposite direction.
+/// Registers user's mobile fire input, firing weapon in direction
+/// player is facing and sending player in opposite direction.
 /// Note: Requires player character to have the Rigidbody2D component.
 /// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
@@ -49,7 +50,7 @@ public class PlayerFire : MonoBehaviour
     void Update()
     {
         // if player fires weapon and game isn't paused
-        if (CustomInputManager.GetMouseButton("Fire") && Time.timeScale != 0)
+        if (CrossPlatformInputManager.GetButtonDown("Fire") && Time.timeScale != 0)
         {
             // register input in weapon and set fired last frame flag to true
             currWeapon.RegisterInput(firedLastFrame);
