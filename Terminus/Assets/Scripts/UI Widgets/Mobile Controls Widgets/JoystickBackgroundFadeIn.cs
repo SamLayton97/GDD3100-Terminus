@@ -46,8 +46,6 @@ public class JoystickBackgroundFadeIn : MonoBehaviour
     /// <returns></returns>
     IEnumerator ControlFade(bool fadeIn)
     {
-        Debug.Log("started");
-
         // determine shift direction
         float fadeDirection = fadeIn ? 1f : -1f;
 
