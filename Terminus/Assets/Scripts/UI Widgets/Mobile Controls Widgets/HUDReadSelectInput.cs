@@ -90,5 +90,4 @@ public class HUDReadSelectInput : MonoBehaviour
 
         } while (flashProgress > 0);
     }
-
 }
