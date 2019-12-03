@@ -14,6 +14,7 @@ public class JoystickBackgroundFadeIn : MonoBehaviour
 
     // support variables
     CanvasGroup myCanvasGroup;
+    IEnumerator fadeCoroutine;
 
     /// <summary>
     /// Used for initialization
@@ -31,7 +32,10 @@ public class JoystickBackgroundFadeIn : MonoBehaviour
     /// <param name="fadeIn">whether background should fade in</param>
     public void ToggleFadeIn(bool fadeIn)
     {
-        Debug.Log(fadeIn);
+        // start/restart fade coroutine
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = ControlFade(fadeIn);
+        StartCoroutine(fadeCoroutine);
     }
 
     /// <summary>
@@ -42,6 +46,8 @@ public class JoystickBackgroundFadeIn : MonoBehaviour
     /// <returns></returns>
     IEnumerator ControlFade(bool fadeIn)
     {
+        Debug.Log("started");
+
         // determine shift direction
         float fadeDirection = fadeIn ? 1f : -1f;
 
@@ -51,6 +57,6 @@ public class JoystickBackgroundFadeIn : MonoBehaviour
             // shift opacity towards target over time
             myCanvasGroup.alpha += Time.deltaTime * fadeDirection * fadeInRate;
             yield return new WaitForEndOfFrame();
-        } while (myCanvasGroup.alpha <= 0 || myCanvasGroup.alpha >= 1);
+        } while (myCanvasGroup.alpha > 0f && myCanvasGroup.alpha < 1f);
     }
 }
