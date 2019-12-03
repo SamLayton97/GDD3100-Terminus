@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Reads pointer-based input from Weapons HUD, initiating
@@ -19,6 +20,16 @@ public class HUDReadSelectInput : MonoBehaviour
     {
         // TODO: add self as invoker of HUD select event
         selectEvent = new HUDSelectWeaponEvent();
-
+        EventManager.AddHUDSelectWeaponInvoker(this);
     }
+
+    /// <summary>
+    /// Adds given method as listener to HUD select weapon event
+    /// </summary>
+    /// <param name="newListener">new method listening for event</param>
+    public void AddSelectListener(UnityAction<int> newListener)
+    {
+        selectEvent.AddListener(newListener);
+    }
+
 }

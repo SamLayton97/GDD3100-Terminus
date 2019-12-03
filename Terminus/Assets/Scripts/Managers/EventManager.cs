@@ -452,4 +452,30 @@ public static class EventManager
 
     #endregion
 
+    #region Mobile Select Weapon from HUD
+
+    // declare lists to hold invokers and listeners to HUD select weapon event
+    static List<HUDReadSelectInput> HUDSelectWeaponInvokers = new List<HUDReadSelectInput>();
+    static List<UnityAction<int>> HUDSelectWeaponListeners = new List<UnityAction<int>>();
+
+    // Adds given selction reader as invoker of HUD select weapon event
+    public static void AddHUDSelectWeaponInvoker(HUDReadSelectInput invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        HUDSelectWeaponInvokers.Add(invoker);
+        foreach (UnityAction<int> listener in HUDSelectWeaponListeners)
+            invoker.AddSelectListener(listener);
+    }
+
+    // Adds given method as listener to HUD select weapon event
+    public static void AddHUDSelectWeaponListener(UnityAction<int> listener)
+    {
+        // adds listener to list and to all invokers of event
+        HUDSelectWeaponListeners.Add(listener);
+        foreach (HUDReadSelectInput invoker in HUDSelectWeaponInvokers)
+            invoker.AddSelectListener(listener);
+    }
+
+    #endregion
+
 }
