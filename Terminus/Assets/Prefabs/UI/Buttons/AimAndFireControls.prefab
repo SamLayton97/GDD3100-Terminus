@@ -226,8 +226,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6403792941773748315}
-          m_MethodName: SetActive
+        - m_Target: {fileID: 7950404648750757867}
+          m_MethodName: ToggleFadeIn
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -243,8 +243,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6403792941773748315}
-          m_MethodName: SetActive
+        - m_Target: {fileID: 7950404648750757867}
+          m_MethodName: ToggleFadeIn
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -500,6 +500,8 @@ GameObject:
   - component: {fileID: 1138812234284667173}
   - component: {fileID: 3217459643703739024}
   - component: {fileID: 2831846852497731904}
+  - component: {fileID: 3473498319601364778}
+  - component: {fileID: 7950404648750757867}
   m_Layer: 5
   m_Name: BackgroundHighlight
   m_TagString: Untagged
@@ -564,6 +566,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3473498319601364778
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403792941773748315}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &7950404648750757867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403792941773748315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1031fc655594bf45a26e87ee43c86f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInRate: 2
 --- !u!1 &7154532842886314922
 GameObject:
   m_ObjectHideFlags: 0

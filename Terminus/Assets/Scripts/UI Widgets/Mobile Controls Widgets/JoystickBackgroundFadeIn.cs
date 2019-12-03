@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// Controls fade-in and fade-out of mobile joystick's background
@@ -24,22 +23,34 @@ public class JoystickBackgroundFadeIn : MonoBehaviour
         // retrieve relevant components
         myCanvasGroup = GetComponent<CanvasGroup>();
     }
-    
+
     /// <summary>
-    /// Initiates background fade in when user's
-    /// pointer depresses over joystick
+    /// Initates fade in/out of background when user's
+    /// pointer depresses over and releases joystick
     /// </summary>
-    public void HandlePointerDown()
+    /// <param name="fadeIn">whether background should fade in</param>
+    public void ToggleFadeIn(bool fadeIn)
     {
-        Debug.Log("here");
+        Debug.Log(fadeIn);
     }
 
     /// <summary>
-    /// Initiates background fade out when user's
-    /// pointer releases joystick
+    /// Coroutine which handles fade in/out of 
+    /// joystick background highlight
     /// </summary>
-    public void HandlePointerUp()
+    /// <param name="fadeIn"></param>
+    /// <returns></returns>
+    IEnumerator ControlFade(bool fadeIn)
     {
-        Debug.Log("there");
+        // determine shift direction
+        float fadeDirection = fadeIn ? 1f : -1f;
+
+        // while highlight hasn't reached target alpha
+        do
+        {
+            // shift opacity towards target over time
+            myCanvasGroup.alpha += Time.deltaTime * fadeDirection * fadeInRate;
+            yield return new WaitForEndOfFrame();
+        } while (myCanvasGroup.alpha <= 0 || myCanvasGroup.alpha >= 1);
     }
 }
