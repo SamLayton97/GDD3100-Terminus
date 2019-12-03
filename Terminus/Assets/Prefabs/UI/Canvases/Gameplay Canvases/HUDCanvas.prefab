@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 852588052506396058}
   - component: {fileID: 4829303382215451409}
   m_Layer: 5
-  m_Name: CollectHighlight
+  m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 7196279114674028418}
   - component: {fileID: 6106143768311415143}
   m_Layer: 5
-  m_Name: CollectHighlight
+  m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1856,7 +1856,7 @@ GameObject:
   - component: {fileID: 427196211743145018}
   - component: {fileID: 5828644029057009581}
   m_Layer: 5
-  m_Name: CollectHighlight
+  m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2033,6 +2033,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf3b8fb126fdcb43ac578cbeca75a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashImages:
+  - {fileID: 4829303382215451409}
+  - {fileID: 5828644029057009581}
+  - {fileID: 8301236263594666997}
+  - {fileID: 6106143768311415143}
+  toColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  flashRate: 5
 --- !u!1 &3901298731827666824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,7 +2710,7 @@ GameObject:
   - component: {fileID: 4500380629266469487}
   - component: {fileID: 8301236263594666997}
   m_Layer: 5
-  m_Name: CollectHighlight
+  m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

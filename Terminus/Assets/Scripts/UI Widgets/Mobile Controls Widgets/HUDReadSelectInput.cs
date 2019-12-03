@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 /// <summary>
@@ -10,8 +11,27 @@ using UnityEngine.Events;
 /// </summary>
 public class HUDReadSelectInput : MonoBehaviour
 {
+    // visual confirmation configuration
+    [SerializeField] List<Image> flashImages =      // list of background images that flash to confirm input
+        new List<Image>();                          // NOTE: must be entered in order their corresponding weapons appear in WeaponTypes enum
+    [SerializeField] Color toColor;                 // color to flash to
+    [SerializeField] float flashRate = 1f;          // rate at which visual confirmation flashes
+
+    // visual confirmation support variables
+    Color fromColor = Color.white;                  // color to flash from -- initial color of HUD element
+
     // event support
     HUDSelectWeaponEvent selectEvent;
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // get initial color of confirmation to flash from
+        if (flashImages.Count > 0)
+            fromColor = flashImages[0].color;
+    }
 
     /// <summary>
     /// Used for late initialization
@@ -30,8 +50,9 @@ public class HUDReadSelectInput : MonoBehaviour
     /// WeaponTypes enum</param>
     public void SelectWeapon(int typeIndex)
     {
-        // initiate weapon selection
+        // initiate weapon select and visual confirmation
         selectEvent.Invoke(typeIndex);
+        StartCoroutine(ConfirmSelection(typeIndex));
     }
 
     /// <summary>
@@ -41,6 +62,33 @@ public class HUDReadSelectInput : MonoBehaviour
     public void AddSelectListener(UnityAction<int> newListener)
     {
         selectEvent.AddListener(newListener);
+    }
+
+    /// <summary>
+    /// Confirms user's attepmted weapon selection
+    /// </summary>
+    /// <param name="flashIndex">index of background to flash</param>
+    /// <returns></returns>
+    IEnumerator ConfirmSelection(int flashIndex)
+    {
+        // retrieve background image to flash
+        Image toFlash = flashImages[flashIndex];
+
+        // flash between colors, switching direction when appropriate
+        float flashProgress = 0f;
+        bool ascending = true;
+        do
+        {
+            // lerp between colors and reverse at peak
+            flashProgress += flashRate * Time.unscaledDeltaTime * (ascending ? 1f : -1f);
+            toFlash.color = Color.Lerp(fromColor, toColor, flashProgress);
+            if (flashProgress >= 1)
+                ascending = !ascending;
+
+            // wait for next frame
+            yield return new WaitForEndOfFrame();
+
+        } while (flashProgress > 0);
     }
 
 }
