@@ -31,4 +31,16 @@ public class HUDReadSwapInput : MonoBehaviour
     {
         readInput.AddListener(newListener);
     }
+
+    /// <summary>
+    /// Initiates process of swapping player's current weapon
+    /// in given direction
+    /// </summary>
+    /// <param name="swapNext">direction to swap player's weapon in</param>
+    public void SwapWeapon(bool swapNext)
+    {
+        // initiate weapon swap
+        readInput.Invoke(swapNext);
+        Debug.Log(swapNext);
+    }
 }
