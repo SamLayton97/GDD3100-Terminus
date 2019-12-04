@@ -227,10 +227,10 @@ public class PopupControl : SceneTransitioner
     {
         // pause game on swipes down
         if (direction == SwipeDirection.Down)
-            Debug.Log("pause");
+            OpenPause();
         // open crafting menu on swipes up
         else if (direction == SwipeDirection.Up)
-            Debug.Log("crafting menu");
+            OpenCraftingMenu();
     }
 
     /// <summary>
