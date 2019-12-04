@@ -121,18 +121,8 @@ public class PopupControl : SceneTransitioner
     /// </summary>
     public void HandleResumeOnClick()
     {
-        // hide pause menu
-        darkenGameOnPause.SetActive(false);
-        pauseMenuControl.ToggleDisplay(false);
-
-        // play button press sound
-        AudioManager.Play(AudioClipNames.UI_buttonPress, true);
-
-        // unpause game
-        Time.timeScale = 1;
-        togglePauseEvent.Invoke(false);
-        AudioManager.Play(myUnpauseSound, true);
-        CursorManager.Instance.HandlePause(false);
+        // close pause menu and resume game
+        ClosePause();
     }
 
     /// <summary>
