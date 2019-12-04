@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Detects user swipe gestures over pre-defined zone
@@ -19,6 +20,26 @@ public class SwipeDetector : MonoBehaviour
     Vector2 fingerUpPosition;                           // finger screen position when user released swipe gesture
 
     // event support
+    DetectSwipeEvent detectEvent;
+
+    /// <summary>
+    /// Used for late initialization
+    /// </summary>
+    void Start()
+    {
+        // add self as invoker of detect swipe event
+        detectEvent = new DetectSwipeEvent();
+        EventManager.AddDetectSwipeInvoker(this);
+    }
+
+    /// <summary>
+    /// Adds given method as a listener to the Detect Swipe event
+    /// </summary>
+    /// <param name="newListener">new listening method</param>
+    public void AddSwipeListener(UnityAction<SwipeDirection> newListener)
+    {
+        detectEvent.AddListener(newListener);
+    }
 
 }
 
@@ -26,7 +47,7 @@ public class SwipeDetector : MonoBehaviour
 /// Enumeration of all possible swipe directions
 /// read by detector
 /// </summary>
-public enum SwipeDirections
+public enum SwipeDirection
 {
     Up,
     Down,

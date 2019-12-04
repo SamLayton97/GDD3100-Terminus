@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 11400012}
   - component: {fileID: 8259787430372753122}
   - component: {fileID: 2882076721401871580}
+  - component: {fileID: 2610051730063194915}
   m_Layer: 5
   m_Name: MobileControls
   m_TagString: Untagged
@@ -117,6 +118,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb953f4f02059e43a53b214d704794e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2610051730063194915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.5
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectSwipeOnlyAfterRelease: 1
+  minSwipeDistance: 20
 --- !u!1 &3602897157503950271
 GameObject:
   m_ObjectHideFlags: 0

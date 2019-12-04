@@ -504,4 +504,30 @@ public static class EventManager
 
     #endregion
 
+    #region Detect Swipe
+
+    // declare lists to hold invokers and listeners to Detect Swipe event
+    static List<SwipeDetector> detectSwipeInvokers = new List<SwipeDetector>();
+    static List<UnityAction<SwipeDirection>> detectSwipeListeners = new List<UnityAction<SwipeDirection>>();
+
+    // Adds given swipe detector as invoker of Detect Swipe event
+    public static void AddDetectSwipeInvoker(SwipeDetector invoker)
+    {
+        // adds invoker to list and all listeners to this invoker
+        detectSwipeInvokers.Add(invoker);
+        foreach (UnityAction<SwipeDirection> listener in detectSwipeListeners)
+            invoker.AddSwipeListener(listener);
+    }
+
+    // Adds given method as listener to Detect Swipe event
+    public static void AddDetectSwipeListener(UnityAction<SwipeDirection> listener)
+    {
+        // adds listener to list and to all invokers of event
+        detectSwipeListeners.Add(listener);
+        foreach (SwipeDetector invoker in detectSwipeInvokers)
+            invoker.AddSwipeListener(listener);
+    }
+
+    #endregion
+
 }
