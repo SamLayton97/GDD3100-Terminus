@@ -66,8 +66,9 @@ public class PopupControl : SceneTransitioner
         hideControlsEvent = new HideMobileControlsEvent();
         EventManager.AddMobileControlsInvoker(this);
 
-        // add self as listener for end level event
+        // add self as listener for relevant events
         EventManager.AddEndLevelListener(HandleEndLevel);
+        EventManager.AddDetectSwipeListener(ControlByGesture);
     }
 
     // Update is called once per frame
@@ -239,8 +240,6 @@ public class PopupControl : SceneTransitioner
         togglePauseEvent.AddListener(newListener);
     }
 
-    #endregion
-
     /// <summary>
     /// Adds given method as listener of show/hide mobile controls event
     /// </summary>
@@ -250,7 +249,19 @@ public class PopupControl : SceneTransitioner
         hideControlsEvent.AddListener(newListener);
     }
 
+    #endregion
+
     #region Private Methods
+
+    /// <summary>
+    /// Controls opening and closing of menus 
+    /// through swipe gestures
+    /// </summary>
+    /// <param name="direction"></param>
+    void ControlByGesture(SwipeDirection direction)
+    {
+        Debug.Log(direction);
+    }
 
     /// <summary>
     /// Handles when player has ended a level in success or failure
