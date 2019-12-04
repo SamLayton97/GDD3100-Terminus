@@ -44,8 +44,6 @@ public class SwipeDetector : EventTrigger
         // only check for significant swipes
         if (deltaPosition.magnitude >= minSwipeDistance)
         {
-            Debug.Log(deltaPosition);
-
             // determine dominant axis and swipe direction
             bool verticalDominant = Mathf.Abs(deltaPosition.y) > Mathf.Abs(deltaPosition.x);
             
@@ -53,15 +51,13 @@ public class SwipeDetector : EventTrigger
             if (verticalDominant)
             {
                 // register swipe from direction on y-axis
-                SwipeDirection direction = deltaPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
-                Debug.Log(direction);
+                detectEvent.Invoke(deltaPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down);
             }
             // otherwise (horizontal swipe)
             else
             {
                 // register swipe from direction on x-axis
-                SwipeDirection direction = deltaPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
-                Debug.Log(direction);
+                detectEvent.Invoke(deltaPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left);
             }
         }
     }
