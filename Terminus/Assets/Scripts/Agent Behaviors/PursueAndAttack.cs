@@ -228,7 +228,7 @@ public class PursueAndAttack : O2Remover
             // attempt to find and set Player as target
             try
             {
-                targetTransform = GameObject.Find("Player").transform;
+                targetTransform = GameObject.Find("MobilePlayer").transform;
             }
             // Log failed attempt to find Player
             catch
