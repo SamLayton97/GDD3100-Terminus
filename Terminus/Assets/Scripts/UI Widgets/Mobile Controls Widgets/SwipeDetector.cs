@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Detects user swipe gestures over pre-defined zone
 /// Based on source: https://www.youtube.com/watch?v=jbFYYbu5bdc
 /// </summary>
-public class SwipeDetector : MonoBehaviour
+public class SwipeDetector : EventTrigger
 {
     // swipe configuration variables
     [SerializeField]
@@ -41,30 +42,41 @@ public class SwipeDetector : MonoBehaviour
         detectEvent.AddListener(newListener);
     }
 
+    #region Drag Event Handling Methods
+
     /// <summary>
-    /// Called when user's finger presses down on swipe zone.
+    /// Called when pointer begins dragging across swipe zone
     /// </summary>
-    public void InitiateSwipe()
+    /// <param name="eventData">data related to initial input</param>
+    public override void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("start swipe");
+        base.OnBeginDrag(eventData);
+
+        // store starting finger position
+        fingerDownPosition = eventData.position;
     }
 
     /// <summary>
-    /// Called each frame user's finger continues to press
-    /// on swipe zone.
+    /// Called when pointer continues to drag across swipe zone
     /// </summary>
-    public void UpdateSwipe()
+    /// <param name="eventData">continued input data</param>
+    public override void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("update swipe");
+        base.OnDrag(eventData);
+
     }
 
     /// <summary>
-    /// Called when user releases finger from swipe zone.
+    /// Called when pointer stops dragging across swipe zone
     /// </summary>
-    public void ReleaseSwipe()
+    /// <param name="eventData">terminated data input</param>
+    public override void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("release swipe");
+        base.OnEndDrag(eventData);
+
     }
+
+    #endregion
 
 }
 
