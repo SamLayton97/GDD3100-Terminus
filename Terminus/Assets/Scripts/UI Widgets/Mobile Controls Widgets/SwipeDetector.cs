@@ -41,7 +41,29 @@ public class SwipeDetector : EventTrigger
     /// across start and end finger positions</param>
     void DetectSwipe(Vector2 deltaPosition)
     {
-        Debug.Log(deltaPosition);
+        // only check for significant swipes
+        if (deltaPosition.magnitude >= minSwipeDistance)
+        {
+            Debug.Log(deltaPosition);
+
+            // determine dominant axis and swipe direction
+            bool verticalDominant = Mathf.Abs(deltaPosition.y) > Mathf.Abs(deltaPosition.x);
+            
+            // if swipe was veritcal
+            if (verticalDominant)
+            {
+                // register swipe from direction on y-axis
+                SwipeDirection direction = deltaPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
+                Debug.Log(direction);
+            }
+            // otherwise (horizontal swipe)
+            else
+            {
+                // register swipe from direction on x-axis
+                SwipeDirection direction = deltaPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
+                Debug.Log(direction);
+            }
+        }
     }
 
     #region Drag Event Handling Methods
