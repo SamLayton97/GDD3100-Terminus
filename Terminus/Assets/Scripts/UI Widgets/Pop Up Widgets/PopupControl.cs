@@ -165,6 +165,16 @@ public class PopupControl : SceneTransitioner
         AudioManager.Play(AudioClipNames.UI_buttonPress, true);
     }
 
+    /// <summary>
+    /// Handles when user clicks the "Close" button
+    /// on the in-game crafting menu
+    /// </summary>
+    public void HandleCloseCraftingOnClick()
+    {
+        // close crafting menu and resume game
+        CloseCraftingMenu();
+    }
+
     #endregion
 
     #region End Of Level Menu Buttons
