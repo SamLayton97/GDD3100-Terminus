@@ -41,6 +41,31 @@ public class SwipeDetector : MonoBehaviour
         detectEvent.AddListener(newListener);
     }
 
+    /// <summary>
+    /// Called when user's finger presses down on swipe zone.
+    /// </summary>
+    public void InitiateSwipe()
+    {
+        Debug.Log("start swipe");
+    }
+
+    /// <summary>
+    /// Called each frame user's finger continues to press
+    /// on swipe zone.
+    /// </summary>
+    public void UpdateSwipe()
+    {
+        Debug.Log("update swipe");
+    }
+
+    /// <summary>
+    /// Called when user releases finger from swipe zone.
+    /// </summary>
+    public void ReleaseSwipe()
+    {
+        Debug.Log("release swipe");
+    }
+
 }
 
 /// <summary>
