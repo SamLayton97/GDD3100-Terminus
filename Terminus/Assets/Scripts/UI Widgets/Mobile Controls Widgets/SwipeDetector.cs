@@ -11,13 +11,12 @@ public class SwipeDetector : EventTrigger
 {
     // swipe configuration variables
     [SerializeField]
-    bool detectSwipeOnlyAfterRelease = true;            // determines whether to detect swipe during or after gesture release
-    [Range(20f, 50f)]
-    [SerializeField] float minSwipeDistance = 20f;      // min pixel distance finger must travel to read as swipe gesture
+    bool detectSwipeOnlyAfterRelease = true;                // determines whether to detect swipe during or after gesture release
+    [SerializeField]
+    float minSwipeDistance = 200f;                          // min pixel distance finger must travel to read as swipe gesture
 
     // swipe support variables
-    Vector2 fingerDownPosition;                         // finger screen position when user initiated swipe gesture
-    //Vector2 fingerUpPosition;                           // finger screen position when user released swipe gesture
+    Vector2 fingerDownPosition;                             // finger screen position when user initiated swipe gesture
 
     // event support
     DetectSwipeEvent detectEvent;
