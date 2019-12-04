@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 /// <summary>
 /// Detects user swipe gestures over pre-defined zone
-/// Based on source: https://www.youtube.com/watch?v=jbFYYbu5bdc
 /// </summary>
 public class SwipeDetector : EventTrigger
 {
@@ -18,7 +17,7 @@ public class SwipeDetector : EventTrigger
 
     // swipe support variables
     Vector2 fingerDownPosition;                         // finger screen position when user initiated swipe gesture
-    Vector2 fingerUpPosition;                           // finger screen position when user released swipe gesture
+    //Vector2 fingerUpPosition;                           // finger screen position when user released swipe gesture
 
     // event support
     DetectSwipeEvent detectEvent;
@@ -34,6 +33,20 @@ public class SwipeDetector : EventTrigger
     }
 
     /// <summary>
+    /// Using pointer positions, determines whether to 
+    /// register user input as a swipe gesture and in what
+    /// direction
+    /// </summary>
+    /// <param name="deltaPosition">change in positions
+    /// across start and end finger positions</param>
+    void DetectSwipe(Vector2 deltaPosition)
+    {
+        Debug.Log(deltaPosition);
+    }
+
+    #region Drag Event Handling Methods
+
+    /// <summary>
     /// Adds given method as a listener to the Detect Swipe event
     /// </summary>
     /// <param name="newListener">new listening method</param>
@@ -41,8 +54,6 @@ public class SwipeDetector : EventTrigger
     {
         detectEvent.AddListener(newListener);
     }
-
-    #region Drag Event Handling Methods
 
     /// <summary>
     /// Called when pointer begins dragging across swipe zone
@@ -64,6 +75,10 @@ public class SwipeDetector : EventTrigger
     {
         base.OnDrag(eventData);
 
+        // if swipes can register each frame
+        if (!detectSwipeOnlyAfterRelease)
+            // detect swipe motion from start to current
+            DetectSwipe(eventData.position - fingerDownPosition);
     }
 
     /// <summary>
@@ -74,6 +89,10 @@ public class SwipeDetector : EventTrigger
     {
         base.OnEndDrag(eventData);
 
+        // if swipes only register on release
+        if (detectSwipeOnlyAfterRelease)
+            // detect swipe motion from start and end
+            DetectSwipe(eventData.position - fingerDownPosition);
     }
 
     #endregion
