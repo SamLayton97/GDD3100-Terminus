@@ -78,35 +78,14 @@ public class PopupControl : SceneTransitioner
         // if user attempts to pause game, game is not already paused, and level hasn't ended
         if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0 && !levelEndMenuControl.Shown)
         {
-            // pause game and hide mobile controls
-            Time.timeScale = 0;
-            togglePauseEvent.Invoke(true);
-            hideControlsEvent.Invoke(true);
-            AudioManager.Play(myPauseSound, true);
-            CursorManager.Instance.HandlePause(true);
-
-            // show pause menu
-            darkenGameOnPause.SetActive(true);
-            pauseMenuControl.ToggleDisplay(true);
+            // open pause menu
+            OpenPause();
         }
         // but if user attempts to unpause game, game is paused, and level hasn't ended
         else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0 && !levelEndMenuControl.Shown)
         {
-            // hide pause menu and options
-            darkenGameOnPause.SetActive(false);
-            pauseMenuControl.ToggleDisplay(false);
-            optionsMenuControl.ToggleDisplay(false);
-
-            // hide crafting menu components
-            craftingMenuController.ToggleDisplay(false);
-            inventoryController.ToggleDisplay(false);
-
-            // unpause game and show mobile controls
-            Time.timeScale = 1;
-            togglePauseEvent.Invoke(false);
-            hideControlsEvent.Invoke(false);
-            AudioManager.Play(myUnpauseSound, true);
-            CursorManager.Instance.HandlePause(false);
+            // close pause menu
+            ClosePause();
         }
 
         // Crafting Menu Control
@@ -120,29 +99,13 @@ public class PopupControl : SceneTransitioner
             if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
                 || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
             {
-                // pause game and hide mobile controls
-                Time.timeScale = 0;
-                AudioManager.Play(myPauseSound, true);
-                CursorManager.Instance.HandlePause(true);
-                hideControlsEvent.Invoke(true);
-
-                // reveal materials inventory and crafting menu
-                inventoryController.ToggleDisplay(true);
-                craftingMenuController.ToggleDisplay(true);
+                OpenCraftingMenu();
             }
             // but if user attempts to close crafting menu and game is paused
             else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
                     || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
             {
-                // unpause game and show mobile controls
-                Time.timeScale = 1;
-                AudioManager.Play(myUnpauseSound, true);
-                CursorManager.Instance.HandlePause(false);
-                hideControlsEvent.Invoke(false);
-
-                // hide materials inventory and crafting menu
-                inventoryController.ToggleDisplay(false);
-                craftingMenuController.ToggleDisplay(false);
+                CloseCraftingMenu();
             }
         }
     }
@@ -253,6 +216,8 @@ public class PopupControl : SceneTransitioner
 
     #region Private Methods
 
+    #region Event Responders
+
     /// <summary>
     /// Controls opening and closing of menus 
     /// through swipe gestures
@@ -260,7 +225,12 @@ public class PopupControl : SceneTransitioner
     /// <param name="direction"></param>
     void ControlByGesture(SwipeDirection direction)
     {
-        Debug.Log(direction);
+        // pause game on swipes down
+        if (direction == SwipeDirection.Down)
+            Debug.Log("pause");
+        // open crafting menu on swipes up
+        else if (direction == SwipeDirection.Up)
+            Debug.Log("crafting menu");
     }
 
     /// <summary>
@@ -290,6 +260,85 @@ public class PopupControl : SceneTransitioner
         // evaluate player's performance
         myEoLEvaluator.Evaluate(remainingSanity);
     }
+
+    #endregion
+
+    #region Menu Visibility Control
+
+    /// <summary>
+    /// Opens pause menu, pausing game and hiding any
+    /// visible HUD elements
+    /// </summary>
+    void OpenPause()
+    {
+        // pause game and hide mobile controls
+        Time.timeScale = 0;
+        togglePauseEvent.Invoke(true);
+        hideControlsEvent.Invoke(true);
+        AudioManager.Play(myPauseSound, true);
+        CursorManager.Instance.HandlePause(true);
+
+        // show pause menu
+        darkenGameOnPause.SetActive(true);
+        pauseMenuControl.ToggleDisplay(true);
+    }
+
+    /// <summary>
+    /// Closes pause menu, resuming game and revealing
+    /// any suspended HUD elements
+    /// </summary>
+    void ClosePause()
+    {
+        // hide pause menu and options
+        darkenGameOnPause.SetActive(false);
+        pauseMenuControl.ToggleDisplay(false);
+        optionsMenuControl.ToggleDisplay(false);
+
+        // hide crafting menu components
+        craftingMenuController.ToggleDisplay(false);
+        inventoryController.ToggleDisplay(false);
+
+        // unpause game and show mobile controls
+        Time.timeScale = 1;
+        togglePauseEvent.Invoke(false);
+        hideControlsEvent.Invoke(false);
+        AudioManager.Play(myUnpauseSound, true);
+        CursorManager.Instance.HandlePause(false);
+    }
+
+    /// <summary>
+    /// Opens crafting menu, pausing game and hiding mobile controls
+    /// </summary>
+    void OpenCraftingMenu()
+    {
+        // pause game and hide mobile controls
+        Time.timeScale = 0;
+        AudioManager.Play(myPauseSound, true);
+        CursorManager.Instance.HandlePause(true);
+        hideControlsEvent.Invoke(true);
+
+        // reveal materials inventory and crafting menu
+        inventoryController.ToggleDisplay(true);
+        craftingMenuController.ToggleDisplay(true);
+    }
+
+    /// <summary>
+    /// Closes crafting menu, resuming game and revealing mobile controls
+    /// </summary>
+    void CloseCraftingMenu()
+    {
+        // unpause game and show mobile controls
+        Time.timeScale = 1;
+        AudioManager.Play(myUnpauseSound, true);
+        CursorManager.Instance.HandlePause(false);
+        hideControlsEvent.Invoke(false);
+
+        // hide materials inventory and crafting menu
+        inventoryController.ToggleDisplay(false);
+        craftingMenuController.ToggleDisplay(false);
+    }
+
+    #endregion
 
     #endregion
 
