@@ -478,4 +478,30 @@ public static class EventManager
 
     #endregion
 
+    #region Mobile Swap Weapon from HUD
+
+    // declare lists to hold invokers and listeners to HUD swap weapon event
+    static List<HUDReadSwapInput> HUDSwapWeaponInvokers = new List<HUDReadSwapInput>();
+    static List<UnityAction<bool>> HUDSwapWeaponListeners = new List<UnityAction<bool>>();
+
+    // Adds given swap reader as invoker of HUD swap weapon event
+    public static void AddHUDSwapWeaponInvoker(HUDReadSwapInput invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoker
+        HUDSwapWeaponInvokers.Add(invoker);
+        foreach (UnityAction<bool> listener in HUDSwapWeaponListeners)
+            invoker.AddReadSwapListener(listener);
+    }
+
+    // Adds given method as listener to HUD swap weapon event
+    public static void AddHUDSwapWeaponListener(UnityAction<bool> listener)
+    {
+        // adds listener to list and to all invokers of event
+        HUDSwapWeaponListeners.Add(listener);
+        foreach (HUDReadSwapInput invoker in HUDSwapWeaponInvokers)
+            invoker.AddReadSwapListener(listener);
+    }
+
+    #endregion
+
 }
