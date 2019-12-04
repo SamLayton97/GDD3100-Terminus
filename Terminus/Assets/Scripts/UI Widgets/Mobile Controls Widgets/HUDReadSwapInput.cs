@@ -41,6 +41,5 @@ public class HUDReadSwapInput : MonoBehaviour
     {
         // initiate weapon swap
         readInput.Invoke(swapNext);
-        Debug.Log(swapNext);
     }
 }
