@@ -58,8 +58,8 @@ public class WeaponCrafter : WeaponAdder
             currCraftableWeapon = craftedType;
 
             // show appropriate craftable weapon on menu
+            craftedItemImage.gameObject.SetActive(true);
             craftedItemImage.sprite = craftedWeaponIcons[(int)craftedType];
-            craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 1);
             craftedItemNameText.text = craftedType.ToString();
 
             // set craft button to interactable
@@ -104,7 +104,7 @@ public class WeaponCrafter : WeaponAdder
         currCraftableWeapon = WeaponType.Pistol;
 
         // hide icon and text
-        craftedItemImage.color = new Color(craftedItemImage.color.r, craftedItemImage.color.g, craftedItemImage.color.b, 0);
+        craftedItemImage.gameObject.SetActive(false);
         craftedItemNameText.text = "";
 
         // set craft button to uninteractable
