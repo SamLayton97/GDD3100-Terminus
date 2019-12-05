@@ -1,25 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 /// <summary>
 /// Detects user swipe gestures over pre-defined zone
 /// </summary>
+[RequireComponent(typeof(RectTransform))]
 public class SwipeDetector : EventTrigger
 {
     // swipe configuration variables
     [SerializeField]
-    bool detectSwipeOnlyAfterRelease = true;                // determines whether to detect swipe during or after gesture release
+    bool detectSwipeOnlyAfterRelease = true;             // determines whether to detect swipe during or after gesture release
     [SerializeField]
-    float minSwipeDistance = 200f;                          // min pixel distance finger must travel to read as swipe gesture
+    float minSwipeDistance = 200f;                      // min pixel distance finger must travel to read as swipe gesture
 
     // swipe support variables
-    Vector2 fingerDownPosition;                             // finger screen position when user initiated swipe gesture
+    Vector2 fingerDownPosition;                 // finger screen position when user initiated swipe gesture
+    Vector2 upperRightCorner;                   // upper right corner of swipe zone -- used for bounds checking
+    Vector2 lowerLeftCorner;                    // lower left corner of swipe zone -- used for bounds checking
 
     // event support
     DetectSwipeEvent detectEvent;
+
+    /// <summary>
+    /// Used for initialization
+    /// </summary>
+    void Awake()
+    {
+        // get bounds of swipe zone
+        RectTransform myTransform = GetComponent<RectTransform>();
+        upperRightCorner = (Vector2)myTransform.position + 
+            new Vector2(myTransform.sizeDelta.x / 2, myTransform.sizeDelta.y / 2);
+        lowerLeftCorner = (Vector2)myTransform.position -
+            new Vector2(myTransform.sizeDelta.x / 2, myTransform.sizeDelta.y / 2);
+    }
 
     /// <summary>
     /// Used for late initialization
@@ -40,8 +57,8 @@ public class SwipeDetector : EventTrigger
     /// across start and end finger positions</param>
     void DetectSwipe(Vector2 deltaPosition)
     {
-        // only check for significant swipes
-        if (deltaPosition.magnitude >= minSwipeDistance)
+        // filter for insignificant/difficult-to-read gestures
+        if (deltaPosition.magnitude >= minSwipeDistance && Input.touchCount < 2)
         {
             // determine dominant axis and swipe direction
             bool verticalDominant = Mathf.Abs(deltaPosition.y) > Mathf.Abs(deltaPosition.x);
@@ -59,6 +76,16 @@ public class SwipeDetector : EventTrigger
                 detectEvent.Invoke(deltaPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left);
             }
         }
+    }
+
+    /// <summary>
+    /// Checks whether gesture point is within
+    /// bounds of swipe zone
+    /// </summary>
+    /// <param name="point">point to check</param>
+    void GestureWithinZone(Vector2 point)
+    {
+
     }
 
     #region Drag Event Handling Methods
