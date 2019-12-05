@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -465,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 2178039104748788324, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -720
+      value: -550
       objectReference: {fileID: 0}
     - target: {fileID: 7917728695128186544, guid: e1fcd2ba996191f469e8e5f8b8b9f0e1,
         type: 3}
