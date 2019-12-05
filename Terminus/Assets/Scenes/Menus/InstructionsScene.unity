@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -213,6 +213,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AuxiliaryMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406229844983255542, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -336,10 +366,11 @@ PrefabInstance:
         - Replenish your O2 by collecting refill cannisters.\r\n - Propel yourself
         by shooting your vacuum-fitted rifle.\r\n - Avoid creatures and the corruption
         world.\n - Collect ammo pickups to gain new combat capabilities.\r\n - Find
-        crafting materials to build new weapons.\r\n\r\nStandard Controls:\r\n - Left
-        mouse to aim and shoot.\r\n - Mouse scrollwheel to cycle between ammo types.\r\n
-        - Right click to open crafting menu.\r\n - Click in-inventory materials to
-        add to the crafting deck.\r\n - ESC to pause.\r\n"
+        crafting materials to build new weapons.\r\n\r\nControls:\r\n - Drag the joystick
+        to aim\r\n - Tap the Fire button to shoot\r\n - Tap the Swap buttons / Weapons
+        panel to change weapons\r\n - Swipe up to open the crafting menu\r\n - Tap
+        in-inventory materials to add to the crafting deck\r\n - Swipe down to pause
+        the game\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -505,36 +536,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3812158600106705719, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044019198424712698, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
