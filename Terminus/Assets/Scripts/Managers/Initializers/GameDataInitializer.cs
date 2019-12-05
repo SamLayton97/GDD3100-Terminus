@@ -15,6 +15,5 @@ public class GameDataInitializer : MonoBehaviour
     {
         // initialize data
         CraftableItemsRegistry.Initialize();
-        ControlSchemeManager.Initialize();
     }
 }
