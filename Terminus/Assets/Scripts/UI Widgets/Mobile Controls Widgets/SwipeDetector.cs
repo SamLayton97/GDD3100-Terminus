@@ -83,9 +83,19 @@ public class SwipeDetector : EventTrigger
     /// bounds of swipe zone
     /// </summary>
     /// <param name="point">point to check</param>
-    void GestureWithinZone(Vector2 point)
+    /// <returns>whether point is within zone bounds</returns>
+    bool GestureWithinBounds(Vector2 point)
     {
+        // horizontal bounds check
+        if (!(point.x >= lowerLeftCorner.x && point.x <= upperRightCorner.x))
+            return false;
 
+        // vertical bounds check
+        if (!(point.y >= lowerLeftCorner.y && point.y <= upperRightCorner.y))
+            return false;
+
+        // guaranteed within bounds, return true
+        return true;
     }
 
     #region Drag Event Handling Methods
@@ -119,8 +129,8 @@ public class SwipeDetector : EventTrigger
     {
         base.OnDrag(eventData);
 
-        // if swipes can register each frame
-        if (!detectSwipeOnlyAfterRelease)
+        // if swipes can register each frame and gesture is within bounds
+        if (!detectSwipeOnlyAfterRelease && GestureWithinBounds(eventData.position))
             // detect swipe motion from start to current
             DetectSwipe(eventData.position - fingerDownPosition);
     }
@@ -133,8 +143,8 @@ public class SwipeDetector : EventTrigger
     {
         base.OnEndDrag(eventData);
 
-        // if swipes only register on release
-        if (detectSwipeOnlyAfterRelease)
+        // if swipes only registers on release and terminated within bounds
+        if (detectSwipeOnlyAfterRelease && GestureWithinBounds(eventData.position))
             // detect swipe motion from start and end
             DetectSwipe(eventData.position - fingerDownPosition);
     }
