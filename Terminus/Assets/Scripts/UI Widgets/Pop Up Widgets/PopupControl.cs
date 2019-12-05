@@ -54,7 +54,7 @@ public class PopupControl : SceneTransitioner
     }
 
     /// <summary>
-    /// Used for initialization
+    /// Used for late initialization
     /// </summary>
     protected override void Start()
     {
@@ -69,45 +69,6 @@ public class PopupControl : SceneTransitioner
         // add self as listener for relevant events
         EventManager.AddEndLevelListener(HandleEndLevel);
         EventManager.AddDetectSwipeListener(ControlByGesture);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Pause Control
-        // if user attempts to pause game, game is not already paused, and level hasn't ended
-        if (Input.GetKeyDown(pauseKey) && Time.timeScale != 0 && !levelEndMenuControl.Shown)
-        {
-            // open pause menu
-            OpenPause();
-        }
-        // but if user attempts to unpause game, game is paused, and level hasn't ended
-        else if (Input.GetKeyDown(pauseKey) && Time.timeScale == 0 && !levelEndMenuControl.Shown)
-        {
-            // close pause menu
-            ClosePause();
-        }
-
-        // Crafting Menu Control
-        // if no other pause-controlling UI elements are visible
-        if (!(pauseMenuControl.Shown || optionsMenuControl.Shown || levelEndMenuControl.Shown))
-        {
-            // determine whether to read button or key
-            bool buttonInput = !ControlSchemeManager.UsingSpecialist;
-
-            // if user attempts to bring up crafting menu and game isn't paused
-            if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
-                || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale != 0)
-            {
-                OpenCraftingMenu();
-            }
-            // but if user attempts to close crafting menu and game is paused
-            else if (((!buttonInput && CustomInputManager.GetKeyDown("ShowHideCraftingMenu"))
-                    || (buttonInput && CustomInputManager.GetMouseButtonDown("ShowHideCraftingMenu"))) && Time.timeScale == 0)
-            {
-                CloseCraftingMenu();
-            }
-        }
     }
 
     #endregion
