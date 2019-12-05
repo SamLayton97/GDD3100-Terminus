@@ -353,7 +353,6 @@ GameObject:
   - component: {fileID: 990504837926636998}
   - component: {fileID: 6695498505591586101}
   - component: {fileID: 6947583266611211647}
-  - component: {fileID: 6101805247673957030}
   - component: {fileID: -6272671847840425031}
   m_Layer: 8
   m_Name: MobilePlayer
@@ -782,25 +781,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6101805247673957030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6207548652762762119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8659bf2260673240aaac346d502c355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleEffect: {fileID: 100000, guid: c2651d6aae4e82f45b3bd35dad6c923b, type: 3}
-  collisionLayermask:
-    serializedVersion: 2
-    m_Bits: 6144
-  scaleWithMagnitude: 1
-  scaleBounds: {x: 0, y: 1.2}
-  scaleRate: 0.05
 --- !u!114 &-6272671847840425031
 MonoBehaviour:
   m_ObjectHideFlags: 0
