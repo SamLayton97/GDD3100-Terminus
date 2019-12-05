@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
-  attackDamage: 25
-  maxSpeed: 6
+  attackDamage: 18
+  maxSpeed: 4.5
   sightRange: 7
   attackRange: 1.2
   attackCooldown: 3

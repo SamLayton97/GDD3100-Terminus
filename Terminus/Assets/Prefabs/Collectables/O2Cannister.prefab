@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf0c0d4737055f4485fe41b1ee574b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refill: 25
+  refill: 35
   myCollisionSound: 7
 --- !u!114 &-2061152007202209729
 MonoBehaviour:
