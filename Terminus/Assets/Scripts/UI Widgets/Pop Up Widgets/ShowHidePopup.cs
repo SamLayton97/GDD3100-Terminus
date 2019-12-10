@@ -18,7 +18,6 @@ public class ShowHidePopup : MonoBehaviour
     IEnumerator hideCoroutine;                              // coroutine controlling flattening of popup
     bool growing = false;
     bool shrinking = false;
-    float iDeltaTime = 0f;                                  // timescale independent delta time -- necessary as pop-up often appear and disappear when game is paused
 
     // display configuration variables
     [SerializeField] Vector2 hiddenScale = new Vector2();   // dimension of pop-up when it is hidden -- in use, typically contains at least one 0
@@ -51,7 +50,6 @@ public class ShowHidePopup : MonoBehaviour
         // retrieve relevant information
         myTransform = GetComponent<RectTransform>();
         showScale = myTransform.localScale;
-        iDeltaTime = 1f / Application.targetFrameRate;
 
         // if content visibility controller wasn't set before startup
         if (!contentVisibility)
@@ -116,9 +114,9 @@ public class ShowHidePopup : MonoBehaviour
         Vector2 startScale = myTransform.localScale;
         do
         {
-            showProgress += iDeltaTime * growRate;
+            showProgress += Time.unscaledDeltaTime * growRate;
             myTransform.localScale = Vector2.Lerp(startScale, showScale, showProgress);
-            yield return new WaitForSecondsRealtime(iDeltaTime);
+            yield return new WaitForSecondsRealtime(Time.unscaledDeltaTime);
 
         } while ((Vector2)myTransform.localScale != showScale);
 
@@ -150,9 +148,9 @@ public class ShowHidePopup : MonoBehaviour
         Vector2 startScale = myTransform.localScale;
         do
         {
-            hideProgress += iDeltaTime * shrinkRate;
+            hideProgress += Time.unscaledDeltaTime * shrinkRate;
             myTransform.localScale = Vector2.Lerp(startScale, hiddenScale, hideProgress);
-            yield return new WaitForSecondsRealtime(iDeltaTime);
+            yield return new WaitForSecondsRealtime(Time.unscaledDeltaTime);
 
         } while ((Vector2)myTransform.localScale != hiddenScale);
 
