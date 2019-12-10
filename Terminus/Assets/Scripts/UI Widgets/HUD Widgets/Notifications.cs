@@ -12,6 +12,8 @@ public class Notifications : MonoBehaviour
 {
     // display support
     [SerializeField] Text notificationText;
+    Queue<string> toDisplay =                   // queue of notifications used to display consecutive notifications
+        new Queue<string>();
     RectTransform myTransform;
     bool displaying = false;
     Color textColor;
@@ -55,14 +57,23 @@ public class Notifications : MonoBehaviour
         notificationText.color = invisible;
     }
 
+    void Start()
+    {
+        for (int i = 0; i < 5; i++)
+            Display("test: " + i.ToString());
+    }
+
     /// <summary>
     /// Starts coroutine to display notification on-screen
     /// </summary>
     /// <param name="notification">text displayed to user</param>
     public void Display(string notification)
     {
+        // enqueue new notification
+        toDisplay.Enqueue(notification);
+
         // if not already displaying something, show notification
-        if (!displaying) StartCoroutine(DrawNotification(notification));
+        if (!displaying) StartCoroutine(DrawNotification(toDisplay.Dequeue()));
     }
 
     /// <summary>
@@ -101,6 +112,12 @@ public class Notifications : MonoBehaviour
             myTransform.localScale = new Vector2(Mathf.Max(0, myTransform.localScale.x - (Time.deltaTime * growRate)), 1);
             yield return new WaitForEndOfFrame();
         }
-        displaying = false;
+
+        // display next notification if there is one
+        if (toDisplay.Count > 0)
+            StartCoroutine(DrawNotification(toDisplay.Dequeue()));
+        // otherwise, set display flag to false
+        else
+            displaying = false;
     }
 }
