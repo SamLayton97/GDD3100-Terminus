@@ -8,6 +8,7 @@ using UnityEngine.Events;
 /// sight range and attacking within melee distance.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class PursueAndAttack : O2Remover
 {
     #region Fields
@@ -21,10 +22,11 @@ public class PursueAndAttack : O2Remover
         Wait
     }
 
-    // public/serialized variables
+    // configuration variables
     public Transform targetTransform;                       // transform of target to pursue (typically player)
     public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
     [SerializeField] float maxSpeed = 5f;                   // magnitude of agent's velocity
+
     public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
@@ -35,11 +37,13 @@ public class PursueAndAttack : O2Remover
     public Vector2 alertOffset;                             // relative offset alert display above agent
 
     // sound effect support
-    public AudioClipNames myAttackSound = AudioClipNames.agent_chaserAttack;    // sound played upon entering attack state
-    public AudioClipNames myAlertSound = AudioClipNames.agent_chaserAlert;      // sound played upon entering pursue state
+    AudioClipNames myAttackSound = AudioClipNames.agent_chaserAttack;       // sound played upon entering attack state
+    AudioClipNames myAlertSound = AudioClipNames.agent_chaserAlert;         // sound played upon entering pursue state
 
-    // private variables
+    // support variables
     ChaseStates currState;              // current state of agent
+    CircleCollider2D sightTrigger;      // trigger collider defining sight range of agent
+    bool withinSightRange = false;      // whether target (i.e., player) is within sight range -- determines whether to raycast to target
     Vector4 standardHSV;                // HSV of agent's shader while idle
     Rigidbody2D myRigidbody;            // agent's rigidbody component
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component
@@ -216,9 +220,11 @@ public class PursueAndAttack : O2Remover
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
+        sightTrigger = GetComponent<CircleCollider2D>();
 
         // initialize agent and set internal variables
         currState = startingState;
+        sightTrigger.isTrigger = true;
         standardHSV = mySpriteRenderer.material.GetVector("_HSVAAdjust");
         ignoreLayerMask = ~(1 << 12);
 
@@ -242,7 +248,9 @@ public class PursueAndAttack : O2Remover
         targetRigidbody = targetTransform.gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Called once per frame
+    /// </summary>
     void Update()
     {
         // call state-appropriate Update behavior

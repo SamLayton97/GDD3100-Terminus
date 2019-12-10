@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1701724433980141099}
   - component: {fileID: 748867515446026440}
   - component: {fileID: -8753305947129637355}
-  - component: {fileID: 1325468725392835803}
   - component: {fileID: 3894786361680885713}
+  - component: {fileID: 1325468725392835803}
+  - component: {fileID: 922664571847818396}
   - component: {fileID: 1899208905917149684}
   - component: {fileID: 9027036223839503969}
   - component: {fileID: 442885966742670522}
@@ -127,32 +128,6 @@ MonoBehaviour:
     type: 3}
   myDeathSound: 16
   myHurtSounds: 120000001300000014000000
---- !u!114 &1325468725392835803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701724433980141098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 690b354985914fc4f8d7900b5f20b295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTransform: {fileID: 0}
-  attackDamage: 25
-  maxSpeed: 6
-  sightRange: 7
-  attackRange: 1.2
-  attackCooldown: 3
-  startingState: 0
-  attackHSV: {x: -0.35, y: 0.5, z: 0.2, w: 0}
-  cooldownHSV: {x: -0.35, y: 0.4, z: -0.2, w: 0}
-  alertIndicator: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,
-    type: 3}
-  alertOffset: {x: 0.5, y: 0.5}
-  myAttackSound: 15
-  myAlertSound: 17
 --- !u!61 &3894786361680885713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,6 +154,46 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2672059, y: 0.15086424}
   m_EdgeRadius: 0
+--- !u!114 &1325468725392835803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701724433980141098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690b354985914fc4f8d7900b5f20b295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
+  attackDamage: 25
+  maxSpeed: 6
+  sightRange: 7
+  attackRange: 1.2
+  attackCooldown: 3
+  startingState: 0
+  attackHSV: {x: -0.35, y: 0.5, z: 0.2, w: 0}
+  cooldownHSV: {x: -0.35, y: 0.4, z: -0.2, w: 0}
+  alertIndicator: {fileID: 4066001403407980177, guid: e167e9b74041ea346a02e2f6ef9ea284,
+    type: 3}
+  alertOffset: {x: 0.5, y: 0.5}
+--- !u!58 &922664571847818396
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701724433980141098}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.4
 --- !u!95 &1899208905917149684
 Animator:
   serializedVersion: 3
