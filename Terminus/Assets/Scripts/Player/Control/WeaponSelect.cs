@@ -192,9 +192,13 @@ public class WeaponSelect : MonoBehaviour
     /// <param name="newWeapon">type of new weapon to add</param>
     void AddWeapon(WeaponType newWeapon)
     {
-        // if corresponding weapon isn't active, activate it
+        // if corresponding weapon isn't active
         if (!weaponContainer.GetChild((int)newWeapon).gameObject.activeSelf)
+        {
+            // activate and automatically select it
             weaponContainer.GetChild((int)newWeapon).gameObject.SetActive(true);
+            SelectWeapon((int)newWeapon);
+        }
 
         // refill corresponding weapon's ammo
         weaponContainer.GetChild((int)newWeapon).GetComponent<Weapon>().RefillAmmo();
