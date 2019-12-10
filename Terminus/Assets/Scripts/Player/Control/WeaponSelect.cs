@@ -198,6 +198,9 @@ public class WeaponSelect : MonoBehaviour
             // activate and automatically select it
             weaponContainer.GetChild((int)newWeapon).gameObject.SetActive(true);
             SelectWeapon((int)newWeapon);
+
+            // send notification about new weapon
+            Notifications.Instance.Display(newWeapon.ToString() + " Collected");
         }
 
         // refill corresponding weapon's ammo
