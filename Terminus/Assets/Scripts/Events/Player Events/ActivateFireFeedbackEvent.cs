@@ -7,6 +7,6 @@ using UnityEngine.Events;
 /// Event invoked to activate physical and audio-visual
 /// feedback on player when they fire a weapon.
 /// </summary>
-public class ActivateFireFeedbackEvent : UnityEvent<float, WeaponType>
+public class ActivateFireFeedbackEvent : UnityEvent<Vector2, WeaponType>
 {
 }

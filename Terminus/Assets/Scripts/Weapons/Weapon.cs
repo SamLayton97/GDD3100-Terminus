@@ -102,12 +102,12 @@ public abstract class Weapon : SanityDeductor
             newProjectile.GetComponent<FaceVelocity>().RelativeTo = playerRigidbody;
 
             // apply reactive force to weapon user in opposite direction
-            playerRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
+            feedbackEvent.Invoke(fireVector * -1 * reactiveForce, myType);
 
-            // play random firing sound
+            //playerRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
+
+            // play audio-visual feedback localized to weapon
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
-
-            // play firing animation
             myAnimator.SetBool("isShooting", true);
             myAnimator.Play("ShootAnimation", -1, 0);
             if (fireEffect != null) fireEffect.Play();
@@ -157,7 +157,7 @@ public abstract class Weapon : SanityDeductor
     /// Adds given method as listener to Activate Player Fire Feedback event
     /// </summary>
     /// <param name="newListener"></param>
-    public void AddFireFeedbackListener(UnityAction<float, WeaponType> newListener)
+    public void AddFireFeedbackListener(UnityAction<Vector2, WeaponType> newListener)
     {
         feedbackEvent.AddListener(newListener);
     }
