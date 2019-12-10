@@ -1572,6 +1572,7 @@ MonoBehaviour:
   displayTime: 3
   textFlashColor: {r: 0, g: 0.57254905, b: 0.039215688, a: 1}
   flashRate: 5
+  restTime: 0.5
 --- !u!1 &3648690922690143896
 GameObject:
   m_ObjectHideFlags: 0

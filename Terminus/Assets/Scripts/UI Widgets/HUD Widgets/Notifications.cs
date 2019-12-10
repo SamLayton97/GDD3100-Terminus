@@ -24,6 +24,7 @@ public class Notifications : MonoBehaviour
     [SerializeField] float displayTime = 3f;    // time notification remains at full size before shrinking
     [SerializeField] Color textFlashColor;      // color text flashes to when displayed
     [SerializeField] float flashRate = 5f;      // speed at which notifaction text flashes before disappearing
+    [SerializeField] float restTime = 0.1f;     // time between consecutive notification displays
 
     // singleton support
     static Notifications instance;
@@ -115,7 +116,11 @@ public class Notifications : MonoBehaviour
 
         // display next notification if there is one
         if (toDisplay.Count > 0)
+        {
+            // wait before displaying next notification
+            yield return new WaitForSecondsRealtime(restTime);
             StartCoroutine(DrawNotification(toDisplay.Dequeue()));
+        }
         // otherwise, set display flag to false
         else
             displaying = false;
