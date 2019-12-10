@@ -66,7 +66,7 @@ public class CursorManager : MonoBehaviour
     List<List<Vector2>> hotspots =                          // 2D list of hotspots for each cursor type and state
         new List<List<Vector2>>(); 
     Cursors currCursor = Cursors.PistolReticle;             // current cursor used by player
-    Cursors cursorBeforePause = Cursors.PistolReticle;      // holds cursor displayed before player paused game
+    Cursors cursorOnResume = Cursors.PistolReticle;         // holds cursor to display when user resumes game
     CursorStates currState = CursorStates.Standard;         // current state of cursor used by player
     bool canSwitch = true;                                  // flag determining whether reticle can switch -- used to lock cursor type while game is paused
 
@@ -170,6 +170,10 @@ public class CursorManager : MonoBehaviour
             currCursor = newCursor;
             Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
         }
+        // otherwise (weapon selected while game was paused)
+        else
+            // store new cursor type as one to restore on resume
+            cursorOnResume = newCursor;
     }
 
     /// <summary>
@@ -184,15 +188,15 @@ public class CursorManager : MonoBehaviour
         if (gamePaused)
         {
             // save cursor before pause and lock cursor to standard mouse
-            cursorBeforePause = currCursor;
+            cursorOnResume = currCursor;
             SetCursorType(Cursors.Standard);
             canSwitch = false;
         }
-        // otherwise, unlock cursor before to type pause
+        // otherwise, unlock and set cursor to type before pause
         else
         {
             canSwitch = true;
-            SetCursorType(cursorBeforePause);
+            SetCursorType(cursorOnResume);
         }
     }
 
