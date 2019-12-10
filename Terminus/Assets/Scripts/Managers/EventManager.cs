@@ -12,7 +12,8 @@ public static class EventManager
 
     // delcare lists to hold invokers and listeners to Activate Player Fire Feedback event
     static List<Weapon> fireFeedbackInvokers = new List<Weapon>();
-    static List<UnityAction<Vector2, WeaponType>> fireFeedbackListeners = new List<UnityAction<float, WeaponType>>();
+    static List<UnityAction<Vector2, WeaponType>> fireFeedbackListeners = 
+        new List<UnityAction<Vector2, WeaponType>>();
 
     // Adds given weapons as invoker of fire feedback event
     public static void AddFireFeedbackInvoker(Weapon invoker)

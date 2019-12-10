@@ -45,6 +45,15 @@ public class PlayerFire : MonoBehaviour
         standardHSV = myRenderer.material.GetVector("_HSVAAdjust");
     }
 
+    /// <summary>
+    /// Used for late initialization
+    /// </summary>
+    void Start()
+    {
+        // add self as listener to Player Fire Feedback Event
+        EventManager.AddFireFeedbackListener(ApplyFeedback);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -70,7 +79,18 @@ public class PlayerFire : MonoBehaviour
 
     #endregion
 
-    #region Coroutines
+    #region Private Methods
+
+    /// <summary>
+    /// Applies physical force and audio-visual feedback
+    /// from firing weapon to player
+    /// </summary>
+    /// <param name="reactiveForce">physical force applied to player</param>
+    /// <param name="firedType">type of weapon fired by player</param>
+    void ApplyFeedback(Vector2 reactiveForce, WeaponType firedType)
+    {
+        Debug.Log("here");
+    }
 
     /// <summary>
     /// Brightens player for a single frame. Used when
