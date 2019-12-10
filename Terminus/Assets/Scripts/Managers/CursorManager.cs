@@ -20,8 +20,8 @@ public enum Cursors
 /// </summary>
 public enum CursorStates
 {
-    Standard,
-    Depressed,
+    Standard,       // used when mouse button is unclicked
+    Depressed,      // used when mouse button is held down
     Hostile         // used when user mouses over enemies
 }
 
@@ -68,6 +68,7 @@ public class CursorManager : MonoBehaviour
     Cursors currCursor = Cursors.PistolReticle;             // current cursor used by player
     Cursors cursorBeforePause = Cursors.PistolReticle;      // holds cursor displayed before player paused game
     CursorStates currState = CursorStates.Standard;         // current state of cursor used by player
+    bool canSwitch = true;                                  // flag determining whether reticle can switch -- used to lock cursor type while game is paused
 
     // cursor depression support variables
     IEnumerable depressedCoroutine;                         // coroutine controlling depression of cursor
@@ -163,8 +164,12 @@ public class CursorManager : MonoBehaviour
     /// <param name="newCursor">new cursor type to display</param>
     public void SetCursorType(Cursors newCursor)
     {
-        currCursor = newCursor;
-        Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
+        // switch if allowed
+        if (canSwitch)
+        {
+            currCursor = newCursor;
+            Cursor.SetCursor(cursorTextures[(int)currCursor][(int)currState], hotspots[(int)currCursor][(int)currState], CursorMode.ForceSoftware);
+        }
     }
 
     /// <summary>
@@ -178,13 +183,17 @@ public class CursorManager : MonoBehaviour
         // if game is paused
         if (gamePaused)
         {
-            // save cursor before pause and set cursor to standard mouse
+            // save cursor before pause and lock cursor to standard mouse
             cursorBeforePause = currCursor;
             SetCursorType(Cursors.Standard);
+            canSwitch = false;
         }
-        // otherwise, restore cursor before pause
+        // otherwise, unlock cursor before to type pause
         else
+        {
+            canSwitch = true;
             SetCursorType(cursorBeforePause);
+        }
     }
 
     #endregion
