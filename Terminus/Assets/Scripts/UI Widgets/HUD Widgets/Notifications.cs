@@ -58,12 +58,6 @@ public class Notifications : MonoBehaviour
         notificationText.color = invisible;
     }
 
-    void Start()
-    {
-        for (int i = 0; i < 5; i++)
-            Display("test: " + i.ToString());
-    }
-
     /// <summary>
     /// Starts coroutine to display notification on-screen
     /// </summary>
