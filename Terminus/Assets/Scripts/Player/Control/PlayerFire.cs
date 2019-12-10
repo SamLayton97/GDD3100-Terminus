@@ -64,14 +64,6 @@ public class PlayerFire : MonoBehaviour
             // register input in weapon and set fired last frame flag to true
             currWeapon.RegisterInput(firedLastFrame);
             firedLastFrame = true;
-
-            // shake screen, scaling magnitude and roughness by weapon type
-            CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 
-                fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
-
-            // brighten player for a frame
-            StartCoroutine(BrightenPlayer());
-
         }
         // otherwise (no input registered), reset fired last frame flag
         else
@@ -93,7 +85,12 @@ public class PlayerFire : MonoBehaviour
         // apply kickback force from firing weapon
         myRigidbody.AddForce(reactiveForce, ForceMode2D.Impulse);
 
-        // TODO: apply audio-visual feedback
+        // shake screen, scaling magnitude and roughness by weapon type
+        CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f),
+            fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
+
+        // brighten player for a frame
+        StartCoroutine(BrightenPlayer());
     }
 
     /// <summary>
