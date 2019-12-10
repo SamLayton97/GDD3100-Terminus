@@ -4,12 +4,13 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: 3_CVD_Deuteranopia
+  m_Name: 1_CVD_Protanopia
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 114780678121007868}
@@ -17,7 +18,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -89,19 +91,19 @@ MonoBehaviour:
     value: 0
   mixerRedOutRedIn:
     overrideState: 1
-    value: 62.5
+    value: 56.667
   mixerRedOutGreenIn:
     overrideState: 1
-    value: 37.5
+    value: 43.333
   mixerRedOutBlueIn:
     overrideState: 0
     value: 0
   mixerGreenOutRedIn:
     overrideState: 1
-    value: 70
+    value: 55.833
   mixerGreenOutGreenIn:
     overrideState: 1
-    value: 30
+    value: 44.167
   mixerGreenOutBlueIn:
     overrideState: 0
     value: 0
@@ -110,10 +112,10 @@ MonoBehaviour:
     value: 0
   mixerBlueOutGreenIn:
     overrideState: 1
-    value: 30
+    value: 24.167
   mixerBlueOutBlueIn:
     overrideState: 1
-    value: 70
+    value: 75.833
   lift:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}

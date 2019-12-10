@@ -8,14 +8,13 @@ public class CVDFilter : MonoBehaviour {
 
     [SerializeField] ColorType visionType = ColorType.Normal;
 	ColorType currentVisionType;
-	PostProcessProfile[] profiles;
+	[SerializeField] PostProcessProfile[] profiles;
 	PostProcessVolume postProcessVolume;
 
 	void Start () {
 		currentVisionType = visionType;
 		gameObject.layer = LayerMask.NameToLayer("PostProcessing");
 		SetupVolume();
-		LoadProfiles();
 		ChangeProfile();
 	}
 
@@ -38,14 +37,6 @@ public class CVDFilter : MonoBehaviour {
 	void SetupVolume () {
 		postProcessVolume = GetComponent<PostProcessVolume>();
 		postProcessVolume.isGlobal = true;
-	}
-
-	void LoadProfiles () {
-		Object[] profileObjects = Resources.LoadAll("", typeof(PostProcessProfile));
-		profiles = new PostProcessProfile[profileObjects.Length];
-		for (int i = 0; i < profileObjects.Length; i++) {
-			profiles[i] = (PostProcessProfile)profileObjects[i];
-		}
 	}
 
 	void ChangeProfile () {

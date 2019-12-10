@@ -4,12 +4,13 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: 8_CVD_Achromatomaly
+  m_Name: 6_CVD_Tritanomaly
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 114780678121007868}
@@ -17,7 +18,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -89,31 +91,31 @@ MonoBehaviour:
     value: 0
   mixerRedOutRedIn:
     overrideState: 1
-    value: 61.8
+    value: 96.667
   mixerRedOutGreenIn:
     overrideState: 1
-    value: 32
+    value: 3.333
   mixerRedOutBlueIn:
-    overrideState: 1
-    value: 6.2
+    overrideState: 0
+    value: 0
   mixerGreenOutRedIn:
-    overrideState: 1
-    value: 16.3
+    overrideState: 0
+    value: 0
   mixerGreenOutGreenIn:
     overrideState: 1
-    value: 77.5
+    value: 73.333
   mixerGreenOutBlueIn:
     overrideState: 1
-    value: 6.2
+    value: 26.667
   mixerBlueOutRedIn:
-    overrideState: 1
-    value: 16.3
+    overrideState: 0
+    value: 0
   mixerBlueOutGreenIn:
     overrideState: 1
-    value: 32
+    value: 18.333
   mixerBlueOutBlueIn:
     overrideState: 1
-    value: 51.6
+    value: 81.667
   lift:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
