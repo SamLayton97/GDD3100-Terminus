@@ -86,8 +86,8 @@ public class PlayerFire : MonoBehaviour
         myRigidbody.AddForce(reactiveForce, ForceMode2D.Impulse);
 
         // shake screen, scaling magnitude and roughness by weapon type
-        CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f),
-            fireShakeRoughness * ((currWeapon.myType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
+        CameraShaker.Instance.ShakeOnce(fireShakeMagnitude * ((firedType != WeaponType.Shotgun) ? 1f : 2f),
+            fireShakeRoughness * ((firedType != WeaponType.Shotgun) ? 1f : 2f), 0.1f, 0.1f);
 
         // brighten player for a frame
         StartCoroutine(BrightenPlayer());

@@ -453,8 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18598cc5bd728a647bdc96ca3b47eb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireShakeMagnitude: 1.25
-  fireShakeRoughness: 0.8
+  fireShakeMagnitude: 2.5
+  fireShakeRoughness: 2
   fireHSV: {x: 0, y: 0.05, z: 0.5, w: 0}
 --- !u!114 &479563488531953364
 MonoBehaviour:
