@@ -230,25 +230,6 @@ public class PursueAndAttack : O2Remover
         sightTrigger.isTrigger = true;
         standardHSV = mySpriteRenderer.material.GetVector("_HSVAAdjust");
         ignoreLayerMask = ~(1 << 12);
-
-        // if target wasn't set before launch
-        //if (targetTransform == null)
-        //{
-        //    // attempt to find and set Player as target
-        //    try
-        //    {
-        //        targetTransform = GameObject.Find("Player").transform;
-        //    }
-        //    // Log failed attempt to find Player
-        //    catch
-        //    {
-        //        Debug.LogWarning("Error: " + name + " at position " + transform.position +
-        //            " could not find target");
-        //    }
-        //}
-
-        // retrieve target's rigidbody component
-        //targetRigidbody = targetTransform.gameObject.GetComponent<Rigidbody2D>();
     }
 
     /// <summary>
