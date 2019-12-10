@@ -73,10 +73,11 @@ public abstract class Weapon : SanityDeductor
     {
         base.Start();
 
-        // TODO: add self as invoker of relevant events
+        // add self as invoker of relevant events
         emptyWeaponEvent = new EmptyWeaponEvent();
         EventManager.AddEmptyWeaponInvoker(this);
         feedbackEvent = new ActivateFireFeedbackEvent();
+        EventManager.AddFireFeedbackInvoker(this);
     }
 
     #endregion

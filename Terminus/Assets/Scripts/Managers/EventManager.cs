@@ -8,6 +8,32 @@ using UnityEngine.Events;
 /// </summary>
 public static class EventManager
 {
+    #region Activate Player Fire Feedback
+
+    // delcare lists to hold invokers and listeners to Activate Player Fire Feedback event
+    static List<Weapon> fireFeedbackInvokers = new List<Weapon>();
+    static List<UnityAction<float, WeaponType>> fireFeedbackListeners = new List<UnityAction<float, WeaponType>>();
+
+    // Adds given weapons as invoker of fire feedback event
+    public static void AddFireFeedbackInvoker(Weapon invoker)
+    {
+        // adds invoker to list and adds all listeners to this invoekr
+        fireFeedbackInvokers.Add(invoker);
+        foreach (UnityAction<float, WeaponType> listener in fireFeedbackListeners)
+            invoker.AddFireFeedbackListener(listener);
+    }
+
+    // Adds given method as listener to fire feedback event
+    public static void AddFireFeedbackListener(UnityAction<float, WeaponType> listener)
+    {
+        // adds listener to list and to all invokers of event
+        fireFeedbackListeners.Add(listener);
+        foreach (Weapon invoker in fireFeedbackInvokers)
+            invoker.AddFireFeedbackListener(listener);
+    }
+
+    #endregion
+
     #region Pick Up Weapon
 
     // declare lists to hold invokers and listeners to Pick Up Weapon event
