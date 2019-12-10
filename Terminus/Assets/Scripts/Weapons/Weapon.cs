@@ -34,6 +34,7 @@ public abstract class Weapon : SanityDeductor
     // event support
     EmptyWeaponEvent emptyWeaponEvent;          // event invoked when this weapon runs out of ammo
     UpdateAmmoUIEvent updateAmmoUI;             // event invoked to update ammo UI
+    ActivateFireFeedbackEvent feedbackEvent;    // event invoked to apply feedback to player
 
     #region Unity Methods
 
@@ -72,9 +73,10 @@ public abstract class Weapon : SanityDeductor
     {
         base.Start();
 
-        // add self as invoker of relevant events
+        // TODO: add self as invoker of relevant events
         emptyWeaponEvent = new EmptyWeaponEvent();
         EventManager.AddEmptyWeaponInvoker(this);
+        feedbackEvent = new ActivateFireFeedbackEvent();
     }
 
     #endregion
@@ -148,6 +150,15 @@ public abstract class Weapon : SanityDeductor
     public void AddUpdateAmmoUIListener(UnityAction<WeaponType, float> newListener)
     {
         updateAmmoUI.AddListener(newListener);
+    }
+
+    /// <summary>
+    /// Adds given method as listener to Activate Player Fire Feedback event
+    /// </summary>
+    /// <param name="newListener"></param>
+    public void AddFireFeedbackListener(UnityAction<float, WeaponType> newListener)
+    {
+        feedbackEvent.AddListener(newListener);
     }
 
     #endregion
