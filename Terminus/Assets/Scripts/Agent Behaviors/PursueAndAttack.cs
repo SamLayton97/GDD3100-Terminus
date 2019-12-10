@@ -26,8 +26,6 @@ public class PursueAndAttack : O2Remover
     public Transform targetTransform;                       // transform of target to pursue (typically player)
     public float attackDamage = 15f;                        // amount of O2 deducted from target's tank after initiating attack
     [SerializeField] float maxSpeed = 5f;                   // magnitude of agent's velocity
-
-    public float sightRange = 30f;                          // max distance agent can see target without objects obstructing its view
     public float attackRange = 3f;                          // distance agent must be within to initiate attack on target
     public float attackCooldown = 3f;                       // time (in seconds) which agent waits after initiating an attack before pursuing
     public ChaseStates startingState = ChaseStates.Idle;    // state which pursuing agent starts in (typically Idle)
@@ -252,8 +250,6 @@ public class PursueAndAttack : O2Remover
             default:
                 break;
         }
-
-        Debug.Log(currState);
     }
 
     /// <summary>
@@ -265,6 +261,23 @@ public class PursueAndAttack : O2Remover
     {
         // if other object is potential target
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            // set target
+            targetTransform = other.transform;
+            targetRigidbody = other.GetComponent<Rigidbody2D>();
+        }
+    }
+
+    /// <summary>
+    /// Called once per physics update object is within
+    /// agent's sight trigger collider
+    /// </summary>
+    /// <param name="other">object caught in trigger</param>
+    void OnTriggerStay2D(Collider2D other)
+    {
+        // if object is a potential target and agent has no current target
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") &&
+            targetTransform == null)
         {
             // set target
             targetTransform = other.transform;

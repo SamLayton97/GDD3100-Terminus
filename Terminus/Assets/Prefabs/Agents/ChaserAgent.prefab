@@ -168,8 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
   attackDamage: 25
-  maxSpeed: 6
-  sightRange: 7
+  maxSpeed: 4.75
   attackRange: 1.2
   attackCooldown: 3
   startingState: 0
@@ -193,7 +192,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 1.15
 --- !u!95 &1899208905917149684
 Animator:
   serializedVersion: 3
