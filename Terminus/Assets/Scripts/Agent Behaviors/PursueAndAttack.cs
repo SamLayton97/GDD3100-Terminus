@@ -43,7 +43,6 @@ public class PursueAndAttack : O2Remover
     // support variables
     ChaseStates currState;              // current state of agent
     CircleCollider2D sightTrigger;      // trigger collider defining sight range of agent
-    bool withinSightRange = false;      // whether target (i.e., player) is within sight range -- determines whether to raycast to target
     Vector4 standardHSV;                // HSV of agent's shader while idle
     Rigidbody2D myRigidbody;            // agent's rigidbody component
     SpriteRenderer mySpriteRenderer;    // agent's sprite renderer component
@@ -81,8 +80,8 @@ public class PursueAndAttack : O2Remover
         mySpriteRenderer.material.SetVector("_HSVAAdjust",
             Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), standardHSV, Time.deltaTime));
 
-        // if agent can see target
-        if (CanSeeTarget())
+        // if agent has a target that they can see
+        if (targetTransform != null && CanSeeTarget())
         {
             // set animation triggers
             myAnimator.SetTrigger("OnPursueTrigger");
@@ -112,6 +111,20 @@ public class PursueAndAttack : O2Remover
     /// </summary>
     void UpdatePursue()
     {
+        // if agent can longer see target or has no target to pursue
+        if (!(targetTransform != null && CanSeeTarget()))
+        {
+            // set animation triggers
+            myAnimator.SetTrigger("OnIdleTrigger");
+            myAnimator.ResetTrigger("OnPursueTrigger");
+
+            // move to idle animation
+            currState = ChaseStates.Idle;
+
+            // return from this method to avoid target calculations
+            return;
+        }
+
         // lerp agent's color to normal
         mySpriteRenderer.material.SetVector("_HSVAAdjust",
             Vector4.Lerp(mySpriteRenderer.material.GetVector("_HSVAAdjust"), standardHSV, Time.deltaTime));
@@ -124,18 +137,8 @@ public class PursueAndAttack : O2Remover
         Vector3 interceptPoint = (Vector3)targetRigidbody.velocity.normalized * targetDisplacementAtIntercept + targetTransform.position;
         myRigidbody.velocity = Vector2.Lerp(myRigidbody.velocity, (interceptPoint - transform.position).normalized * AgentSpeed, Time.deltaTime);
 
-        // if agent can no longer see target
-        if (!CanSeeTarget())
-        {
-            // set animation triggers
-            myAnimator.SetTrigger("OnIdleTrigger");
-            myAnimator.ResetTrigger("OnPursueTrigger");
-
-            // move to idle animation
-            currState = ChaseStates.Idle;
-        }
-        // but if agent is within attack range
-        else if (distToTarget <= attackRange)
+        // if agent is within attack range
+        if (distToTarget <= attackRange)
         {
             // set animation triggers
             myAnimator.SetTrigger("OnAttackTrigger");
@@ -196,15 +199,15 @@ public class PursueAndAttack : O2Remover
     #region Private Methods
 
     /// <summary>
-    /// Determines whether agent's target is within
-    /// sight range and has line of sight
+    /// Determines whether agent has line of sight
+    /// with their target
     /// </summary>
     /// <returns>whether agent 'sees' target</returns>
     bool CanSeeTarget()
     {
         // Shoot raycast towards target, returning whether it hit
-        return ((targetTransform.position - transform.position).magnitude <= sightRange) && 
-            (Physics2D.Raycast(transform.position, targetTransform.position - transform.position, Mathf.Infinity, ignoreLayerMask).transform == targetTransform);
+        return (Physics2D.Raycast(transform.position, targetTransform.position - transform.position, 
+            Mathf.Infinity, ignoreLayerMask).transform == targetTransform);
     }
 
     #endregion
@@ -229,23 +232,23 @@ public class PursueAndAttack : O2Remover
         ignoreLayerMask = ~(1 << 12);
 
         // if target wasn't set before launch
-        if (targetTransform == null)
-        {
-            // attempt to find and set Player as target
-            try
-            {
-                targetTransform = GameObject.Find("Player").transform;
-            }
-            // Log failed attempt to find Player
-            catch
-            {
-                Debug.LogWarning("Error: " + name + " at position " + transform.position +
-                    " could not find target");
-            }
-        }
+        //if (targetTransform == null)
+        //{
+        //    // attempt to find and set Player as target
+        //    try
+        //    {
+        //        targetTransform = GameObject.Find("Player").transform;
+        //    }
+        //    // Log failed attempt to find Player
+        //    catch
+        //    {
+        //        Debug.LogWarning("Error: " + name + " at position " + transform.position +
+        //            " could not find target");
+        //    }
+        //}
 
         // retrieve target's rigidbody component
-        targetRigidbody = targetTransform.gameObject.GetComponent<Rigidbody2D>();
+        //targetRigidbody = targetTransform.gameObject.GetComponent<Rigidbody2D>();
     }
 
     /// <summary>
@@ -267,6 +270,39 @@ public class PursueAndAttack : O2Remover
                 break;
             default:
                 break;
+        }
+
+        Debug.Log(currState);
+    }
+
+    /// <summary>
+    /// Called when object enters 
+    /// agent's sight trigger
+    /// </summary>
+    /// <param name="other">object entering trigger</param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // if other object is potential target
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            // set target
+            targetTransform = other.transform;
+            targetRigidbody = other.GetComponent<Rigidbody2D>();
+        }
+    }
+
+    /// <summary>
+    /// Called when object exits agent's sight trigger
+    /// </summary>
+    /// <param name="other">obejct exiting trigger</param>
+    void OnTriggerExit2D(Collider2D other)
+    {
+        // if object was potential target
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            // uninitialize target
+            targetTransform = null;
+            targetRigidbody = null;
         }
     }
 
