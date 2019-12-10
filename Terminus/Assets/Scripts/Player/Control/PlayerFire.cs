@@ -6,7 +6,6 @@ using EZCameraShake;
 /// <summary>
 /// Registers user's fire input, firing weapon/tool in direction
 /// of mouse and sending player in opposite direction.
-/// Note: Requires player character to have the Rigidbody2D component.
 /// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,6 +14,7 @@ public class PlayerFire : MonoBehaviour
     // support variables
     Weapon currWeapon = null;               // current weapon wielded by player character
     bool firedLastFrame = false;            // flag determining whether player fired weapon on last Update() (helps with semi-automatic weapon firing)
+    Rigidbody2D myRigidbody;                // player's rigidbody component (used to apply reactive forces to player)
     SpriteRenderer myRenderer;              // player's sprite renderer (used to adjust their HSV)
     Vector4 standardHSV = new Vector4();    // HSV of player's shader under no special conditions
 
@@ -40,6 +40,7 @@ public class PlayerFire : MonoBehaviour
     {
         // retrieve necessary components from self
         myRenderer = GetComponent<SpriteRenderer>();
+        myRigidbody = GetComponent<Rigidbody2D>();
 
         // retrieve starting HSV
         standardHSV = myRenderer.material.GetVector("_HSVAAdjust");
@@ -85,11 +86,14 @@ public class PlayerFire : MonoBehaviour
     /// Applies physical force and audio-visual feedback
     /// from firing weapon to player
     /// </summary>
-    /// <param name="reactiveForce">physical force applied to player</param>
+    /// <param name="reactiveForce">physical kickback applied to player</param>
     /// <param name="firedType">type of weapon fired by player</param>
     void ApplyFeedback(Vector2 reactiveForce, WeaponType firedType)
     {
-        Debug.Log("here");
+        // apply kickback force from firing weapon
+        myRigidbody.AddForce(reactiveForce, ForceMode2D.Impulse);
+
+        // TODO: apply audio-visual feedback
     }
 
     /// <summary>

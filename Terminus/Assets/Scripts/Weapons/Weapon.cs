@@ -104,8 +104,6 @@ public abstract class Weapon : SanityDeductor
             // apply reactive force to weapon user in opposite direction
             feedbackEvent.Invoke(fireVector * -1 * reactiveForce, myType);
 
-            //playerRigidbody.AddForce((fireVector * -1 * reactiveForce), ForceMode2D.Impulse);
-
             // play audio-visual feedback localized to weapon
             AudioManager.Play(myFireSounds[Random.Range(0, myFireSounds.Length)], true);
             myAnimator.SetBool("isShooting", true);
