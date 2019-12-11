@@ -265,8 +265,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Sound Effects Artists cont.\njoedeshon - industrial_elevator_door_open\r\njosepharoah99
-    - Sci Fi Interface\r\nlebaston100 - Click\r\nleonelmail - Radioactive Machine\r\nLeszek_Szary
+  m_Text: "Sound Effects Artists cont.\nHoerspielwerkstatt_HEF - peep4\r\nIanStarGem
+    - laser phaser\r\njoedeshon - industrial_elevator_door_open\r\njosepharoah99 -
+    Sci Fi Interface\r\nlebaston100 - Click\r\nleonelmail - Radioactive Machine\r\nLeszek_Szary
     - shoot 3\r\nMATTIX - Cannon_Shot_01\r\nn_audioman - BPH A Phaser\r\nnebulasnails
     - Pistol Cock\r\nnoirenex - OverheadExplosion\r\npengo_au - steam_burst\nPhonosUPF
     - Kayagum pluck7, piano chord set 2\r\nPococebas - 6_Boton Presionado\r\nRSilveira_88
@@ -501,7 +502,7 @@ PrefabInstance:
     - target: {fileID: 5406229844983255542, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7310666603472538116, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -639,8 +640,7 @@ PrefabInstance:
         - Air release\r\neditor_adp - Smashing / squishing\r\nFalsalama - tibetan
         chant d# low reverb\r\nGameAudio - Button Confirm Spacey, Win Spacey\r\nGokhanBiyik
         - gunshort01\r\ngiddster - Alien Hiss FX 1\r\nHakren - Iron-Wood Slam\r\nHjaarlmarch
-        - kargyraa Throat Singing\r\nHoerspielwerkstatt_HEF - peep4\r\nIanStarGem
-        - laser phaser\r\n"
+        - kargyraa Throat Singing\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -660,17 +660,12 @@ PrefabInstance:
     - target: {fileID: 3822749144063005110, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756587555153995600, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Name
       value: ProceedButtonPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1079508391202566314, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -687,6 +682,21 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.36078432
       objectReference: {fileID: 0}
+    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: transitionTo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: transitionTo.Array.data[1]
+      value: FeatureScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -102.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3812158600106705719, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -742,6 +752,41 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4465181158365540754, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_Name
+      value: ProceedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903930375234686581, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ProceedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 942305372}
+    - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnButtonOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079508391202566314, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3114292554741710154, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_IsActive
@@ -749,6 +794,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315562e6c8d52524eaaed2bea3429a0a, type: 3}
+--- !u!114 &942305372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 785221850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ee9bd076ea13e4389465f86c080fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1026196436 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,

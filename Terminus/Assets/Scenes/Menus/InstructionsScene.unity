@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButtonPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5406229844983255542, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7310666603472538116, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -339,7 +344,9 @@ PrefabInstance:
         crafting materials to build new weapons.\r\n\r\nStandard Controls:\r\n - Left
         mouse to aim and shoot.\r\n - Mouse scrollwheel to cycle between ammo types.\r\n
         - Right click to open crafting menu.\r\n - Click in-inventory materials to
-        add to the crafting deck.\r\n - ESC to pause.\r\n"
+        add to the crafting deck.\r\n - ESC to pause.\r\n\nCheats:\n - Press 1, 2,
+        and 3 to replenish shotgun, photon thrower, \n   and bio-rifle ammo respectively.\n-
+        Press 4 to add one of each crafting material to your \n   inventory."
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -389,60 +396,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProceedButtonPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 1079508391202566314, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Features
+      value: Return
       objectReference: {fileID: 0}
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.data[1]
       value: FeatureDescriptionsScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 253.29999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -622,7 +589,7 @@ PrefabInstance:
     - target: {fileID: 4903930375234686581, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ProceedButton
+      value: ReturnButtonOnClick
       objectReference: {fileID: 0}
     - target: {fileID: 4027751778187251379, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -642,12 +609,52 @@ PrefabInstance:
     - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.5
+      value: 77.5
       objectReference: {fileID: 0}
     - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -282.99997
+      value: -155
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079508391202566314, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 253.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933231756692522634, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315562e6c8d52524eaaed2bea3429a0a, type: 3}
@@ -2281,7 +2288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -131, y: 50}
+  m_AnchoredPosition: {x: -135, y: 109.8}
   m_SizeDelta: {x: 247.20001, y: 51.200012}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1561762783
@@ -2892,7 +2899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -74.999985}
+  m_AnchoredPosition: {x: -0.000030517578, y: -74.99997}
   m_SizeDelta: {x: 0, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789742291
