@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -245,26 +245,39 @@ PrefabInstance:
     - target: {fileID: 3441549002874934958, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Microinteractions cont.
+      value: Microinteractions
       objectReference: {fileID: 0}
     - target: {fileID: 3441549002874934958, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "12. Crafting Menu & Inventory Expand into View\r - Like the other pop-up
-        menus, the crafting menu and inventory expand into view on input (right click
-        by default), and shrink when the user finishes crafting. The former expands
-        horizontally like the other menus while the latter expands upward. This adds
-        visual flair while making each element appear as though it\u2019s part of
-        the player\u2019s HUD, cohering better with theme.\r\n\n13. Pulsating Vitality
-        Light\r - As players continue to lose oxygen, a red light on their character\u2019s
-        back pulsates quicker and quicker. Paired with the existing audio effects
-        (which increase in volume under the same conditions), this more clearly indicates
-        the peril players are in.\r"
+      value: "1.\u201CLazy\u201D Oxygen Meter Depletion\r - Whenever players lose
+        oxygen by any means outside gradual depletion (e.g., something attacks them),
+        a meter behind that for the oxygen waits a couple of seconds before rapidly
+        shrinking down to the oxygen meter\u2019s size. This conveys approximately
+        how much oxygen players lost and draws their attention to important information.\r\n\n2.
+        Flashing Oxygen Meter On Damage\r - Under the same conditions as above, the
+        player\u2019s oxygen meter momentarily flashes to a dark color, making it
+        more visually interesting (and therefore, easier to notice) as well as signifying
+        something bad happened.\r\n\n3. \u201CLazy\u201D Oxygen Meter Regain\r - When
+        players collect oxygen cannisters, a green meter behind that of the oxygen
+        immediately scales up to the actual percentage while the blue oxygen meter
+        waits before gradually scaling up. This microinteraction allows players to
+        see approximately how much oxygen a cannister gives them as they can easily
+        compare the two meters\u2019 lengths.\r\n\n4. Bright Reticle/Depressed Cursor
+        On Click\r - When players fire any of their weapons, the color of their current
+        reticle changes to a bright yellow and its size increases. Similarly, clicking
+        with the cursor on any of the menus (in and out of any gameplay scenes) depresses
+        the cursor to provide visual feedback to the player.\r\n\n5. Reticle Change
+        On Mouse Over of Hostile\r - When the player\u2019 mouse hovers over anything
+        hostile to them (currently, creatures and corrupt environment), their reticle
+        color (for any weapon) changes to a bright red. Their reticle changes back
+        to its standard color when their mouse leaves the hostile entity\u2019s collision.
+        A sound effect also plays when players initially mouse over the hostile.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -279,17 +292,31 @@ PrefabInstance:
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "14. Player Color Swap On Denied Weapon Swap\r - When players attempt
-        to directly swap to a weapon that they don\u2019t have ammunition for, their
-        character flashes dark red for a few frames before returning to its normal
-        color. Due to how weapon selection differs between control configurations,
-        this can only ever occur when players use either the \u2018Specialist\u2019
-        or \u2018Lefty-Specialist\u2019 control configuration. This paired with the
-        existing \u2018denied\u2019 sound effect communicates to players that the
-        game received their input but has denied their request due to lack of ammo.\r\n\n15.
-        Player Flashlight\r - When players look around, the area in front of them
-        illuminates, simulating a flashlight on their gun. The resulting contrast
-        in light conveys a more dramatic mood.\r\n"
+      value: "6. Oxygen Collection Air-Burst Particles\r - When players collect oxygen
+        cannisters, an \u2018air bust\u2019 particle effect plays behind the player
+        character, signifying that their suit is expelling carbon dioxide as new air
+        enters the player\u2019s tank. Multiple of these effects play in sequence
+        because that looked neat.\r\n\n7. Popping Oxygen Meter On Regain\r - When
+        players collect O2 cannisters, their oxygen meter appears to pop by flashing
+        white, rapidly expanding, and fading back to its regular appearance. This
+        draws players\u2019 attention to their meter while also signifying that it
+        has grown in some way (as it \u2018expanded\u2019 into place).\r\n\n8. Flashing
+        Icon On Weapon Collect\r - When players receive a weapon, either through collecting
+        an ammo pickup or crafting it, the space behind the new weapon\u2019s icon
+        flashes briefly, drawing players\u2019 attention to new information on that
+        part of the HUD.\r\n\n9. Popping Ammo Meter On Ammo Collect\r - Under the
+        same conditions as above, the ammo meter corresponding to the newly added
+        weapon appears to \u2018pop\u2019 by flashing white, rapidly expanding, and
+        fading into place. And like the microinteraction above, this aims to draw
+        attention to new information on the HUD.\r\n\n10. Player Color Swap On Weapon
+        Select\r - When players switch to another weapon, their character momentarily
+        flashes to the color corresponding to the weapon which they\u2019ve switched
+        to. This adds visual feedback that the game received their input while providing
+        another way of conveying what weapon they now have equipped.\r\n\n11. Pause/Options/End-of-Level
+        Menus Expand into View\r - When players open the pause or options menus on
+        input (ESC) or the end-of-level menu appears on player success/failure, each
+        menu expands outward horizontally rather than appearing immediately. This
+        adds a little visual interest while cohering better with the theme.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -314,7 +341,7 @@ PrefabInstance:
     - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Continue
+      value: Return
       objectReference: {fileID: 0}
     - target: {fileID: 2744201916973610695, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -339,12 +366,12 @@ PrefabInstance:
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.data[1]
-      value: TitleScene
+      value: FeaturesScene4
       objectReference: {fileID: 0}
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.data[0]
-      value: FeaturesScene
+      value: FeaturesScene2
       objectReference: {fileID: 0}
     - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}

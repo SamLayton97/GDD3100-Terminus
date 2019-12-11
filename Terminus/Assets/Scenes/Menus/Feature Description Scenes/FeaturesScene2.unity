@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -245,34 +245,32 @@ PrefabInstance:
     - target: {fileID: 3441549002874934958, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Microinteractions
+      value: Features cont.
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "1.\u201CLazy\u201D Oxygen Meter Depletion\r - Whenever players lose
-        oxygen by any means outside gradual depletion (e.g., something attacks them),
-        a meter behind that for the oxygen waits a couple of seconds before rapidly
-        shrinking down to the oxygen meter\u2019s size. This conveys approximately
-        how much oxygen players lost and draws their attention to important information.\r\n\n2.
-        Flashing Oxygen Meter On Damage\r - Under the same conditions as above, the
-        player\u2019s oxygen meter momentarily flashes to a dark color, making it
-        more visually interesting (and therefore, easier to notice) as well as signifying
-        something bad happened.\r\n\n3. \u201CLazy\u201D Oxygen Meter Regain\r - When
-        players collect oxygen cannisters, a green meter behind that of the oxygen
-        immediately scales up to the actual percentage while the blue oxygen meter
-        waits before gradually scaling up. This microinteraction allows players to
-        see approximately how much oxygen a cannister gives them as they can easily
-        compare the two meters\u2019 lengths.\r\n\n4. Bright Reticle/Depressed Cursor
-        On Click\r - When players fire any of their weapons, the color of their current
-        reticle changes to a bright yellow and its size increases. Similarly, clicking
-        with the cursor on any of the menus (in and out of any gameplay scenes) depresses
-        the cursor to provide visual feedback to the player.\r\n\n5. Reticle Change
-        On Mouse Over of Hostile\r - When the player\u2019 mouse hovers over anything
-        hostile to them (currently, creatures and corrupt environment), their reticle
-        color (for any weapon) changes to a bright red. Their reticle changes back
-        to its standard color when their mouse leaves the hostile entity\u2019s collision.
-        A sound effect also plays when players initially mouse over the hostile.\r"
+      value: "Multi-Item Select \u2013 For this, I added a crafting system where players
+        can build weapons from materials that they collect in the game world. Players
+        can bring up the crafting menu by right-clicking. They can then add/remove
+        materials by clicking on their icons. If they have a good combination of materials
+        (e.g., powder, casing, and biomass -- order doesn\u2019t matter), they can
+        click the craft button to add the weapon to their inventory. For left-handed
+        players, they can bring up the menu on left mouse click and add, remove, and
+        craft with the right mouse button. For easy testing, players can press 4 to
+        add all crafting materials to their inventory.\n\nColorblind Support - To
+        help colorblind players distinguish between various ammo pickups and bullet
+        types (which were previously color-based), I added unique particle effects
+        to each pickup/bullet that indicate their in-universe behavior (e.g., smoke
+        for poison ammo). I also incorporated unique effects for when bullets collide
+        with walls or enemies. To help players distinguish between the environment
+        and important objects, I decreased the brightness of the environmental tileset,
+        making objects like oxygen cannisters and enemies stand out more. In a similar
+        vein, I increased the opacity of each HUD element\u2019s background so that
+        their symbols wouldn\u2019t blend with objects in the scene. I also gave the
+        \u201Ccorrupted\u201D environment a unique spikey asset so that players wouldn\u2019t
+        need to rely on color-differentiation to see it. To cycle between colorblind
+        filters, press F2 or F3. Press F1 to reset the filter.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -287,31 +285,26 @@ PrefabInstance:
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "6. Oxygen Collection Air-Burst Particles\r - When players collect oxygen
-        cannisters, an \u2018air bust\u2019 particle effect plays behind the player
-        character, signifying that their suit is expelling carbon dioxide as new air
-        enters the player\u2019s tank. Multiple of these effects play in sequence
-        because that looked neat.\r\n\n7. Popping Oxygen Meter On Regain\r - When
-        players collect O2 cannisters, their oxygen meter appears to pop by flashing
-        white, rapidly expanding, and fading back to its regular appearance. This
-        draws players\u2019 attention to their meter while also signifying that it
-        has grown in some way (as it \u2018expanded\u2019 into place).\r\n\n8. Flashing
-        Icon On Weapon Collect\r - When players receive a weapon, either through collecting
-        an ammo pickup or crafting it, the space behind the new weapon\u2019s icon
-        flashes briefly, drawing players\u2019 attention to new information on that
-        part of the HUD.\r\n\n9. Popping Ammo Meter On Ammo Collect\r - Under the
-        same conditions as above, the ammo meter corresponding to the newly added
-        weapon appears to \u2018pop\u2019 by flashing white, rapidly expanding, and
-        fading into place. And like the microinteraction above, this aims to draw
-        attention to new information on the HUD.\r\n\n10. Player Color Swap On Weapon
-        Select\r - When players switch to another weapon, their character momentarily
-        flashes to the color corresponding to the weapon which they\u2019ve switched
-        to. This adds visual feedback that the game received their input while providing
-        another way of conveying what weapon they now have equipped.\r\n\n11. Pause/Options/End-of-Level
-        Menus Expand into View\r - When players open the pause or options menus on
-        input (ESC) or the end-of-level menu appears on player success/failure, each
-        menu expands outward horizontally rather than appearing immediately. This
-        adds a little visual interest while cohering better with the theme.\r\n"
+      value: "Reduced Vision Support: - Prior to this assignment, several sound effects
+        were added to respond to positive and negative player actions both inside
+        and outside (i.e., menus) the game. Notable audio cues include the player
+        grunting when they collide with a wall at speed, weapons playing different
+        sounds for different ammo types, and an atmospheric sound playing for reaching
+        the airlock. Background sounds and music also play to help immerse players
+        in the sci-fi experience. A choking sound also plays as players run out of
+        oxygen and a \u201Cdenied\u201D sound plays when players attempt to craft
+        something with a bad combination of materials.\r\n\nDeaf Players Support -
+        To visually reinforce positive behaviors, I added various particle and post-processing
+        effects. For instance, shooting an enemy causes blood to spurt out of them
+        while collecting an oxygen tank flashes a blue vignette around the screen.
+        Some reinforcers indicate where players would see the mechanical effect (e.g.,
+        collecting crafting materials causes the bottom of the screen to flash while
+        collecting a weapon highlights the weapon select bar). For negative behaviors,
+        I added visual effects such as the player bleeding when they get hit and dust
+        flying around when players collide with a wall at speed. To communicate atmosphere,
+        I incorporated a closed captioning system (toggleable in the options menu).
+        Enemy alerts (a directional sound) do not use this. Instead, icons flash on-screen
+        to represent that enemies have spotted the player.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -361,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.data[1]
-      value: TitleScene
+      value: FeaturesScene3
       objectReference: {fileID: 0}
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}

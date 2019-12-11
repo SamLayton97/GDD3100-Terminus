@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -245,32 +245,26 @@ PrefabInstance:
     - target: {fileID: 3441549002874934958, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: Features cont.
+      value: Microinteractions cont.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441549002874934958, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Multi-Item Select \u2013 For this, I added a crafting system where players
-        can build weapons from materials that they collect in the game world. Players
-        can bring up the crafting menu by right-clicking. They can then add/remove
-        materials by clicking on their icons. If they have a good combination of materials
-        (e.g., powder, casing, and biomass -- order doesn\u2019t matter), they can
-        click the craft button to add the weapon to their inventory. For left-handed
-        players, they can bring up the menu on left mouse click and add, remove, and
-        craft with the right mouse button. For easy testing, players can press 4 to
-        add all crafting materials to their inventory.\n\nColorblind Support - To
-        help colorblind players distinguish between various ammo pickups and bullet
-        types (which were previously color-based), I added unique particle effects
-        to each pickup/bullet that indicate their in-universe behavior (e.g., smoke
-        for poison ammo). I also incorporated unique effects for when bullets collide
-        with walls or enemies. To help players distinguish between the environment
-        and important objects, I decreased the brightness of the environmental tileset,
-        making objects like oxygen cannisters and enemies stand out more. In a similar
-        vein, I increased the opacity of each HUD element\u2019s background so that
-        their symbols wouldn\u2019t blend with objects in the scene. I also gave the
-        \u201Ccorrupted\u201D environment a unique spikey asset so that players wouldn\u2019t
-        need to rely on color-differentiation to see it. To cycle between colorblind
-        filters, press F2 or F3. Press F1 to reset the filter.\r\n"
+      value: "12. Crafting Menu & Inventory Expand into View\r - Like the other pop-up
+        menus, the crafting menu and inventory expand into view on input (right click
+        by default), and shrink when the user finishes crafting. The former expands
+        horizontally like the other menus while the latter expands upward. This adds
+        visual flair while making each element appear as though it\u2019s part of
+        the player\u2019s HUD, cohering better with theme.\r\n\n13. Pulsating Vitality
+        Light\r - As players continue to lose oxygen, a red light on their character\u2019s
+        back pulsates quicker and quicker. Paired with the existing audio effects
+        (which increase in volume under the same conditions), this more clearly indicates
+        the peril players are in.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -285,26 +279,17 @@ PrefabInstance:
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Reduced Vision Support: - Prior to this assignment, several sound effects
-        were added to respond to positive and negative player actions both inside
-        and outside (i.e., menus) the game. Notable audio cues include the player
-        grunting when they collide with a wall at speed, weapons playing different
-        sounds for different ammo types, and an atmospheric sound playing for reaching
-        the airlock. Background sounds and music also play to help immerse players
-        in the sci-fi experience. A choking sound also plays as players run out of
-        oxygen and a \u201Cdenied\u201D sound plays when players attempt to craft
-        something with a bad combination of materials.\r\n\nDeaf Players Support -
-        To visually reinforce positive behaviors, I added various particle and post-processing
-        effects. For instance, shooting an enemy causes blood to spurt out of them
-        while collecting an oxygen tank flashes a blue vignette around the screen.
-        Some reinforcers indicate where players would see the mechanical effect (e.g.,
-        collecting crafting materials causes the bottom of the screen to flash while
-        collecting a weapon highlights the weapon select bar). For negative behaviors,
-        I added visual effects such as the player bleeding when they get hit and dust
-        flying around when players collide with a wall at speed. To communicate atmosphere,
-        I incorporated a closed captioning system (toggleable in the options menu).
-        Enemy alerts (a directional sound) do not use this. Instead, icons flash on-screen
-        to represent that enemies have spotted the player.\r\n"
+      value: "14. Player Color Swap On Denied Weapon Swap\r - When players attempt
+        to directly swap to a weapon that they don\u2019t have ammunition for, their
+        character flashes dark red for a few frames before returning to its normal
+        color. Due to how weapon selection differs between control configurations,
+        this can only ever occur when players use either the \u2018Specialist\u2019
+        or \u2018Lefty-Specialist\u2019 control configuration. This paired with the
+        existing \u2018denied\u2019 sound effect communicates to players that the
+        game received their input but has denied their request due to lack of ammo.\r\n\n15.
+        Player Flashlight\r - When players look around, the area in front of them
+        illuminates, simulating a flashlight on their gun. The resulting contrast
+        in light conveys a more dramatic mood.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7235714858370874815, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -359,7 +344,7 @@ PrefabInstance:
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.data[0]
-      value: FeaturesScene
+      value: FeaturesScene3
       objectReference: {fileID: 0}
     - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
