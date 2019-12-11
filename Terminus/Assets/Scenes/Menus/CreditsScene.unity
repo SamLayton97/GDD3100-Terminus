@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -776,6 +776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReturnButtonOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170639784540268152, guid: 315562e6c8d52524eaaed2bea3429a0a,
+        type: 3}
+      propertyPath: m_Text
+      value: Return
       objectReference: {fileID: 0}
     - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
