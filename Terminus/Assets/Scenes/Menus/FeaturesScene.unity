@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -250,11 +250,20 @@ PrefabInstance:
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_Text
-      value: "Colorblind Support: Particle effects for \n\tdifferent weapon types,
-        UI/game world \n\tcontrast changes, Reworked corrupted \n\tenvironment sprites\r\nReduced
-        Vision Support: Enhanced audio \n\tcues\nDeaf Players Support: Enhanced visual
-        \n\teffects, closed captioning in options, \n\talert indicators\r\nController
-        Support: No\r"
+      value: "Feature Descriptions:\r\n\r\nPerformance Metric - Because the player
+        is fighting an entity existing outside the bounds of this reality, \rcontact
+        with them disrupts the player's link with reality. As a result, the performance
+        metric measured is the\r player's \"physical distortion\" by the end of the
+        level. This increases as players experience stressful situations like proximity\r
+        with alien creatures and their corruption and having low oxygen. This drains
+        when players aren't under\r stress. This metric rewards players who carefully
+        pick fights and precisely move around corrupted obstacles. The green bar on
+        the player's HUD represents this metric in-game and the end-of-level menu
+        awards stars \rbased on the player's link strength.\r\n\r\nRenewable Resource
+        - Expanding on what I implemented the first week, players must manage an oxygen
+        supply to stay alive.\r Players spend oxygen over time and when they collided
+        with aliens and corrupted pieces of the environment. The large\r blue bar
+        on the player's HUD represents this in-game."
       objectReference: {fileID: 0}
     - target: {fileID: 4724721729676051551, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -326,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 967974602265599122, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: transitionTo.Array.data[0]
-      value: InstructionsScene
+      value: CreditsScene
       objectReference: {fileID: 0}
     - target: {fileID: 111458040925656217, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
@@ -516,7 +525,7 @@ PrefabInstance:
     - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000038146973
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7088615610764555017, guid: 315562e6c8d52524eaaed2bea3429a0a,
         type: 3}
