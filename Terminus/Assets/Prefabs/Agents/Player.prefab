@@ -259,7 +259,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5795900512132303840}
+  - {fileID: 7418265347672331367}
   m_Father: {fileID: 6207548652762762169}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityReductionRate: 2
-  sanityReplinishmentRate: 1.75
+  sanityReplinishmentRate: 3
   lowSanityThreshold: 40
   persistentSource: {fileID: 5528685196292820580}
 --- !u!82 &5528685196292820580
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41d1a1ac06a28247a959ec7dd250195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenDepletionRate: 1
+  oxygenDepletionRate: 1.1
   myHurtSounds: 040000000500000006000000
   myDeathSound: 8
   hurtSoundThreshold: 1
@@ -773,7 +773,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.8
 --- !u!50 &6947583266611211647
 Rigidbody2D:
   serializedVersion: 4
@@ -1035,7 +1035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61c1176b5a894ea4bb5005f62e3b80bb, type: 3}
---- !u!4 &5795900512132303840 stripped
+--- !u!4 &7418265347672331367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3935536710716218539, guid: 61c1176b5a894ea4bb5005f62e3b80bb,
     type: 3}
