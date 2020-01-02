@@ -22,4 +22,5 @@ To launch Terminus on Android, perform the following steps:
  * Enable the option Settings>Applications>Unknown Sources or Settings>Security>Unknown Sources
  * Open the FileManager app and tap MobileBuild.apk. The device will prompt you to install the app. Press YES or OK.
  * Run the Terminus app.
- Note: Steps based on [this Stack Overflow post](https://stackoverflow.com/questions/9718104/how-to-install-apk-from-pc).
+ 
+ Note: .apk installation steps based on [this Stack Overflow post](https://stackoverflow.com/questions/9718104/how-to-install-apk-from-pc).
