@@ -11,11 +11,11 @@ Engine: Unity2D using C#
 [Download for Android](https://samlayton.com/wp-content/uploads/2020/01/Terminus-Android.zip)
 
 To launch Terminus on Windows, perform the following steps:
- * Download, unzip, and open the Terminus program folder.
+ * Download, unzip, and open the Terminus Windows build.
  * Run Terminus.exe.
  
 To launch Terminus on Android, perform the following steps:
- * Download, unzip, and open the Terminus-Android program folder.
+ * Download, unzip, and open the Terminus Android build.
  * Connect an Android device to your PC via USB cable and ensure that USB storage is on.
  * Copy MobileBuild.apk to the Android device's storage.
  * Turn off USB storage and disconnect the Android device from your PC.
