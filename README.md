@@ -2,6 +2,10 @@
 
 Explore a deep space research station situated in the rift between reality and the unknown. But be wary as the crew has uncovered something they never could have prepared for. Face creatures from beyond the veil and the dimensional disturbances they bring. And uncover the nature of a potentially cataclysmic event where nothing is as it seems.
 
+A Game Designed and Developed by Samuel Layton
+
+https://samlayton.com
+
 Developed for GDD 3100: User Interface Design
 
 Engine: Unity2D using C#
