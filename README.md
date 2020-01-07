@@ -1,6 +1,6 @@
 # GDD3100-Terminus
 
-**UPDATE: As Terminus has neared the end of its Alpha phase, the project has moved to a private repo. Although development continues, this repo will no longer receive updates. For additional news concerning this project, visit my [website](https://samlayton) or follow my [twitter](https://twitter.com/SamuelLayton7).**
+**UPDATE: As Terminus has neared the end of its Alpha phase, the project has moved to a private repo. Although development continues, this repo will no longer receive updates. For additional news concerning this project, visit my [website](https://samlayton.com) or follow my [twitter](https://twitter.com/SamuelLayton7).**
 
 Explore a deep space research station situated in the rift between reality and the unknown. But be wary as the crew has uncovered something they never could have prepared for. Face creatures from beyond the veil and the dimensional disturbances they bring. And uncover the nature of a potentially cataclysmic event where nothing is as it seems.
 
